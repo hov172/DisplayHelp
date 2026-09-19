@@ -712,4 +712,8 @@ The third command is optional. Reopen the DisplayHelp menu and run the demo to v
 
 Further reference: [documentation index](docs/README.md), [release history](CHANGELOG.md).
 
-This repository holds the public documentation and release downloads for DisplayHelp. The application itself is distributed as a signed installer.
+## License
+
+DisplayHelp is proprietary software by Ayala Solutions. It is not open source. This repository holds only the public documentation, release downloads and the helper scripts shown above; the application's source code is private and is not published here. The app is distributed as a signed and notarized installer under the terms provided with each release.
+
+The example custom-fix scripts, the reset script and the uninstall script may be copied and adapted for use with DisplayHelp.
