@@ -4,6 +4,14 @@ DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external 
 
 Version **0.5.2** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
+### Watch the guide
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=fuq8IgGv5uk"><img src="https://img.youtube.com/vi/fuq8IgGv5uk/maxresdefault.jpg" width="560" alt="DisplayHelp — The Complete Guide on YouTube"></a>
+</p>
+
+[DisplayHelp — The Complete Guide](https://www.youtube.com/watch?v=fuq8IgGv5uk) walks every control in the menu in 17 minutes, with chapters for install, Mirror and Extend, profiles, fixes and troubleshooting.
+
 ### Downloads
 
 - [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2.pkg)
@@ -22,6 +30,7 @@ In 0.5.2, Reset Display Preferences clears display settings while preserving Col
 
 ## Contents
 
+- [Watch the guide](#watch-the-guide)
 - [Why it exists](#why-it-exists)
 - [Install](#install)
 - [First plug-in](#first-plug-in)
