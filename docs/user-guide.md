@@ -295,6 +295,9 @@ sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_Displ
 
 `keep` in place of `purge` leaves the user's data. The script refuses any path that is not `DisplayHelp.app`.
 
+The full script is in the README under [What Uninstall DisplayHelp runs](../README.md#what-uninstall-displayhelp-runs)
+and as [uninstall.sh](../uninstall.sh).
+
 ## Recent Events
 
 Collapsed by default. The latest events from the history file, newest first, as
