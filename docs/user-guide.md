@@ -232,6 +232,8 @@ Deletes `/Library/Preferences/com.apple.windowserver*`, `/private/var/db/WindowS
 logged out immediately.** Use it for a Mac whose displays keep coming up wrong no matter what is picked. macOS
 rebuilds the database on the next login. Needs an administrator password, asked for by macOS's own dialog.
 ColorSync preservation requires 0.5.2 or later; older installers can remove display-profile folders.
+The full script is in the README under [What Reset Display Preferences runs](../README.md#what-reset-display-preferences-runs)
+and as [reset-display-prefs.sh](../reset-display-prefs.sh).
 
 ![Reset confirmation in 0.5.2: display settings are cleared while ColorSync profiles are preserved](images/reset-confirmation.png)
 

@@ -445,6 +445,34 @@ The Fixes area contains Reset and any extra actions supplied by your helpdesk.
 
 Opening a menu does not run a fix. Reset and Uninstall are separate actions; choose the one you intend.
 
+
+### What Reset Display Preferences runs
+
+This is the complete script the app runs, as root, when you confirm Reset Display Preferences. It is also available as [reset-display-prefs.sh](reset-display-prefs.sh). It removes only WindowServer display settings; ColorSync profile files are not touched. Everyone is logged out when WindowServer restarts.
+
+```zsh
+#!/bin/zsh
+# name: Reset Display Preferences
+# description: Clears system and per-user WindowServer display settings while preserving ColorSync profiles, then restarts WindowServer. This logs everyone out immediately. Needs an administrator password.
+# admin: true
+set -euo pipefail
+setopt null_glob
+
+# System-wide WindowServer preferences/database
+rm -f /Library/Preferences/com.apple.windowserver*.plist
+rm -rf /private/var/db/WindowServer
+
+# Clear per-user settings for all users with home folders
+for HOME_DIR in /Users/*; do
+    [ -d "$HOME_DIR" ] || continue
+    rm -f "$HOME_DIR"/Library/Preferences/ByHost/com.apple.windowserver.displays*.plist 2>/dev/null
+done
+
+echo "Display preferences reset, restarting WindowServer"
+# Restart WindowServer
+killall -HUP WindowServer
+```
+
 ### Review the reset warning
 
 <p align="center">
