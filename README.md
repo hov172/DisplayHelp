@@ -2,7 +2,7 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Version **0.5.2** • macOS 14 Sonoma or later • Apple Silicon and Intel
+Version **0.5.2** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 ### Downloads
 
