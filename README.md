@@ -669,7 +669,7 @@ These optional files are distributed separately from the app. They run locally; 
 
 ### Demo — Test Custom Fixes
 
-Included in the [Custom Fixes archive](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip).
+[Download the demo script](examples/custom-fixes/demo.sh), also included in the [Custom Fixes archive](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip).
 
 ```zsh
 #!/bin/zsh
@@ -683,7 +683,7 @@ echo "Demo successful — Custom Fixes is working. No settings were changed."
 
 ### Restart Dock
 
-Included in the [Custom Fixes archive](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip).
+[Download the optional Dock restart script](examples/custom-fixes/restart-dock.sh), also included in the [Custom Fixes archive](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip).
 
 This briefly restarts the Dock. It does not reset display preferences or delete color profiles.
 
@@ -708,7 +708,7 @@ install -m 755 "$HOME/Downloads/DisplayHelp Custom Fixes/demo.sh" "$HOME/Library
 install -m 755 "$HOME/Downloads/DisplayHelp Custom Fixes/restart-dock.sh" "$HOME/Library/Application Support/DisplayHelp/scripts/restart-dock.sh"
 ```
 
-The third command is optional. Reopen the DisplayHelp menu and run the demo to verify installation. See the complete Custom Fixes instructions in the [archive](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip) for script headers and managed deployment.
+The third command is optional. Reopen the DisplayHelp menu and run the demo to verify installation. See the [complete Custom Fixes instructions](examples/custom-fixes/README.txt) for script headers and managed deployment.
 
 Further reference: [documentation index](docs/README.md), [release history](CHANGELOG.md).
 

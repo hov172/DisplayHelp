@@ -246,7 +246,7 @@ Buttons the helpdesk adds by dropping scripts into:
 
 This is a local folder, not an upload service. Each script is a plain-text zsh file ending in `.sh`, with
 metadata comments within its first 20 lines. The app scans the folder every time the menu opens.
-The [Custom Fixes archive](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip) include installation steps, a harmless demo and
+The [custom-fix examples](../examples/custom-fixes/README.txt) include installation steps, a harmless demo and
 an optional Dock restart. Install as the current user, without `sudo`, and reopen the menu to see the actions.
 
 ![Example scripts installed directly in the user's Custom Fixes folder](images/custom-fixes-folder.png)
