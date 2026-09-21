@@ -2,7 +2,7 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Version **0.6.0** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Version **0.6.1** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 ### Watch the guide
 
@@ -14,23 +14,25 @@ Version **0.6.0** • macOS 14 Sonoma or later • Apple Silicon and Intel • P
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0-Screenshots.zip)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1-Screenshots.zip)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/SHA256SUMS.txt)
+
+Version 0.6.1 adds Forget This Display, a backed-up Reset All DisplayHelp Data action, and Turn Off All Automatic Profiles. It fixes upgrades leaving the old app running and makes the menu taller, up to 900 points within the available screen height. Longer menus scroll.
 
 Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and layout-only profiles, aligned screen placement, and a single 20-second Keep/Revert window. Display changes are verified before they are remembered. Existing profiles remain compatible.
 
 <p align="center">
-  <a href="docs/images/layout-profiles.png"><img src="docs/images/layout-profiles.png" width="440" alt="DisplayHelp 0.6.0 native interface with two favorite profiles and an extended layout using sample display data"></a>
+  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="440" alt="DisplayHelp 0.6.1 native interface with two favorite profiles and an extended layout using sample display data"></a>
 </p>
 
 The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. Older screenshots below remain labeled with their capture versions. [Screenshot details](docs/README.md#screenshots).
 
 <p align="center">
-  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.0 Keep or Revert confirmation with countdown"></a>
+  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.1 Keep or Revert confirmation with countdown"></a>
 </p>
 
 - macOS 14 Sonoma or later, Apple Silicon and Intel.
@@ -96,7 +98,7 @@ Use About when your helpdesk asks which version you have.
 
 3. Close the About window to return to your work.
 
-Historical About capture: DisplayHelp 0.5.1. The current release is 0.6.0; use the version displayed on your own Mac when reporting an issue.
+Historical About capture: DisplayHelp 0.5.1. The current release is 0.6.1; use the version displayed on your own Mac when reporting an issue.
 
 ## First plug-in
 

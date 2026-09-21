@@ -87,3 +87,16 @@ No. It is built on macOS display and IOKit APIs.
 **Where do I report a problem?**
 Start with **Copy Diagnostics**, then collect the data files and log if needed as described in [troubleshooting.md](troubleshooting.md#collecting-diagnostics-for-the-helpdesk)
 and send them with the room, the display model and what you expected to see.
+
+**Does clearing history make DisplayHelp forget my monitor?**
+No. **Clear Connection History** only archives the event log. Use the external display's **… → Forget This Display…**
+to remove its remembered name and reconnect preferences. Saved profiles remain; disable any automatic profiles
+that include the monitor if you want to be asked again at its next connection.
+
+**Can I turn automatic profiles off?**
+Yes. They are opt-in. Uncheck a profile under **Profile → Load Automatically When Connected**, or choose
+**Turn Off All Automatic Profiles**. Profiles and favorites remain available for manual use.
+
+**Can I reset everything?**
+Use **Fixes → More → Reset All DisplayHelp Data… → Back Up and Reset**. This clears active preferences, profiles,
+favorites and history while saving a backup. Current screen settings, custom fixes and Start at Login remain.

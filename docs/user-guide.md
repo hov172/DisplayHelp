@@ -22,6 +22,8 @@ Control by control. The [README](../README.md) is the short version; this is the
 
 ## Opening the app
 
+In 0.6.1, the menu opens up to 900 points tall, limited by the available screen height. Scroll inside it for any controls below the visible area.
+
 DisplayHelp has no Dock icon or main window. Profile previews, import/export and confirmations use dialogs.
 Click its menu bar icon to open the menu;
 click anywhere else or press Escape to close it. If the icon is missing, macOS may have hidden it to make room for
@@ -39,7 +41,7 @@ The icon reports the display state without opening the menu:
 
 ## Profile row
 
-![DisplayHelp 0.6.0 layout and favorites, rendered by the production UI with sample display data](images/layout-profiles.png)
+![DisplayHelp 0.6.1 layout and favorites, rendered by the production UI with sample display data](images/layout-profiles.png)
 
 The current diagram shows screen geometry, names and rotation; it does not stream desktop content. The older
 screenshots below are labeled historical references. See [screenshot provenance](README.md#screenshots).
@@ -115,7 +117,7 @@ app already remembers its settings.
 
 ## Keep or revert display changes
 
-![DisplayHelp 0.6.0 single Keep/Revert window, captured with an isolated sample confirmation](images/keep-changes.png)
+![DisplayHelp 0.6.1 single Keep/Revert window, captured with an isolated sample confirmation](images/keep-changes.png)
 
 Manual layout changes, resolution/refresh changes, rotation, underscan, Detect Displays and profile applications
 capture the previous setup before changing hardware. The current resolution of every connected screen must be
@@ -342,6 +344,34 @@ sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_Displ
 
 `keep` in place of `purge` leaves the user's data. The script refuses any path that is not `DisplayHelp.app`.
 
+
+### Clear history, forget a display, or start fresh
+
+These are separate actions:
+
+| Action | Removes | Keeps |
+|---|---|---|
+| **Recent Events → Clear Connection History** | Current event log, moved into an archive | Remembered monitor preferences, profiles and favorites |
+| **Display options (…) → Forget This Display…** | That external monitor's remembered name and reconnect preferences | Current screen settings, profiles/favorites and connection history |
+| **Fixes → More → Reset All DisplayHelp Data…** | All active remembered monitors, profiles/favorites, automatic choices and history | Current hardware settings, custom fixes and Start at Login |
+
+Automatic profiles are **opt-in**. Under **Profile → Load Automatically When Connected**, uncheck individual
+profiles or choose **Turn Off All Automatic Profiles**. Manual profile use and favorites still work. Forgetting a
+monitor does not edit profiles: if an enabled automatic profile includes it, that profile can restore settings
+at the next connection or launch. The Forget confirmation warns about this. Disable automatic loading if you
+want DisplayHelp to ask how to use the monitor again on reconnect.
+
+The full reset requires **Back Up and Reset** confirmation. Previous data, including history archives, is saved
+beside the new folder as `~/Library/Application Support/DisplayHelp-backup-<UUID>/`.
+**Show Data Backup in Finder** reveals it afterward. The backup retains the old information; reset is not secure
+erasure. Separately exported profiles are unaffected. To restore a backup, quit DisplayHelp, move the new
+`DisplayHelp` folder aside, then rename the backup to `DisplayHelp` in the same parent folder.
+
+Reset/Forget are unavailable during queued display operations or a pending Keep/Revert decision; full reset also
+waits for running custom fixes. A staging failure preserves the original data. Neither action changes the current
+resolution, arrangement, rotation, picture levels or audio. **Reset Display Preferences** is a different command
+that resets macOS display configuration.
+
 ## Recent Events
 
 **Copy Diagnostics** copies app/macOS versions, display identities, modes, layout, available-control explanations
@@ -349,7 +379,7 @@ and recent events to the clipboard. Nothing is uploaded; review the report befor
 
 Collapsed by default. The latest events from the history file, newest first, as
 `time  kind  display  (detail)`. See [data-files.md](data-files.md#history-event-kinds) for the vocabulary.
-**Clear** archives the list to a dated file. **Show History File** opens the folder in Finder.
+**Clear Connection History** archives the list to a dated file. **Show History File** opens the folder in Finder.
 
 ## Start at Login, Quit, About
 

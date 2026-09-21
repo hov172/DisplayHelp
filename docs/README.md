@@ -10,17 +10,18 @@
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
 
-[0.6.0 release validation and hardware limits](release-0.6.0.md).
+[0.6.1 release notes](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 
-The guide is current for **0.6.0 (88)**. New screenshots captured on **2026-09-20** use
+The guide and current screenshots are from **0.6.1 (89)**. New screenshots captured on **2026-09-20** use
 sample display/profile data rendered through the production SwiftUI views. They show the updated layout,
 favorites and single Keep/Revert window; they are not live desktop thumbnails. No hardware changes were made
 for these screenshots. Different resolutions and rotation are illustrative, not a capability guarantee.
 
 | Current image | What it shows |
 |---|---|
+| [Taller menu](images/menu-viewport.png) | Actual visible menu viewport, capped at 900 points and scrollable. |
 | [Layout and favorites](images/layout-profiles.png) | Full scrollable menu content, two favorite templates and extended screens with independent modes and rotation. |
 | [Keep changes](images/keep-changes.png) | One native confirmation with countdown and Keep/Revert actions. |
 | [Mirrored layout](images/mirrored-layout.png) | Mirrored screens represented together with combined numbers. |

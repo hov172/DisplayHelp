@@ -203,3 +203,44 @@ Reading `history.jsonl`: one JSON object per line, newest last. `mode` is the di
 
 The **ⓘ** popover on a card is also worth a screenshot: it shows the EDID-guaranteed sizes and what each
 recommendation would pick, which explains most "why did it choose that" questions.
+
+
+### Clear history, forget a display, or start fresh
+
+These are separate actions:
+
+| Action | Removes | Keeps |
+|---|---|---|
+| **Recent Events → Clear Connection History** | Current event log, moved into an archive | Remembered monitor preferences, profiles and favorites |
+| **Display options (…) → Forget This Display…** | That external monitor's remembered name and reconnect preferences | Current screen settings, profiles/favorites and connection history |
+| **Fixes → More → Reset All DisplayHelp Data…** | All active remembered monitors, profiles/favorites, automatic choices and history | Current hardware settings, custom fixes and Start at Login |
+
+Automatic profiles are **opt-in**. Under **Profile → Load Automatically When Connected**, uncheck individual
+profiles or choose **Turn Off All Automatic Profiles**. Manual profile use and favorites still work. Forgetting a
+monitor does not edit profiles: if an enabled automatic profile includes it, that profile can restore settings
+at the next connection or launch. The Forget confirmation warns about this. Disable automatic loading if you
+want DisplayHelp to ask how to use the monitor again on reconnect.
+
+The full reset requires **Back Up and Reset** confirmation. Previous data, including history archives, is saved
+beside the new folder as `~/Library/Application Support/DisplayHelp-backup-<UUID>/`.
+**Show Data Backup in Finder** reveals it afterward. The backup retains the old information; reset is not secure
+erasure. Separately exported profiles are unaffected. To restore a backup, quit DisplayHelp, move the new
+`DisplayHelp` folder aside, then rename the backup to `DisplayHelp` in the same parent folder.
+
+Reset/Forget are unavailable during queued display operations or a pending Keep/Revert decision; full reset also
+waits for running custom fixes. A staging failure preserves the original data. Neither action changes the current
+resolution, arrangement, rotation, picture levels or audio. **Reset Display Preferences** is a different command
+that resets macOS display configuration.
+
+## Installer completed but the old version is still visible
+
+Before 0.6.1, installation replaced the bundle but could leave the old app process running. Quit DisplayHelp normally,
+then open `/Applications/DisplayHelp.app`. The About panel should show the installed version. Saved profiles remain.
+Starting with 0.6.1, the installer requests a normal quit before replacing the app. Finish or revert any pending
+change if the installer reports that DisplayHelp could not close, quit the app, then rerun the installer.
+
+## The menu looks too short
+
+Update to 0.6.1. Its menu uses up to 900 points of height within the screen's available area. On smaller screens,
+scroll inside the menu to reach the remaining display cards and footer controls. A mirrored layout shows one box
+labeled with both screen numbers because both screens share a desktop.

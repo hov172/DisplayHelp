@@ -2,6 +2,22 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.1] - 2026-09-20
+
+### Added
+- **Forget This Display…** removes one external display's remembered name and reconnect preferences, preserving saved profiles and connection history. The confirmation warns when enabled automatic profiles include the display.
+- **Turn Off All Automatic Profiles**, alongside existing optional per-profile automatic-loading toggles. Saved and imported profiles default to manual loading.
+- **Reset All DisplayHelp Data…** offers a separate, confirmed fresh start with a recoverable backup. It clears active preferences/profiles/history while preserving current hardware settings, custom fixes and Start at Login.
+
+### Changed
+- Renamed the history action to **Clear Connection History** and clarified that it preserves profiles and display preferences.
+
+### Fixed
+- Installer now asks the running app to quit normally before replacing it, waits for rollback/exit, and refuses the upgrade if the app remains active. It launches the new version after installation instead of reopening the old process.
+- Installer scripts leave other boot volumes alone and skip launching at the login/setup screen.
+- Menu now requests an explicit height of up to 900 points, limited by available screen space, instead of accepting macOS's short default popover. Additional controls remain scrollable.
+- Added six installer lifecycle regression checks covering upgrades, refused quits, fresh installs, other volumes and console sessions.
+
 ## [0.6.0] - 2026-09-20
 
 ### Added

@@ -11,7 +11,7 @@ choose, and diagnostics also go to the macOS unified log. The app does not trans
 | `profiles.json.backup` | Previous valid profile-library version; first save seeds a backup | Before a profile-library save |
 | `profiles.json.unreadable-<UUID>` | Original library preserved during explicit recovery or reset | Recover from backup or archive/start fresh |
 | `history.jsonl` | Append-only event log | Every connect, disconnect, change, failure, script run |
-| `history-<date>.jsonl` | Archived log | **Recent Events › Clear** |
+| `history-<date>.jsonl` | Archived log | **Recent Events › Clear Connection History** |
 | `scripts/*.sh` | Custom fixes | By the helpdesk, never by the app |
 
 ## Identity keys
@@ -223,3 +223,15 @@ log stream --level info --predicate 'subsystem == "DisplayHelp"'
 Quit the app before editing. Known-display lookups read their store from disk, but profiles are loaded at launch
 and held in memory; an in-app save can overwrite external edits. Restart after editing to load the new profiles.
 Delete `known-displays.json` to make the app treat every display as new. Delete `profiles.json` to remove all profiles. The history can be deleted at any time.
+
+## Forgetting displays and resetting app data
+
+**Forget This Display…** atomically removes matching current and legacy identity records from `known-displays.json`.
+It does not alter profile or history files. Unreadable data and ambiguous connected identities are refused.
+**Turn Off All Automatic Profiles** saves `autoApply: false` for every profile and cancels pending automatic loading.
+
+**Reset All DisplayHelp Data…** stages a fresh support directory containing only a copy of `scripts/`, archives the
+original as sibling `DisplayHelp-backup-<UUID>/`, then installs the fresh directory. Script symlinks are copied as
+links without modifying their targets. Staging failure leaves the original in place; if the final rename fails,
+restoration is attempted and any preserved backup path is reported. Login settings, current hardware configuration
+and separately exported profiles are unchanged. Old data remains in the backup; this is not secure erasure.

@@ -2,7 +2,7 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release validation for 0.6.0 is recorded in [release-0.6.0.md](release-0.6.0.md), including automated checks,
+Release validation for 0.6.1 is recorded in [release-0.6.1.md](release-0.6.1.md), including automated checks,
 architecture coverage and the Samsung/built-in display hardware test. This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
