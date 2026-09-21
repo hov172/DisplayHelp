@@ -235,3 +235,7 @@ original as sibling `DisplayHelp-backup-<UUID>/`, then installs the fresh direct
 links without modifying their targets. Staging failure leaves the original in place; if the final rename fails,
 restoration is attempted and any preserved backup path is reported. Login settings, current hardware configuration
 and separately exported profiles are unchanged. Old data remains in the backup; this is not secure erasure.
+
+## Temporary identification labels
+
+Identify Displays (0.6.2) creates temporary on-screen labels only. It adds no stored preferences or profile fields and writes no display settings. The labels use the same ordering and mirrored groups as Screen Layout.

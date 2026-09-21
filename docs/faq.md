@@ -101,3 +101,9 @@ Yes. They are opt-in. Uncheck a profile under **Profile → Load Automatically W
 **Can I reset everything?**
 Use **Fixes → More → Reset All DisplayHelp Data… → Back Up and Reset**. This clears active preferences, profiles,
 favorites and history while saving a backup. Current screen settings, custom fixes and Start at Login remain.
+
+**How do I tell which physical screen matches a numbered preview?**
+Click **Identify Displays** beneath Screen Layout when an external screen is connected. Numbers and names appear for five seconds on each desktop. Mirrored screens share a label. Repeated clicks restart the timer, and a display-configuration change dismisses the labels. No display settings change.
+
+**Can I choose a main display and save it in a profile?**
+Yes. In Extend mode, choose **Position → Make Main** on the desired display and confirm **Keep Changes**. Save a new profile or overwrite an existing one with the current settings. Full setup and Layout only profiles both save the main-screen choice.

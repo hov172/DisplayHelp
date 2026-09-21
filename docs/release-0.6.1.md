@@ -24,3 +24,5 @@ Hardware capability limits from [0.6.0 validation](release-0.6.0.md) still apply
 Documentation refresh: added step-by-step data-management instructions, a complete replacement of earlier-version screenshots, and rollout
 checks. Word/PDF guides and the screenshot archive were regenerated. App version/build and the signed installer
 remain 0.6.1 (89); documentation changes do not replace the tested executable.
+
+The current gallery now documents [0.6.2](release-0.6.2.md). For the original 0.6.1 captures, use its release screenshot archive.

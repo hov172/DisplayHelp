@@ -7,16 +7,14 @@
 | [troubleshooting.md](troubleshooting.md) | Helpdesk | Symptom → action → cause, collecting diagnostics |
 | [rollout.md](rollout.md) | IT admins | Build, sign, notarize, pilot, fleet push, removal |
 | [data-files.md](data-files.md) | Helpdesk, developers | JSON formats, identity keys, history event kinds |
-| [architecture.md](architecture.md) | Developers | Modules, data flow, hardware-derived decisions, tests |
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
-| [../CONTRIBUTING.md](../CONTRIBUTING.md) | Developers | Build, test, style, commit conventions |
 
-[0.6.1 release notes](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[0.6.2 release notes](release-0.6.2.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 
-**Every screenshot in the current documentation shows DisplayHelp 0.6.1 (89)**, captured on 2026-09-20.
+**Every app UI screenshot in the current documentation shows DisplayHelp 0.6.2 (93)**, captured on 2026-09-20.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
 audio devices and history. They are native UI captures, not drawn mockups or live desktop thumbnails. Picker screenshots isolate the open native menu so choices remain readable.
 
@@ -32,6 +30,7 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 
 | Image | Current capture |
 |---|---|
+| [Identify Displays](images/identify-displays.png) | Actual temporary identification panel using sample names; no screen settings changed. |
 | [Taller menu](images/menu-viewport.png) | Native visible menu viewport, up to 900 points high; remaining content scrolls. |
 | [Layout and favorites](images/layout-profiles.png) | Full scroll content with two favorite templates and sample extended displays. |
 | [Menu overview](images/menu.png) | Current display cards and controls using sample hardware. |
@@ -58,10 +57,8 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Reset warning](images/reset-confirmation.png) | Current ColorSync-preserving reset warning; canceled. |
 | [Uninstall warning](images/uninstall-confirmation.png) | Current uninstall confirmation; canceled without removing anything. |
 | [Recent Events](images/recent-events.png) | Sample activity log and Clear Connection History action. |
-| [About](images/about.png) | Current version 0.6.1 and build 89 with credits. |
+| [About](images/about.png) | Current version 0.6.2 and build 93 with credits. |
 | [Custom scripts folder](images/custom-fixes-folder.png) | Example script files in an isolated capture folder. |
 | [Custom Fixes](images/custom-fixes-menu.png) | Demo and optional Dock restart actions in the current interface. |
 | [Demo confirmation](images/custom-fixes-confirmation.png) | Actual confirmation for the harmless example demo. |
 | [Demo result](images/custom-fixes-success.png) | Harmless demo executed against isolated fixture data, with exit 0. |
-
-For capture instructions, see [Contributing](../CONTRIBUTING.md#documentation-screenshots).

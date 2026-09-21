@@ -241,6 +241,10 @@ change if the installer reports that DisplayHelp could not close, quit the app, 
 
 ## The menu looks too short
 
-Update to 0.6.1. Its menu uses up to 900 points of height within the screen's available area. On smaller screens,
+Update to 0.6.2. Its menu uses up to 900 points of height within the screen's available area. On smaller screens,
 scroll inside the menu to reach the remaining display cards and footer controls. A mirrored layout shows one box
 labeled with both screen numbers because both screens share a desktop.
+
+## Identify Displays shows a shared number, or a label disappears
+
+Mirrored screens share one desktop and therefore show the same group label, such as **1 + 2**. Use Extend for independent desktops. Labels disappear after five seconds or a display-configuration change; click Identify Displays again to show them. The button appears beneath Screen Layout when an external display is detected. It does not request screen-recording access or capture desktop content.

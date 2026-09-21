@@ -2,7 +2,9 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Version **0.6.1** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Testing version **0.6.2 (93)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+
+Still in testing. Feedback, bug reports and suggestions are welcome.
 
 ### Watch the guide
 
@@ -14,25 +16,27 @@ Version **0.6.1** • macOS 14 Sonoma or later • Apple Silicon and Intel • P
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/DisplayHelp-0.6.1-Screenshots.zip)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.1/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.2/DisplayHelp-0.6.2.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.2/DisplayHelp-0.6.2-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.2/DisplayHelp-0.6.2-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.2/DisplayHelp-0.6.2-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.2/DisplayHelp-0.6.2-Screenshots.zip)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.2/SHA256SUMS.txt)
 
-Version 0.6.1 adds Forget This Display, a backed-up Reset All DisplayHelp Data action, and Turn Off All Automatic Profiles. It fixes upgrades leaving the old app running and makes the menu taller, up to 900 points within the available screen height. Longer menus scroll.
+Version 0.6.1 added Forget This Display, a backed-up Reset All DisplayHelp Data action, and Turn Off All Automatic Profiles. It fixes upgrades leaving the old app running and makes the menu taller, up to 900 points within the available screen height. Longer menus scroll.
 
 Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and layout-only profiles, aligned screen placement, and a single 20-second Keep/Revert window. Display changes are verified before they are remembered. Existing profiles remain compatible.
 
 <p align="center">
-  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="323" alt="DisplayHelp 0.6.1 native interface with two favorite profiles and an extended layout using sample display data"></a>
+  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.2 native interface with two favorite profiles and an extended layout using sample display data"></a>
 </p>
 
-The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.1 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
+The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.2 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
+
+**Identify Displays** beneath the layout shows matching numbers and names on connected screens for five seconds. Mirrored screens share a numbered group. The labels do not change settings or block clicks.
 
 <p align="center">
-  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="440" alt="DisplayHelp 0.6.1 Keep or Revert confirmation with countdown"></a>
+  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="440" alt="DisplayHelp 0.6.2 Keep or Revert confirmation with countdown"></a>
 </p>
 
 - macOS 14 Sonoma or later, Apple Silicon and Intel.
@@ -49,6 +53,8 @@ The new UI screenshots use sample display data rendered by the production views.
 - [First plug-in](#first-plug-in)
 - [The menu at a glance](#the-menu-at-a-glance)
 - [Everyday use](#everyday-use)
+- [Identify your screens](#identify-your-screens)
+- [Choose and save the main screen](#choose-and-save-the-main-screen)
 - [Profiles: one name per room](#profiles-one-name-per-room)
 - [Clear history, forget a display, or start fresh](#clear-history-forget-a-display-or-start-fresh)
 - [Fixes](#fixes)
@@ -99,7 +105,7 @@ Use About when your helpdesk asks which version you have.
 
 3. Close the About window to return to your work.
 
-Shown: DisplayHelp 0.6.1 (89). Use the version displayed on your own Mac when reporting an issue.
+Shown: DisplayHelp 0.6.2 (93). Use the version displayed on your own Mac when reporting an issue.
 
 ## First plug-in
 
@@ -149,7 +155,7 @@ Each card’s status line has a coloured dot. Green means the display passes the
 ### Find the control you need
 
 <p align="center">
-  <a href="docs/images/menu.png"><img src="docs/images/menu.png" width="323" alt="Find the control you need"></a>
+  <a href="docs/images/menu.png"><img src="docs/images/menu.png" width="322" alt="Find the control you need"></a>
 </p>
 
 The main menu groups settings into a card for each connected display.
@@ -160,7 +166,7 @@ The main menu groups settings into a card for each connected display.
 
 3. Check its arrangement, resolution and refresh rate before choosing a control.
 
-Shown: sample displays in the 0.6.1 interface. The card reports each display’s own mode and refresh rate. An orange dot means a different mode is recommended; it does not prove a faster mode is available on your connection.
+Shown: sample displays in the 0.6.2 interface. The card reports each display’s own mode and refresh rate. An orange dot means a different mode is recommended; it does not prove a faster mode is available on your connection.
 
 ## Everyday use
 
@@ -278,6 +284,22 @@ Use Rotation for a screen mounted in portrait orientation or another supported p
 
 Opening the menu alone makes no change. Rotation and the other controls in this section depend on hardware support.
 
+### Identify your screens
+
+Click **Identify Displays** beneath Screen Layout. Large numbers and display names appear for five seconds, matching the preview. Extended screens get separate labels; mirrored screens share a group such as **1 + 2**. The labels do not change settings, steal focus or block clicks. Clicking again restarts the timer.
+
+<p align="center">
+  <a href="docs/images/identify-displays.png"><img src="docs/images/identify-displays.png" width="440" alt="DisplayHelp 0.6.2 temporary Identify Displays label using sample display names"></a>
+</p>
+
+### Choose and save the main screen
+
+1. Use **Extend** mode and find the desired display’s card. Use **Identify Displays** if needed.
+2. Under **Position**, click **Make Main**, then **Keep Changes**. The preview marks it **Main**.
+3. Save a new profile, or choose **Profile → Overwrite with Current Settings → [profile name]**.
+
+Both **Full setup** and **Layout only** profiles save the main-screen choice. Existing profiles change only when you save or overwrite them.
+
 ### Position
 
 In Extend mode: Make Main moves the menu bar to that display. Place… puts it left, right, above or below another, with top/center/bottom alignment for side-by-side displays or left/center/right alignment for stacked displays. The numbered layout preview shows relative sizes, positions, rotation and the main display. These controls are hidden while mirrored, where independent position has no meaning.
@@ -355,7 +377,7 @@ Choosing a saved name opens a preview first. Review it before applying changes.
 ### Save the current setup
 
 <p align="center">
-  <a href="docs/images/save-profile.png"><img src="docs/images/save-profile.png" width="323" alt="Save the current setup"></a>
+  <a href="docs/images/save-profile.png"><img src="docs/images/save-profile.png" width="322" alt="Save the current setup"></a>
 </p>
 
 Use a separate profile for each room or arrangement you want to recall.
@@ -383,7 +405,7 @@ Manual profile restores and changes to resolution, rotation, underscan, mirrorin
 ### Preview and restore a profile
 
 <p align="center">
-  <a href="docs/images/restore-preview.png"><img src="docs/images/restore-preview.png" width="440" alt="Preview and restore a profile"></a>
+  <a href="docs/images/restore-preview.png"><img src="docs/images/restore-preview.png" width="439" alt="Preview and restore a profile"></a>
 </p>
 
 The preview shows the differences between the current setup and the saved one.
@@ -455,7 +477,7 @@ Sample data: saved laptop and monitor identities are mapped to the current fixtu
 ## Clear history, forget a display, or start fresh
 
 <p align="center">
-  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.1 More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions with sample data"></a>
+  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.2 More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions with sample data"></a>
 </p>
 
 
@@ -514,7 +536,7 @@ Reset is a troubleshooting action that logs everyone out.
 
 3. Choose Run only when you intend to reset the display configuration, then authenticate through macOS.
 
-Use this after ordinary display controls have failed, preferably with your helpdesk’s guidance. Shown: the 0.6.1 confirmation, which explicitly preserves ColorSync profiles. The dialog was dismissed after capture; the reset was not run.
+Use this after ordinary display controls have failed, preferably with your helpdesk’s guidance. Shown: the 0.6.2 confirmation, which explicitly preserves ColorSync profiles. The dialog was dismissed after capture; the reset was not run.
 
 ### Custom Fixes: install and use your own actions
 
@@ -580,7 +602,7 @@ Review the action before running it. This demo requests no administrator passwor
   <a href="docs/images/custom-fixes-success.png"><img src="docs/images/custom-fixes-success.png" width="440" alt="Custom fixes success"></a>
 </p>
 
-A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in the isolated 0.6.1 capture app.
+A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in the isolated 0.6.2 capture app.
 
 4. Choose Restart Dock only when you intend to refresh the Dock. It briefly disappears and returns. A nonzero exit means the command failed; for example, the Dock may not be running.
 
@@ -715,9 +737,3 @@ install -m 755 "$HOME/Downloads/DisplayHelp Custom Fixes/restart-dock.sh" "$HOME
 The third command is optional. Reopen the DisplayHelp menu and run the demo to verify installation. See the [complete Custom Fixes instructions](examples/custom-fixes/README.txt) for script headers and managed deployment.
 
 Further reference: [documentation index](docs/README.md), [release history](CHANGELOG.md).
-
-## License
-
-DisplayHelp is proprietary software by Ayala Solutions. It is not open source. This repository holds only the public documentation, release downloads and the helper scripts shown above; the application's source code is private and is not published here. The app is distributed as a signed and notarized installer under the terms provided with each release.
-
-The example custom-fix scripts, the reset script and the uninstall script may be copied and adapted for use with DisplayHelp.

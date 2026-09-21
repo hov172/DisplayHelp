@@ -1,28 +1,31 @@
 # DisplayHelp user guide
 
+For **DisplayHelp 0.6.2 (93)**, currently in testing. Feedback and suggestions are welcome.
+
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
 ## Contents
 
 1. [Opening the app](#opening-the-app)
 2. [The menu bar icon](#the-menu-bar-icon)
-3. [Profile row](#profile-row)
-4. [Keep or revert display changes](#keep-or-revert-display-changes)
-5. [Detect Displays](#detect-displays)
-6. [Display cards](#display-cards)
-7. [When something is refused](#when-something-is-refused)
-8. [Fixes](#fixes)
-9. [Recent Events](#recent-events)
-10. [Start at Login, Quit, About](#start-at-login-quit-about)
-11. [The connect dialog](#the-connect-dialog)
-12. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
-13. [Keyboard and accessibility](#keyboard-and-accessibility)
+3. [Identify Displays](#identify-displays)
+4. [Profile row](#profile-row)
+5. [Keep or revert display changes](#keep-or-revert-display-changes)
+6. [Detect Displays](#detect-displays)
+7. [Display cards](#display-cards)
+8. [When something is refused](#when-something-is-refused)
+9. [Fixes](#fixes)
+10. [Recent Events](#recent-events)
+11. [Start at Login, Quit, About](#start-at-login-quit-about)
+12. [The connect dialog](#the-connect-dialog)
+13. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
+14. [Keyboard and accessibility](#keyboard-and-accessibility)
 
 ---
 
 ## Opening the app
 
-In 0.6.1, the menu opens up to 900 points tall, limited by the available screen height. Scroll inside it for any controls below the visible area.
+In 0.6.2, the menu opens up to 900 points tall, limited by the available screen height. Scroll inside it for any controls below the visible area.
 
 DisplayHelp has no Dock icon or main window. Profile previews, import/export and confirmations use dialogs.
 Click its menu bar icon to open the menu;
@@ -39,17 +42,25 @@ The icon reports the display state without opening the menu:
 | Two displays side by side | More than one display, extended |
 | One display | Only the built-in panel is connected |
 
+## Identify Displays
+
+<p align="center">
+  <a href="images/identify-displays.png"><img src="images/identify-displays.png" width="440" alt="DisplayHelp 0.6.2 temporary identification label with sample display names"></a>
+</p>
+
+**Identify Displays:** When an external display is connected, use the button beneath Screen Layout to show matching numbers and names on each desktop for five seconds. Mirrored screens share the same numbered group. Labels let clicks pass through and disappear automatically, or when the display configuration changes. This does not change display settings.
+
 ## Profile row
 
 <p align="center">
-  <a href="images/layout-profiles.png"><img src="images/layout-profiles.png" width="282" alt="DisplayHelp 0.6.1 layout and favorites, rendered by the production UI with sample display data"></a>
+  <a href="images/layout-profiles.png"><img src="images/layout-profiles.png" width="274" alt="DisplayHelp 0.6.2 layout and favorites, rendered by the production UI with sample display data"></a>
 </p>
 
 The diagram shows screen geometry, names and rotation; it does not stream desktop content. All screenshots
-below show the current 0.6.1 interface with isolated sample data. See [screenshot provenance](README.md#screenshots).
+below show the current 0.6.2 interface with isolated sample data. See [screenshot provenance](README.md#screenshots).
 
 <p align="center">
-  <a href="images/profiles.png"><img src="images/profiles.png" width="440" alt="DisplayHelp 0.6.1 Profile menu with sample profiles, favorites, automatic loading, export, save and import commands"></a>
+  <a href="images/profiles.png"><img src="images/profiles.png" width="440" alt="DisplayHelp 0.6.2 Profile menu with sample profiles, favorites, automatic loading, export, save and import commands"></a>
 </p>
 
 **Profile: ‹name›** or **Profile: Choose or Create…** at the top left. A profile is a named snapshot of every
@@ -94,7 +105,7 @@ fields were absent from older saves. A saved mirror follower mode can only be re
 saved primary. Incompatible old mirror settings are reported instead of silently replaced by recommendations.
 
 <p align="center">
-  <a href="images/restore-preview.png"><img src="images/restore-preview.png" width="440" alt="DisplayHelp 0.6.1 saved-profile preview using sample settings, with Cancel and Apply"></a>
+  <a href="images/restore-preview.png"><img src="images/restore-preview.png" width="439" alt="DisplayHelp 0.6.2 saved-profile preview using sample settings, with Cancel and Apply"></a>
 </p>
 
 Manual restores show before/after values first in a compact dialog. Its content grows only as needed,
@@ -120,7 +131,7 @@ app already remembers its settings.
 ## Keep or revert display changes
 
 <p align="center">
-  <a href="images/keep-changes.png"><img src="images/keep-changes.png" width="440" alt="DisplayHelp 0.6.1 single Keep/Revert window, captured with an isolated sample confirmation"></a>
+  <a href="images/keep-changes.png"><img src="images/keep-changes.png" width="440" alt="DisplayHelp 0.6.2 single Keep/Revert window, captured with an isolated sample confirmation"></a>
 </p>
 
 Manual layout changes, resolution/refresh changes, rotation, underscan, Detect Displays and profile applications
@@ -158,7 +169,7 @@ so under the cards: check the cable and the projector's input.
 One card per connected display, in the order reported by macOS.
 
 <p align="center">
-  <a href="images/menu.png"><img src="images/menu.png" width="323" alt="DisplayHelp 0.6.1 display cards using sample displays and settings"></a>
+  <a href="images/menu.png"><img src="images/menu.png" width="322" alt="DisplayHelp 0.6.2 display cards using sample displays and settings"></a>
 </p>
 
 The capture uses sample displays to show the current controls. Each card reports its own mode and refresh
@@ -184,7 +195,7 @@ while mirrored. The sample values are not a promise of hardware support.
 ### Arrangement (externals)
 
 <p align="center">
-  <a href="images/extend.png"><img src="images/extend.png" width="440" alt="DisplayHelp 0.6.1: Extended desktop controls"></a>
+  <a href="images/extend.png"><img src="images/extend.png" width="440" alt="DisplayHelp 0.6.2: Extended desktop controls"></a>
 </p>
 
 **Mirror** and **Extend**. The current one is greyed. The choice is remembered and applied at every reconnect.
@@ -193,7 +204,7 @@ Hidden on the built-in panel, which has no arrangement of its own.
 ### Resolution
 
 <p align="center">
-  <a href="images/resolution.png"><img src="images/resolution.png" width="384" alt="DisplayHelp 0.6.1: Open resolution picker with sample modes"></a>
+  <a href="images/resolution.png"><img src="images/resolution.png" width="384" alt="DisplayHelp 0.6.2: Open resolution picker with sample modes"></a>
 </p>
 
 One entry per size and scaling, at its best refresh rate. "HiDPI" means the display renders at double resolution
@@ -205,7 +216,7 @@ reported by macOS without that additional filter.
 ### Refresh Rate
 
 <p align="center">
-  <a href="images/refresh-rate.png"><img src="images/refresh-rate.png" width="168" alt="DisplayHelp 0.6.1: Refresh-rate choices for the sample mode"></a>
+  <a href="images/refresh-rate.png"><img src="images/refresh-rate.png" width="168" alt="DisplayHelp 0.6.2: Refresh-rate choices for the sample mode"></a>
 </p>
 
 Appears when the current size offers more than one rate. Fastest first.
@@ -245,7 +256,7 @@ panel to lead.
 ### Audio (externals)
 
 <p align="center">
-  <a href="images/audio.png"><img src="images/audio.png" width="420" alt="DisplayHelp 0.6.1: Sample audio output choices"></a>
+  <a href="images/audio.png"><img src="images/audio.png" width="420" alt="DisplayHelp 0.6.2: Sample audio output choices"></a>
 </p>
 
 Which output device plays the Mac's sound whenever this display is connected. The list is every output the Mac has
@@ -269,7 +280,7 @@ its remote.
 ### Rotation (externals)
 
 <p align="center">
-  <a href="images/rotation.png"><img src="images/rotation.png" width="154" alt="DisplayHelp 0.6.1: Rotation options"></a>
+  <a href="images/rotation.png"><img src="images/rotation.png" width="154" alt="DisplayHelp 0.6.2: Rotation options"></a>
 </p>
 
 0°, 90°, 180°, 270°. Shown when the display reports it can rotate. Remembered.
@@ -289,14 +300,14 @@ A slider that shrinks the picture for projectors that crop the edges. Shown when
 ### Position (extend mode only)
 
 <p align="center">
-  <a href="images/position.png"><img src="images/position.png" width="358" alt="DisplayHelp 0.6.1: Relative screen position choices"></a>
+  <a href="images/position.png"><img src="images/position.png" width="358" alt="DisplayHelp 0.6.2: Relative screen position choices"></a>
 </p>
 
 <p align="center">
-  <a href="images/position-alignment.png"><img src="images/position-alignment.png" width="192" alt="DisplayHelp 0.6.1: Edge and center alignment choices"></a>
+  <a href="images/position-alignment.png"><img src="images/position-alignment.png" width="192" alt="DisplayHelp 0.6.2: Edge and center alignment choices"></a>
 </p>
 
-- **Make Main** moves the menu bar and Dock to that display.
+- **Make Main** selects that display as the main screen. Choose **Keep Changes** to retain it. To save this choice, create a profile or use **Profile → Overwrite with Current Settings → [profile name]**. Both Full setup and Layout only profiles include the main display; existing profiles are not updated automatically.
 - **Place… › ‹other display› › Left / Right / Above / Below** arranges the desktop. Left/right placement offers
   top, center or bottom alignment; above/below offers left, center or right alignment.
 
@@ -322,7 +333,7 @@ rebuilds the database on the next login. Needs an administrator password, asked 
 ColorSync preservation requires 0.5.2 or later; older installers can remove display-profile folders.
 
 <p align="center">
-  <a href="images/reset-confirmation.png"><img src="images/reset-confirmation.png" width="440" alt="Reset confirmation in 0.6.1: display settings are cleared while ColorSync profiles are preserved"></a>
+  <a href="images/reset-confirmation.png"><img src="images/reset-confirmation.png" width="440" alt="Reset confirmation in 0.6.2: display settings are cleared while ColorSync profiles are preserved"></a>
 </p>
 
 ### Custom Fixes
@@ -382,7 +393,7 @@ folder as long as the files end up owned by that user with mode 0755.
 ### More › Uninstall DisplayHelp… 🔒
 
 <p align="center">
-  <a href="images/uninstall-confirmation.png"><img src="images/uninstall-confirmation.png" width="440" alt="DisplayHelp 0.6.1: Uninstall confirmation, canceled"></a>
+  <a href="images/uninstall-confirmation.png"><img src="images/uninstall-confirmation.png" width="440" alt="DisplayHelp 0.6.2: Uninstall confirmation, canceled"></a>
 </p>
 
 Confirms with an "Also remove saved profiles and settings" checkbox, turns off Start at Login, then an administrator
@@ -400,7 +411,7 @@ sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_Displ
 ### Clear history, forget a display, or start fresh
 
 <p align="center">
-  <a href="images/data-actions.png"><img src="images/data-actions.png" width="440" alt="DisplayHelp 0.6.1 data actions with More and Recent Events expanded; sample display/history data"></a>
+  <a href="images/data-actions.png"><img src="images/data-actions.png" width="440" alt="DisplayHelp 0.6.2 data actions with More and Recent Events expanded; sample display/history data"></a>
 </p>
 
 
@@ -432,7 +443,7 @@ that resets macOS display configuration.
 ## Recent Events
 
 <p align="center">
-  <a href="images/recent-events.png"><img src="images/recent-events.png" width="440" alt="DisplayHelp 0.6.1: Sample history and Clear Connection History action"></a>
+  <a href="images/recent-events.png"><img src="images/recent-events.png" width="440" alt="DisplayHelp 0.6.2: Sample history and Clear Connection History action"></a>
 </p>
 
 **Copy Diagnostics** copies app/macOS versions, display identities, modes, layout, available-control explanations
@@ -445,7 +456,7 @@ Collapsed by default. The latest events from the history file, newest first, as
 ## Start at Login, Quit, About
 
 <p align="center">
-  <a href="images/about.png"><img src="images/about.png" width="440" alt="DisplayHelp 0.6.1: About DisplayHelp 0.6.1 (89)"></a>
+  <a href="images/about.png"><img src="images/about.png" width="440" alt="DisplayHelp 0.6.2: About DisplayHelp 0.6.2 (93)"></a>
 </p>
 
 **Start at Login** is on by default after a packaged install. Off means the app must be opened from Applications.
@@ -456,7 +467,7 @@ if recovery fails, the app stays open so you can finish recovery. The **Ayala So
 ## The connect dialog
 
 <p align="center">
-  <a href="images/first-connect.png"><img src="images/first-connect.png" width="440" alt="DisplayHelp 0.6.1: First-connection prompt using a sample display"></a>
+  <a href="images/first-connect.png"><img src="images/first-connect.png" width="440" alt="DisplayHelp 0.6.2: First-connection prompt using a sample display"></a>
 </p>
 
 Appears when a display the app has never seen, or one set to "ask", is connected.

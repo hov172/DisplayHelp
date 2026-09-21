@@ -2,21 +2,29 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release validation for 0.6.1 is recorded in [release-0.6.1.md](release-0.6.1.md), including automated checks,
-architecture coverage and the Samsung/built-in display hardware test. This does not complete the checklist below: room hardware checks, MDM deployment,
+Release validation for 0.6.2 is recorded in [release-0.6.2.md](release-0.6.2.md), including automated checks,
+architecture coverage and the identification-label check on two mirrored physical displays. Version 0.6.2 is a testing release; collect feedback before wider deployment. This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements
 - macOS 14 Sonoma or later. Apple Silicon or Intel; the package is universal.
 - An MDM that can push a `.pkg` (Jamf, Kandji, Mosyle, Intune, Addigy all work). Ad-hoc signed builds are fine on managed Macs.
-- For unmanaged or BYOD Macs: the signed and notarized installer, see step 3.
+- For unmanaged or BYOD Macs: a Developer ID and notarization, see step 4.
 
 ## 1. Baseline (before any install)
 - [ ] Export ticket counts tagged projector/display for the last two semesters. Record totals per month in this file.
 - [ ] Note the median time-to-close for those tickets.
 - [ ] Confirm the fleet is on macOS 14 or later and which MDM will push the pkg.
 
-## 2. Pilot (3–5 rooms, two weeks)
+## 2. Build
+```bash
+./scripts/package.sh                                    # ad-hoc signed, fine for MDM-managed Macs
+SIGN_IDENTITY="Developer ID Application: School (TEAMID)" \
+INSTALLER_IDENTITY="Developer ID Installer: School (TEAMID)" ./scripts/package.sh
+```
+Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
+
+## 3. Pilot (3–5 rooms, two weeks)
 - [ ] Install the pkg on pilot Macs with the MDM. The postinstall opens the app; "Start at login" is on by default.
 - [ ] In each room: plug into the projector, answer Mirror in the prompt, unplug, replug, confirm it mirrors on its own.
 - [ ] Rename the projector in the menu to the room name, then **Profile › Save current setup as…** with the same name.
@@ -43,8 +51,8 @@ ticket baselines and the two-week/semester observations must be recorded by the 
 - [ ] On a test account with backed-up data, run Reset All DisplayHelp Data and verify the backup exists, custom fixes/login setting remain, and current hardware settings do not change.
 - [ ] Upgrade while DisplayHelp is running; verify the new version appears after the installer closes and relaunches the app.
 
-## 3. Fleet
-- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.
+## 4. Fleet
+- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts. The exact commands are in CONTRIBUTING.md › Releasing.
 - [ ] Push the pkg fleet-wide. Optional: push approved custom scripts to each user's scripts folder via MDM (must be owned by that user).
 - [ ] Compare ticket counts to the baseline after one semester. Target: -50%.
 
@@ -90,3 +98,5 @@ script. The file must be readable and writable by that user; use mode `0600` and
 Exports contain display and audio identifiers. Distribute them through the same controlled MDM channels as other
 per-user settings. Files are limited to 2 MB, 200 profiles and 16 displays per profile. Deployment is a seeded
 configuration, not an enforced managed preference: users can subsequently edit their profiles.
+
+- [ ] Confirm Identify Displays numbering matches each room’s extended and mirrored layouts, including three or more screens where available.

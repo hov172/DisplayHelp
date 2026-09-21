@@ -2,6 +2,16 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.2] - 2026-09-20
+
+Testing release. Feedback and suggestions are welcome.
+
+### Added
+- Identify Displays shows temporary numbers and names matching Screen Layout on each connected desktop. Mirrored screens share a group; labels disappear after five seconds or a display-configuration change without intercepting clicks or changing settings.
+
+### Documentation
+- Refreshed all current UI captures for 0.6.2, including Identify Displays, and clarified main-display selection and profile saving. Updated downloadable guides and testing-release assets.
+
 ## [0.6.1] - 2026-09-20
 
 ### Added
