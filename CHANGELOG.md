@@ -4,7 +4,7 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 
 ## [0.6.3] - 2026-09-20
 
-Testing release. Feedback and suggestions are welcome.
+Full release. Feedback and suggestions are welcome.
 
 ### Added
 - Output Volume follows the active macOS audio device, including built-in speakers, with supported volume and mute controls and live audio-device/property updates. Unsupported fixed-volume outputs explain the limitation.

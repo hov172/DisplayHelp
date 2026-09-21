@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.6.3 (95)**, currently in testing. Feedback and suggestions are welcome.
+For **DisplayHelp 0.6.3 (95)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 

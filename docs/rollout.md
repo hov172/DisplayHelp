@@ -3,7 +3,7 @@
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
 Release validation for 0.6.3 is recorded in [release-0.6.3.md](release-0.6.3.md), including automated checks,
-architecture coverage and live built-in speaker volume/mute validation. Version 0.6.3 is a testing release; collect feedback before wider deployment. This does not complete the checklist below: room hardware checks, MDM deployment,
+architecture coverage and live built-in speaker volume/mute validation. This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements

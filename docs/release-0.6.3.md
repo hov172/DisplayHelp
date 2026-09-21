@@ -1,6 +1,6 @@
-# DisplayHelp 0.6.3 (95) — testing release
+# DisplayHelp 0.6.3 (95)
 
-Released 2026-09-20 for testing. Feedback, bug reports and suggestions are welcome. macOS 14 or later; universal Apple Silicon and Intel installer. Existing profiles remain compatible.
+Released 2026-09-20. Feedback, bug reports and suggestions are welcome. macOS 14 or later; universal Apple Silicon and Intel installer. Existing profiles remain compatible.
 
 ## What changed
 
