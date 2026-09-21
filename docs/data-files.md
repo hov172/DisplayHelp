@@ -197,7 +197,7 @@ error text, or the script result.
 | `mirrored` | Mirror applied, by the user, a preset or a profile | |
 | `extended` | Extend applied | |
 | `modeChanged` | Size, scaling or refresh changed by the app | The new mode |
-| `brightnessChanged`, `contrastChanged`, `volumeChanged` | A level set | New value |
+| `brightnessChanged`, `contrastChanged`, `volumeChanged` | A display level set (volume is monitor DDC volume) | New value |
 | `rotated` | Rotation set | Degrees |
 | `moved` | Make Main or Place applied | Placement |
 | `underscanChanged` | Underscan set | New value |
@@ -239,3 +239,7 @@ and separately exported profiles are unchanged. Old data remains in the backup; 
 ## Temporary identification labels
 
 Identify Displays (0.6.2) creates temporary on-screen labels only. It adds no stored preferences or profile fields and writes no display settings. The labels use the same ordering and mirrored groups as Screen Layout.
+
+## Live system output volume
+
+Output Volume and mute (0.6.3) are read from and written to the active CoreAudio output. They add no fields to known-displays.json or profiles.json and do not change stored monitor-volume values. A full profile can still route audio to its saved output; its volume field remains the external display’s DDC volume. Copy Diagnostics reports active system output volume and mute separately from Monitor Volume.

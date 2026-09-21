@@ -20,3 +20,5 @@ Released 2026-09-20 for testing. Feedback, bug reports and suggestions are welco
 Three-or-more-screen layouts are covered by logic tests, but have not been physically tested on this Mac. The earlier [hardware capability validation](release-0.6.0.md) still applies; capabilities vary by monitor, adapter and connection.
 
 Screenshots use isolated sample displays and production controls. The Identify Displays image captures the actual temporary panel using sample names mapped to a real desktop. No display settings or user data were changed to stage screenshots. See the [current screenshot gallery](README.md#screenshots).
+
+The current gallery now documents [0.6.3](release-0.6.3.md). The 0.6.2 release archive retains its original screenshots.

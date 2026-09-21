@@ -2,6 +2,14 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.3] - 2026-09-20
+
+Testing release. Feedback and suggestions are welcome.
+
+### Added
+- Output Volume follows the active macOS audio device, including built-in speakers, with supported volume and mute controls and live audio-device/property updates. Unsupported fixed-volume outputs explain the limitation.
+- Monitor Volume now explicitly labels the separate external-monitor DDC control. Diagnostics distinguish system output volume/mute from monitor volume. Output volume and mute do not change saved display/profile preferences.
+
 ## [0.6.2] - 2026-09-20
 
 Testing release. Feedback and suggestions are welcome.

@@ -241,10 +241,18 @@ change if the installer reports that DisplayHelp could not close, quit the app, 
 
 ## The menu looks too short
 
-Update to 0.6.2. Its menu uses up to 900 points of height within the screen's available area. On smaller screens,
+Update to 0.6.3. Its menu uses up to 900 points of height within the screen's available area. On smaller screens,
 scroll inside the menu to reach the remaining display cards and footer controls. A mirrored layout shows one box
 labeled with both screen numbers because both screens share a desktop.
 
 ## Identify Displays shows a shared number, or a label disappears
 
 Mirrored screens share one desktop and therefore show the same group label, such as **1 + 2**. Use Extend for independent desktops. Labels disappear after five seconds or a display-configuration change; click Identify Displays again to show them. The button appears beneath Screen Layout when an external display is detected. It does not request screen-recording access or capture desktop content.
+
+## Built-in speaker volume does not appear, or the wrong device is named
+
+Use 0.6.3 or later and check the device named under **Output Volume** beneath Screen Layout. Select the Mac’s speakers in macOS Sound or the display’s Audio picker. Output Volume follows the active system device; a display’s Audio picker is also its saved reconnect preference. The separate Monitor Volume slider is for the monitor’s DDC control, not the Mac’s speakers.
+
+If Output Volume says the device does not expose an adjustable control, use the device’s own controls. HDMI outputs often behave this way. Copy Diagnostics includes the active output, available system volume and mute state, separately from monitor volume.
+
+If an audio device changes while you adjust it, the app refuses the stale adjustment and asks you to use the newly selected output. Failed writes show the current readback and an explanation. No saved display profile is overwritten by an output-volume adjustment.

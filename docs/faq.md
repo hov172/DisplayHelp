@@ -107,3 +107,12 @@ Click **Identify Displays** beneath Screen Layout when an external screen is con
 
 **Can I choose a main display and save it in a profile?**
 Yes. In Extend mode, choose **Position → Make Main** on the desired display and confirm **Keep Changes**. Save a new profile or overwrite an existing one with the current settings. Full setup and Layout only profiles both save the main-screen choice.
+
+**Can DisplayHelp control the Mac’s built-in speaker volume?**
+Yes, starting in 0.6.3. Select the built-in speakers as the active output, then use Output Volume beneath Screen Layout. Volume and mute controls appear when the selected device exposes writable controls. Audio changes made outside the app are detected while DisplayHelp is running.
+
+**Why does HDMI say output volume is unavailable?**
+That audio device does not expose a readable, writable volume control to macOS. Use its physical controls or the separate Monitor Volume slider if DDC/CI is supported. This is a device capability limit, not evidence of a bad cable.
+
+**Do profiles save Output Volume or mute?**
+No. Those are live system controls. Full setup profiles still save the chosen audio output and supported external-monitor DDC volume. Layout-only profiles leave audio alone.

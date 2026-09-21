@@ -2,8 +2,8 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release validation for 0.6.2 is recorded in [release-0.6.2.md](release-0.6.2.md), including automated checks,
-architecture coverage and the identification-label check on two mirrored physical displays. Version 0.6.2 is a testing release; collect feedback before wider deployment. This does not complete the checklist below: room hardware checks, MDM deployment,
+Release validation for 0.6.3 is recorded in [release-0.6.3.md](release-0.6.3.md), including automated checks,
+architecture coverage and live built-in speaker volume/mute validation. Version 0.6.3 is a testing release; collect feedback before wider deployment. This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements
@@ -100,3 +100,5 @@ per-user settings. Files are limited to 2 MB, 200 profiles and 16 displays per p
 configuration, not an enforced managed preference: users can subsequently edit their profiles.
 
 - [ ] Confirm Identify Displays numbering matches each room’s extended and mirrored layouts, including three or more screens where available.
+
+- [ ] Verify Output Volume follows built-in speakers, USB audio and HDMI switches; unsupported outputs should show an explanation. Check external changes made with volume keys and Control Center. Confirm profile restoration does not alter live system volume/mute.
