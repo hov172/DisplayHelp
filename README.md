@@ -2,7 +2,7 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Version **0.5.2** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Version **0.6.0** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 ### Watch the guide
 
@@ -10,17 +10,28 @@ Version **0.5.2** • macOS 14 Sonoma or later • Apple Silicon and Intel • P
   <a href="https://www.youtube.com/watch?v=fuq8IgGv5uk"><img src="https://img.youtube.com/vi/fuq8IgGv5uk/maxresdefault.jpg" width="560" alt="DisplayHelp — The Complete Guide on YouTube"></a>
 </p>
 
-[DisplayHelp — The Complete Guide](https://www.youtube.com/watch?v=fuq8IgGv5uk) walks every control in the menu in 17 minutes, with chapters for install, Mirror and Extend, profiles, fixes and troubleshooting.
+[DisplayHelp — The Complete Guide](https://www.youtube.com/watch?v=fuq8IgGv5uk) covers the earlier interface in 17 minutes, with chapters for install, Mirror and Extend, profiles, fixes and troubleshooting.
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/DisplayHelp-0.6.0-Screenshots.zip)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.0/SHA256SUMS.txt)
 
-In 0.5.2, Reset Display Preferences clears display settings while preserving ColorSync profile files. It still logs everyone out. Existing profiles remain compatible. Most screenshots show the unchanged 0.5.1 controls; the reset confirmation shows 0.5.2.
+Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and layout-only profiles, aligned screen placement, and a single 20-second Keep/Revert window. Display changes are verified before they are remembered. Existing profiles remain compatible.
+
+<p align="center">
+  <a href="docs/images/layout-profiles.png"><img src="docs/images/layout-profiles.png" width="440" alt="DisplayHelp 0.6.0 native interface with two favorite profiles and an extended layout using sample display data"></a>
+</p>
+
+The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. Older screenshots below remain labeled with their capture versions. [Screenshot details](docs/README.md#screenshots).
+
+<p align="center">
+  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.0 Keep or Revert confirmation with countdown"></a>
+</p>
 
 - macOS 14 Sonoma or later, Apple Silicon and Intel.
 
@@ -85,7 +96,7 @@ Use About when your helpdesk asks which version you have.
 
 3. Close the About window to return to your work.
 
-Shown: DisplayHelp 0.5.1. Most screenshots show these unchanged controls; the reset confirmation has been updated for 0.5.2.
+Historical About capture: DisplayHelp 0.5.1. The current release is 0.6.0; use the version displayed on your own Mac when reporting an issue.
 
 ## First plug-in
 
@@ -266,7 +277,7 @@ Opening the menu alone makes no change. Rotation and the other controls in this 
 
 ### Position
 
-In Extend mode: Make Main moves the menu bar to that display, Place… puts it left, right, above or below another. Hidden while mirrored, where position has no meaning.
+In Extend mode: Make Main moves the menu bar to that display. Place… puts it left, right, above or below another, with top/center/bottom alignment for side-by-side displays or left/center/right alignment for stacked displays. The numbered layout preview shows relative sizes, positions, rotation and the main display. These controls are hidden while mirrored, where independent position has no meaning.
 
 ### Arrange extended displays
 
@@ -320,7 +331,9 @@ Rooms differ. The same laptop mirrors to a 4K TV in 204, extends to a portrait s
   <a href="docs/images/profiles.png"><img src="docs/images/profiles.png" width="320" alt="Open the Profile menu"></a>
 </p>
 
-A profile is a named snapshot of a complete setup.
+A profile is a named snapshot of a setup. Choose **Full setup** to include readable picture controls and audio, or **Layout only** to save resolution, refresh rate, rotation, position, mirroring and the main display without changing brightness, contrast, volume, underscan or audio.
+
+For two templates, arrange your screens and save the first profile, then change the settings and save the second. Under **Profile › Favorite Shortcuts**, assign them to Favorite 1 and Favorite 2. Favorite buttons open the existing restore preview; ⌘⌥1 and ⌘⌥2 do the same while DisplayHelp is active. These are app shortcuts, not system-wide hotkeys. Overwriting or updating a profile preserves its scope and favorite slot. Imported profiles start without favorite assignments.
 
 1. Open Profile at the top of the menu.
 
@@ -360,7 +373,9 @@ Older profiles still load. Re-save them to capture settings that older versions 
 
 ### Preview, automatic loading and sharing
 
-Selecting a profile opens a read-only preview of current → saved values, missing displays and unavailable audio or modes. Choose Apply, Apply to Connected Displays, or Cancel. Hardware readback still verifies the result.
+Selecting a profile opens a read-only preview of current → saved values, missing displays and unavailable audio or modes. Choose Apply, Apply to Connected Displays, or Cancel. Hardware readback verifies the result.
+
+Manual profile restores and changes to resolution, rotation, underscan, mirroring, position or the main display open a separate **Keep Changes / Revert** window. You have 20 seconds to keep the change; otherwise DisplayHelp restores the previous setup. Closing the menu does not dismiss the recovery window. Quitting normally during confirmation restores the previous setup before exiting. Keep performs another hardware check before saving reconnect preferences. A failed restore rolls back, including automatic profile restores; unavailable or disconnected hardware can prevent complete recovery, and the app reports any settings it could not restore. The timed recovery requires DisplayHelp to remain running; force-quitting or a crash stops it.
 
 ### Preview and restore a profile
 
@@ -453,34 +468,6 @@ The Fixes area contains Reset and any extra actions supplied by your helpdesk.
 3. Read the confirmation before proceeding. The More menu also contains Uninstall.
 
 Opening a menu does not run a fix. Reset and Uninstall are separate actions; choose the one you intend.
-
-
-### What Reset Display Preferences runs
-
-This is the complete script the app runs, as root, when you confirm Reset Display Preferences. It is also available as [reset-display-prefs.sh](reset-display-prefs.sh). It removes only WindowServer display settings; ColorSync profile files are not touched. Everyone is logged out when WindowServer restarts.
-
-```zsh
-#!/bin/zsh
-# name: Reset Display Preferences
-# description: Clears system and per-user WindowServer display settings while preserving ColorSync profiles, then restarts WindowServer. This logs everyone out immediately. Needs an administrator password.
-# admin: true
-set -euo pipefail
-setopt null_glob
-
-# System-wide WindowServer preferences/database
-rm -f /Library/Preferences/com.apple.windowserver*.plist
-rm -rf /private/var/db/WindowServer
-
-# Clear per-user settings for all users with home folders
-for HOME_DIR in /Users/*; do
-    [ -d "$HOME_DIR" ] || continue
-    rm -f "$HOME_DIR"/Library/Preferences/ByHost/com.apple.windowserver.displays*.plist 2>/dev/null
-done
-
-echo "Display preferences reset, restarting WindowServer"
-# Restart WindowServer
-killall -HUP WindowServer
-```
 
 ### Review the reset warning
 
@@ -584,33 +571,6 @@ For managed deployment, install approved scripts separately for each intended us
 
 - More › Uninstall DisplayHelp… 🔒 removes the app, its login item and package receipt, and optionally your saved profiles and settings.
 
-
-### What Uninstall DisplayHelp runs
-
-This is the complete script behind More › Uninstall DisplayHelp…, also available as [uninstall.sh](uninstall.sh). The app first unregisters its login item and quits, then runs this as root. `keep` leaves your saved profiles and settings; `purge` removes them too. MDM can run the bundled copy directly.
-
-```zsh
-#!/bin/zsh
-# Removes DisplayHelp: the app bundle, its package receipt, and (with "purge") the user's saved displays, profiles and history.
-# Run as root. The app unregisters its login item and quits itself; MDM can run this directly:
-#   sudo /bin/zsh uninstall.sh /Applications/DisplayHelp.app purge /Users/<name>
-set -euo pipefail
-APP=${1:?app path}
-MODE=${2:-keep}
-USER_HOME=${3:-}
-
-case "$APP" in
-    */DisplayHelp.app) ;;
-    *) echo "refusing to remove '$APP': not DisplayHelp.app"; exit 2 ;;
-esac
-[ -d "$APP" ] && rm -rf "$APP"
-pkgutil --forget com.displayhelp.app >/dev/null 2>&1 || true
-if [ "$MODE" = purge ] && [ -n "$USER_HOME" ] && [ -d "$USER_HOME/Library/Application Support/DisplayHelp" ]; then
-    rm -rf "$USER_HOME/Library/Application Support/DisplayHelp"
-fi
-echo "DisplayHelp removed"
-```
-
 ## When something still looks off
 
 | You see | Do this |
@@ -642,6 +602,10 @@ Recent Events helps you see what changed around the time a problem occurred.
 Record useful details before choosing Clear. Opening Recent Events does not change display settings.
 
 ## Where it keeps things
+
+Unreadable profile files are preserved and cannot be silently overwritten. If a last-good backup is available, **Recover Profiles from Backup** restores it and archives the original. **Archive Original and Start Fresh…** preserves the original before creating an empty library, including when no backup exists. Remembered display preferences likewise refuse writes over an unreadable file.
+
+**Copy Diagnostics** copies the current layout, display capabilities and recent events to your clipboard for support. Each display also explains unavailable controls. Monitor identities and event details are included, so review the text before sharing. Ambiguous DDC hardware matches are disabled rather than risking changes to another monitor.
 
 DisplayHelp keeps your saved display choices, profiles and recent activity locally in your macOS user account. Different users and different Macs keep separate settings. Use the app’s profile export and import controls to move saved setups.
 
@@ -678,7 +642,7 @@ These optional files are distributed separately from the app. They run locally; 
 
 ### Demo — Test Custom Fixes
 
-[Download the demo script](examples/custom-fixes/demo.sh), also included in the [Custom Fixes archive](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip).
+[Download the demo script](examples/custom-fixes/demo.sh)
 
 ```zsh
 #!/bin/zsh
@@ -692,7 +656,7 @@ echo "Demo successful — Custom Fixes is working. No settings were changed."
 
 ### Restart Dock
 
-[Download the optional Dock restart script](examples/custom-fixes/restart-dock.sh), also included in the [Custom Fixes archive](https://github.com/hov172/DisplayHelp/releases/download/v0.5.2/DisplayHelp-0.5.2-Custom-Fixes.zip).
+[Download the optional Dock restart script](examples/custom-fixes/restart-dock.sh)
 
 This briefly restarts the Dock. It does not reset display preferences or delete color profiles.
 

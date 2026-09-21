@@ -26,7 +26,8 @@ restarts the Dock after any display change that ends mirrored, once the burst of
 **Do.** Pick 1920×1080 in Resolution, or press **Match Laptop**.
 **Cause.** TVs advertise sizes such as 1680×1050 as "standard timings" but only render their EDID "detailed
 timings", typically 3840×2160 and 1920×1080. The picker now hides sizes the EDID does not guarantee and the
-recommendations never choose them. If snow appears anyway, the current size is one the app inherited, not chose.
+recommendations never choose them. Actual support still depends on the display, port and cable. If a manual change makes the screen unusable,
+wait for the confirmation deadline to revert instead of keeping it.
 
 ### Everything on the TV is tiny
 **Do.** Press **Best for Display**.
@@ -86,16 +87,51 @@ Recommendations prefer 50 Hz or better, but fall back when none is available.
 ### A profile does not appear as current after connecting the external display
 **Do.** Open its preview and review differences. Apply it to restore the saved setup, or overwrite it only if
 the current settings are the ones you want to keep.
-**Cause.** Matching includes the exact display set and every saved setting, including brightness and audio.
+**Cause.** Matching includes the exact display set and every saved setting. Full profiles include brightness and audio;
+layout-only profiles deliberately ignore picture levels, underscan and audio.
 A profile saved with only the laptop connected does not describe a laptop-plus-TV setup. Automatic loading
 also requires an exact, unambiguous set and must be enabled explicitly.
 
+### A manual change reverted before I could keep it
+**Cause.** Confirmation expires after 20 seconds, including time asleep. A connection change or failed readback
+can also trigger recovery. Apply the change again and choose Keep Changes only after checking all screens.
+Closing the menu does not dismiss the floating confirmation window.
+
+### Revert could not restore every setting
+**Do.** Use **Open Display Settings** and inspect the reported failures. Reconnect missing monitors or audio
+outputs and check mode availability. A saved mirror group requires its primary to be connected and identifiable.
+**Cause.** Rollback is a hardware operation and can fail if capabilities or connections change. The app preserves
+previous reconnect preferences and reports incomplete recovery rather than treating it as success.
+
+### Favorite shortcuts do nothing
+**Do.** Assign slots under **Profile › Favorite Shortcuts**, activate DisplayHelp and press **⌘⌥1** or **⌘⌥2**.
+**Cause.** These are local shortcuts, not system-wide hotkeys. They are unavailable during a display operation or
+pending confirmation and open a preview before applying anything.
+
+### The profile library cannot be loaded
+**Do.** Choose **Recover Profiles from Backup** if offered. It restores the previous valid library and archives
+the unreadable original. If no usable backup exists, **Archive Unreadable File and Start Fresh…** preserves the
+original and creates an empty library. See [data-file recovery](data-files.md#profile-file-recovery).
+**Cause.** Invalid JSON, invalid profile values or a filesystem access problem. Saving new profiles is blocked
+until recovery so the unreadable original cannot silently be overwritten.
+
+### Reconnect preferences could not be saved
+**Do.** Keep the reported error and copy diagnostics. If `known-displays.json` is unreadable, quit the app, make
+a backup copy and repair it or move it aside before relaunching. Check directory permissions for write errors.
+**Cause.** Verified hardware changes and saving their reconnect preferences are separate operations. A storage
+error does not prove the hardware change failed, but that change may not be recalled on reconnect.
+
 ### No Brightness slider on the external display
-**Cause.** DDC/CI is not available on that port or display. Apple Silicon HDMI ports refuse DDC writes (the log shows
-IOReturn 0xE0114000). USB-C and DisplayPort may work. Many TVs ignore DDC on any port. Nothing else is affected.
+**Do.** Read the card’s unavailable-control explanation. Check the monitor’s DDC/CI setting and try a supported
+connection. Use Copy Diagnostics if help is needed.
+**Cause.** No readable control value was returned; that alone does not identify the exact cause. Ports, adapters
+and monitors vary. Intel DDC control is not implemented. When connected monitors have ambiguous identities,
+DDC is deliberately disabled to avoid controlling the wrong screen. Layout controls can still work.
 
 ### No Rotation or Underscan row
-**Cause.** The display does not report the capability. Most TVs do not rotate; most monitors have no underscan.
+**Cause.** macOS did not expose a usable rotation interface or adjustable underscan range. The card’s explanation
+distinguishes an unavailable interface from a display reported as unable to rotate. Do not assume every physical
+monitor that can swivel exposes software rotation through this connection.
 
 ### The Resolution picker is missing a size I can see in System Settings
 **Cause.** By design: the size is not in the display's EDID detailed timings, so it is likely to render badly. It is
@@ -115,7 +151,8 @@ Fix with `chmod 0755` and `chown` to your user. Also confirm it ends in `.sh` an
 
 ### `applyFailed` with CGError 1001
 **Cause.** macOS refused a mode. Common case: a mode that only exists while mirrored was requested after switching to
-Extend. The app recovers by picking the next valid mode. If it repeats, press **Detect Displays**.
+Extend. Profile restore attempts the saved mode rather than silently choosing another one; failure triggers
+an attempt to restore the previous setup. Check available modes or explicitly choose **Detect Displays**.
 
 ### `applyFailed` with CGError 1007
 **Cause.** A mirror request for a set that was already mirrored that way. The app guards against this; if it appears,
@@ -138,9 +175,14 @@ size the picker now hides). Pick a size once and the preset is replaced.
 **Cause.** macOS hides menu bar extras when app menus need the room, or the app is not running. Open it from
 `/Applications`. If **Start at Login** was turned off, turn it back on in the menu.
 
+### Start at Login is greyed
+**Cause.** The app is running unbundled, from `swift run`, where there is no login item to register.
+
 ## Collecting diagnostics for the helpdesk
 
-Three files and one command tell the whole story. Ask the user to send them, or collect over MDM.
+**Copy Diagnostics** copies a local text report with app/macOS versions, display identities, modes, layout,
+control-availability explanations and recent events. It does not upload anything. Review names, serial identities
+and event details before sharing. For a deeper investigation, collect these files and the unified log:
 
 ```
 ~/Library/Application Support/DisplayHelp/history.jsonl
@@ -156,7 +198,7 @@ Reading `history.jsonl`: one JSON object per line, newest last. `mode` is the di
 |---|---|
 | `connected` → `mirrored` → `disconnected`, repeating every 8 to 13 s | Cable or HDCP, not settings |
 | `modeChanged` with `detail` 3840×2160 and no HiDPI | Something put the TV on pixel-exact 4K; press Best for Display |
-| `applyFailed` right after `extended` | The mirror-only mode case; harmless, self-recovering |
+| `applyFailed` right after `extended` | A saved mode may require mirroring; inspect the reported restore/recovery result |
 | `present` at launch with the wrong mode, then no `modeChanged` | No preset saved; pick a size once |
 
 The **ⓘ** popover on a card is also worth a screenshot: it shows the EDID-guaranteed sizes and what each

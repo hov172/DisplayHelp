@@ -2,13 +2,14 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-The 0.5.2 release is a universal build for Apple Silicon and Intel. Room hardware checks, MDM deployment,
+Release validation for 0.6.0 is recorded in [release-0.6.0.md](release-0.6.0.md), including automated checks,
+architecture coverage and the Samsung/built-in display hardware test. This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements
 - macOS 14 Sonoma or later. Apple Silicon or Intel; the package is universal.
 - An MDM that can push a `.pkg` (Jamf, Kandji, Mosyle, Intune, Addigy all work). Ad-hoc signed builds are fine on managed Macs.
-- For unmanaged or BYOD Macs: use the signed and notarized installer from the release, see step 3.
+- For unmanaged or BYOD Macs: the signed and notarized installer, see step 3.
 
 ## 1. Baseline (before any install)
 - [ ] Export ticket counts tagged projector/display for the last two semesters. Record totals per month in this file.
@@ -30,6 +31,11 @@ ticket baselines and the two-week/semester observations must be recorded by the 
 - [ ] Helpdesk-only: create `~/Library/Application Support/DisplayHelp/scripts/` and drop a test `.sh` (owned by the user, mode 0755) to confirm "Custom fixes" appears.
 - [ ] After two weeks collect `~/Library/Application Support/DisplayHelp/history.jsonl` from each pilot Mac and count `connected` vs `applyFailed`.
 - [ ] On one pilot Mac run **Fixes › Uninstall DisplayHelp…** and confirm the app, login item and receipt are gone, then reinstall.
+
+- [ ] Save one full profile and one layout-only profile, assign favorites 1 and 2, and confirm the latter leaves picture levels and audio unchanged.
+- [ ] Change a resolution, allow the 20-second countdown to expire, and check the previous setup returns; repeat and choose Keep Changes.
+- [ ] Test relative placement with edge and center alignment, and verify the numbered layout against the physical screens.
+- [ ] Copy Diagnostics and review identifiers before sharing with helpdesk.
 
 ## 3. Fleet
 - [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.

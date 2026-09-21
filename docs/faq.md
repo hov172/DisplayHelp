@@ -4,13 +4,14 @@
 Yes. It never uses the network.
 
 **Does it need an administrator password?**
-Only for the two fixes marked with a lock: Reset Display Preferences and Uninstall. Everything else runs as the
-logged-in user. The password dialog is macOS's own; the app never sees the password.
+The built-in Reset Display Preferences and Uninstall actions require an administrator password. Custom fixes
+marked with a lock also run as administrator. Display controls run as the logged-in user. The password dialog is macOS's own; the app never sees the password.
 
 **Will it change my displays without asking?**
-Only to what you or a profile chose before, and only for that display. On a display it has never seen it asks
-Mirror or Extend once. Detect Displays is the exception: it applies the recommendation to every external display
-because you pressed it.
+Remembered settings and opted-in automatic profiles can apply at launch or connection. A new display normally
+asks Mirror or Extend. Detect Displays applies recommendations because you pressed it. Manual layout changes and
+profile applications now show Keep Changes / Revert with a 20-second deadline; automatic profiles verify results
+and attempt rollback on failure without requiring confirmation.
 
 **Why does the picker not list a size System Settings shows?**
 The display's own EDID does not guarantee it, and on TVs those sizes render as snow. It is still in the ⓘ popover.
@@ -23,19 +24,42 @@ A 16:10 panel showing a 16:9 picture. Turn on Laptop Leads Mirror to flip which 
 Yes. Everything is per user, in that user's Application Support folder. The login item is per user too.
 
 **Does it support more than two displays?**
-Yes. Each gets a card. Profiles capture all of them. Mirror sets can only have one primary, which is the external
-you pressed Mirror on unless Laptop Leads Mirror is on.
+Yes. Each gets a card and appears in the numbered layout preview. Profiles capture each monitor’s own resolution,
+rotation and position, plus the exact primary of each mirror group. This includes two externals mirrored together
+while the laptop stays extended. The simple Mirror button uses the laptop as partner when available; save an
+existing arrangement as a profile to recall its exact topology.
+
+**Can I switch between two layouts without changing brightness or sound?**
+Yes. Save each using **Layout only**, then assign them to Favorite 1 and Favorite 2 under **Profile › Favorite
+Shortcuts**. Each monitor can have its own resolution in Extend mode. Layout-only profiles include rotation,
+position and the main display but leave brightness, contrast, monitor volume, underscan and audio alone.
+
+**Are the favorite shortcuts global?**
+No. **⌘⌥1** and **⌘⌥2** work while DisplayHelp is active. They open a preview, just like the favorite buttons;
+you still choose Apply and then Keep Changes.
+
+**What if a change leaves a screen unusable?**
+Wait for the 20-second confirmation deadline or press Revert. The floating confirmation remains available when
+the menu closes. Sleep does not extend the deadline. If hardware cannot reproduce the previous setup, the app
+reports the remaining problems and offers Open Display Settings. Force-quitting the app prevents its timer from
+running; the timer is not a macOS crash-recovery guarantee.
+
+**Can I recover a damaged profile library?**
+Yes, when a valid backup exists: use **Recover Profiles from Backup**. The previous file is archived first.
+Without a usable backup, **Archive Unreadable File and Start Fresh…** preserves it and creates an empty library.
+See [data-file recovery](data-files.md#profile-file-recovery).
 
 **What does a profile not capture?**
 Unreadable or unsupported hardware settings, display nicknames, Start at Login, and macOS settings such as HDR,
 color profiles, True Tone, Night Shift and system audio volume. The saved monitor volume is DDC volume, not the
 Mac's system audio volume. Display nicknames remain in the separate known-displays store.
 
-**Do I need to recreate old profiles after updating to 0.4.0?**
+**Do I need to recreate old profiles after updating to 0.6.0?**
 Old profiles still load, but cannot restore fields they never contained. Set up the displays and use
 **Profile › Overwrite with Current Settings** to capture positions, the main display and active system audio.
-Use **Save Current Setup As…** if there are no profiles. A partial restore lists what could not be reproduced;
-macOS may not support an old mirror follower mode under its saved primary.
+Use **Save Current Setup As…** if there are no profiles. Older profiles default to Full setup and retain legacy mirror-leader behavior. Re-save to capture exact mirror
+groups. Missing hardware and unsupported modes can still prevent a complete restore; failed changes trigger
+an attempt to return to the previous setup.
 
 **Why is the TV orange while the laptop is green in the screenshot?**
 The TV reports 30 Hz, below the app’s preferred minimum of 50 Hz. The built-in panel is a mirror follower and
@@ -45,7 +69,7 @@ available Refresh Rate or a recommendation. An orange dot is not proof that a fa
 **Will settings follow my projector to a different Mac?**
 Not automatically. Settings are per user and per Mac. Export a profile and import it on the destination,
 mapping the built-in panel, external displays and audio devices as needed. Imports do not apply immediately
-and start with automatic loading disabled. Display nicknames are not transferred by profile import.
+and start with automatic loading disabled and no favorite slots assigned. Display nicknames are not transferred by profile import.
 
 **Why does the screenshot have fewer controls than the guide describes?**
 Controls depend on the hardware and current arrangement. Position appears in Extend mode. External brightness,
@@ -53,12 +77,13 @@ contrast and volume need DDC readback; rotation and underscan need platform supp
 mean the app failed to detect the display.
 
 **What happens if I quit the app?**
-Nothing changes on screen. Displays stay on whatever they are on. macOS's own behaviour returns at the next plug-in
-until the app runs again.
+Confirmed settings normally stay in place. Quit is disabled while applying changes; a system quit request during
+a pending confirmation attempts to revert first. If recovery fails, the app stays open. macOS’s own behavior
+returns at the next plug-in until DisplayHelp runs again.
 
 **Is there a Windows or Linux version?**
 No. It is built on macOS display and IOKit APIs.
 
 **Where do I report a problem?**
-Collect the three data files and the log as described in [troubleshooting.md](troubleshooting.md#collecting-diagnostics-for-the-helpdesk)
+Start with **Copy Diagnostics**, then collect the data files and log if needed as described in [troubleshooting.md](troubleshooting.md#collecting-diagnostics-for-the-helpdesk)
 and send them with the room, the display model and what you expected to see.

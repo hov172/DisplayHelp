@@ -7,15 +7,16 @@ Control by control. The [README](../README.md) is the short version; this is the
 1. [Opening the app](#opening-the-app)
 2. [The menu bar icon](#the-menu-bar-icon)
 3. [Profile row](#profile-row)
-4. [Detect Displays](#detect-displays)
-5. [Display cards](#display-cards)
-6. [When something is refused](#when-something-is-refused)
-7. [Fixes](#fixes)
-8. [Recent Events](#recent-events)
-9. [Start at Login, Quit, About](#start-at-login-quit-about)
-10. [The connect dialog](#the-connect-dialog)
-11. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
-12. [Keyboard and accessibility](#keyboard-and-accessibility)
+4. [Keep or revert display changes](#keep-or-revert-display-changes)
+5. [Detect Displays](#detect-displays)
+6. [Display cards](#display-cards)
+7. [When something is refused](#when-something-is-refused)
+8. [Fixes](#fixes)
+9. [Recent Events](#recent-events)
+10. [Start at Login, Quit, About](#start-at-login-quit-about)
+11. [The connect dialog](#the-connect-dialog)
+12. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
+13. [Keyboard and accessibility](#keyboard-and-accessibility)
 
 ---
 
@@ -38,35 +39,53 @@ The icon reports the display state without opening the menu:
 
 ## Profile row
 
+![DisplayHelp 0.6.0 layout and favorites, rendered by the production UI with sample display data](images/layout-profiles.png)
+
+The current diagram shows screen geometry, names and rotation; it does not stream desktop content. The older
+screenshots below are labeled historical references. See [screenshot provenance](README.md#screenshots).
+
 <p align="center">
   <img src="images/profiles.png" width="380" alt="DisplayHelp 0.5.1 Profile menu with Demo, overwrite, remove, automatic loading, export, save and import commands over the connected Samsung and built-in display cards">
 </p>
 
 **Profile: ‹name›** or **Profile: Choose or Create…** at the top left. A profile is a named snapshot of every
 connected display: arrangement, size, refresh rate, readable brightness, contrast and volume, rotation, underscan,
-mirror leadership, position, main display and audio preference. It also captures the active system audio output.
+mirror leadership, position, main display and audio preference. It also captures the active system audio output when saved as **Full setup**.
+
+The save form offers **Full setup** or **Layout only**. Layout-only profiles save resolution and refresh rate,
+rotation, position, the main display and exact mirror groups. They leave brightness, contrast, monitor volume,
+underscan, reconnect audio preferences and the active audio output alone. Each display can have a different
+resolution in Extend mode. Save two layouts under different names to switch between your two templates.
+Overwriting or updating an existing profile preserves its scope; saving its name through the save form uses
+the scope selected there.
 
 | Menu item | What it does |
 |---|---|
-| A profile name | Opens a current → saved preview. Apply restores every connected display it covers. Displays outside the profile receive no saved settings, though macOS may reposition them when the main display changes. Updates per-display reconnect presets. Choose it again after reconnecting to restore the whole layout and system audio output. |
+| A profile name | Opens a current → saved preview. Apply restores every connected display it covers. Displays outside the profile receive no saved settings, though macOS may reposition them when the main display changes. Updates verified per-display reconnect presets after you keep the changes. Choose it again after reconnecting to restore the whole layout and system audio output. |
 | **Overwrite with Current Settings ›** | Replaces any profile with what is on screen now. |
+| **Favorite Shortcuts ›** | Assign a profile to Favorite 1 or Favorite 2, or remove its favorite assignment. Assigning an occupied slot replaces its previous assignment. |
 | **Remove ›** | Deletes one profile. |
 | **Update "‹name›" with Current Settings** | Overwrites the profile you last applied or saved with what is on screen now. Appears once you have used one this session. |
 | **Load Automatically When Connected ›** | Opt in per profile. Exact, unambiguous display-set matches load at connection or launch, without a confirmation dialog. |
 | **Export… ›** | Export one or all profiles as JSON. |
-| **Import Profiles…** | Validate and import JSON, mapping missing display/audio identities to this Mac if needed. Existing names are preserved with numbered suffixes. Imports start with automatic loading off. |
-| **Save Current Setup As…** | Opens a name field. Type the room or the purpose and press Return or Save. Typing an existing name replaces it. |
+| **Import Profiles…** | Validate and import JSON, mapping missing display/audio identities to this Mac if needed. Existing names are preserved with numbered suffixes. Imports start with automatic loading off and no favorite assignments. |
+| **Save Current Setup As…** | Opens a name field. Choose Full setup or Layout only, type the room or purpose, and press Return or Save. Typing an existing name replaces it. |
+
+Favorites appear as two direct buttons beneath the profile row. Clicking one, or pressing **⌘⌥1** / **⌘⌥2**
+while DisplayHelp is active, opens its preview. These are app-local shortcuts, not global hotkeys.
 
 The title shows a profile only when every saved setting matches actual readings and the connected display set
 matches. Levels, rotation, underscan, position, main display, actual mirror leadership and audio are checked too.
-An unreadable saved value cannot be verified and does not count as a match. Status refreshes every five seconds
+Layout-only matching ignores picture levels and audio. An unreadable saved value cannot be verified and does not count as a match. Status refreshes every five seconds
 while the menu is open; “Checking…” appears while hardware operations are pending.
 
 Saving waits for pending slider and rotation changes before reading settings. Restoring temporarily disables display
-controls, applies settings in order, then reads them back. A partial restore lists missing displays, unavailable modes,
-unreadable settings and other mismatches. Displays with ambiguous identities are skipped safely.
+controls, applies settings in order, then reads them back. The preview identifies disconnected displays; Apply to Connected Displays restores the identifiable subset.
+An unavailable saved mirror primary prevents reproducing that mirror group. A failed application or verification
+triggers an attempt to restore the previous setup, with remaining mismatches reported. Displays with ambiguous identities are skipped safely.
 
-Older profiles remain readable. Update them to capture positions, the main display and system audio output; those
+New profiles record the exact primary of each mirror group, including external-only mirror groups with an
+extended laptop. Older profiles remain readable and use their saved Laptop Leads Mirror preference. Update them to capture positions, the main display and system audio output; those
 fields were absent from older saves. A saved mirror follower mode can only be restored if macOS offers it under the
 saved primary. Incompatible old mirror settings are reported instead of silently replaced by recommendations.
 
@@ -94,6 +113,28 @@ rejects two displays mapped to one device; it never applies settings immediately
 one room. One profile per room is the common pattern. A single display you only ever mirror does not need one: the
 app already remembers its settings.
 
+## Keep or revert display changes
+
+![DisplayHelp 0.6.0 single Keep/Revert window, captured with an isolated sample confirmation](images/keep-changes.png)
+
+Manual layout changes, resolution/refresh changes, rotation, underscan, Detect Displays and profile applications
+capture the previous setup before changing hardware. The current resolution of every connected screen must be
+readable before a reversible change can begin. After a successful change, **Keep Changes** and **Revert**
+appear with a **20-second** countdown. Keep confirms the observed setup before saving reconnect preferences;
+Revert or an expired countdown attempts to restore the previous setup. Sleep does not extend the deadline.
+A display connection change during confirmation also triggers recovery.
+
+The confirmation has its own floating window, so closing the menu does not dismiss it. Display controls are
+unavailable while an operation or confirmation is in progress. Automatic profiles bypass the preview and timed
+confirmation, but still verify the result and attempt rollback on failure. Brightness, contrast, monitor-volume
+and audio choices do not use the timed layout confirmation.
+
+Recovery depends on connected hardware and available modes. If some previous settings cannot be restored,
+use **Open Display Settings** and the reported details. Rejected changes do not replace working reconnect
+preferences. If a profile file cannot load, **Recover Profiles from Backup** is offered when a valid backup exists;
+**Archive Unreadable File and Start Fresh…** preserves the original before creating an empty library.
+See [data-files.md](data-files.md#profile-file-recovery) for backup details.
+
 ## Detect Displays
 
 The blue button. One click does what a helpdesk would do by hand:
@@ -103,7 +144,7 @@ The blue button. One click does what a helpdesk would do by hand:
 3. For each external display, if the wrong side is leading the mirror set, re-mirrors it the right way round.
 4. Applies **Match Laptop** to mirrored externals and **Best for Display** to extended ones.
 
-It never asks a question and changes nothing that is already right. If only the built-in panel is found, it says
+Changes use the same Keep Changes / Revert confirmation. Settings that already match are left alone. If only the built-in panel is found, it says
 so under the cards: check the cable and the projector's input.
 
 ## Display cards
@@ -193,7 +234,7 @@ right now, with the display's own HDMI or DisplayPort audio first and marked "(t
 | A USB dock or wall plate | Rooms whose USB-C connection carries audio. |
 | An AirPlay receiver, or Crestron AirMedia / Solstice / ClickShare driver | Wireless rooms. Those senders install their own output device; pick it here. |
 
-Remembered per display and included in profiles, so "Room 204" can mean video over HDMI and sound over the
+Remembered per display and included in full-setup profiles, so "Room 204" can mean video over HDMI and sound over the
 3.5 mm cable. A saved choice whose device is absent right now is listed as "‹name› (not connected)" so the selection
 stays visible; at connect, sound stays where it is and the log says so. Choosing
 "Don't change" while the previous choice is playing sends sound back to the Mac's speakers. macOS itself falls back
@@ -204,16 +245,24 @@ its remote.
 0°, 90°, 180°, 270°. Shown when the display reports it can rotate. Remembered.
 
 ### Brightness, Contrast, Volume
-The built-in panel always has Brightness. External displays get the sliders their hardware answers to over DDC/CI.
-On Apple Silicon, DDC works over USB-C and DisplayPort; the HDMI port refuses it. Many TVs ignore DDC on any port.
-No slider means unsupported, and the log says why. Values are remembered per display.
+The built-in panel shows Brightness when macOS returns a readable value. External displays get the sliders their hardware answers to over DDC/CI.
+On Apple Silicon, USB-C and DisplayPort can carry DDC, but support varies by monitor and adapter. HDMI and
+some TVs may not expose usable DDC controls.
+An absent slider means there is no usable reading, not necessarily that the monitor can never support it.
+The card’s unavailable-control explanations describe known limitations without guessing the cause. DDC is not
+implemented on Intel Macs, and ambiguous hardware matches disable DDC to avoid changing the wrong monitor.
+Values are remembered per display after readback verification.
 
 ### Underscan (externals)
 A slider that shrinks the picture for projectors that crop the edges. Shown when the display supports it. Remembered.
 
 ### Position (extend mode only)
 - **Make Main** moves the menu bar and Dock to that display.
-- **Place… › ‹other display› › Left / Right / Above / Below** arranges the desktop.
+- **Place… › ‹other display› › Left / Right / Above / Below** arranges the desktop. Left/right placement offers
+  top, center or bottom alignment; above/below offers left, center or right alignment.
+
+The numbered layout preview above the cards shows screen geometry, the main display and rotation. Use it to
+check layouts with different screen sizes; placement is controlled by the menus rather than dragging the preview.
 
 Hidden while mirrored, where position has no meaning.
 
@@ -232,8 +281,6 @@ Deletes `/Library/Preferences/com.apple.windowserver*`, `/private/var/db/WindowS
 logged out immediately.** Use it for a Mac whose displays keep coming up wrong no matter what is picked. macOS
 rebuilds the database on the next login. Needs an administrator password, asked for by macOS's own dialog.
 ColorSync preservation requires 0.5.2 or later; older installers can remove display-profile folders.
-The full script is in the README under [What Reset Display Preferences runs](../README.md#what-reset-display-preferences-runs)
-and as [reset-display-prefs.sh](../reset-display-prefs.sh).
 
 ![Reset confirmation in 0.5.2: display settings are cleared while ColorSync profiles are preserved](images/reset-confirmation.png)
 
@@ -295,20 +342,21 @@ sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_Displ
 
 `keep` in place of `purge` leaves the user's data. The script refuses any path that is not `DisplayHelp.app`.
 
-The full script is in the README under [What Uninstall DisplayHelp runs](../README.md#what-uninstall-displayhelp-runs)
-and as [uninstall.sh](../uninstall.sh).
-
 ## Recent Events
 
+**Copy Diagnostics** copies app/macOS versions, display identities, modes, layout, available-control explanations
+and recent events to the clipboard. Nothing is uploaded; review the report before sharing it.
+
 Collapsed by default. The latest events from the history file, newest first, as
-`time  kind  display  (detail)`.
+`time  kind  display  (detail)`. See [data-files.md](data-files.md#history-event-kinds) for the vocabulary.
 **Clear** archives the list to a dated file. **Show History File** opens the folder in Finder.
 
 ## Start at Login, Quit, About
 
 **Start at Login** is on by default after a packaged install. Off means the app must be opened from Applications.
-**Quit DisplayHelp** stops the app; displays keep whatever they are
-on. The **Ayala Solutions · v‹version›** link opens the About panel.
+Greyed when running unbundled from `swift run`. Normally **Quit DisplayHelp** leaves the confirmed setup in place.
+Quit is disabled while changes are in progress. A system quit request during confirmation first attempts to revert;
+if recovery fails, the app stays open so you can finish recovery. The **Ayala Solutions · v‹version›** link opens the About panel.
 
 ## The connect dialog
 
@@ -340,6 +388,8 @@ modes; explicitly loading a profile attempts the exact saved mode and verifies t
 
 ## Keyboard and accessibility
 
+- **⌘⌥1** and **⌘⌥2** preview assigned favorites while DisplayHelp is active.
+- In the confirmation window, Return keeps changes and Escape reverts.
 - Every control has a name for VoiceOver, including the sliders (with their percentage), the pencil and the ⓘ.
 - Tab moves through the controls in reading order; Escape closes the menu and cancels a rename or profile name.
 - Colour never carries meaning alone: the green/orange dot has a spoken label and a tooltip.

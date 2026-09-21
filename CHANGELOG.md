@@ -2,10 +2,31 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.0] - 2026-09-20
+
+### Added
+- Full and layout-only profiles, two favorite slots, and app-local Command–Option–1/2 shortcuts.
+- Compact numbered screen diagram with combined mirrored labels, main display and rotation indicators; relative placement with edge or center alignment.
+- One floating 20-second Keep/Revert confirmation for manual display changes, verified readback, timed rollback and rollback on normal Quit.
+- Copy Diagnostics, explanations for unavailable controls, and explicit recovery from damaged profile files with a last-good backup.
+
+### Fixed
+- Save known settings only after verified success and confirmation; failed changes cannot become remembered preferences.
+- Preserve exact mirror leaders and partial mirror groups when restoring profiles.
+- Require unique EDID/DDC identity matches and readable DDC limits before sending writes.
+- Restore layout without changing unrelated picture levels; use fresh level reads after full display reconfiguration.
+- Keep the selected profile name unchanged until its restore is confirmed.
+
+### Changed
+- Polished spacing, layout labels and progress messages; removed duplicate confirmation actions.
+- Packaging preserves installers from previous releases.
+- Updated guides, screenshots and release assets. Hardware testing covered the connected Samsung and built-in display; availability on other connections remains hardware dependent.
+
 ## [0.5.2] - 2026-09-18
 
 ### Fixed
 - Reset Display Preferences preserves ColorSync profile files while clearing WindowServer display settings.
+- Added a regression check that intercepts deletion and restart commands without resetting a real display session.
 
 ### Documentation
 - Reduced screenshot file sizes without changing pixels, added compact clickable README previews, and refined the public guide’s typography, tables and page layout.
@@ -19,7 +40,8 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 ## [0.5.1] - 2026-09-18
 
 ### Changed
-- Internal simplifications with no user-facing changes.
+- Simplified display copying, level readback updates, audio refresh and refresh-rate formatting without changing user-facing behavior.
+- Reused the app's history store and removed unused icon-script variables.
 
 ## [0.5.0] - 2026-09-18
 
@@ -96,8 +118,8 @@ Validated on a MacBook Pro (16:10 Retina panel) mirrored to a Samsung 4K TV over
 mentions a display came from that session.
 
 ### Versioning
-- Each release carries a marketing version and a build number, so two builds of the same version are
-  distinguishable. About and the footer show "0.2.0 (build)".
+- `VERSION` file is the single source of the marketing version; `CFBundleVersion` is the git commit count, so two
+  builds of the same version are distinguishable. About and the footer show "0.2.0 (build)".
 
 ### Displays
 - Menu bar app that identifies displays from their EDID and remembers each one by vendor, model and serial.
@@ -130,7 +152,7 @@ mentions a display came from that session.
 - About panel and footer with Ayala Solutions branding; version from the bundle.
 
 ### Packaging
-- Universal, signed app and installer package; login item registered on first launch.
+- `scripts/package.sh` builds a universal, signed `.app` and `.pkg`; login item registered on first bundled launch.
 
 ### Fixed during validation (since 0.1.0)
 - Best for Display chose pixel-exact 3840×2160 on a 4K TV and saved it as the preset.
