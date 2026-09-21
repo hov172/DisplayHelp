@@ -198,13 +198,20 @@ error text, or the script result.
 | `extended` | Extend applied | |
 | `modeChanged` | Size, scaling or refresh changed by the app | The new mode |
 | `brightnessChanged`, `contrastChanged`, `volumeChanged` | A display level set (volume is monitor DDC volume) | New value |
-| `rotated` | Rotation set | Degrees |
-| `moved` | Make Main or Place applied | Placement |
+| `rotated` | Rotation verified after applying | Requested angle, before/actual layout and verification |
+| `moved` | Make Main or Place applied | Placement target, reference, alignment, before/requested/actual bounds and verification |
+| `changeStarted` | A display change with a Keep/Revert trial begins | Change ID, scope and before layout |
+| `changeRequested` | Placement or rotation requested | Target and requested geometry or angle |
+| `changePending` | Waiting for Keep Changes | Countdown and observed layout |
+| `changesKept` | User keeps the setup | Observed layout and preference-save result |
+| `changesReverted` | User, timeout, disconnect or quit triggers recovery | Reason, before/actual layout and recovery result |
 | `underscanChanged` | Underscan set | New value |
 | `audioRouted` | System audio output switched by the app | The audio device now playing |
 | `applyFailed` | macOS refused a change | What was asked and the error |
 | `scriptRan` | A fix script exited 0 | Script name and last output line |
 | `scriptFailed` | A fix script exited non-zero | Script name, exit code, last output line |
+
+Related operation entries share a `change=` identifier in `detail`. Layout snapshots include display IDs and identities, x/y, width/height, rotation, main-display and mirror state. Copy Diagnostics and Recent Events include up to 20 events; the JSONL file retains the longer history. These are app operation traces, not a complete audit of every change made by other software.
 
 A malformed line is skipped with a warning in the unified log; the rest of the file still loads.
 

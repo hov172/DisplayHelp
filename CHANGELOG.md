@@ -2,6 +2,21 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.4] - 2026-09-21
+
+Full release. Compact menu, visible placement/rotation, and detailed troubleshooting traces. Existing audio behavior is retained.
+
+- Each display card now shows its detected side/alignment and rotation beside an always-visible Place menu. Placement actions name both screens; nonstandard layouts show Custom position. Make Main is available in Place.
+
+- Diagnostics now include up to 20 recent events with linked change IDs, before/requested/readback layout details, verified rotation results, and explicit Keep/Revert/timeout/disconnect/quit/failure outcomes. Full history remains local.
+
+- Fixed placement of the main display: normalize the full desktop around the existing primary display, preserving its role and requested edge/center alignment. Placement events now include the chosen alignment.
+
+- Compact screen layout and audio controls; advanced per-display controls expand under More Controls.
+- Detect Displays, fixes, connection history and diagnostics are grouped under Troubleshooting.
+- Menu height follows its content within the available display height; longer configurations scroll.
+- Added an isolated native preview and refreshed documentation screenshots and downloadable guides. Profile storage remains compatible.
+
 ## [0.6.3] - 2026-09-20
 
 Full release. Feedback and suggestions are welcome.

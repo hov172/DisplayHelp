@@ -18,7 +18,7 @@ modes vary by Mac, cable and port.
 ## Picture and layout
 
 ### The Dock is half off the screen after plugging in
-**Do.** Wait two seconds. If still wrong, press **Detect Displays**.
+**Do.** Wait two seconds. If still wrong, open **Troubleshooting → Detect Displays**.
 **Cause.** macOS re-mirrors on its own at plug-in and the Dock keeps the previous display's geometry. The app
 restarts the Dock after any display change that ends mirrored, once the burst of changes settles.
 
@@ -168,7 +168,7 @@ size the picker now hides). Pick a size once and the preset is replaced.
 ## The app itself
 
 ### The Mac keeps coming up wrong regardless of what is picked
-**Do.** **Fixes › Reset Display Preferences** 🔒. Everyone is logged out.
+**Do.** **Troubleshooting → Reset Display Preferences** 🔒. Everyone is logged out.
 **Cause.** WindowServer's own display database is corrupt. The reset deletes it and macOS rebuilds it.
 
 ### The icon is not in the menu bar
@@ -180,8 +180,8 @@ size the picker now hides). Pick a size once and the preset is replaced.
 
 ## Collecting diagnostics for the helpdesk
 
-**Copy Diagnostics** copies a local text report with app/macOS versions, display identities, modes, layout,
-control-availability explanations and recent events. It does not upload anything. Review names, serial identities
+**Troubleshooting → Copy Diagnostics** copies a local text report with app/macOS versions, display identities, modes, layout,
+control-availability explanations and up to 20 recent events. Placement and rotation entries include requested settings, observed bounds/angles and verification. A shared `change=` ID links each operation to its Keep/Revert outcome, including timeout or disconnect recovery. It does not upload anything. Review names, serial identities
 and event details before sharing. For a deeper investigation, collect these files and the unified log:
 
 ```
@@ -196,7 +196,7 @@ Reading `history.jsonl`: one JSON object per line, newest last. `mode` is the di
 
 | Pattern | Meaning |
 |---|---|
-| `connected` → `mirrored` → `disconnected`, repeating every 8 to 13 s | Cable or HDCP, not settings |
+| `connected` → `mirrored` → `disconnected`, repeating every 8 to 13 s | Repeated connection loss; compare with DisplayHelp quit and a known-working adapter/cable. The log alone cannot identify the cause. |
 | `modeChanged` with `detail` 3840×2160 and no HiDPI | Something put the TV on pixel-exact 4K; press Best for Display |
 | `applyFailed` right after `extended` | A saved mode may require mirroring; inspect the reported restore/recovery result |
 | `present` at launch with the wrong mode, then no `modeChanged` | No preset saved; pick a size once |
@@ -211,9 +211,9 @@ These are separate actions:
 
 | Action | Removes | Keeps |
 |---|---|---|
-| **Recent Events → Clear Connection History** | Current event log, moved into an archive | Remembered monitor preferences, profiles and favorites |
+| **Troubleshooting → Recent Events → Clear Connection History** | Current event log, moved into an archive | Remembered monitor preferences, profiles and favorites |
 | **Display options (…) → Forget This Display…** | That external monitor's remembered name and reconnect preferences | Current screen settings, profiles/favorites and connection history |
-| **Fixes → More → Reset All DisplayHelp Data…** | All active remembered monitors, profiles/favorites, automatic choices and history | Current hardware settings, custom fixes and Start at Login |
+| **Troubleshooting → More → Reset All DisplayHelp Data…** | All active remembered monitors, profiles/favorites, automatic choices and history | Current hardware settings, custom fixes and Start at Login |
 
 Automatic profiles are **opt-in**. Under **Profile → Load Automatically When Connected**, uncheck individual
 profiles or choose **Turn Off All Automatic Profiles**. Manual profile use and favorites still work. Forgetting a
@@ -241,7 +241,7 @@ change if the installer reports that DisplayHelp could not close, quit the app, 
 
 ## The menu looks too short
 
-Update to 0.6.3. Its menu uses up to 900 points of height within the screen's available area. On smaller screens,
+Update to 0.6.4. Its compact menu fits its content up to 900 points of height within the screen's available area. Expand More Controls for advanced settings and Troubleshooting for fixes. On smaller screens,
 scroll inside the menu to reach the remaining display cards and footer controls. A mirrored layout shows one box
 labeled with both screen numbers because both screens share a desktop.
 
@@ -256,3 +256,7 @@ Use 0.6.3 or later and check the device named under **Output Volume** beneath Sc
 If Output Volume says the device does not expose an adjustable control, use the device’s own controls. HDMI outputs often behave this way. Copy Diagnostics includes the active output, available system volume and mute state, separately from monitor volume.
 
 If an audio device changes while you adjust it, the app refuses the stale adjustment and asks you to use the newly selected output. Failed writes show the current readback and an explanation. No saved display profile is overwritten by an output-volume adjustment.
+
+### Placement appears reversed
+
+The action names the screen being placed and its reference screen. To put an external display left of the laptop, open **Place…** on the external card and choose **Relative to Built-in Display → Place [external name] left of Built-in Display**, then alignment. Left on the built-in card means the opposite relationship. Check the visible readout and preview, then Keep Changes. For a failed move, share Copy Diagnostics immediately so its latest 20 events include the request and result.

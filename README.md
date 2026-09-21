@@ -2,7 +2,7 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Version **0.6.3 (95)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Version **0.6.4 (102)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 Feedback, bug reports and suggestions are welcome.
 
@@ -16,29 +16,29 @@ Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.3/DisplayHelp-0.6.3.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.3/DisplayHelp-0.6.3-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.3/DisplayHelp-0.6.3-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.3/DisplayHelp-0.6.3-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.3/DisplayHelp-0.6.3-Screenshots.zip)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.3/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4-Screenshots.zip)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/SHA256SUMS.txt)
 
-Version 0.6.3 adds live Output Volume and mute for supported audio devices, including built-in speakers. Monitor Volume remains a separate DDC control.
+Version 0.6.4 makes the menu more compact: everyday controls stay visible, advanced settings move into More Controls, and fixes and diagnostics sit under Troubleshooting. Each display shows its actual placement, alignment and rotation beside Place…. Placement and rotation changes now include detailed diagnostic traces. Output Volume and the existing per-display Audio behavior are retained.
 
 Version 0.6.1 added Forget This Display, a backed-up Reset All DisplayHelp Data action, and Turn Off All Automatic Profiles. It fixes upgrades leaving the old app running and makes the menu taller, up to 900 points within the available screen height. Longer menus scroll.
 
 Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and layout-only profiles, aligned screen placement, and a single 20-second Keep/Revert window. Display changes are verified before they are remembered. Existing profiles remain compatible.
 
 <p align="center">
-  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.3 native interface with two favorite profiles and an extended layout using sample display data"></a>
+  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.4 native interface with two favorite profiles and an extended layout using sample display data"></a>
 </p>
 
-The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.3 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
+The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.4 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
 
 **Identify Displays** beneath the layout shows matching numbers and names on connected screens for five seconds. Mirrored screens share a numbered group. The labels do not change settings or block clicks.
 
 <p align="center">
-  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="440" alt="DisplayHelp 0.6.3 Keep or Revert confirmation with countdown"></a>
+  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.4 Keep or Revert confirmation with countdown"></a>
 </p>
 
 - macOS 14 Sonoma or later, Apple Silicon and Intel.
@@ -97,7 +97,7 @@ For organization-wide installation, ask your IT team to deploy the installer thr
 ### Check your installed version
 
 <p align="center">
-  <a href="docs/images/about.png"><img src="docs/images/about.png" width="440" alt="Check your installed version"></a>
+  <a href="docs/images/about.png"><img src="docs/images/about.png" width="284" alt="Check your installed version"></a>
 </p>
 
 Use About when your helpdesk asks which version you have.
@@ -108,7 +108,7 @@ Use About when your helpdesk asks which version you have.
 
 3. Close the About window to return to your work.
 
-Shown: DisplayHelp 0.6.3 (95). Use the version displayed on your own Mac when reporting an issue.
+Shown: DisplayHelp 0.6.4 (102). Use the version displayed on your own Mac when reporting an issue.
 
 ## First plug-in
 
@@ -125,7 +125,7 @@ Choose Mirror or Extend and DisplayHelp remembers the choice for this display on
 ### Choose what happens on connection
 
 <p align="center">
-  <a href="docs/images/first-connect.png"><img src="docs/images/first-connect.png" width="440" alt="Choose what happens on connection"></a>
+  <a href="docs/images/first-connect.png"><img src="docs/images/first-connect.png" width="260" alt="Choose what happens on connection"></a>
 </p>
 
 This prompt appears when DisplayHelp needs an arrangement choice for an external display.
@@ -145,10 +145,10 @@ Click the icon. Top to bottom:
 | Row | What it is |
 |---|---|
 | Profile | Save, preview, restore, update, remove, import and export named setups; choose automatic loading when needed. |
-| Detect Displays | Rescans and applies display recommendations. It may change your current settings. |
-| Display cards | One per connected display. Name, status line, and an aligned list of controls that apply to that display. |
-| Fixes | Reset Display Preferences, any helpdesk scripts, and Reset All DisplayHelp Data/Uninstall under "More". |
-| Recent Events | The last connects, disconnects, mode changes and failures. |
+| Screen Layout | Numbered geometry preview and Identify Displays. |
+| Output Volume | Live volume and mute for the active macOS audio output, when supported. |
+| Display cards | Common controls plus observed placement, alignment and rotation beside Place…. Expand More Controls for advanced settings. |
+| Troubleshooting | Detect Displays (applies recommendations), fixes, Recent Events and Copy Diagnostics. Reset All DisplayHelp Data and Uninstall are under More. |
 | Start at Login, Quit, About | Footer. |
 
 The menu bar icon itself shows state: stacked rectangles when mirrored, two displays when extended, one when the laptop is alone.
@@ -169,13 +169,13 @@ The main menu groups settings into a card for each connected display.
 
 3. Check its arrangement, resolution and refresh rate before choosing a control.
 
-Shown: sample displays in the 0.6.3 interface. The card reports each display’s own mode and refresh rate. An orange dot means a different mode is recommended; it does not prove a faster mode is available on your connection.
+Shown: sample displays in the 0.6.4 interface. The card reports each display’s own mode and refresh rate. An orange dot means a different mode is recommended; it does not prove a faster mode is available on your connection.
 
 ## Everyday use
 
 ### "The picture is wrong, fix it"
 
-Press Detect Displays to rescan and apply the app’s display recommendations. It can adjust resolution, refresh rate and which display leads mirroring, including correcting an unsuitable built-in display mode. Use it when you want those changes applied rather than keeping a manually selected setup.
+Open **Troubleshooting → Detect Displays** to rescan and apply the app’s display recommendations. It can adjust resolution, refresh rate and which display leads mirroring, including correcting an unsuitable built-in display mode. Use it when you want those changes applied rather than keeping a manually selected setup.
 
 ### Mirror or Extend
 
@@ -193,9 +193,9 @@ Use Extend when you want different windows on the laptop and external screen.
 
 2. Move a window between the screens to confirm that they act as separate desktops.
 
-3. Use Position to match their physical placement, or choose Mirror to return to a shared desktop.
+3. Use Place… to match their physical placement, or choose Mirror to return to a shared desktop.
 
-Make Main and Place… appear when the displays are extended.
+Place… appears beside the current placement and rotation when displays are extended; Make Main is inside that menu.
 
 ### Resolution and Refresh Rate
 
@@ -204,7 +204,7 @@ Resolution lists available sizes and scaling options, using the highest offered 
 ### Choose a resolution
 
 <p align="center">
-  <a href="docs/images/resolution.png"><img src="docs/images/resolution.png" width="384" alt="Choose a resolution"></a>
+  <a href="docs/images/resolution.png"><img src="docs/images/resolution.png" width="192" alt="Choose a resolution"></a>
 </p>
 
 Use Resolution to change desktop size or make text easier to read.
@@ -222,7 +222,7 @@ Refresh Rate appears when the current size offers more than one rate. Choose a r
 ### Choose a refresh rate
 
 <p align="center">
-  <a href="docs/images/refresh-rate.png"><img src="docs/images/refresh-rate.png" width="168" alt="Choose a refresh rate"></a>
+  <a href="docs/images/refresh-rate.png"><img src="docs/images/refresh-rate.png" width="84" alt="Choose a refresh rate"></a>
 </p>
 
 Use Refresh Rate to select a different available rate for the current size.
@@ -249,17 +249,19 @@ Off by default: the TV's shape wins, both share one size, and a 16:10 laptop sho
 
 ### Audio
 
+Open **More Controls** on an external display’s card. Choosing Audio switches the active output and remembers that display’s reconnect preference.
+
 Pick which output plays the Mac's sound whenever this display is connected: the TV's own HDMI audio, the 3.5 mm cable to the room amp, a USB dock, an AirPlay receiver, or a presentation gateway's driver. "Don't change" is the default, so plugging in to charge never hijacks a call. Remembered per display and carried in profiles.
 
 ### Choose where sound plays
 
 <p align="center">
-  <a href="docs/images/audio.png"><img src="docs/images/audio.png" width="420" alt="Choose where sound plays"></a>
+  <a href="docs/images/audio.png"><img src="docs/images/audio.png" width="210" alt="Choose where sound plays"></a>
 </p>
 
 Use Audio to remember a sound output for this connected display.
 
-1. Open Audio on the external display’s card.
+1. Open **More Controls → Audio** on the external display’s card.
 
 2. Select the TV, speakers, dock or other output you want to use.
 
@@ -272,13 +274,13 @@ Don’t change leaves audio routing alone when this display connects. Available 
 The **Output Volume** section beneath Screen Layout follows the active macOS audio device. Select **MacBook Pro Speakers** in macOS Sound or in a display’s Audio picker to control built-in speaker volume. Changes made with the volume keys, Control Center or another app update the control automatically while DisplayHelp is running.
 
 <p align="center">
-  <a href="docs/images/output-volume.png"><img src="docs/images/output-volume.png" width="440" alt="DisplayHelp 0.6.3 Output Volume with sample built-in speakers, a volume slider and Mute button"></a>
+  <a href="docs/images/output-volume.png"><img src="docs/images/output-volume.png" width="440" alt="DisplayHelp 0.6.4 Output Volume with sample built-in speakers, a volume slider and Mute button"></a>
 </p>
 
 Use the slider or **Mute / Unmute** when available. Some outputs, commonly HDMI, do not expose adjustable software volume to macOS. Use their physical controls, or **Monitor Volume** when the monitor supports DDC/CI.
 
 <p align="center">
-  <a href="docs/images/output-volume-unavailable.png"><img src="docs/images/output-volume-unavailable.png" width="440" alt="DisplayHelp 0.6.3 explanation for an output without adjustable software volume"></a>
+  <a href="docs/images/output-volume-unavailable.png"><img src="docs/images/output-volume-unavailable.png" width="440" alt="DisplayHelp 0.6.4 explanation for an output without adjustable software volume"></a>
 </p>
 
 Output Volume and mute are live system controls and are **not saved in profiles**. The separately labeled **Monitor Volume** slider controls an external monitor through DDC/CI and keeps its existing profile behavior. Changing the active output during an adjustment prevents the old control from writing to the newly selected device.
@@ -290,7 +292,7 @@ Controls appear only when the display, connection and available readings support
 ### Rotate a display
 
 <p align="center">
-  <a href="docs/images/rotation.png"><img src="docs/images/rotation.png" width="154" alt="Rotate a display"></a>
+  <a href="docs/images/rotation.png"><img src="docs/images/rotation.png" width="77" alt="Rotate a display"></a>
 </p>
 
 Use Rotation for a screen mounted in portrait orientation or another supported position.
@@ -308,25 +310,27 @@ Opening the menu alone makes no change. Rotation and the other controls in this 
 Click **Identify Displays** beneath Screen Layout. Large numbers and display names appear for five seconds, matching the preview. Extended screens get separate labels; mirrored screens share a group such as **1 + 2**. The labels do not change settings, steal focus or block clicks. Clicking again restarts the timer.
 
 <p align="center">
-  <a href="docs/images/identify-displays.png"><img src="docs/images/identify-displays.png" width="440" alt="DisplayHelp 0.6.3 temporary Identify Displays label using sample display names"></a>
+  <a href="docs/images/identify-displays.png"><img src="docs/images/identify-displays.png" width="420" alt="DisplayHelp 0.6.4 temporary Identify Displays label using sample display names"></a>
 </p>
 
 ### Choose and save the main screen
 
 1. Use **Extend** mode and find the desired display’s card. Use **Identify Displays** if needed.
-2. Under **Position**, click **Make Main**, then **Keep Changes**. The preview marks it **Main**.
+2. Open **Place… → Make [display name] Main**, then **Keep Changes**. The preview marks it **Main**.
 3. Save a new profile, or choose **Profile → Overwrite with Current Settings → [profile name]**.
 
 Both **Full setup** and **Layout only** profiles save the main-screen choice. Existing profiles change only when you save or overwrite them.
 
 ### Position
 
-In Extend mode: Make Main moves the menu bar to that display. Place… puts it left, right, above or below another, with top/center/bottom alignment for side-by-side displays or left/center/right alignment for stacked displays. The numbered layout preview shows relative sizes, positions, rotation and the main display. These controls are hidden while mirrored, where independent position has no meaning.
+Each card shows its detected side and alignment relative to a named screen, plus rotation. Nonstandard arrangements show **Custom position**; mirrored and single displays show their arrangement instead. These readouts reflect the current setup, including changes made outside the app or reverted changes.
+
+In Extend mode: **Place… → Make [display name] Main** moves the menu bar to that display. Place… puts it left, right, above or below another, with top/center/bottom alignment for side-by-side displays or left/center/right alignment for stacked displays. The numbered layout preview shows relative sizes, positions, rotation and the main display. The Place menu is hidden while mirrored, where independent position has no meaning; the arrangement and rotation readouts remain visible.
 
 ### Arrange extended displays
 
 <p align="center">
-  <a href="docs/images/position.png"><img src="docs/images/position.png" width="358" alt="Arrange extended displays"></a>
+  <a href="docs/images/position.png"><img src="docs/images/position.png" width="275" alt="Arrange extended displays"></a>
 </p>
 
 Use Place… when the pointer moves between screens in the wrong direction.
@@ -337,7 +341,7 @@ Use Place… when the pointer moves between screens in the wrong direction.
 
 3. Move the pointer across the shared edge to test the layout. Use Make Main if that display should hold the main desktop.
 
-For example, choose Left of Built-in Display when the external screen sits to the left of the laptop.
+For example, on the external screen’s card choose **Place… → Relative to Built-in Display → Place [external name] left of Built-in Display**, then an alignment. Choosing Left on the built-in card instead puts the laptop to the left of the external screen.
 
 ### Rename
 
@@ -352,7 +356,7 @@ Rename is active in this screenshot: the external display’s name is editable a
 ### Inspect display details
 
 <p align="center">
-  <a href="docs/images/display-details.png"><img src="docs/images/display-details.png" width="440" alt="Inspect display details"></a>
+  <a href="docs/images/display-details.png"><img src="docs/images/display-details.png" width="320" alt="Inspect display details"></a>
 </p>
 
 Use the information popover when checking capabilities or reporting a problem.
@@ -372,7 +376,7 @@ Rooms differ. The same laptop mirrors to a 4K TV in 204, extends to a portrait s
 ### Open the Profile menu
 
 <p align="center">
-  <a href="docs/images/profiles.png"><img src="docs/images/profiles.png" width="440" alt="Open the Profile menu"></a>
+  <a href="docs/images/profiles.png"><img src="docs/images/profiles.png" width="287" alt="Open the Profile menu"></a>
 </p>
 
 A profile is a named snapshot of a setup. Choose **Full setup** to include readable picture controls and audio, or **Layout only** to save resolution, refresh rate, rotation, position, mirroring and the main display without changing brightness, contrast, volume, underscan or audio.
@@ -424,7 +428,7 @@ Manual profile restores and changes to resolution, rotation, underscan, mirrorin
 ### Preview and restore a profile
 
 <p align="center">
-  <a href="docs/images/restore-preview.png"><img src="docs/images/restore-preview.png" width="440" alt="Preview and restore a profile"></a>
+  <a href="docs/images/restore-preview.png"><img src="docs/images/restore-preview.png" width="392" alt="Preview and restore a profile"></a>
 </p>
 
 The preview shows the differences between the current setup and the saved one.
@@ -444,7 +448,7 @@ Profile › Load Automatically When Connected opts a profile into loading when i
 ### Enable automatic profile loading
 
 <p align="center">
-  <a href="docs/images/automatic-profile.png"><img src="docs/images/automatic-profile.png" width="440" alt="Enable automatic profile loading"></a>
+  <a href="docs/images/automatic-profile.png"><img src="docs/images/automatic-profile.png" width="223" alt="Enable automatic profile loading"></a>
 </p>
 
 Use this when a known combination of displays should load the same setup on connection.
@@ -496,15 +500,15 @@ Sample data: saved laptop and monitor identities are mapped to the current fixtu
 ## Clear history, forget a display, or start fresh
 
 <p align="center">
-  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.3 More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions with sample data"></a>
+  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.4 Troubleshooting, More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions with sample data"></a>
 </p>
 
 
 | What you want | Action | What is kept |
 |---|---|---|
-| Clear the activity list | **Recent Events → Clear Connection History** | Saved profiles, favorites and remembered monitor settings; the old log is archived |
+| Clear the activity list | **Troubleshooting → Recent Events → Clear Connection History** | Saved profiles, favorites and remembered monitor settings; the old log is archived |
 | Ask again when one monitor reconnects | Its **… → Forget This Display…** menu | Saved profiles, favorites, history and the current screen setup |
-| Reset all remembered app data | **Fixes → More → Reset All DisplayHelp Data…** | A backup of the old data, custom fixes, Start at Login and the current screen setup |
+| Reset all remembered app data | **Troubleshooting → More → Reset All DisplayHelp Data…** | A backup of the old data, custom fixes, Start at Login and the current screen setup |
 
 **Automatic profile loading is optional.** Under **Profile → Load Automatically When Connected**, uncheck
 individual profiles or choose **Turn Off All Automatic Profiles**. Profiles stay available for manual use.
@@ -523,6 +527,8 @@ instructions](docs/user-guide.md#clear-history-forget-a-display-or-start-fresh).
 
 ## Fixes
 
+Expand **Troubleshooting** to reach Detect Displays, fixes, Recent Events and Copy Diagnostics.
+
 - Reset Display Preferences clears macOS’s saved display configuration and restarts the display session. Everyone using the Mac is logged out, so save work first. Use it when display problems persist after trying the ordinary controls. It requires an administrator password. Starting with 0.5.2, ColorSync profile files are preserved. Older installers may remove certain display-profile folders; update before resetting a calibrated system.
 
 ### Find the troubleshooting actions
@@ -533,7 +539,7 @@ instructions](docs/user-guide.md#clear-history-forget-a-display-or-start-fresh).
 
 The Fixes area contains Reset and any extra actions supplied by your helpdesk.
 
-1. Open the DisplayHelp menu and find Fixes.
+1. Open the DisplayHelp menu and expand **Troubleshooting**.
 
 2. Choose Reset Display Preferences only when the ordinary controls have not solved the problem.
 
@@ -544,7 +550,7 @@ Opening a menu does not run a fix. Reset and Uninstall are separate actions; cho
 ### Review the reset warning
 
 <p align="center">
-  <a href="docs/images/reset-confirmation.png"><img src="docs/images/reset-confirmation.png" width="440" alt="Review the reset warning"></a>
+  <a href="docs/images/reset-confirmation.png"><img src="docs/images/reset-confirmation.png" width="260" alt="Review the reset warning"></a>
 </p>
 
 Reset is a troubleshooting action that logs everyone out.
@@ -555,7 +561,7 @@ Reset is a troubleshooting action that logs everyone out.
 
 3. Choose Run only when you intend to reset the display configuration, then authenticate through macOS.
 
-Use this after ordinary display controls have failed, preferably with your helpdesk’s guidance. Shown: the 0.6.3 confirmation, which explicitly preserves ColorSync profiles. The dialog was dismissed after capture; the reset was not run.
+Use this after ordinary display controls have failed, preferably with your helpdesk’s guidance. Shown: the 0.6.4 confirmation, which explicitly preserves ColorSync profiles. The dialog was dismissed after capture; the reset was not run.
 
 ### Custom Fixes: install and use your own actions
 
@@ -610,7 +616,7 @@ The installed scripts appear as named buttons under Custom Fixes. Choose Demo �
 2. Read the confirmation. Choose Run to test it, or Cancel to leave it untouched.
 
 <p align="center">
-  <a href="docs/images/custom-fixes-confirmation.png"><img src="docs/images/custom-fixes-confirmation.png" width="440" alt="Custom fixes confirmation"></a>
+  <a href="docs/images/custom-fixes-confirmation.png"><img src="docs/images/custom-fixes-confirmation.png" width="260" alt="Custom fixes confirmation"></a>
 </p>
 
 Review the action before running it. This demo requests no administrator password and changes no settings. Choose Run to continue or Cancel to stop.
@@ -621,7 +627,7 @@ Review the action before running it. This demo requests no administrator passwor
   <a href="docs/images/custom-fixes-success.png"><img src="docs/images/custom-fixes-success.png" width="440" alt="Custom fixes success"></a>
 </p>
 
-A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in the isolated 0.6.3 capture app.
+A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in the isolated 0.6.4 capture app.
 
 4. Choose Restart Dock only when you intend to refresh the Dock. It briefly disappears and returns. A nonzero exit means the command failed; for example, the Dock may not be running.
 
@@ -651,7 +657,7 @@ For managed deployment, install approved scripts separately for each intended us
 | Snow or "no signal" on a TV after picking a size | Try a supported size such as 1920×1080. Check the cable, adapter and display input if the problem continues. |
 | Everything tiny on the TV | Try Best for Display or choose a readable HiDPI size when available. |
 | Black band top and bottom of the laptop while mirrored | Normal for a 16:10 laptop on a 16:9 screen. Turn on Laptop Leads Mirror or use Extend. |
-| Display drops and returns every ten seconds | Reseat the cable. Recent Events will show connect/disconnect pairs with no mode change between them. That is the link, not a setting. |
+| Display drops and returns every ten seconds | Reseat the cable. Recent Events will show connect/disconnect pairs with no mode change between them. These events show connection loss but cannot establish its cause; compare with the app quit and a known-working cable or adapter. |
 | The app asks Mirror/Extend again for a display it knew | The reported display identity may have changed, or saved settings were removed. Choose the arrangement again. |
 | The card says "Display 2" instead of the TV's name | The TV's identity arrived late. The app re-reads it within two seconds. |
 
@@ -665,7 +671,7 @@ If the problem continues, open Recent Events and share the relevant details with
 
 Recent Events helps you see what changed around the time a problem occurred.
 
-1. Open the DisplayHelp menu and expand Recent Events.
+1. Open the DisplayHelp menu and expand **Troubleshooting → Recent Events**.
 
 2. Look for connection changes, setting changes or failures near the time of the problem.
 
@@ -677,7 +683,7 @@ Record useful details before choosing Clear Connection History. Opening Recent E
 
 Unreadable profile files are preserved and cannot be silently overwritten. If a last-good backup is available, **Recover Profiles from Backup** restores it and archives the original. **Archive Original and Start Fresh…** preserves the original before creating an empty library, including when no backup exists. Remembered display preferences likewise refuse writes over an unreadable file.
 
-**Copy Diagnostics** copies the current layout, display capabilities and recent events to your clipboard for support. Each display also explains unavailable controls. Monitor identities and event details are included, so review the text before sharing. Ambiguous DDC hardware matches are disabled rather than risking changes to another monitor.
+**Troubleshooting → Copy Diagnostics** copies the current layout, display capabilities and up to 20 recent events to your clipboard for support. Placement and rotation traces include requested and observed settings, verification, and linked Keep/Revert outcomes. Each display also explains unavailable controls. Monitor identities and event details are included, so review the text before sharing. Ambiguous DDC hardware matches are disabled rather than risking changes to another monitor.
 
 DisplayHelp keeps your saved display choices, profiles and recent activity locally in your macOS user account. Different users and different Macs keep separate settings. Use the app’s profile export and import controls to move saved setups.
 

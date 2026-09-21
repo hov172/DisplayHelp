@@ -5,21 +5,20 @@
 | [../README.md](../README.md) | Everyone | Why the app exists, install, everyday use |
 | [user-guide.md](user-guide.md) | Users, helpdesk | Every control, what it does, when it appears |
 | [troubleshooting.md](troubleshooting.md) | Helpdesk | Symptom → action → cause, collecting diagnostics |
-| [rollout.md](rollout.md) | IT admins | Build, sign, notarize, pilot, fleet push, removal |
+| [rollout.md](rollout.md) | IT admins | Download, pilot, fleet push, removal |
 | [data-files.md](data-files.md) | Helpdesk, developers | JSON formats, identity keys, history event kinds |
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
 
-[0.6.3 release notes](release-0.6.3.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[0.6.4 release notes](release-0.6.4.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 
-**Every app UI screenshot in the current documentation shows DisplayHelp 0.6.3 (95)**, captured on 2026-09-20.
+**The current screenshot gallery below shows DisplayHelp 0.6.4 (102)**, captured on 2026-09-21. Historical release documents retain their original evidence.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
 audio devices and history. They are native UI captures, not drawn mockups or live desktop thumbnails. Picker screenshots isolate the open native menu so choices remain readable.
 
-Capture-only copies may expose private view types or set an initial expanded/editing state so a control can be
-photographed. The displayed controls and text retain the production implementation. The file-browser image shows an
+Capture fixtures may start with expanded controls or editing enabled so a control can be photographed. The displayed controls and text retain the production implementation. The file-browser image shows an
 isolated examples folder. No real display settings, audio volume/routing, saved profiles or user history were changed for screenshots. Reset, uninstall,
 profile restore and import dialogs were canceled; only the harmless Custom Fixes demo was executed.
 
@@ -33,7 +32,7 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Output Volume](images/output-volume.png) | Sample built-in speaker volume and mute controls using the production audio view. |
 | [Unavailable output volume](images/output-volume-unavailable.png) | Explanation for a sample fixed-volume HDMI output. |
 | [Identify Displays](images/identify-displays.png) | Actual temporary identification panel using sample names; no screen settings changed. |
-| [Taller menu](images/menu-viewport.png) | Native visible menu viewport, up to 900 points high; remaining content scrolls. |
+| [Taller menu](images/menu-viewport.png) | Compact native menu viewport, up to 900 points high; remaining content scrolls. |
 | [Layout and favorites](images/layout-profiles.png) | Full scroll content with two favorite templates and sample extended displays. |
 | [Menu overview](images/menu.png) | Current display cards and controls using sample hardware. |
 | [Extended displays](images/extend.png) | Separate desktops and position controls. |
@@ -54,12 +53,12 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [First connection](images/first-connect.png) | Mirror, Extend and Not now prompt for a sample external screen. |
 | [Keep changes](images/keep-changes.png) | One native countdown window with Keep/Revert actions. |
 | [Mirrored layout](images/mirrored-layout.png) | A mirror group represented together with combined screen numbers. |
-| [Data actions](images/data-actions.png) | More and Recent Events expanded, with separate full-reset and history-only actions. |
+| [Data actions](images/data-actions.png) | Troubleshooting, More and Recent Events expanded, with separate full-reset and history-only actions. |
 | [Fixes](images/fixes.png) | Current reset, custom-fix and More controls. |
 | [Reset warning](images/reset-confirmation.png) | Current ColorSync-preserving reset warning; canceled. |
 | [Uninstall warning](images/uninstall-confirmation.png) | Current uninstall confirmation; canceled without removing anything. |
 | [Recent Events](images/recent-events.png) | Sample activity log and Clear Connection History action. |
-| [About](images/about.png) | Current version 0.6.3 and build 95 with credits. |
+| [About](images/about.png) | Current version 0.6.4 and build 102 with credits. |
 | [Custom scripts folder](images/custom-fixes-folder.png) | Example script files in an isolated capture folder. |
 | [Custom Fixes](images/custom-fixes-menu.png) | Demo and optional Dock restart actions in the current interface. |
 | [Demo confirmation](images/custom-fixes-confirmation.png) | Actual confirmation for the harmless example demo. |

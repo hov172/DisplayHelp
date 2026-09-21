@@ -73,7 +73,7 @@ mapping the built-in panel, external displays and audio devices as needed. Impor
 and start with automatic loading disabled and no favorite slots assigned. Display nicknames are not transferred by profile import.
 
 **Why does the screenshot have fewer controls than the guide describes?**
-Controls depend on the hardware and current arrangement. Position appears in Extend mode. External brightness,
+Everyday controls stay visible; expand **More Controls** for advanced settings and **Troubleshooting** for fixes and diagnostics. Controls also depend on the hardware and current arrangement. Place… appears in Extend mode. External brightness,
 contrast and volume need DDC readback; rotation and underscan need platform support. Missing controls do not
 mean the app failed to detect the display.
 
@@ -99,14 +99,14 @@ Yes. They are opt-in. Uncheck a profile under **Profile → Load Automatically W
 **Turn Off All Automatic Profiles**. Profiles and favorites remain available for manual use.
 
 **Can I reset everything?**
-Use **Fixes → More → Reset All DisplayHelp Data… → Back Up and Reset**. This clears active preferences, profiles,
+Use **Troubleshooting → More → Reset All DisplayHelp Data… → Back Up and Reset**. This clears active preferences, profiles,
 favorites and history while saving a backup. Current screen settings, custom fixes and Start at Login remain.
 
 **How do I tell which physical screen matches a numbered preview?**
 Click **Identify Displays** beneath Screen Layout when an external screen is connected. Numbers and names appear for five seconds on each desktop. Mirrored screens share a label. Repeated clicks restart the timer, and a display-configuration change dismisses the labels. No display settings change.
 
 **Can I choose a main display and save it in a profile?**
-Yes. In Extend mode, choose **Position → Make Main** on the desired display and confirm **Keep Changes**. Save a new profile or overwrite an existing one with the current settings. Full setup and Layout only profiles both save the main-screen choice.
+Yes. In Extend mode, choose **Place… → Make [display name] Main** on the desired display and confirm **Keep Changes**. Save a new profile or overwrite an existing one with the current settings. Full setup and Layout only profiles both save the main-screen choice.
 
 **Can DisplayHelp control the Mac’s built-in speaker volume?**
 Yes, starting in 0.6.3. Select the built-in speakers as the active output, then use Output Volume beneath Screen Layout. Volume and mute controls appear when the selected device exposes writable controls. Audio changes made outside the app are detected while DisplayHelp is running.
@@ -116,3 +116,6 @@ That audio device does not expose a readable, writable volume control to macOS. 
 
 **Do profiles save Output Volume or mute?**
 No. Those are live system controls. Full setup profiles still save the chosen audio output and supported external-monitor DDC volume. Layout-only profiles leave audio alone.
+
+**Why does choosing Left put the external screen on the right?**
+Place acts on the card you opened. Choosing “Built-in Display left of SAMSUNG” puts the laptop on the left and SAMSUNG on the right. To put SAMSUNG left of the laptop, open Place… on SAMSUNG’s card and choose it left of Built-in Display. The visible placement, alignment and rotation describe the actual setup.

@@ -2,27 +2,22 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release validation for 0.6.3 is recorded in [release-0.6.3.md](release-0.6.3.md), including automated checks,
-architecture coverage and live built-in speaker volume/mute validation. This does not complete the checklist below: room hardware checks, MDM deployment,
+Release validation for 0.6.4 (102) is recorded in [release-0.6.4.md](release-0.6.4.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements
 - macOS 14 Sonoma or later. Apple Silicon or Intel; the package is universal.
 - An MDM that can push a `.pkg` (Jamf, Kandji, Mosyle, Intune, Addigy all work). Ad-hoc signed builds are fine on managed Macs.
-- For unmanaged or BYOD Macs: a Developer ID and notarization, see step 4.
+- For unmanaged or BYOD Macs: use the Developer ID signed and notarized release installer, see step 4.
 
 ## 1. Baseline (before any install)
 - [ ] Export ticket counts tagged projector/display for the last two semesters. Record totals per month in this file.
 - [ ] Note the median time-to-close for those tickets.
 - [ ] Confirm the fleet is on macOS 14 or later and which MDM will push the pkg.
 
-## 2. Build
-```bash
-./scripts/package.sh                                    # ad-hoc signed, fine for MDM-managed Macs
-SIGN_IDENTITY="Developer ID Application: School (TEAMID)" \
-INSTALLER_IDENTITY="Developer ID Installer: School (TEAMID)" ./scripts/package.sh
-```
-Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
+## 2. Download
+
+Use the [signed and notarized 0.6.4 installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4.pkg) and [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/SHA256SUMS.txt). Verify the package before deploying it. This repository provides documentation and helper scripts; application source is proprietary.
 
 ## 3. Pilot (3–5 rooms, two weeks)
 - [ ] Install the pkg on pilot Macs with the MDM. The postinstall opens the app; "Start at login" is on by default.
@@ -34,11 +29,11 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] Export and import a profile; check device mapping, preservation of existing profiles and automatic loading disabled on the import.
 - [ ] Test a missing display or unavailable audio output and confirm the restore reports a partial result.
 - [ ] On a 4K TV press **Best for Display** and check the selected mode. Expect 1920×1080 HiDPI when a suitable native HiDPI mode is offered; record the actual refresh rate and connection. Use the [current screenshot guide](README.md#screenshots) to locate controls; its sample values are not a hardware target.
-- [ ] In Extend mode verify **Make Main** and **Place…**; return to the intended room arrangement before saving its profile.
-- [ ] Try the brightness slider on the projector. No slider means DDC is unsupported on that projector or port (HDMI on Apple Silicon never supports it; USB-C/DisplayPort may). Nothing else changes.
+- [ ] In Extend mode verify **Place… → Make [display name] Main** and relative placement; return to the intended room arrangement before saving its profile.
+- [ ] Try the brightness slider on the projector. No slider means no usable DDC reading was available; monitor settings, adapter and connection support can affect it. Nothing else changes.
 - [ ] Helpdesk-only: create `~/Library/Application Support/DisplayHelp/scripts/` and drop a test `.sh` (owned by the user, mode 0755) to confirm "Custom fixes" appears.
 - [ ] After two weeks collect `~/Library/Application Support/DisplayHelp/history.jsonl` from each pilot Mac and count `connected` vs `applyFailed`.
-- [ ] On one pilot Mac run **Fixes › Uninstall DisplayHelp…** and confirm the app, login item and receipt are gone, then reinstall.
+- [ ] On one pilot Mac run **Troubleshooting → More → Uninstall DisplayHelp…** and confirm the app, login item and receipt are gone, then reinstall.
 
 - [ ] Save one full profile and one layout-only profile, assign favorites 1 and 2, and confirm the latter leaves picture levels and audio unchanged.
 - [ ] Change a resolution, allow the 20-second countdown to expire, and check the previous setup returns; repeat and choose Keep Changes.
@@ -52,7 +47,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] Upgrade while DisplayHelp is running; verify the new version appears after the installer closes and relaunches the app.
 
 ## 4. Fleet
-- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts. The exact commands are in CONTRIBUTING.md › Releasing.
+- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.
 - [ ] Push the pkg fleet-wide. Optional: push approved custom scripts to each user's scripts folder via MDM (must be owned by that user).
 - [ ] Compare ticket counts to the baseline after one semester. Target: -50%.
 
@@ -67,7 +62,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 | Logs | `log show --predicate 'subsystem == "DisplayHelp"' --last 1h` |
 
 ## Removing it
-From the app: **Fixes › Uninstall DisplayHelp…**. From MDM, as root:
+From the app: **Troubleshooting → More → Uninstall DisplayHelp…**. From MDM, as root:
 
     /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_DisplayHelp.bundle/Contents/Resources/Resources/Uninstall/uninstall.sh \
         /Applications/DisplayHelp.app purge /Users/<name>
