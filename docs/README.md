@@ -5,10 +5,12 @@
 | [../README.md](../README.md) | Everyone | Why the app exists, install, everyday use |
 | [user-guide.md](user-guide.md) | Users, helpdesk | Every control, what it does, when it appears |
 | [troubleshooting.md](troubleshooting.md) | Helpdesk | Symptom → action → cause, collecting diagnostics |
-| [rollout.md](rollout.md) | IT admins | Pilot, fleet push, removal |
-| [data-files.md](data-files.md) | Helpdesk | JSON formats, identity keys, history event kinds |
+| [rollout.md](rollout.md) | IT admins | Build, sign, notarize, pilot, fleet push, removal |
+| [data-files.md](data-files.md) | Helpdesk, developers | JSON formats, identity keys, history event kinds |
+| [architecture.md](architecture.md) | Developers | Modules, data flow, hardware-derived decisions, tests |
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
+| [../CONTRIBUTING.md](../CONTRIBUTING.md) | Developers | Build, test, style, commit conventions |
 
 [0.6.1 release notes](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
@@ -25,6 +27,8 @@ profile restore and import dialogs were canceled; only the harmless Custom Fixes
 
 Sample modes, refresh rates, identities and DDC sliders demonstrate the interface; availability depends on the
 actual monitor, adapter and connection. The independent real-hardware validation is recorded in the release notes.
+
+Screenshots preserve their native aspect ratios. Inline previews are capped at 440 pixels wide and 660 pixels tall; small menus are never enlarged. Click a preview to view the original capture. The [video thumbnail](images/video-guide.jpg) is hosted here for reliable loading and depicts the earlier interface shown in the video.
 
 | Image | Current capture |
 |---|---|
@@ -59,3 +63,5 @@ actual monitor, adapter and connection. The independent real-hardware validation
 | [Custom Fixes](images/custom-fixes-menu.png) | Demo and optional Dock restart actions in the current interface. |
 | [Demo confirmation](images/custom-fixes-confirmation.png) | Actual confirmation for the harmless example demo. |
 | [Demo result](images/custom-fixes-success.png) | Harmless demo executed against isolated fixture data, with exit 0. |
+
+For capture instructions, see [Contributing](../CONTRIBUTING.md#documentation-screenshots).

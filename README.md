@@ -7,7 +7,7 @@ Version **0.6.1** • macOS 14 Sonoma or later • Apple Silicon and Intel • P
 ### Watch the guide
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=fuq8IgGv5uk"><img src="https://img.youtube.com/vi/fuq8IgGv5uk/maxresdefault.jpg" width="560" alt="DisplayHelp — The Complete Guide on YouTube"></a>
+  <a href="https://www.youtube.com/watch?v=fuq8IgGv5uk"><img src="docs/images/video-guide.jpg" width="560" alt="DisplayHelp — The Complete Guide on YouTube"></a>
 </p>
 
 [DisplayHelp — The Complete Guide](https://www.youtube.com/watch?v=fuq8IgGv5uk) covers the earlier interface in 17 minutes, with chapters for install, Mirror and Extend, profiles, fixes and troubleshooting.
@@ -26,13 +26,13 @@ Version 0.6.1 adds Forget This Display, a backed-up Reset All DisplayHelp Data a
 Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and layout-only profiles, aligned screen placement, and a single 20-second Keep/Revert window. Display changes are verified before they are remembered. Existing profiles remain compatible.
 
 <p align="center">
-  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="440" alt="DisplayHelp 0.6.1 native interface with two favorite profiles and an extended layout using sample display data"></a>
+  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="323" alt="DisplayHelp 0.6.1 native interface with two favorite profiles and an extended layout using sample display data"></a>
 </p>
 
 The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.1 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
 
 <p align="center">
-  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.1 Keep or Revert confirmation with countdown"></a>
+  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="440" alt="DisplayHelp 0.6.1 Keep or Revert confirmation with countdown"></a>
 </p>
 
 - macOS 14 Sonoma or later, Apple Silicon and Intel.
@@ -88,7 +88,7 @@ For organization-wide installation, ask your IT team to deploy the installer thr
 ### Check your installed version
 
 <p align="center">
-  <a href="docs/images/about.png"><img src="docs/images/about.png" width="340" alt="Check your installed version"></a>
+  <a href="docs/images/about.png"><img src="docs/images/about.png" width="440" alt="Check your installed version"></a>
 </p>
 
 Use About when your helpdesk asks which version you have.
@@ -116,7 +116,7 @@ Choose Mirror or Extend and DisplayHelp remembers the choice for this display on
 ### Choose what happens on connection
 
 <p align="center">
-  <a href="docs/images/first-connect.png"><img src="docs/images/first-connect.png" width="340" alt="Choose what happens on connection"></a>
+  <a href="docs/images/first-connect.png"><img src="docs/images/first-connect.png" width="440" alt="Choose what happens on connection"></a>
 </p>
 
 This prompt appears when DisplayHelp needs an arrangement choice for an external display.
@@ -149,7 +149,7 @@ Each card’s status line has a coloured dot. Green means the display passes the
 ### Find the control you need
 
 <p align="center">
-  <a href="docs/images/menu.png"><img src="docs/images/menu.png" width="320" alt="Find the control you need"></a>
+  <a href="docs/images/menu.png"><img src="docs/images/menu.png" width="323" alt="Find the control you need"></a>
 </p>
 
 The main menu groups settings into a card for each connected display.
@@ -175,7 +175,7 @@ Two buttons on each external display's card. The one you are on is greyed. The c
 ### Switch to separate desktops
 
 <p align="center">
-  <a href="docs/images/extend.png"><img src="docs/images/extend.png" width="320" alt="Switch to separate desktops"></a>
+  <a href="docs/images/extend.png"><img src="docs/images/extend.png" width="440" alt="Switch to separate desktops"></a>
 </p>
 
 Use Extend when you want different windows on the laptop and external screen.
@@ -195,7 +195,7 @@ Resolution lists available sizes and scaling options, using the highest offered 
 ### Choose a resolution
 
 <p align="center">
-  <a href="docs/images/resolution.png"><img src="docs/images/resolution.png" width="320" alt="Choose a resolution"></a>
+  <a href="docs/images/resolution.png"><img src="docs/images/resolution.png" width="384" alt="Choose a resolution"></a>
 </p>
 
 Use Resolution to change desktop size or make text easier to read.
@@ -213,7 +213,7 @@ Refresh Rate appears when the current size offers more than one rate. Choose a r
 ### Choose a refresh rate
 
 <p align="center">
-  <a href="docs/images/refresh-rate.png"><img src="docs/images/refresh-rate.png" width="320" alt="Choose a refresh rate"></a>
+  <a href="docs/images/refresh-rate.png"><img src="docs/images/refresh-rate.png" width="168" alt="Choose a refresh rate"></a>
 </p>
 
 Use Refresh Rate to select a different available rate for the current size.
@@ -245,7 +245,7 @@ Pick which output plays the Mac's sound whenever this display is connected: the 
 ### Choose where sound plays
 
 <p align="center">
-  <a href="docs/images/audio.png"><img src="docs/images/audio.png" width="320" alt="Choose where sound plays"></a>
+  <a href="docs/images/audio.png"><img src="docs/images/audio.png" width="420" alt="Choose where sound plays"></a>
 </p>
 
 Use Audio to remember a sound output for this connected display.
@@ -265,7 +265,7 @@ Controls appear only when the display, connection and available readings support
 ### Rotate a display
 
 <p align="center">
-  <a href="docs/images/rotation.png"><img src="docs/images/rotation.png" width="320" alt="Rotate a display"></a>
+  <a href="docs/images/rotation.png"><img src="docs/images/rotation.png" width="154" alt="Rotate a display"></a>
 </p>
 
 Use Rotation for a screen mounted in portrait orientation or another supported position.
@@ -285,7 +285,7 @@ In Extend mode: Make Main moves the menu bar to that display. Place… puts it l
 ### Arrange extended displays
 
 <p align="center">
-  <a href="docs/images/position.png"><img src="docs/images/position.png" width="320" alt="Arrange extended displays"></a>
+  <a href="docs/images/position.png"><img src="docs/images/position.png" width="358" alt="Arrange extended displays"></a>
 </p>
 
 Use Place… when the pointer moves between screens in the wrong direction.
@@ -303,7 +303,7 @@ For example, choose Left of Built-in Display when the external screen sits to th
 Use the pencil next to an external display’s name, type a room name and press Return. The nickname is stored for this user on this Mac. It is not transferred by profile import. Renaming cannot distinguish two displays that report the same identity.
 
 <p align="center">
-  <a href="docs/images/rename.png"><img src="docs/images/rename.png" width="320" alt="Rename"></a>
+  <a href="docs/images/rename.png"><img src="docs/images/rename.png" width="440" alt="Rename"></a>
 </p>
 
 Rename is active in this screenshot: the external display’s name is editable at the top of its card. Replace it with a room name, then press Return to save or Escape to cancel. The normal display icon and status return when editing ends.
@@ -311,7 +311,7 @@ Rename is active in this screenshot: the external display’s name is editable a
 ### Inspect display details
 
 <p align="center">
-  <a href="docs/images/display-details.png"><img src="docs/images/display-details.png" width="320" alt="Inspect display details"></a>
+  <a href="docs/images/display-details.png"><img src="docs/images/display-details.png" width="440" alt="Inspect display details"></a>
 </p>
 
 Use the information popover when checking capabilities or reporting a problem.
@@ -331,7 +331,7 @@ Rooms differ. The same laptop mirrors to a 4K TV in 204, extends to a portrait s
 ### Open the Profile menu
 
 <p align="center">
-  <a href="docs/images/profiles.png"><img src="docs/images/profiles.png" width="320" alt="Open the Profile menu"></a>
+  <a href="docs/images/profiles.png"><img src="docs/images/profiles.png" width="440" alt="Open the Profile menu"></a>
 </p>
 
 A profile is a named snapshot of a setup. Choose **Full setup** to include readable picture controls and audio, or **Layout only** to save resolution, refresh rate, rotation, position, mirroring and the main display without changing brightness, contrast, volume, underscan or audio.
@@ -355,7 +355,7 @@ Choosing a saved name opens a preview first. Review it before applying changes.
 ### Save the current setup
 
 <p align="center">
-  <a href="docs/images/save-profile.png"><img src="docs/images/save-profile.png" width="320" alt="Save the current setup"></a>
+  <a href="docs/images/save-profile.png"><img src="docs/images/save-profile.png" width="323" alt="Save the current setup"></a>
 </p>
 
 Use a separate profile for each room or arrangement you want to recall.
@@ -383,7 +383,7 @@ Manual profile restores and changes to resolution, rotation, underscan, mirrorin
 ### Preview and restore a profile
 
 <p align="center">
-  <a href="docs/images/restore-preview.png"><img src="docs/images/restore-preview.png" width="520" alt="Preview and restore a profile"></a>
+  <a href="docs/images/restore-preview.png"><img src="docs/images/restore-preview.png" width="440" alt="Preview and restore a profile"></a>
 </p>
 
 The preview shows the differences between the current setup and the saved one.
@@ -403,7 +403,7 @@ Profile › Load Automatically When Connected opts a profile into loading when i
 ### Enable automatic profile loading
 
 <p align="center">
-  <a href="docs/images/automatic-profile.png"><img src="docs/images/automatic-profile.png" width="320" alt="Enable automatic profile loading"></a>
+  <a href="docs/images/automatic-profile.png"><img src="docs/images/automatic-profile.png" width="440" alt="Enable automatic profile loading"></a>
 </p>
 
 Use this when a known combination of displays should load the same setup on connection.
@@ -421,7 +421,7 @@ Profile › Export… shares one or all saved profiles. Import Profiles… lets 
 ### Import a shared profile
 
 <p align="center">
-  <a href="docs/images/import-mapping.png"><img src="docs/images/import-mapping.png" width="340" alt="Import a shared profile"></a>
+  <a href="docs/images/import-mapping.png"><img src="docs/images/import-mapping.png" width="440" alt="Import a shared profile"></a>
 </p>
 
 Use Import Profiles… to bring a saved setup from another Mac into this one.
@@ -439,7 +439,7 @@ The dialog uses sample profile data. Existing profiles are preserved, duplicate 
 ### Choose the matching display
 
 <p align="center">
-  <a href="docs/images/import-display-choices.png"><img src="docs/images/import-display-choices.png" width="340" alt="Choose the matching display"></a>
+  <a href="docs/images/import-display-choices.png"><img src="docs/images/import-display-choices.png" width="440" alt="Choose the matching display"></a>
 </p>
 
 Use each display selector to map the saved device to its counterpart on this Mac.
@@ -487,7 +487,7 @@ instructions](docs/user-guide.md#clear-history-forget-a-display-or-start-fresh).
 ### Find the troubleshooting actions
 
 <p align="center">
-  <a href="docs/images/fixes.png"><img src="docs/images/fixes.png" width="320" alt="Find the troubleshooting actions"></a>
+  <a href="docs/images/fixes.png"><img src="docs/images/fixes.png" width="440" alt="Find the troubleshooting actions"></a>
 </p>
 
 The Fixes area contains Reset and any extra actions supplied by your helpdesk.
@@ -503,7 +503,7 @@ Opening a menu does not run a fix. Reset and Uninstall are separate actions; cho
 ### Review the reset warning
 
 <p align="center">
-  <a href="docs/images/reset-confirmation.png"><img src="docs/images/reset-confirmation.png" width="320" alt="Review the reset warning"></a>
+  <a href="docs/images/reset-confirmation.png"><img src="docs/images/reset-confirmation.png" width="440" alt="Review the reset warning"></a>
 </p>
 
 Reset is a troubleshooting action that logs everyone out.
@@ -549,7 +549,7 @@ mkdir -p "$HOME/Library/Application Support/DisplayHelp/scripts"
 4. Copy demo.sh and, if wanted, restart-dock.sh into that folder. Copy the files themselves, not their enclosing folder. If a file with that name already exists, keep a backup before replacing it.
 
 <p align="center">
-  <a href="docs/images/custom-fixes-folder.png"><img src="docs/images/custom-fixes-folder.png" width="520" alt="Custom fixes folder"></a>
+  <a href="docs/images/custom-fixes-folder.png"><img src="docs/images/custom-fixes-folder.png" width="440" alt="Custom fixes folder"></a>
 </p>
 
 The image shows the files in an isolated example folder. On your Mac, place the two script files directly in the scripts folder. Do not place their enclosing folder here. Install just the demo if you only want to test setup.
@@ -557,7 +557,7 @@ The image shows the files in an isolated example folder. On your Mac, place the 
 5. Close and reopen the DisplayHelp menu. The actions should appear under Custom Fixes.
 
 <p align="center">
-  <a href="docs/images/custom-fixes-menu.png"><img src="docs/images/custom-fixes-menu.png" width="520" alt="Custom fixes menu"></a>
+  <a href="docs/images/custom-fixes-menu.png"><img src="docs/images/custom-fixes-menu.png" width="440" alt="Custom fixes menu"></a>
 </p>
 
 The installed scripts appear as named buttons under Custom Fixes. Choose Demo — Test Custom Fixes first; Restart Dock is a separate, optional action.
@@ -569,7 +569,7 @@ The installed scripts appear as named buttons under Custom Fixes. Choose Demo �
 2. Read the confirmation. Choose Run to test it, or Cancel to leave it untouched.
 
 <p align="center">
-  <a href="docs/images/custom-fixes-confirmation.png"><img src="docs/images/custom-fixes-confirmation.png" width="340" alt="Custom fixes confirmation"></a>
+  <a href="docs/images/custom-fixes-confirmation.png"><img src="docs/images/custom-fixes-confirmation.png" width="440" alt="Custom fixes confirmation"></a>
 </p>
 
 Review the action before running it. This demo requests no administrator password and changes no settings. Choose Run to continue or Cancel to stop.
@@ -577,7 +577,7 @@ Review the action before running it. This demo requests no administrator passwor
 3. Look below Fixes for “exit 0” and “Demo successful — Custom Fixes is working. No settings were changed.” Recent Events also records the outcome.
 
 <p align="center">
-  <a href="docs/images/custom-fixes-success.png"><img src="docs/images/custom-fixes-success.png" width="520" alt="Custom fixes success"></a>
+  <a href="docs/images/custom-fixes-success.png"><img src="docs/images/custom-fixes-success.png" width="440" alt="Custom fixes success"></a>
 </p>
 
 A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in the isolated 0.6.1 capture app.
@@ -619,7 +619,7 @@ If the problem continues, open Recent Events and share the relevant details with
 ### Use Recent Events for support
 
 <p align="center">
-  <a href="docs/images/recent-events.png"><img src="docs/images/recent-events.png" width="320" alt="Use Recent Events for support"></a>
+  <a href="docs/images/recent-events.png"><img src="docs/images/recent-events.png" width="440" alt="Use Recent Events for support"></a>
 </p>
 
 Recent Events helps you see what changed around the time a problem occurred.
