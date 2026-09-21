@@ -17,12 +17,13 @@
 The guide and current screenshots are from **0.6.1 (89)**. New screenshots captured on **2026-09-20** use
 sample display/profile data rendered through the production SwiftUI views. They show the updated layout,
 favorites and single Keep/Revert window; they are not live desktop thumbnails. No hardware changes were made
-for these screenshots. Different resolutions and rotation are illustrative, not a capability guarantee.
+for these screenshots. The data-actions capture uses a local fixture copy with only the initial More/Recent Events expansion states changed; no data actions were executed. Different resolutions and rotation are illustrative, not a capability guarantee.
 
 | Current image | What it shows |
 |---|---|
 | [Taller menu](images/menu-viewport.png) | Actual visible menu viewport, capped at 900 points and scrollable. |
 | [Layout and favorites](images/layout-profiles.png) | Full scrollable menu content, two favorite templates and extended screens with independent modes and rotation. |
+| [Data actions](images/data-actions.png) | More and Recent Events expanded: separate full-reset and history-only actions; sample events. |
 | [Keep changes](images/keep-changes.png) | One native confirmation with countdown and Keep/Revert actions. |
 | [Mirrored layout](images/mirrored-layout.png) | Mirrored screens represented together with combined numbers. |
 

@@ -10,6 +10,7 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 - **Reset All DisplayHelp Data…** offers a separate, confirmed fresh start with a recoverable backup. It clears active preferences/profiles/history while preserving current hardware settings, custom fixes and Start at Login.
 
 ### Changed
+- Completed README instructions and screenshots for data management; refreshed downloadable guides and screenshot assets.
 - Renamed the history action to **Clear Connection History** and clarified that it preserves profiles and display preferences.
 
 ### Fixed

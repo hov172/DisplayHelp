@@ -50,6 +50,7 @@ The new UI screenshots use sample display data rendered by the production views.
 - [The menu at a glance](#the-menu-at-a-glance)
 - [Everyday use](#everyday-use)
 - [Profiles: one name per room](#profiles-one-name-per-room)
+- [Clear history, forget a display, or start fresh](#clear-history-forget-a-display-or-start-fresh)
 - [Fixes](#fixes)
 - [Custom Fixes setup](#custom-fixes-install-and-use-your-own-actions)
 - [When something still looks off](#when-something-still-looks-off)
@@ -397,7 +398,7 @@ The preview shows the differences between the current setup and the saved one.
 
 Shown: the Demo profile proposes changing built-in brightness from 41 to 42.
 
-Profile › Load Automatically When Connected opts a profile into loading when its exact display set connects or at app launch. Automatic loading waits for connection changes to settle and runs once for that connection set; manually changing a resolution does not reload it. Conflicting automatic matches are not applied.
+Profile › Load Automatically When Connected opts a profile into loading when its exact display set connects or at app launch. Automatic loading waits for connection changes to settle and runs once for that connection set; manually changing a resolution does not reload it. Conflicting automatic matches are not applied. Uncheck a profile to disable its automatic loading, or choose **Turn Off All Automatic Profiles** to make every profile manual.
 
 ### Enable automatic profile loading
 
@@ -450,6 +451,34 @@ Use each display selector to map the saved device to its counterpart on this Mac
 3. If that device is absent, keep its saved identity for later. Review the other mappings before importing.
 
 Sample data: a saved projector is being mapped to the connected Samsung. Do not map two different saved displays to the same destination.
+
+## Clear history, forget a display, or start fresh
+
+<p align="center">
+  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.1 More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions with sample data"></a>
+</p>
+
+
+| What you want | Action | What is kept |
+|---|---|---|
+| Clear the activity list | **Recent Events → Clear Connection History** | Saved profiles, favorites and remembered monitor settings; the old log is archived |
+| Ask again when one monitor reconnects | Its **… → Forget This Display…** menu | Saved profiles, favorites, history and the current screen setup |
+| Reset all remembered app data | **Fixes → More → Reset All DisplayHelp Data…** | A backup of the old data, custom fixes, Start at Login and the current screen setup |
+
+**Automatic profile loading is optional.** Under **Profile → Load Automatically When Connected**, uncheck
+individual profiles or choose **Turn Off All Automatic Profiles**. Profiles stay available for manual use.
+Forgetting a display does not edit saved profiles: an enabled automatic profile can restore it on reconnect
+or app launch. Disable those profiles if you want DisplayHelp to ask again.
+
+To forget a connected external display, open its **…** menu and choose **Forget This Display…**. Review the
+confirmation, then choose **Forget This Display**. This removes both its current and older identity-based
+preferences. If two connected displays share the same identity, DisplayHelp refuses to forget just one.
+
+The full reset is separate and requires **Back Up and Reset** confirmation. It removes the active remembered
+displays, profiles/favorites, automatic choices and history. **Show Data Backup in Finder** reveals the preserved
+`DisplayHelp-backup-<UUID>` folder next to the app's data folder. This is not secure erasure: the old information
+remains in the backup, and separately exported profiles are untouched. See the [complete reset and restore
+instructions](docs/user-guide.md#clear-history-forget-a-display-or-start-fresh).
 
 ## Fixes
 
@@ -601,7 +630,7 @@ Recent Events helps you see what changed around the time a problem occurred.
 
 3. Share the relevant event details with your helpdesk, together with the display, cable, arrangement and version.
 
-Record useful details before choosing Clear. Opening Recent Events does not change display settings.
+Record useful details before choosing Clear Connection History. Opening Recent Events does not change display settings.
 
 ## Where it keeps things
 

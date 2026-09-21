@@ -68,7 +68,7 @@ the scope selected there.
 | **Favorite Shortcuts ›** | Assign a profile to Favorite 1 or Favorite 2, or remove its favorite assignment. Assigning an occupied slot replaces its previous assignment. |
 | **Remove ›** | Deletes one profile. |
 | **Update "‹name›" with Current Settings** | Overwrites the profile you last applied or saved with what is on screen now. Appears once you have used one this session. |
-| **Load Automatically When Connected ›** | Opt in per profile. Exact, unambiguous display-set matches load at connection or launch, without a confirmation dialog. |
+| **Load Automatically When Connected ›** | Opt in per profile, uncheck to disable, or choose **Turn Off All Automatic Profiles**. Exact, unambiguous display-set matches load at connection or launch, without a confirmation dialog. |
 | **Export… ›** | Export one or all profiles as JSON. |
 | **Import Profiles…** | Validate and import JSON, mapping missing display/audio identities to this Mac if needed. Existing names are preserved with numbered suffixes. Imports start with automatic loading off and no favorite assignments. |
 | **Save Current Setup As…** | Opens a name field. Choose Full setup or Layout only, type the room or purpose, and press Return or Save. Typing an existing name replaces it. |
@@ -346,6 +346,9 @@ sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_Displ
 
 
 ### Clear history, forget a display, or start fresh
+
+![DisplayHelp 0.6.1 data actions with More and Recent Events expanded; sample display/history data](images/data-actions.png)
+
 
 These are separate actions:
 

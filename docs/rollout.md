@@ -37,6 +37,12 @@ ticket baselines and the two-week/semester observations must be recorded by the 
 - [ ] Test relative placement with edge and center alignment, and verify the numbered layout against the physical screens.
 - [ ] Copy Diagnostics and review identifiers before sharing with helpdesk.
 
+- [ ] On a test account, clear connection history and confirm saved profiles and monitor preferences remain.
+- [ ] Forget a test monitor and reconnect with automatic profiles disabled; confirm it asks again and the saved profile library remains available.
+- [ ] Confirm Turn Off All Automatic Profiles preserves favorites and manual profile loading.
+- [ ] On a test account with backed-up data, run Reset All DisplayHelp Data and verify the backup exists, custom fixes/login setting remain, and current hardware settings do not change.
+- [ ] Upgrade while DisplayHelp is running; verify the new version appears after the installer closes and relaunches the app.
+
 ## 3. Fleet
 - [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.
 - [ ] Push the pkg fleet-wide. Optional: push approved custom scripts to each user's scripts folder via MDM (must be owned by that user).
