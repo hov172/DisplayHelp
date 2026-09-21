@@ -25,7 +25,7 @@ ticket baselines and the two-week/semester observations must be recorded by the 
 - [ ] Opt one profile into automatic loading, reconnect its exact display set, and confirm it restores once.
 - [ ] Export and import a profile; check device mapping, preservation of existing profiles and automatic loading disabled on the import.
 - [ ] Test a missing display or unavailable audio output and confirm the restore reports a partial result.
-- [ ] On a 4K TV press **Best for Display** and check the selected mode. Expect 1920×1080 HiDPI when a suitable native HiDPI mode is offered; record the actual refresh rate and connection. Compare against the [documented capture](README.md#screenshots), which shows 30 Hz, not a universal target.
+- [ ] On a 4K TV press **Best for Display** and check the selected mode. Expect 1920×1080 HiDPI when a suitable native HiDPI mode is offered; record the actual refresh rate and connection. Use the [current screenshot guide](README.md#screenshots) to locate controls; its sample values are not a hardware target.
 - [ ] In Extend mode verify **Make Main** and **Place…**; return to the intended room arrangement before saving its profile.
 - [ ] Try the brightness slider on the projector. No slider means DDC is unsupported on that projector or port (HDMI on Apple Silicon never supports it; USB-C/DisplayPort may). Nothing else changes.
 - [ ] Helpdesk-only: create `~/Library/Application Support/DisplayHelp/scripts/` and drop a test `.sh` (owned by the user, mode 0755) to confirm "Custom fixes" appears.

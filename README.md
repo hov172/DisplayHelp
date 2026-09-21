@@ -29,7 +29,7 @@ Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and
   <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="440" alt="DisplayHelp 0.6.1 native interface with two favorite profiles and an extended layout using sample display data"></a>
 </p>
 
-The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. Older screenshots below remain labeled with their capture versions. [Screenshot details](docs/README.md#screenshots).
+The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.1 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
 
 <p align="center">
   <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.1 Keep or Revert confirmation with countdown"></a>
@@ -99,7 +99,7 @@ Use About when your helpdesk asks which version you have.
 
 3. Close the About window to return to your work.
 
-Historical About capture: DisplayHelp 0.5.1. The current release is 0.6.1; use the version displayed on your own Mac when reporting an issue.
+Shown: DisplayHelp 0.6.1 (89). Use the version displayed on your own Mac when reporting an issue.
 
 ## First plug-in
 
@@ -138,7 +138,7 @@ Click the icon. Top to bottom:
 | Profile | Save, preview, restore, update, remove, import and export named setups; choose automatic loading when needed. |
 | Detect Displays | Rescans and applies display recommendations. It may change your current settings. |
 | Display cards | One per connected display. Name, status line, and an aligned list of controls that apply to that display. |
-| Fixes | Reset Display Preferences, any helpdesk scripts, and Uninstall under "More". |
+| Fixes | Reset Display Preferences, any helpdesk scripts, and Reset All DisplayHelp Data/Uninstall under "More". |
 | Recent Events | The last connects, disconnects, mode changes and failures. |
 | Start at Login, Quit, About | Footer. |
 
@@ -160,7 +160,7 @@ The main menu groups settings into a card for each connected display.
 
 3. Check its arrangement, resolution and refresh rate before choosing a control.
 
-Shown: a mirrored Samsung TV at 30 Hz and a built-in panel at 60 Hz. The orange TV dot flags its low rate; it does not prove a faster mode is available.
+Shown: sample displays in the 0.6.1 interface. The card reports each display’s own mode and refresh rate. An orange dot means a different mode is recommended; it does not prove a faster mode is available on your connection.
 
 ## Everyday use
 
@@ -206,7 +206,7 @@ Use Resolution to change desktop size or make text easier to read.
 
 3. Check the picture and the status line after the setting changes.
 
-The screenshot shows this TV’s available modes. A listed rate is the highest offered for that size; check the status line for the rate actually in use.
+The screenshot uses sample available modes. A listed rate is the highest offered for that size; check the status line for the rate actually in use.
 
 Refresh Rate appears when the current size offers more than one rate. Choose a rate supported by the entire connection. Higher rates generally make motion smoother; a lower rate may work better on a limited connection. The status line shows the rate actually in use.
 
@@ -224,7 +224,7 @@ Use Refresh Rate to select a different available rate for the current size.
 
 3. Check that the picture is stable and confirm the new rate in the status line.
 
-The control appears only when multiple rates are available. This example offers 30, 25 and 24 Hz; another connection may offer different rates.
+The control appears only when multiple rates are available. The sample rates shown are illustrative; your connection may offer different rates.
 
 ### Match Laptop and Best for Display
 
@@ -292,7 +292,7 @@ Use Place… when the pointer moves between screens in the wrong direction.
 
 1. Choose Extend if the displays are currently mirrored.
 
-2. Open Place… on the display you want to position, then choose its direction relative to another screen.
+2. Open Place… on the display you want to position, then choose its direction relative to another screen and select an edge or center alignment.
 
 3. Move the pointer across the shared edge to test the layout. Use Make Main if that display should hold the main desktop.
 
@@ -306,7 +306,7 @@ Use the pencil next to an external display’s name, type a room name and press 
   <a href="docs/images/rename.png"><img src="docs/images/rename.png" width="320" alt="Rename"></a>
 </p>
 
-Rename is active in this screenshot: “SAMSUNG” is the editable name field at the top of the display card. Replace it with a room name, then press Return to save or Escape to cancel. The normal display icon and status return when editing ends.
+Rename is active in this screenshot: the external display’s name is editable at the top of its card. Replace it with a room name, then press Return to save or Escape to cancel. The normal display icon and status return when editing ends.
 
 ### Inspect display details
 
@@ -322,7 +322,7 @@ Use the information popover when checking capabilities or reporting a problem.
 
 3. Give your helpdesk the relevant values, then click away to close the popover.
 
-This view reports information; it does not apply a setting. The values shown belong to the example Samsung TV.
+This view reports information; it does not apply a setting. The values shown come from an isolated sample display.
 
 ## Profiles: one name per room
 
@@ -366,7 +366,7 @@ Use a separate profile for each room or arrangement you want to recall.
 
 3. Choose Save. Use Cancel if you do not want to create the profile.
 
-Shown: naming a profile “Room 204”. Saving captures the current setup; it is not a request to change the displays.
+Shown: the current name and scope fields with sample profile data. Saving captures the current setup; it is not a request to change the displays.
 
 The menu's title is the profile the displays are on right now. Change something by hand and it drops back to "Choose or Create…" because the profile no longer describes what is on screen. Overwrite with Current Settings › Room 204 replaces a profile with what is on screen now; Update "Room 204" with Current Settings is the shortcut for the one you last used. Remove deletes one.
 
@@ -396,7 +396,7 @@ The preview shows the differences between the current setup and the saved one.
 
 4. Check the restore result for settings that could not be restored or verified.
 
-Shown: the Demo profile proposes changing built-in brightness from 41 to 42.
+Shown: a sample profile’s current-to-saved comparison. The dialog was dismissed without applying settings.
 
 Profile › Load Automatically When Connected opts a profile into loading when its exact display set connects or at app launch. Automatic loading waits for connection changes to settle and runs once for that connection set; manually changing a resolution does not reload it. Conflicting automatic matches are not applied. Uncheck a profile to disable its automatic loading, or choose **Turn Off All Automatic Profiles** to make every profile manual.
 
@@ -450,7 +450,7 @@ Use each display selector to map the saved device to its counterpart on this Mac
 
 3. If that device is absent, keep its saved identity for later. Review the other mappings before importing.
 
-Sample data: a saved projector is being mapped to the connected Samsung. Do not map two different saved displays to the same destination.
+Sample data: saved laptop and monitor identities are mapped to the current fixture displays. Do not map two different saved displays to the same destination.
 
 ## Clear history, forget a display, or start fresh
 
@@ -514,7 +514,7 @@ Reset is a troubleshooting action that logs everyone out.
 
 3. Choose Run only when you intend to reset the display configuration, then authenticate through macOS.
 
-Use this after ordinary display controls have failed, preferably with your helpdesk’s guidance. Shown: the 0.5.2 confirmation, which explicitly preserves ColorSync profiles. Cancel was used to capture this screen; the reset was not run.
+Use this after ordinary display controls have failed, preferably with your helpdesk’s guidance. Shown: the 0.6.1 confirmation, which explicitly preserves ColorSync profiles. The dialog was dismissed after capture; the reset was not run.
 
 ### Custom Fixes: install and use your own actions
 
@@ -552,7 +552,7 @@ mkdir -p "$HOME/Library/Application Support/DisplayHelp/scripts"
   <a href="docs/images/custom-fixes-folder.png"><img src="docs/images/custom-fixes-folder.png" width="520" alt="Custom fixes folder"></a>
 </p>
 
-Place the two script files directly in the scripts folder. Do not place their enclosing folder here. Install just the demo if you only want to test setup.
+The image shows the files in an isolated example folder. On your Mac, place the two script files directly in the scripts folder. Do not place their enclosing folder here. Install just the demo if you only want to test setup.
 
 5. Close and reopen the DisplayHelp menu. The actions should appear under Custom Fixes.
 
@@ -580,7 +580,7 @@ Review the action before running it. This demo requests no administrator passwor
   <a href="docs/images/custom-fixes-success.png"><img src="docs/images/custom-fixes-success.png" width="520" alt="Custom fixes success"></a>
 </p>
 
-A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in DisplayHelp.
+A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in the isolated 0.6.1 capture app.
 
 4. Choose Restart Dock only when you intend to refresh the Dock. It briefly disappears and returns. A nonzero exit means the command failed; for example, the Dock may not be running.
 

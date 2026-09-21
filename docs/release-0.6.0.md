@@ -37,8 +37,7 @@ hardware. A disconnected display, unavailable mode, forced quit, crash or power 
 ## Screenshots and assets
 
 [Current screenshot gallery](README.md#screenshots) includes native production UI captures rendered with sample
-displays and profiles, labeled as fixtures. Screen boxes show geometry, not live desktop contents. Earlier
-0.5.1/0.5.2 captures remain labeled historical references.
+displays and profiles, labeled as fixtures. Screen boxes show geometry, not live desktop contents. This document records the earlier 0.6.0 validation; the linked gallery now shows the current release.
 
 Both repositories publish the same signed installer, Word/PDF user guides, Custom Fixes examples, current
 screenshot archive and SHA-256 checksums. Existing profiles remain compatible; their default scope is full setup.

@@ -43,11 +43,11 @@ The icon reports the display state without opening the menu:
 
 ![DisplayHelp 0.6.1 layout and favorites, rendered by the production UI with sample display data](images/layout-profiles.png)
 
-The current diagram shows screen geometry, names and rotation; it does not stream desktop content. The older
-screenshots below are labeled historical references. See [screenshot provenance](README.md#screenshots).
+The diagram shows screen geometry, names and rotation; it does not stream desktop content. All screenshots
+below show the current 0.6.1 interface with isolated sample data. See [screenshot provenance](README.md#screenshots).
 
 <p align="center">
-  <img src="images/profiles.png" width="380" alt="DisplayHelp 0.5.1 Profile menu with Demo, overwrite, remove, automatic loading, export, save and import commands over the connected Samsung and built-in display cards">
+  <img src="images/profiles.png" width="380" alt="DisplayHelp 0.6.1 Profile menu with sample profiles, favorites, automatic loading, export, save and import commands">
 </p>
 
 **Profile: ‹name›** or **Profile: Choose or Create…** at the top left. A profile is a named snapshot of every
@@ -79,7 +79,7 @@ while DisplayHelp is active, opens its preview. These are app-local shortcuts, n
 The title shows a profile only when every saved setting matches actual readings and the connected display set
 matches. Levels, rotation, underscan, position, main display, actual mirror leadership and audio are checked too.
 Layout-only matching ignores picture levels and audio. An unreadable saved value cannot be verified and does not count as a match. Status refreshes every five seconds
-while the menu is open; “Checking…” appears while hardware operations are pending.
+while the menu is open. Applying or restoring a setup shows a progress message; routine checks do not replace the profile label.
 
 Saving waits for pending slider and rotation changes before reading settings. Restoring temporarily disables display
 controls, applies settings in order, then reads them back. The preview identifies disconnected displays; Apply to Connected Displays restores the identifiable subset.
@@ -92,7 +92,7 @@ fields were absent from older saves. A saved mirror follower mode can only be re
 saved primary. Incompatible old mirror settings are reported instead of silently replaced by recommendations.
 
 <p align="center">
-  <img src="images/restore-preview.png" width="392" alt="Live Demo profile preview proposing a built-in brightness change from 41 to 42, with Cancel and Apply">
+  <img src="images/restore-preview.png" width="392" alt="DisplayHelp 0.6.1 saved-profile preview using sample settings, with Cancel and Apply">
 </p>
 
 Manual restores show before/after values first in a compact dialog. Its content grows only as needed,
@@ -154,14 +154,13 @@ so under the cards: check the cable and the projector's input.
 One card per connected display, in the order reported by macOS.
 
 <p align="center">
-  <img src="images/menu.png" width="380" alt="Connected Samsung TV and built-in display mirrored at 1920×1080 HiDPI in DisplayHelp 0.5.1">
+  <img src="images/menu.png" width="380" alt="DisplayHelp 0.6.1 display cards using sample displays and settings">
 </p>
 
-In this capture, the TV reports 30 Hz and the built-in panel reports 60 Hz. Mirroring shares a logical
-desktop size; each card reports that display’s own mode and refresh rate. The TV’s orange dot flags
-a rate below 50 Hz. Rotation is available here, but external brightness, contrast, volume and underscan
-are absent because their capabilities or readings are unavailable on this connection. Position controls
-are hidden while mirrored.
+The capture uses sample displays to show the current controls. Each card reports its own mode and refresh
+rate. An orange dot indicates a different recommended mode or a low refresh rate. Controls depend on the
+capabilities and readings available on your connection. Position controls appear in Extend mode and are hidden
+while mirrored. The sample values are not a promise of hardware support.
 
 ### Header
 - **Symbol.** Laptop for the built-in panel, TV when EDID detailed timings include a 4K-class size, monitor
@@ -179,10 +178,16 @@ are hidden while mirrored.
   offers, one line per size with its refresh rates, including the ones the picker hides.
 
 ### Arrangement (externals)
+
+![DisplayHelp 0.6.1: Extended desktop controls](images/extend.png)
+
 **Mirror** and **Extend**. The current one is greyed. The choice is remembered and applied at every reconnect.
 Hidden on the built-in panel, which has no arrangement of its own.
 
 ### Resolution
+
+![DisplayHelp 0.6.1: Open resolution picker with sample modes](images/resolution.png)
+
 One entry per size and scaling, at its best refresh rate. "HiDPI" means the display renders at double resolution
 and draws the UI at half, which is what you want on a 4K TV. Only sizes from the display's EDID detailed timings
 are listed, because TVs advertise sizes they cannot render. The current size is always listed even if it is not one
@@ -190,6 +195,9 @@ of them, so the picker never goes blank. If no EDID detailed timings are readabl
 reported by macOS without that additional filter.
 
 ### Refresh Rate
+
+![DisplayHelp 0.6.1: Refresh-rate choices for the sample mode](images/refresh-rate.png)
+
 Appears when the current size offers more than one rate. Fastest first.
 
 | Rate | When |
@@ -225,6 +233,9 @@ Remembered per display and re-applied on every reconnect. Ignored when the lid i
 panel to lead.
 
 ### Audio (externals)
+
+![DisplayHelp 0.6.1: Sample audio output choices](images/audio.png)
+
 Which output device plays the Mac's sound whenever this display is connected. The list is every output the Mac has
 right now, with the display's own HDMI or DisplayPort audio first and marked "(this display)":
 
@@ -244,6 +255,9 @@ to the internal speakers when the display is unplugged. This picks which device 
 its remote.
 
 ### Rotation (externals)
+
+![DisplayHelp 0.6.1: Rotation options](images/rotation.png)
+
 0°, 90°, 180°, 270°. Shown when the display reports it can rotate. Remembered.
 
 ### Brightness, Contrast, Volume
@@ -259,6 +273,11 @@ Values are remembered per display after readback verification.
 A slider that shrinks the picture for projectors that crop the edges. Shown when the display supports it. Remembered.
 
 ### Position (extend mode only)
+
+![DisplayHelp 0.6.1: Relative screen position choices](images/position.png)
+
+![DisplayHelp 0.6.1: Edge and center alignment choices](images/position-alignment.png)
+
 - **Make Main** moves the menu bar and Dock to that display.
 - **Place… › ‹other display› › Left / Right / Above / Below** arranges the desktop. Left/right placement offers
   top, center or bottom alignment; above/below offers left, center or right alignment.
@@ -284,7 +303,7 @@ logged out immediately.** Use it for a Mac whose displays keep coming up wrong n
 rebuilds the database on the next login. Needs an administrator password, asked for by macOS's own dialog.
 ColorSync preservation requires 0.5.2 or later; older installers can remove display-profile folders.
 
-![Reset confirmation in 0.5.2: display settings are cleared while ColorSync profiles are preserved](images/reset-confirmation.png)
+![Reset confirmation in 0.6.1: display settings are cleared while ColorSync profiles are preserved](images/reset-confirmation.png)
 
 ### Custom Fixes
 Buttons the helpdesk adds by dropping scripts into:
@@ -298,7 +317,7 @@ metadata comments within its first 20 lines. The app scans the folder every time
 The [custom-fix examples](../examples/custom-fixes/README.txt) include installation steps, a harmless demo and
 an optional Dock restart. Install as the current user, without `sudo`, and reopen the menu to see the actions.
 
-![Example scripts installed directly in the user's Custom Fixes folder](images/custom-fixes-folder.png)
+![Example scripts shown in an isolated capture folder; install them in your own Custom Fixes folder](images/custom-fixes-folder.png)
 
 The scripts appear under **Custom Fixes** after the menu reopens:
 
@@ -333,6 +352,9 @@ user, is world-writable, or is a symbolic link. For fleet deployment, MDM can pu
 folder as long as the files end up owned by that user with mode 0755.
 
 ### More › Uninstall DisplayHelp… 🔒
+
+![DisplayHelp 0.6.1: Uninstall confirmation, canceled](images/uninstall-confirmation.png)
+
 Confirms with an "Also remove saved profiles and settings" checkbox, turns off Start at Login, then an administrator
 script removes the app bundle and the package receipt, and the app quits. If anything fails the app stays open and
 says why. IT can run the same script without the dialog:
@@ -377,6 +399,8 @@ that resets macOS display configuration.
 
 ## Recent Events
 
+![DisplayHelp 0.6.1: Sample history and Clear Connection History action](images/recent-events.png)
+
 **Copy Diagnostics** copies app/macOS versions, display identities, modes, layout, available-control explanations
 and recent events to the clipboard. Nothing is uploaded; review the report before sharing it.
 
@@ -386,12 +410,16 @@ Collapsed by default. The latest events from the history file, newest first, as
 
 ## Start at Login, Quit, About
 
+![DisplayHelp 0.6.1: About DisplayHelp 0.6.1 (89)](images/about.png)
+
 **Start at Login** is on by default after a packaged install. Off means the app must be opened from Applications.
 Greyed when running unbundled from `swift run`. Normally **Quit DisplayHelp** leaves the confirmed setup in place.
 Quit is disabled while changes are in progress. A system quit request during confirmation first attempts to revert;
 if recovery fails, the app stays open so you can finish recovery. The **Ayala Solutions · v‹version›** link opens the About panel.
 
 ## The connect dialog
+
+![DisplayHelp 0.6.1: First-connection prompt using a sample display](images/first-connect.png)
 
 Appears when a display the app has never seen, or one set to "ask", is connected.
 

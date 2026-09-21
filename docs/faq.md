@@ -61,10 +61,11 @@ Use **Save Current Setup As…** if there are no profiles. Older profiles defaul
 groups. Missing hardware and unsupported modes can still prevent a complete restore; failed changes trigger
 an attempt to return to the previous setup.
 
-**Why is the TV orange while the laptop is green in the screenshot?**
-The TV reports 30 Hz, below the app’s preferred minimum of 50 Hz. The built-in panel is a mirror follower and
-reports 60 Hz. Both share the same logical desktop size; their reported refresh rates can differ. Try a higher
-available Refresh Rate or a recommendation. An orange dot is not proof that a faster mode is supported.
+**Why can one display be orange while the laptop is green?**
+An orange dot means a different mode is recommended or an external primary display is below the preferred
+50 Hz minimum. Each card is checked separately; mirrored displays can report different refresh rates.
+The current screenshots use sample modes to illustrate the controls. Try an available recommendation or inspect
+the offered refresh rates. An orange dot is not proof that a faster mode is supported.
 
 **Will settings follow my projector to a different Mac?**
 Not automatically. Settings are per user and per Mac. Export a profile and import it on the destination,

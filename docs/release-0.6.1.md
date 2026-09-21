@@ -18,9 +18,9 @@ A live upgrade on this Mac passed: the preinstall script closed the old process,
 the installed bundle, and postinstall launched a new process. The package receipt confirms 0.6.1.89.
 
 Current screenshots are native production UI captures with sample display/profile data, labeled 0.6.1 (89).
-Older historical screenshots retain their original version labels.
+Every screenshot linked by the current guides has been refreshed for 0.6.1 (89).
 Hardware capability limits from [0.6.0 validation](release-0.6.0.md) still apply.
 
-Documentation refresh: added step-by-step data-management instructions, expanded-control screenshots and rollout
+Documentation refresh: added step-by-step data-management instructions, a complete replacement of earlier-version screenshots, and rollout
 checks. Word/PDF guides and the screenshot archive were regenerated. App version/build and the signed installer
 remain 0.6.1 (89); documentation changes do not replace the tested executable.

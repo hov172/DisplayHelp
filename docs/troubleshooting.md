@@ -1,7 +1,7 @@
 # Troubleshooting
 
 Symptom, action, cause. The picture and connection guidance grew from testing a 16:10 MacBook Pro with a Samsung 4K TV.
-The current [menu capture](images/menu.png) also shows the connected TV; hardware capabilities and available
+The current [menu capture](images/menu.png) uses sample displays; hardware capabilities and available
 modes vary by Mac, cable and port.
 
 ## Contents
