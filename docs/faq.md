@@ -123,3 +123,5 @@ Place acts on the card you opened. Choosing â€œBuilt-in Display left of SAMSUNGâ
 ## Can I change the language without changing my Mac?
 
 Yes. Use the globe at the top of DisplayHelp, choose a language and restart the app when prompted. **Follow System** restores macOS language selection. Eleven languages are bundled; macOS selects the best supported preferred language, with English as fallback. It does not automatically translate missing languages. Language belongs to the current user's app preferences, not a display profile. Names you enter, device names and custom script output are not translated.
+
+For the complete language list, switching instructions and a comparison of macOS settings with the globe menu, see [Language in the user guide](user-guide.md#language).

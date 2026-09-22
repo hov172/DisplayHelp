@@ -21,4 +21,4 @@ Three-or-more-screen layouts are covered by logic tests, but have not been physi
 
 Screenshots use isolated sample displays and production controls. The Identify Displays image captures the actual temporary panel using sample names mapped to a real desktop. No display settings or user data were changed to stage screenshots. See the [current screenshot gallery](README.md#screenshots).
 
-The current gallery now documents [0.6.3](release-0.6.3.md). The 0.6.2 release archive retains its original screenshots.
+The [current gallery](README.md#screenshots) follows the latest release. The 0.6.2 release archive retains its original screenshots.

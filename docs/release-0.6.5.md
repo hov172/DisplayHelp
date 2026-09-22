@@ -56,7 +56,7 @@ Language is separate from display profiles: loading or importing a profile does 
 - Native confirmation dialogs and the Keep/Revert window remain above the app and receive keyboard focus.
 - The latest four languages were checked against Apple's localized documentation; 36 translated entries were corrected for consistent terminology.
 - Fixed an import-mapping crash by attaching display and audio menus before activating their layout constraints.
-- Refreshed screenshots, user/helpdesk instructions, Word/PDF guides and downloadable examples accompany this release.
+- Refreshed screenshots, user/helpdesk instructions, Word/PDF guides and downloadable examples accompany this release. The updated gallery includes the globe menu, restart confirmation, Traditional Chinese and Arabic examples. Guides explain macOS versus in-app language selection.
 
 ## Validation and limits
 

@@ -144,6 +144,10 @@ For example, a Mac set to Italian uses Italian when DisplayHelp follows the syst
 
 This changes only DisplayHelp for the current macOS user. For example, you can use DisplayHelp in Spanish on an English-language shared Mac without changing the Mac's language or other apps. The selection persists until changed; choose **Follow System** to return to the Mac's preferences. The globe is temporarily unavailable while display changes, profile checks or fixes are running.
 
+<p align="center">
+  <a href="docs/images/language-menu.png"><img src="docs/images/language-menu.png" width="150" alt="Globe menu with Follow System and eleven language choices"></a>
+</p>
+
 ### macOS settings versus the in-app globe
 
 | Where you choose | What it does |

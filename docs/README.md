@@ -15,12 +15,13 @@
 ## Screenshots
 
 **The current English screenshot gallery below shows DisplayHelp 0.6.5 (119)**, captured on 2026-09-21. Historical release and design-review documents retain their original evidence.
+The localized examples use the same production views and 0.6.5 (119) metadata.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
 audio devices and history. They are native UI captures, not drawn mockups or live desktop thumbnails. Picker screenshots isolate the open native menu so choices remain readable.
 
 Capture-only copies may expose private view types or set an initial expanded/editing state so a control can be
-photographed. The displayed controls and text retain the production implementation. The unchanged file-browser reference shows an
-isolated examples folder from the previous release; the script files are unchanged. No real display settings, audio volume/routing, saved profiles or user history were changed for screenshots. Reset, uninstall,
+photographed. The displayed controls and text retain the production implementation. The file-browser capture shows an
+isolated examples folder for this release. No real display settings, audio volume/routing, saved profiles or user history were changed for screenshots. Reset, uninstall,
 profile restore and import dialogs were canceled; only the harmless Custom Fixes demo was executed.
 
 Sample modes, refresh rates, identities and DDC sliders demonstrate the interface; availability depends on the
@@ -30,6 +31,8 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 
 | Image | Localized capture |
 |---|---|
+| [Language menu](images/language-menu.png) | Globe menu with Follow System and all eleven native language names. |
+| [Arabic](images/language-ar.png) | Right-to-left production menu with physical display geometry preserved. |
 | [Language restart confirmation](images/language-confirmation.png) | Native restart confirmation for an app language change. |
 | [Traditional Chinese](images/language-zh-Hant.png) | Localized production menu using sample data. |
 

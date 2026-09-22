@@ -266,3 +266,5 @@ The action names the screen being placed and its reference screen. To put an ext
 Choose **globe → Follow System**, then restart DisplayHelp. Check any per-app override in **System Settings → General → Language & Region → Applications**. A language selected through the globe overrides the system list for this app. Unsupported languages fall back to another supported preferred language, then English. Custom display/profile names, script output and older stored diagnostic text may remain in their original language.
 
 The globe is temporarily unavailable while display changes, profile checks or fixes run. Finish or revert the operation first.
+
+For illustrated globe-menu and restart instructions, see [Language](user-guide.md#language). Choosing Later saves the selection but keeps the current process in its existing language until you quit and reopen DisplayHelp.
