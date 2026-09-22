@@ -241,7 +241,7 @@ change if the installer reports that DisplayHelp could not close, quit the app, 
 
 ## The menu looks too short
 
-Update to 0.6.4. Its compact menu fits its content up to 900 points of height within the screen's available area. Expand More Controls for advanced settings and Troubleshooting for fixes. On smaller screens,
+Update to 0.6.5. Its compact menu fits its content up to 900 points of height within the screen's available area. Expand More Controls for advanced settings and Troubleshooting for fixes. On smaller screens,
 scroll inside the menu to reach the remaining display cards and footer controls. A mirrored layout shows one box
 labeled with both screen numbers because both screens share a desktop.
 
@@ -260,3 +260,9 @@ If an audio device changes while you adjust it, the app refuses the stale adjust
 ### Placement appears reversed
 
 The action names the screen being placed and its reference screen. To put an external display left of the laptop, open **Place…** on the external card and choose **Relative to Built-in Display → Place [external name] left of Built-in Display**, then alignment. Left on the built-in card means the opposite relationship. Check the visible readout and preview, then Keep Changes. For a failed move, share Copy Diagnostics immediately so its latest 20 events include the request and result.
+
+## The app uses an unexpected language
+
+Choose **globe → Follow System**, then restart DisplayHelp. Check any per-app override in **System Settings → General → Language & Region → Applications**. A language selected through the globe overrides the system list for this app. Unsupported languages fall back to another supported preferred language, then English. Custom display/profile names, script output and older stored diagnostic text may remain in their original language.
+
+The globe is temporarily unavailable while display changes, profile checks or fixes run. Finish or revert the operation first.

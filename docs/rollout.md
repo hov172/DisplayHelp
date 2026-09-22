@@ -2,22 +2,26 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release validation for 0.6.4 (102) is recorded in [release-0.6.4.md](release-0.6.4.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
+Release validation for 0.6.5 (119) is recorded in [release-0.6.5.md](release-0.6.5.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements
 - macOS 14 Sonoma or later. Apple Silicon or Intel; the package is universal.
 - An MDM that can push a `.pkg` (Jamf, Kandji, Mosyle, Intune, Addigy all work). Ad-hoc signed builds are fine on managed Macs.
-- For unmanaged or BYOD Macs: use the Developer ID signed and notarized release installer, see step 4.
+- For unmanaged or BYOD Macs: a Developer ID and notarization, see step 4.
 
 ## 1. Baseline (before any install)
 - [ ] Export ticket counts tagged projector/display for the last two semesters. Record totals per month in this file.
 - [ ] Note the median time-to-close for those tickets.
 - [ ] Confirm the fleet is on macOS 14 or later and which MDM will push the pkg.
 
-## 2. Download
-
-Use the [signed and notarized 0.6.4 installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4.pkg) and [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/SHA256SUMS.txt). Verify the package before deploying it. This repository provides documentation and helper scripts; application source is proprietary.
+## 2. Build
+```bash
+./scripts/package.sh                                    # ad-hoc signed, fine for MDM-managed Macs
+SIGN_IDENTITY="Developer ID Application: School (TEAMID)" \
+INSTALLER_IDENTITY="Developer ID Installer: School (TEAMID)" ./scripts/package.sh
+```
+Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 
 ## 3. Pilot (3–5 rooms, two weeks)
 - [ ] Install the pkg on pilot Macs with the MDM. The postinstall opens the app; "Start at login" is on by default.
@@ -47,7 +51,7 @@ Use the [signed and notarized 0.6.4 installer](https://github.com/hov172/Display
 - [ ] Upgrade while DisplayHelp is running; verify the new version appears after the installer closes and relaunches the app.
 
 ## 4. Fleet
-- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.
+- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts. Use the installer and checksums attached to the release.
 - [ ] Push the pkg fleet-wide. Optional: push approved custom scripts to each user's scripts folder via MDM (must be owned by that user).
 - [ ] Compare ticket counts to the baseline after one semester. Target: -50%.
 
@@ -97,3 +101,9 @@ configuration, not an enforced managed preference: users can subsequently edit t
 - [ ] Confirm Identify Displays numbering matches each room’s extended and mirrored layouts, including three or more screens where available.
 
 - [ ] Verify Output Volume follows built-in speakers, USB audio and HDMI switches; unsupported outputs should show an explanation. Check external changes made with volume keys and Control Center. Confirm profile restoration does not alter live system volume/mute.
+
+## Language pilot checks
+
+- [ ] Verify Follow System and an explicit globe selection on a separate test account; restart and confirm the chosen language.
+- [ ] Test longer translations, Arabic direction, keyboard navigation and VoiceOver in representative rooms.
+- [ ] Have native speakers review the warnings and terminology before broad multilingual deployment. Automated coverage and online terminology checks do not establish native fluency.

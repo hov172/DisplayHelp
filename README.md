@@ -2,7 +2,7 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Version **0.6.4 (102)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Version **0.6.5 (119)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 Feedback, bug reports and suggestions are welcome.
 
@@ -14,29 +14,31 @@ Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/DisplayHelp-0.6.4-Screenshots.zip)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.4/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.5/DisplayHelp-0.6.5.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.5/DisplayHelp-0.6.5-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.5/DisplayHelp-0.6.5-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.5/DisplayHelp-0.6.5-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.5/DisplayHelp-0.6.5-Screenshots.zip)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.5/SHA256SUMS.txt)
 
-Version 0.6.4 makes the menu more compact: everyday controls stay visible, advanced settings move into More Controls, and fixes and diagnostics sit under Troubleshooting. Each display shows its actual placement, alignment and rotation beside Place…. Placement and rotation changes now include detailed diagnostic traces. Output Volume and the existing per-display Audio behavior are retained.
+Version 0.6.5 adds eleven interface languages, a globe menu for an app-only language choice, layouts that adapt to longer translations, and confirmations that stay above the app. **Follow System** uses macOS language preferences and bundled translations; macOS does not generate translations. Profiles remain language-independent. Apple terminology has been checked for the latest four languages; independent native-speaker review remains pending.
+
+Supported languages: English, German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Simplified Chinese, Traditional Chinese and Arabic. [Language instructions](docs/user-guide.md#language).
 
 Version 0.6.1 added Forget This Display, a backed-up Reset All DisplayHelp Data action, and Turn Off All Automatic Profiles. It fixes upgrades leaving the old app running and makes the menu taller, up to 900 points within the available screen height. Longer menus scroll.
 
 Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and layout-only profiles, aligned screen placement, and a single 20-second Keep/Revert window. Display changes are verified before they are remembered. Existing profiles remain compatible.
 
 <p align="center">
-  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.4 native interface with two favorite profiles and an extended layout using sample display data"></a>
+  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.5 native interface with two favorite profiles and an extended layout using sample display data"></a>
 </p>
 
-The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.4 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
+The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.5 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
 
 **Identify Displays** beneath the layout shows matching numbers and names on connected screens for five seconds. Mirrored screens share a numbered group. The labels do not change settings or block clicks.
 
 <p align="center">
-  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.4 Keep or Revert confirmation with countdown"></a>
+  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.5 Keep or Revert confirmation with countdown"></a>
 </p>
 
 - macOS 14 Sonoma or later, Apple Silicon and Intel.
@@ -106,7 +108,7 @@ Use About when your helpdesk asks which version you have.
 
 3. Close the About window to return to your work.
 
-Shown: DisplayHelp 0.6.4 (102). Use the version displayed on your own Mac when reporting an issue.
+Shown: DisplayHelp 0.6.5 (119). Use the version displayed on your own Mac when reporting an issue.
 
 ## First plug-in
 
@@ -142,6 +144,7 @@ Click the icon. Top to bottom:
 
 | Row | What it is |
 |---|---|
+| Language (globe) | Choose an app language or Follow System; restart to apply. |
 | Profile | Save, preview, restore, update, remove, import and export named setups; choose automatic loading when needed. |
 | Screen Layout | Numbered geometry preview and Identify Displays. |
 | Output Volume | Live volume and mute for the active macOS audio output, when supported. |
@@ -167,7 +170,7 @@ The main menu groups settings into a card for each connected display.
 
 3. Check its arrangement, resolution and refresh rate before choosing a control.
 
-Shown: sample displays in the 0.6.4 interface. The card reports each display’s own mode and refresh rate. An orange dot means a different mode is recommended; it does not prove a faster mode is available on your connection.
+Shown: sample displays in the 0.6.5 interface. The card reports each display’s own mode and refresh rate. An orange dot means a different mode is recommended; it does not prove a faster mode is available on your connection.
 
 ## Everyday use
 
@@ -272,13 +275,13 @@ Don’t change leaves audio routing alone when this display connects. Available 
 The **Output Volume** section beneath Screen Layout follows the active macOS audio device. Select **MacBook Pro Speakers** in macOS Sound or in a display’s Audio picker to control built-in speaker volume. Changes made with the volume keys, Control Center or another app update the control automatically while DisplayHelp is running.
 
 <p align="center">
-  <a href="docs/images/output-volume.png"><img src="docs/images/output-volume.png" width="440" alt="DisplayHelp 0.6.4 Output Volume with sample built-in speakers, a volume slider and Mute button"></a>
+  <a href="docs/images/output-volume.png"><img src="docs/images/output-volume.png" width="440" alt="DisplayHelp 0.6.5 Output Volume with sample built-in speakers, a volume slider and Mute button"></a>
 </p>
 
 Use the slider or **Mute / Unmute** when available. Some outputs, commonly HDMI, do not expose adjustable software volume to macOS. Use their physical controls, or **Monitor Volume** when the monitor supports DDC/CI.
 
 <p align="center">
-  <a href="docs/images/output-volume-unavailable.png"><img src="docs/images/output-volume-unavailable.png" width="440" alt="DisplayHelp 0.6.4 explanation for an output without adjustable software volume"></a>
+  <a href="docs/images/output-volume-unavailable.png"><img src="docs/images/output-volume-unavailable.png" width="440" alt="DisplayHelp 0.6.5 explanation for an output without adjustable software volume"></a>
 </p>
 
 Output Volume and mute are live system controls and are **not saved in profiles**. The separately labeled **Monitor Volume** slider controls an external monitor through DDC/CI and keeps its existing profile behavior. Changing the active output during an adjustment prevents the old control from writing to the newly selected device.
@@ -308,7 +311,7 @@ Opening the menu alone makes no change. Rotation and the other controls in this 
 Click **Identify Displays** beneath Screen Layout. Large numbers and display names appear for five seconds, matching the preview. Extended screens get separate labels; mirrored screens share a group such as **1 + 2**. The labels do not change settings, steal focus or block clicks. Clicking again restarts the timer.
 
 <p align="center">
-  <a href="docs/images/identify-displays.png"><img src="docs/images/identify-displays.png" width="420" alt="DisplayHelp 0.6.4 temporary Identify Displays label using sample display names"></a>
+  <a href="docs/images/identify-displays.png"><img src="docs/images/identify-displays.png" width="420" alt="DisplayHelp 0.6.5 temporary Identify Displays label using sample display names"></a>
 </p>
 
 ### Choose and save the main screen
@@ -498,7 +501,7 @@ Sample data: saved laptop and monitor identities are mapped to the current fixtu
 ## Clear history, forget a display, or start fresh
 
 <p align="center">
-  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.4 Troubleshooting, More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions with sample data"></a>
+  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.5 Troubleshooting, More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions with sample data"></a>
 </p>
 
 
@@ -559,7 +562,7 @@ Reset is a troubleshooting action that logs everyone out.
 
 3. Choose Run only when you intend to reset the display configuration, then authenticate through macOS.
 
-Use this after ordinary display controls have failed, preferably with your helpdesk’s guidance. Shown: the 0.6.4 confirmation, which explicitly preserves ColorSync profiles. The dialog was dismissed after capture; the reset was not run.
+Use this after ordinary display controls have failed, preferably with your helpdesk’s guidance. Shown: the 0.6.5 confirmation, which explicitly preserves ColorSync profiles. The dialog was dismissed after capture; the reset was not run.
 
 ### Custom Fixes: install and use your own actions
 
@@ -625,7 +628,7 @@ Review the action before running it. This demo requests no administrator passwor
   <a href="docs/images/custom-fixes-success.png"><img src="docs/images/custom-fixes-success.png" width="440" alt="Custom fixes success"></a>
 </p>
 
-A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in the isolated 0.6.4 capture app.
+A successful test displays exit 0 and the demo success message beneath the custom actions. This is the actual result from running the supplied demo in the isolated 0.6.5 capture app.
 
 4. Choose Restart Dock only when you intend to refresh the Dock. It briefly disappears and returns. A nonzero exit means the command failed; for example, the Dock may not be running.
 

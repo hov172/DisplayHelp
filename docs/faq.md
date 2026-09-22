@@ -119,3 +119,7 @@ No. Those are live system controls. Full setup profiles still save the chosen au
 
 **Why does choosing Left put the external screen on the right?**
 Place acts on the card you opened. Choosing “Built-in Display left of SAMSUNG” puts the laptop on the left and SAMSUNG on the right. To put SAMSUNG left of the laptop, open Place… on SAMSUNG’s card and choose it left of Built-in Display. The visible placement, alignment and rotation describe the actual setup.
+
+## Can I change the language without changing my Mac?
+
+Yes. Use the globe at the top of DisplayHelp, choose a language and restart the app when prompted. **Follow System** restores macOS language selection. Eleven languages are bundled; macOS selects the best supported preferred language, with English as fallback. It does not automatically translate missing languages. Language belongs to the current user's app preferences, not a display profile. Names you enter, device names and custom script output are not translated.

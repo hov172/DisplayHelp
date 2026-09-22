@@ -5,27 +5,33 @@
 | [../README.md](../README.md) | Everyone | Why the app exists, install, everyday use |
 | [user-guide.md](user-guide.md) | Users, helpdesk | Every control, what it does, when it appears |
 | [troubleshooting.md](troubleshooting.md) | Helpdesk | Symptom → action → cause, collecting diagnostics |
-| [rollout.md](rollout.md) | IT admins | Download, pilot, fleet push, removal |
+| [rollout.md](rollout.md) | IT admins | Build, sign, notarize, pilot, fleet push, removal |
 | [data-files.md](data-files.md) | Helpdesk, developers | JSON formats, identity keys, history event kinds |
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
 
-[0.6.4 release notes](release-0.6.4.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[0.6.5 release notes](release-0.6.5.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 
-**The current screenshot gallery below shows DisplayHelp 0.6.4 (102)**, captured on 2026-09-21. Historical release documents retain their original evidence.
+**The current English screenshot gallery below shows DisplayHelp 0.6.5 (119)**, captured on 2026-09-21. Historical release and design-review documents retain their original evidence.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
 audio devices and history. They are native UI captures, not drawn mockups or live desktop thumbnails. Picker screenshots isolate the open native menu so choices remain readable.
 
-Capture fixtures may start with expanded controls or editing enabled so a control can be photographed. The displayed controls and text retain the production implementation. The file-browser image shows an
-isolated examples folder. No real display settings, audio volume/routing, saved profiles or user history were changed for screenshots. Reset, uninstall,
+Capture-only copies may expose private view types or set an initial expanded/editing state so a control can be
+photographed. The displayed controls and text retain the production implementation. The unchanged file-browser reference shows an
+isolated examples folder from the previous release; the script files are unchanged. No real display settings, audio volume/routing, saved profiles or user history were changed for screenshots. Reset, uninstall,
 profile restore and import dialogs were canceled; only the harmless Custom Fixes demo was executed.
 
 Sample modes, refresh rates, identities and DDC sliders demonstrate the interface; availability depends on the
 actual monitor, adapter and connection. The independent real-hardware validation is recorded in the release notes.
 
 Screenshots preserve their native aspect ratios. Inline previews are capped at 440 pixels wide and 660 pixels tall; small menus are never enlarged. Click a preview to view the original capture. The [video thumbnail](images/video-guide.jpg) is hosted here for reliable loading and depicts the earlier interface shown in the video.
+
+| Image | Localized capture |
+|---|---|
+| [Language restart confirmation](images/language-confirmation.png) | Native restart confirmation for an app language change. |
+| [Traditional Chinese](images/language-zh-Hant.png) | Localized production menu using sample data. |
 
 | Image | Current capture |
 |---|---|
@@ -58,8 +64,9 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Reset warning](images/reset-confirmation.png) | Current ColorSync-preserving reset warning; canceled. |
 | [Uninstall warning](images/uninstall-confirmation.png) | Current uninstall confirmation; canceled without removing anything. |
 | [Recent Events](images/recent-events.png) | Sample activity log and Clear Connection History action. |
-| [About](images/about.png) | Current version 0.6.4 and build 102 with credits. |
+| [About](images/about.png) | Current version 0.6.5 and build 119 with credits. |
 | [Custom scripts folder](images/custom-fixes-folder.png) | Example script files in an isolated capture folder. |
 | [Custom Fixes](images/custom-fixes-menu.png) | Demo and optional Dock restart actions in the current interface. |
 | [Demo confirmation](images/custom-fixes-confirmation.png) | Actual confirmation for the harmless example demo. |
 | [Demo result](images/custom-fixes-success.png) | Harmless demo executed against isolated fixture data, with exit 0. |
+

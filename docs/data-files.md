@@ -250,3 +250,7 @@ Identify Displays (0.6.2) creates temporary on-screen labels only. It adds no st
 ## Live system output volume
 
 Output Volume and mute (0.6.3) are read from and written to the active CoreAudio output. They add no fields to known-displays.json or profiles.json and do not change stored monitor-volume values. A full profile can still route audio to its saved output; its volume field remains the external display’s DDC volume. Copy Diagnostics reports active system output volume and mute separately from Monitor Volume.
+
+## Language preference
+
+The globe uses the native `AppleLanguages` preference in the `com.displayhelp.app` user defaults domain. Follow System removes that override. It is not stored in `profiles.json`, exported profiles or display identity records. The app restarts to apply a change; user/device names and historical diagnostic text retain their original content.

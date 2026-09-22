@@ -2,6 +2,16 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.5] - 2026-09-21
+
+- Added native macOS localization for all 374 app-owned strings in eleven languages: English, German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Simplified Chinese, Traditional Chinese and Arabic.
+- Added a globe menu using the native per-app language preference, with Follow System and a restart confirmation. Language is independent of saved display profiles.
+- Adapted controls and recovery buttons to longer translations; added Arabic right-to-left presentation while preserving physical display geometry and technical values.
+- Fixed confirmation dialogs appearing behind the app; native alerts and the Keep/Revert panel retain foreground visibility and keyboard focus.
+- Checked the newest four languages against Apple terminology and corrected 36 entries. Independent native-speaker review remains pending.
+- Fixed an import-mapping crash by attaching display and audio menus before activating their layout constraints.
+- Updated user/helpdesk documentation, screenshots, downloadable guides and release assets. Existing profile data remains compatible.
+
 ## [0.6.4] - 2026-09-21
 
 Full release. Compact menu, visible placement/rotation, and detailed troubleshooting traces. Existing audio behavior is retained.
