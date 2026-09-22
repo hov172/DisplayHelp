@@ -2,9 +2,55 @@
 
 Released 2026-09-21 for macOS 14 or later, on Apple Silicon and Intel. Existing display profiles remain compatible.
 
-## What changed
+## Languages and how to switch
 
-- All 374 app-owned strings now have native bundled translations in English, German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Simplified Chinese, Traditional Chinese and Arabic.
+**New in 0.6.5: ten additional languages, for eleven supported languages including English.**
+
+| Language | Name shown in the globe menu |
+|---|---|
+| English | English |
+| German | Deutsch |
+| Spanish | Español |
+| French | Français |
+| Italian | Italiano |
+| Japanese | 日本語 |
+| Korean | 한국어 |
+| Brazilian Portuguese | Português (Brasil) |
+| Simplified Chinese | 简体中文 |
+| Traditional Chinese | 繁體中文 |
+| Arabic | العربية |
+
+### Follow your Mac's language
+
+DisplayHelp follows macOS language preferences by default. If you previously chose an app language, open DisplayHelp, click the **globe** at the top, choose **Follow System**, then **Restart Now**. macOS selects the best available bundled translation from your preferred languages; English is the final fallback.
+
+For example, a Mac set to Italian uses Italian when DisplayHelp follows the system. An unsupported first language can fall back to another supported language in your preferred list.
+
+### Choose a language inside DisplayHelp
+
+1. Click the DisplayHelp icon in the macOS menu bar.
+2. Click the **globe** at the top of the app menu.
+3. Select your language by its native name.
+4. Choose **Restart Now**, or **Later** to apply the choice the next time the app opens.
+
+This changes only DisplayHelp for the current macOS user. For example, you can use DisplayHelp in Spanish on an English-language shared Mac without changing the Mac's language or other apps. The selection persists until changed; choose **Follow System** to return to the Mac's preferences. The globe is temporarily unavailable while display changes, profile checks or fixes are running.
+
+### macOS settings versus the in-app globe
+
+| Where you choose | What it does |
+|---|---|
+| **System Settings → General → Language & Region → Preferred Languages** | Sets the Mac's language preferences, which DisplayHelp follows when it has no app-specific override. |
+| **System Settings → General → Language & Region → Applications → DisplayHelp** | Sets a language specifically for DisplayHelp. Relaunch the app to apply it. |
+| **DisplayHelp → globe → a language** | Sets the same native per-app language preference from inside the app, with a restart prompt. |
+| **DisplayHelp → globe → Follow System** | Removes the app-specific override so macOS chooses from your preferred languages again. |
+
+**Both routes use Apple's native localization system and the same bundled translations.** The globe is a convenient selector, not a separate translation engine. An app-specific choice takes precedence over the Mac's preferred languages until removed. No online translation service is used, and macOS does not generate missing translations.
+
+Language is separate from display profiles: loading or importing a profile does not change it. User-entered profile/display names, device names, custom script descriptions/output and historical diagnostics keep their original text. Longer interface labels wrap or stack; Arabic uses right-to-left presentation while the display diagram preserves physical screen positions.
+
+## Other changes
+
+- All 374 app-owned strings have bundled translations in the eleven languages listed above.
 - The globe at the top of the menu offers an app-only language choice and **Follow System**. Restart to apply a choice. macOS selects bundled translations using its preferred-language matching; it does not generate translations. Language is a per-user preference, independent of display profiles.
 - Longer labels wrap or move controls into vertical layouts. Arabic uses right-to-left presentation while screen geometry and technical values retain their intended direction.
 - Native confirmation dialogs and the Keep/Revert window remain above the app and receive keyboard focus.
