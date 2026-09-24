@@ -140,7 +140,3 @@ Yes. Use the globe at the top of DisplayHelp, choose a language and restart the 
 
 For the complete language list, switching instructions and a comparison of macOS settings with the globe menu, see [Language in the user guide](user-guide.md#language).
 
-
-## Does this release check HDCP or test cables?
-
-No. DisplayHelp 0.6.6 does not include HDCP status checks, HDCP negotiation changes or link-error/cable tests. Research probes are separate from the app. Copy Diagnostics remains useful for display identity, settings and recent changes, but does not certify protected playback or cable health.

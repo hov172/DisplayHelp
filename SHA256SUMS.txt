@@ -1,0 +1,5 @@
+03e02b60b77075f10188fdf6cf5c212208daea35c1d7c3597d8b4b160ecb09ab  DisplayHelp-0.6.6.pkg
+fc850e03cd1cd8e4a620c3f776c4c97c652b772ec003b52cbad0d2d0073a5cba  DisplayHelp-0.6.6-Custom-Fixes.zip
+9f164c5f8d04c5ebf3c495cd19b6a8e33280a5a9854c42e4788833b275807048  DisplayHelp-0.6.6-Screenshots.zip
+bedfe30625f65ebb70a40b15e2628d49334b893be94cfbb5ed5361ba7502f92b  DisplayHelp-0.6.6-User-Guide.docx
+7e51143ef5054d7113ecee9fa5d86c7cda721560b48722704888cc7b0976b25f  DisplayHelp-0.6.6-User-Guide.pdf

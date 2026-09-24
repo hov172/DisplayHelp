@@ -1,6 +1,6 @@
 # DisplayHelp 0.6.6 (120)
 
-Released 2026-09-23 for macOS 14 or later, on Apple Silicon and Intel. This release improves profile switching and recovery; HDCP diagnostics are not included.
+Released 2026-09-23 for macOS 14 or later, on Apple Silicon and Intel. This release improves profile switching and recovery.
 
 Profiles can distinguish matching hardware identities when macOS supplies distinct display UUIDs. Preview, mirror topology, mode/layout restoration, readback verification and rollback retain those identities. Ordinary and legacy profile keys remain supported. UUID-based profiles require manual preview: a connection identifier cannot prove which physical twin is connected after a port swap. Missing or duplicate UUIDs still block saving. Shared reconnect preferences are neither loaded nor overwritten while twins are connected; separate naming and DDC matching remain unresolved.
 
@@ -22,4 +22,4 @@ Remaining physical-hardware and language validation (not claimed complete):
 - Trigger each favorite from another app, hold the keys, and test a shortcut conflict. Removing a favorite must release its key combination. Confirm both Intel and Apple Silicon behavior and non-US keyboard layouts.
 - Review the new localized strings with native speakers and check their preview/menu presentation.
 
-Deferred: a physical-screen mapping workflow for indistinguishable UUIDs and portable twin identities. HDCP diagnosis and negotiation changes are absent from this release. Local experiments demonstrated limited status/topology and link-counter access on one M2/macOS connection, but compatibility and real failure testing remain incomplete. Those experiments are not part of the app or installer.
+The release leaves physical-screen mapping for indistinguishable UUIDs as a future improvement. Profiles with distinct display UUIDs are supported with manual preview.

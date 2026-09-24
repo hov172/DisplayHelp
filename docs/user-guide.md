@@ -655,7 +655,3 @@ Language is separate from display profiles: loading or importing a profile does 
 
 See the [localized screenshot examples](README.md#screenshots) for Traditional Chinese and Arabic. Translation terminology has been checked against Apple documentation; independent native-speaker review remains pending.
 
-
-## Does this release check HDCP or test cables?
-
-No. DisplayHelp 0.6.6 does not include HDCP status checks, HDCP negotiation changes or link-error/cable tests. Research probes are separate from the app. Copy Diagnostics remains useful for display identity, settings and recent changes, but does not certify protected playback or cable health.

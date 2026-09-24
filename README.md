@@ -21,7 +21,7 @@ Feedback, bug reports and suggestions are welcome.
 - [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.6/DisplayHelp-0.6.6-Screenshots.zip)
 - [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.6/SHA256SUMS.txt)
 
-Version 0.6.6 adds system-wide favorite shortcuts, simpler Quick Switch Profiles, Restore Previous/Default Setup, and safer profile matching for identical monitors. Profile and language controls remain stable during background status reads. HDCP diagnostics are not included.
+Version 0.6.6 adds system-wide favorite shortcuts, simpler Quick Switch Profiles, Restore Previous/Default Setup, and safer profile matching for identical monitors. Profile and language controls remain stable during background status reads.
 
 Version 0.6.5 added ten languages alongside English, a globe menu for an app-only language choice, layouts that adapt to longer translations, and confirmations that stay above the app. **Follow System** uses macOS language preferences and bundled translations; macOS does not generate translations. Profiles remain language-independent. Apple terminology has been checked for the latest four languages; independent native-speaker review remains pending.
 

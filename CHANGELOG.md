@@ -11,7 +11,6 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 - Replaced nested favorite assignment menus with two Favorite rows inside a collapsible Quick Switch Profiles section: choose a profile directly, then use the separate Preview button. The section explains that these shortcuts remain available across profile changes. Empty slots offer profile creation. Expansion is remembered; Save Current Setup as Default is inside, while both restore buttons remain visible outside.
 - Added system-wide Favorite 1/2 shortcuts using native hotkey registration. Assigned favorites open the existing preview; removing a favorite releases its shortcut. Conflicts are reported below the affected slot, with local shortcuts retained as a fallback.
 - Added display UUIDs to Copy Diagnostics and localized the new profile and shortcut messages in all eleven supported languages. Native-speaker review remains pending.
-- HDCP diagnostics remain deferred. Standalone feasibility experiments and a future-options plan are separate from the app; no HDCP diagnosis or negotiation changes are included.
 
 ## [0.6.5] - 2026-09-21
 
