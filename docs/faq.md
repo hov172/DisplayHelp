@@ -30,19 +30,33 @@ while the laptop stays extended. The simple Mirror button uses the laptop as par
 existing arrangement as a profile to recall its exact topology.
 
 **Can I switch between two layouts without changing brightness or sound?**
-Yes. Save each using **Layout only**, then assign them to Favorite 1 and Favorite 2 under **Profile › Favorite
-Shortcuts**. Each monitor can have its own resolution in Extend mode. Layout-only profiles include rotation,
+Yes. Save each using **Layout only**, expand **Quick Switch Profiles**, then select each saved name from **Choose Profile…** beside the
+**Favorite 1** and **Favorite 2** rows (0.6.6). Each monitor can have its own resolution in Extend mode. Layout-only profiles include rotation,
 position and the main display but leave brightness, contrast, monitor volume, underscan and audio alone.
 
 **Are the favorite shortcuts global?**
-No. **⌘⌥1** and **⌘⌥2** work while DisplayHelp is active. They open a preview, just like the favorite buttons;
-you still choose Apply and then Keep Changes.
+In 0.6.6, yes: press and release **⌘⌥1** or **⌘⌥2** from another app while DisplayHelp is running.
+They open a preview; you still choose Apply and then Keep Changes. If a shortcut cannot be registered,
+use the favorite button or the app-local shortcut. In 0.6.5, shortcuts work only while DisplayHelp is active.
+
+**Can identical monitors have different saved resolutions?**
+In 0.6.6, yes, if macOS supplies distinct display UUIDs. These profiles require manual preview and cannot
+auto-load. After swapping cables or ports, recreate the intended setup and overwrite each affected profile.
+If macOS cannot distinguish the monitors, saving stays blocked; use macOS Displays to arrange them.
+See the [limits and step-by-step workaround](user-guide.md#identical-monitors-limits-and-workaround-066).
 
 **What if a change leaves a screen unusable?**
 Wait for the 20-second confirmation deadline or press Revert. The floating confirmation remains available when
 the menu closes. Sleep does not extend the deadline. If hardware cannot reproduce the previous setup, the app
 reports the remaining problems and offers Open Display Settings. Force-quitting the app prevents its timer from
 running; the timer is not a macOS crash-recovery guarantee.
+
+**How do I go back after keeping a profile switch?**
+Use **Restore Previous Setup** below Quick Switch Profiles. To keep a permanent starting point, arrange your
+screens and choose **Save Current Setup as Default…**, then use **Restore Default Setup** later. Both open a
+preview and survive app restarts. Previous tracks one successful profile switch; Default changes only when
+you explicitly save it again. Neither reconstructs an unsaved first-connection setup or macOS factory defaults.
+See [Previous and Default Setup](user-guide.md#previous-and-default-setup-066).
 
 **Can I recover a damaged profile library?**
 Yes, when a valid backup exists: use **Recover Profiles from Backup**. The previous file is archived first.
@@ -125,3 +139,8 @@ Place acts on the card you opened. Choosing “Built-in Display left of SAMSUNG�
 Yes. Use the globe at the top of DisplayHelp, choose a language and restart the app when prompted. **Follow System** restores macOS language selection. Eleven languages are bundled; macOS selects the best supported preferred language, with English as fallback. It does not automatically translate missing languages. Language belongs to the current user's app preferences, not a display profile. Names you enter, device names and custom script output are not translated.
 
 For the complete language list, switching instructions and a comparison of macOS settings with the globe menu, see [Language in the user guide](user-guide.md#language).
+
+
+## Does this release check HDCP or test cables?
+
+No. DisplayHelp 0.6.6 does not include HDCP status checks, HDCP negotiation changes or link-error/cable tests. Research probes are separate from the app. Copy Diagnostics remains useful for display identity, settings and recent changes, but does not certify protected playback or cable health.

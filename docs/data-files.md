@@ -9,6 +9,8 @@ choose, and diagnostics also go to the macOS unified log. The app does not trans
 | `known-displays.json` | One entry per display ever seen: its live presets | Any setting changes, a display is renamed, a profile is applied |
 | `profiles.json` | Named whole-setup snapshots | A profile is saved, updated, removed or imported, or automatic loading/favorite assignments are changed |
 | `profiles.json.backup` | Previous valid profile-library version; first save seeds a backup | Before a profile-library save |
+| `restore-setups.json` | Previous successful profile-switch snapshot and explicitly saved Default setup, under stable names `previous` and `default` | A profile switch is kept or succeeds automatically, or Save Current Setup as Default is confirmed |
+| `restore-setups.json.backup` | Previous valid restore-snapshot file; first save seeds a backup | Before a restore-snapshot save |
 | `profiles.json.unreadable-<UUID>` | Original library preserved during explicit recovery or reset | Recover from backup or archive/start fresh |
 | `history.jsonl` | Append-only event log | Every connect, disconnect, change, failure, script run |
 | `history-<date>.jsonl` | Archived log | **Recent Events › Clear Connection History** |
@@ -26,8 +28,7 @@ Names and presets live in the local user’s store; they do not sync across Macs
 with device mapping where identities differ, but does not transfer the known-display nickname store.
 
 Two displays with identical vendor, model and serial values share an identity. Renaming them does not distinguish
-them. Saving a profile with duplicate connected identities is refused, and restoration skips ambiguous matches.
-Do not rely on separate room names to distinguish hardware that reports the same key.
+them. In 0.6.6, profiles can distinguish these displays when macOS supplies distinct display UUIDs. Missing or duplicate UUIDs still block saving, and ambiguous matches are not guessed. UUID-dependent profiles require manual preview and cannot auto-load; re-save them after changing ports or cables. Known-display names and reconnect preferences still share the hardware key, so separate names and shared reconnect preference reads/writes are unavailable while twins are connected. Do not rely on separate room names to distinguish hardware that reports the same key.
 
 ## known-displays.json
 
@@ -70,6 +71,13 @@ preference" when absent.
 | `underscan` | display-specific range | |
 
 ## profiles.json
+
+`restore-setups.json` uses the same validated profile-array format described below, but is separate from the
+named profile library and is not exported/imported with it. Its snapshots have automatic loading disabled and
+no favorite assignments. An unreadable file is preserved; failed writes leave the previous in-memory snapshots
+intact, and a profile switch that cannot preserve its undo snapshot rolls back. There is no separate in-app
+backup-recovery control for this file: quit the app and preserve the original before restoring a valid backup.
+Reset All DisplayHelp Data archives it along with the rest of the data folder.
 
 An array of named setups. Each maps identity keys to that display's settings. A display absent from a profile is
 not assigned saved settings, although macOS may reposition it when the main display changes.

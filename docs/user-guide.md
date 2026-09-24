@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.6.5 (119)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.6.6 (120)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -26,7 +26,7 @@ Control by control. The [README](../README.md) is the short version; this is the
 
 ## Opening the app
 
-In 0.6.5, the menu fits its content up to 900 points tall, limited by the available screen height. Scroll inside it for any controls below the visible area.
+In 0.6.6, the menu fits its content up to 900 points tall, limited by the available screen height. Scroll inside it for any controls below the visible area.
 
 DisplayHelp has no Dock icon or main window. Profile previews, import/export and confirmations use dialogs.
 Click its menu bar icon to open the menu;
@@ -46,7 +46,7 @@ The icon reports the display state without opening the menu:
 ## Identify Displays
 
 <p align="center">
-  <a href="images/identify-displays.png"><img src="images/identify-displays.png" width="420" alt="DisplayHelp 0.6.5 temporary identification label with sample display names"></a>
+  <a href="images/identify-displays.png"><img src="images/identify-displays.png" width="420" alt="DisplayHelp 0.6.6 temporary identification label with sample display names"></a>
 </p>
 
 **Identify Displays:** When an external display is connected, use the button beneath Screen Layout to show matching numbers and names on each desktop for five seconds. Mirrored screens share the same numbered group. Labels let clicks pass through and disappear automatically, or when the display configuration changes. This does not change display settings.
@@ -54,14 +54,14 @@ The icon reports the display state without opening the menu:
 ## Profile row
 
 <p align="center">
-  <a href="images/layout-profiles.png"><img src="images/layout-profiles.png" width="249" alt="DisplayHelp 0.6.5 layout and favorites, rendered by the production UI with sample display data"></a>
+  <a href="images/layout-profiles.png"><img src="images/layout-profiles.png" width="249" alt="DisplayHelp 0.6.6 layout and favorites, rendered by the production UI with sample display data"></a>
 </p>
 
 The diagram shows screen geometry, names and rotation; it does not stream desktop content. All screenshots
-below show the current 0.6.5 interface with isolated sample data. See [screenshot provenance](README.md#screenshots).
+below show the current 0.6.6 interface with isolated sample data. See [screenshot provenance](README.md#screenshots).
 
 <p align="center">
-  <a href="images/profiles.png"><img src="images/profiles.png" width="287" alt="DisplayHelp 0.6.5 Profile menu with sample profiles, favorites, automatic loading, export, save and import commands"></a>
+  <a href="images/profiles.png"><img src="images/profiles.png" width="287" alt="DisplayHelp 0.6.6 Profile menu with sample profiles, automatic loading, export, save and import commands"></a>
 </p>
 
 **Profile: ‹name›** or **Profile: Choose or Create…** at the top left. A profile is a named snapshot of every
@@ -79,7 +79,6 @@ the scope selected there.
 |---|---|
 | A profile name | Opens a current → saved preview. Apply restores every connected display it covers. Displays outside the profile receive no saved settings, though macOS may reposition them when the main display changes. Updates verified per-display reconnect presets after you keep the changes. Choose it again after reconnecting to restore the whole layout and system audio output. |
 | **Overwrite with Current Settings ›** | Replaces any profile with what is on screen now. |
-| **Favorite Shortcuts ›** | Assign a profile to Favorite 1 or Favorite 2, or remove its favorite assignment. Assigning an occupied slot replaces its previous assignment. |
 | **Remove ›** | Deletes one profile. |
 | **Update "‹name›" with Current Settings** | Overwrites the profile you last applied or saved with what is on screen now. Appears once you have used one this session. |
 | **Load Automatically When Connected ›** | Opt in per profile, uncheck to disable, or choose **Turn Off All Automatic Profiles**. Exact, unambiguous display-set matches load at connection or launch, without a confirmation dialog. |
@@ -87,8 +86,21 @@ the scope selected there.
 | **Import Profiles…** | Validate and import JSON, mapping missing display/audio identities to this Mac if needed. Existing names are preserved with numbered suffixes. Imports start with automatic loading off and no favorite assignments. |
 | **Save Current Setup As…** | Opens a name field. Choose Full setup or Layout only, type the room or purpose, and press Return or Save. Typing an existing name replaces it. |
 
-Favorites appear as two direct buttons beneath the profile row. Clicking one, or pressing **⌘⌥1** / **⌘⌥2**
-while DisplayHelp is active, opens its preview. These are app-local shortcuts, not global hotkeys.
+**Quick Switch Profiles** contains two global favorite slots. They stay assigned when you change the active profile, so you can switch back to another setup. A favorite does not indicate which profile is currently applied; the **Profile** row shows that.
+
+**Set a favorite in 0.6.6:**
+
+1. Expand **Quick Switch Profiles** beneath Profile to find **Favorite 1 (⌘⌥1)**. The app remembers whether this section is expanded.
+2. Click **Choose Profile…** and select the saved profile you want. This only assigns the slot; it does not apply any display settings.
+3. Repeat in the **Favorite 2 (⌘⌥2)** row for your second profile.
+4. Click **Preview** beside a slot when you want to use it. Review, Apply, then Keep Changes.
+
+No saved profiles yet? Choose **Save Current Setup As…** from the slot menu, save your setup, then select the saved name in the favorite row. To change a favorite, click its assigned name and choose another profile. **Remove Favorite** clears the slot without deleting the profile. Assigning a profile already in the other slot moves it to the selected slot.
+
+Press and release **⌘⌥1** / **⌘⌥2** from any app while DisplayHelp is running to open the same preview.
+Only assigned favorites reserve a global shortcut. If registration fails, an explanation appears beneath that slot;
+use **Preview** or the local shortcut while DisplayHelp is active. Version 0.6.5 uses the nested
+**Profile → Favorite Shortcuts** menu and supports app-local shortcuts only.
 
 The title shows a profile only when every saved setting matches actual readings and the connected display set
 matches. Levels, rotation, underscan, position, main display, actual mirror leadership and audio are checked too.
@@ -106,7 +118,7 @@ fields were absent from older saves. A saved mirror follower mode can only be re
 saved primary. Incompatible old mirror settings are reported instead of silently replaced by recommendations.
 
 <p align="center">
-  <a href="images/restore-preview.png"><img src="images/restore-preview.png" width="392" alt="DisplayHelp 0.6.5 saved-profile preview using sample settings, with Cancel and Apply"></a>
+  <a href="images/restore-preview.png"><img src="images/restore-preview.png" width="392" alt="DisplayHelp 0.6.6 saved-profile preview using sample settings, with Cancel and Apply"></a>
 </p>
 
 Manual restores show before/after values first in a compact dialog. Its content grows only as needed,
@@ -129,10 +141,74 @@ rejects two displays mapped to one device; it never applies settings immediately
 one room. One profile per room is the common pattern. A single display you only ever mirror does not need one: the
 app already remembers its settings.
 
+### Previous and Default Setup (0.6.6)
+
+The restore buttons below **Quick Switch Profiles** stay visible even when that section is collapsed. They give you two ways back after keeping a profile change:
+
+| Action | Result |
+|---|---|
+| **Restore Previous Setup** | Previews the setup from before the last successful profile switch. It becomes available after a switch is kept, or an automatic profile restore succeeds. |
+| **Save Current Setup as Default…** | Reads and saves the current setup as a full snapshot after you confirm Save. Replaces any earlier default; it does not change your monitors. |
+| **Restore Default Setup** | Previews the starting setup you explicitly saved. Disabled until a default has been saved. |
+
+To set your starting point:
+
+1. Arrange the displays and choose the resolutions and other settings you want to return to.
+2. Expand **Quick Switch Profiles**, click **Save Current Setup as Default…** beneath the favorite slots, then confirm **Save**.
+3. Switch profiles as needed. Your default stays unchanged.
+4. To return, click **Restore Default Setup**, review the preview, choose **Apply**, then **Keep Changes**.
+
+**Previous** keeps one undo snapshot, not a history. It follows the scope of the profile switch: undoing a
+Layout only switch leaves picture controls and audio alone. A failed, reverted, or ineffective switch does not
+replace it, and ordinary manual adjustments do not replace it. Keeping a Previous or Default restore counts
+as another profile switch, so Previous then points to the setup you just left. Both snapshots survive quitting
+and reopening DisplayHelp. If saving the undo snapshot fails, the switch is rolled back and an error is shown.
+
+**Default** is your chosen starting point, not macOS factory settings. The app cannot reconstruct a first-connection
+setup from before this feature was available; arrange and save the setup you want. It captures the same readable
+settings as a Full setup profile, not system Output Volume or mute. It changes only when you confirm saving a new default.
+
+Both restore actions use the existing preview and 20-second Keep/Revert flow. Missing displays, unsupported modes
+and identical-monitor limits still apply; review any partial restore before applying. These two snapshots are
+stored separately from named profiles, are not included in profile export/import, and are cleared (with a backup)
+by **Reset All DisplayHelp Data**. Removing a named profile or favorite does not delete them.
+
+### Identical monitors: limits and workaround (0.6.6)
+
+Two monitors can report the same manufacturer, model and serial information. DisplayHelp can save separate
+profile settings for them only when macOS supplies distinct display UUIDs. These identify the connections;
+they do not guarantee which physical monitor is attached after cables or ports are swapped.
+
+| Limit | What to do |
+|---|---|
+| These profiles cannot load automatically. | Open the profile or use its favorite shortcut, review the numbered screens, then Apply. |
+| Swapping cables, ports or docks can invalidate the saved matching. | Recreate the intended setup and overwrite each affected profile using the steps below. |
+| macOS supplies missing or identical UUIDs. | Saving stays blocked; use macOS **System Settings → Displays** to arrange the monitors. There is no manual identity-assignment feature yet. |
+| Separate nicknames and reconnect preferences are unavailable while hardware identities are shared. | Use **Identify Displays** and restore the whole saved profile manually. Renaming does not resolve identity ambiguity. |
+| DDC controls remain unavailable when the hardware match is ambiguous. | Use the monitor's own controls for brightness, contrast or monitor volume. |
+
+After changing cables, ports or docks:
+
+1. Connect all monitors intended for the profile. Do not apply the old profile yet.
+2. Choose **Identify Displays** and check the numbers on the physical screens. Labels last five seconds;
+   repeat as needed. Mirrored screens share a group label; use Extend when you need independent desktops.
+3. Recreate the intended resolutions and arrangement. Use DisplayHelp's controls when available, or macOS
+   **System Settings → Displays** if ambiguous identities prevent a reversible change.
+4. Choose **Profile → Overwrite with Current Settings → ‹profile name›**. This replaces that profile's saved
+   settings and matching with the current setup, preserving its scope and favorite slot. If saving is still
+   blocked, use macOS Displays; re-saving cannot create a missing identity.
+5. For a second template, first recreate its intended settings, then overwrite that profile too. Do not
+   overwrite both profiles from the same setup unless you want them to become identical.
+6. Preview the updated profile and check its numbered screens. After applying a change, choose **Keep Changes**
+   only when every screen is correct; otherwise choose **Revert** or let the 20-second timer expire.
+
+If a display remains missing or ambiguous, use **Troubleshooting → Copy Diagnostics** and share the report
+with your helpdesk. Resetting app data is not a fix for identical hardware identities.
+
 ## Keep or revert display changes
 
 <p align="center">
-  <a href="images/keep-changes.png"><img src="images/keep-changes.png" width="360" alt="DisplayHelp 0.6.5 single Keep/Revert window, captured with an isolated sample confirmation"></a>
+  <a href="images/keep-changes.png"><img src="images/keep-changes.png" width="360" alt="DisplayHelp 0.6.6 single Keep/Revert window, captured with an isolated sample confirmation"></a>
 </p>
 
 Manual layout changes, resolution/refresh changes, rotation, underscan, Detect Displays and profile applications
@@ -170,7 +246,7 @@ so under the cards: check the cable and the projector's input.
 One card per connected display, in the order reported by macOS.
 
 <p align="center">
-  <a href="images/menu.png"><img src="images/menu.png" width="322" alt="DisplayHelp 0.6.5 display cards using sample displays and settings"></a>
+  <a href="images/menu.png"><img src="images/menu.png" width="322" alt="DisplayHelp 0.6.6 display cards using sample displays and settings"></a>
 </p>
 
 The capture uses sample displays to show the current controls. Each card reports its own mode and refresh
@@ -195,7 +271,7 @@ capabilities and readings available on your connection. Placement and rotation r
 ### Arrangement (externals)
 
 <p align="center">
-  <a href="images/extend.png"><img src="images/extend.png" width="440" alt="DisplayHelp 0.6.5: Extended desktop controls"></a>
+  <a href="images/extend.png"><img src="images/extend.png" width="440" alt="DisplayHelp 0.6.6: Extended desktop controls"></a>
 </p>
 
 **Mirror** and **Extend**. The current one is greyed. The choice is remembered and applied at every reconnect.
@@ -204,7 +280,7 @@ Hidden on the built-in panel, which has no arrangement of its own.
 ### Resolution
 
 <p align="center">
-  <a href="images/resolution.png"><img src="images/resolution.png" width="192" alt="DisplayHelp 0.6.5: Open resolution picker with sample modes"></a>
+  <a href="images/resolution.png"><img src="images/resolution.png" width="192" alt="DisplayHelp 0.6.6: Open resolution picker with sample modes"></a>
 </p>
 
 One entry per size and scaling, at its best refresh rate. "HiDPI" means the display renders at double resolution
@@ -216,7 +292,7 @@ reported by macOS without that additional filter.
 ### Refresh Rate
 
 <p align="center">
-  <a href="images/refresh-rate.png"><img src="images/refresh-rate.png" width="84" alt="DisplayHelp 0.6.5: Refresh-rate choices for the sample mode"></a>
+  <a href="images/refresh-rate.png"><img src="images/refresh-rate.png" width="84" alt="DisplayHelp 0.6.6: Refresh-rate choices for the sample mode"></a>
 </p>
 
 Under **More Controls** when the current size offers more than one rate. Fastest first.
@@ -256,7 +332,7 @@ panel to lead.
 ### Audio (externals)
 
 <p align="center">
-  <a href="images/audio.png"><img src="images/audio.png" width="210" alt="DisplayHelp 0.6.5: Sample audio output choices"></a>
+  <a href="images/audio.png"><img src="images/audio.png" width="210" alt="DisplayHelp 0.6.6: Sample audio output choices"></a>
 </p>
 
 Under **More Controls → Audio**. Choosing an output switches sound now and remembers which output device plays the Mac's sound whenever this display is connected. The list is every output the Mac has
@@ -280,7 +356,7 @@ its remote.
 ### Output Volume
 
 <p align="center">
-  <a href="images/output-volume.png"><img src="images/output-volume.png" width="440" alt="DisplayHelp 0.6.5 Output Volume with sample built-in speaker volume and mute controls"></a>
+  <a href="images/output-volume.png"><img src="images/output-volume.png" width="440" alt="DisplayHelp 0.6.6 Output Volume with sample built-in speaker volume and mute controls"></a>
 </p>
 
 The separate **Output Volume** section beneath Screen Layout follows the Mac’s active audio output. Choose the built-in speakers in macOS Sound or the display’s Audio picker to control the Mac’s speaker volume here. Changes made in Control Center, with the volume keys, or by connecting another audio device update the control automatically.
@@ -288,13 +364,13 @@ The separate **Output Volume** section beneath Screen Layout follows the Mac’s
 Adjust the slider or use **Mute / Unmute** when supported. Outputs that do not expose adjustable volume to macOS (often HDMI) show an explanation instead of a slider. Use the monitor’s own controls or **Monitor Volume** if DDC is available. Output Volume and mute are live system controls; they are not saved in display profiles. The existing profile volume setting controls the external monitor’s DDC volume.
 
 <p align="center">
-  <a href="images/output-volume-unavailable.png"><img src="images/output-volume-unavailable.png" width="440" alt="DisplayHelp 0.6.5 unavailable software volume explanation for a sample HDMI output"></a>
+  <a href="images/output-volume-unavailable.png"><img src="images/output-volume-unavailable.png" width="440" alt="DisplayHelp 0.6.6 unavailable software volume explanation for a sample HDMI output"></a>
 </p>
 
 ### Rotation (externals)
 
 <p align="center">
-  <a href="images/rotation.png"><img src="images/rotation.png" width="77" alt="DisplayHelp 0.6.5: Rotation options"></a>
+  <a href="images/rotation.png"><img src="images/rotation.png" width="77" alt="DisplayHelp 0.6.6: Rotation options"></a>
 </p>
 
 The current angle is shown beside Place…. Change it under **More Controls → Rotation**: 0°, 90°, 180°, 270°. The picker appears for external displays that report supported rotation. Remembered after confirmation.
@@ -314,11 +390,11 @@ A slider that shrinks the picture for projectors that crop the edges. Shown when
 ### Position (extend mode only)
 
 <p align="center">
-  <a href="images/position.png"><img src="images/position.png" width="275" alt="DisplayHelp 0.6.5: Relative screen position choices"></a>
+  <a href="images/position.png"><img src="images/position.png" width="275" alt="DisplayHelp 0.6.6: Relative screen position choices"></a>
 </p>
 
 <p align="center">
-  <a href="images/position-alignment.png"><img src="images/position-alignment.png" width="96" alt="DisplayHelp 0.6.5: Edge and center alignment choices"></a>
+  <a href="images/position-alignment.png"><img src="images/position-alignment.png" width="96" alt="DisplayHelp 0.6.6: Edge and center alignment choices"></a>
 </p>
 
 - **Place… → Make [display name] Main** selects that display as the main screen. Choose **Keep Changes** to retain it. To save this choice, create a profile or use **Profile → Overwrite with Current Settings → [profile name]**. Both Full setup and Layout only profiles include the main display; existing profiles are not updated automatically.
@@ -351,7 +427,7 @@ rebuilds the database on the next login. Needs an administrator password, asked 
 ColorSync preservation requires 0.5.2 or later; older installers can remove display-profile folders.
 
 <p align="center">
-  <a href="images/reset-confirmation.png"><img src="images/reset-confirmation.png" width="260" alt="Reset confirmation in 0.6.5: display settings are cleared while ColorSync profiles are preserved"></a>
+  <a href="images/reset-confirmation.png"><img src="images/reset-confirmation.png" width="260" alt="Reset confirmation in 0.6.6: display settings are cleared while ColorSync profiles are preserved"></a>
 </p>
 
 ### Custom Fixes
@@ -411,7 +487,7 @@ folder as long as the files end up owned by that user with mode 0755.
 ### More › Uninstall DisplayHelp… 🔒
 
 <p align="center">
-  <a href="images/uninstall-confirmation.png"><img src="images/uninstall-confirmation.png" width="295" alt="DisplayHelp 0.6.5: Uninstall confirmation, canceled"></a>
+  <a href="images/uninstall-confirmation.png"><img src="images/uninstall-confirmation.png" width="295" alt="DisplayHelp 0.6.6: Uninstall confirmation, canceled"></a>
 </p>
 
 Confirms with an "Also remove saved profiles and settings" checkbox, turns off Start at Login, then an administrator
@@ -429,7 +505,7 @@ sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_Displ
 ### Clear history, forget a display, or start fresh
 
 <p align="center">
-  <a href="images/data-actions.png"><img src="images/data-actions.png" width="440" alt="DisplayHelp 0.6.5 data actions with Troubleshooting, More and Recent Events expanded; sample display/history data"></a>
+  <a href="images/data-actions.png"><img src="images/data-actions.png" width="440" alt="DisplayHelp 0.6.6 data actions with Troubleshooting, More and Recent Events expanded; sample display/history data"></a>
 </p>
 
 
@@ -461,7 +537,7 @@ that resets macOS display configuration.
 ## Recent Events
 
 <p align="center">
-  <a href="images/recent-events.png"><img src="images/recent-events.png" width="440" alt="DisplayHelp 0.6.5: Sample history and Clear Connection History action"></a>
+  <a href="images/recent-events.png"><img src="images/recent-events.png" width="440" alt="DisplayHelp 0.6.6: Sample history and Clear Connection History action"></a>
 </p>
 
 **Copy Diagnostics** copies app/macOS versions, display identities, modes, layout, available-control explanations
@@ -474,7 +550,7 @@ Under **Troubleshooting → Recent Events**, collapsed by default. The latest 20
 ## Start at Login, Quit, About
 
 <p align="center">
-  <a href="images/about.png"><img src="images/about.png" width="284" alt="DisplayHelp 0.6.5: About DisplayHelp 0.6.5 (119)"></a>
+  <a href="images/about.png"><img src="images/about.png" width="284" alt="DisplayHelp 0.6.6: About DisplayHelp 0.6.6 (120)"></a>
 </p>
 
 **Start at Login** is on by default after a packaged install. Off means the app must be opened from Applications.
@@ -485,7 +561,7 @@ if recovery fails, the app stays open so you can finish recovery. The **Ayala So
 ## The connect dialog
 
 <p align="center">
-  <a href="images/first-connect.png"><img src="images/first-connect.png" width="260" alt="DisplayHelp 0.6.5: First-connection prompt using a sample display"></a>
+  <a href="images/first-connect.png"><img src="images/first-connect.png" width="260" alt="DisplayHelp 0.6.6: First-connection prompt using a sample display"></a>
 </p>
 
 Appears when a display the app has never seen, or one set to "ask", is connected.
@@ -578,3 +654,8 @@ Language is separate from display profiles: loading or importing a profile does 
 </p>
 
 See the [localized screenshot examples](README.md#screenshots) for Traditional Chinese and Arabic. Translation terminology has been checked against Apple documentation; independent native-speaker review remains pending.
+
+
+## Does this release check HDCP or test cables?
+
+No. DisplayHelp 0.6.6 does not include HDCP status checks, HDCP negotiation changes or link-error/cable tests. Research probes are separate from the app. Copy Diagnostics remains useful for display identity, settings and recent changes, but does not certify protected playback or cable health.

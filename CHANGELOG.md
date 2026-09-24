@@ -2,6 +2,17 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.6] - 2026-09-23
+
+- Kept the active profile label and language control stable during periodic read-only hardware checks; pending settings changes still invalidate the label and block language restarts.
+- Added Restore Previous Setup after a successful profile switch and an explicitly saved Default Setup. Both persist across restarts and restore through preview and Keep/Revert; a failed undo-snapshot save rolls back the profile switch. Defaults are never inferred from an earlier first connection.
+- Added macOS UUID disambiguation for profiles and reversible changes on displays with identical hardware identities. Missing or duplicate UUIDs remain blocked; UUID-based profiles require manual preview and do not auto-load.
+- Prevented identical monitors from reading or overwriting shared reconnect preferences. Separate nicknames and DDC controls remain unavailable for ambiguous hardware identities.
+- Replaced nested favorite assignment menus with two Favorite rows inside a collapsible Quick Switch Profiles section: choose a profile directly, then use the separate Preview button. The section explains that these shortcuts remain available across profile changes. Empty slots offer profile creation. Expansion is remembered; Save Current Setup as Default is inside, while both restore buttons remain visible outside.
+- Added system-wide Favorite 1/2 shortcuts using native hotkey registration. Assigned favorites open the existing preview; removing a favorite releases its shortcut. Conflicts are reported below the affected slot, with local shortcuts retained as a fallback.
+- Added display UUIDs to Copy Diagnostics and localized the new profile and shortcut messages in all eleven supported languages. Native-speaker review remains pending.
+- HDCP diagnostics remain deferred. Standalone feasibility experiments and a future-options plan are separate from the app; no HDCP diagnosis or negotiation changes are included.
+
 ## [0.6.5] - 2026-09-21
 
 - Added native macOS localization for all 374 app-owned strings in eleven languages: English, German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Simplified Chinese, Traditional Chinese and Arabic.

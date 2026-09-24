@@ -10,12 +10,14 @@
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
 
-[0.6.5 release notes](release-0.6.5.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[0.6.6 release notes](release-0.6.6.md) · [0.6.0 hardware validation](release-0.6.0.md).
+
 
 ## Screenshots
 
-**The current English screenshot gallery below shows DisplayHelp 0.6.5 (119)**, captured on 2026-09-21. Historical release and design-review documents retain their original evidence.
-The localized examples use the same production views and 0.6.5 (119) metadata.
+**The current English screenshot gallery below shows DisplayHelp 0.6.6 (120)**, captured on 2026-09-23. Historical release and design-review documents retain their original evidence.
+The Finder example-folder image is retained from 0.6.5; its folder name is illustrative. The video thumbnail depicts an earlier interface.
+The localized examples use the same production views and 0.6.6 (120) metadata.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
 audio devices and history. They are native UI captures, not drawn mockups or live desktop thumbnails. Picker screenshots isolate the open native menu so choices remain readable.
 
@@ -42,7 +44,7 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Unavailable output volume](images/output-volume-unavailable.png) | Explanation for a sample fixed-volume HDMI output. |
 | [Identify Displays](images/identify-displays.png) | Actual temporary identification panel using sample names; no screen settings changed. |
 | [Taller menu](images/menu-viewport.png) | Compact native menu viewport, up to 900 points high; remaining content scrolls. |
-| [Layout and favorites](images/layout-profiles.png) | Full scroll content with two favorite templates and sample extended displays. |
+| [Layout and favorites](images/layout-profiles.png) | Full scroll content with Quick Switch Profiles expanded, two favorite templates, Previous/Default recovery and sample extended displays. |
 | [Menu overview](images/menu.png) | Current display cards and controls using sample hardware. |
 | [Extended displays](images/extend.png) | Separate desktops and position controls. |
 | [Resolution](images/resolution.png) | Open size picker with sample offered modes. |
@@ -53,7 +55,7 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Position alignment](images/position-alignment.png) | Edge or center alignment submenu for a relative placement. |
 | [Rename](images/rename.png) | Editable external-display nickname. |
 | [Display details](images/display-details.png) | Sample identity, modes and capabilities. |
-| [Profile menu](images/profiles.png) | Current profile actions, favorites and import/export. |
+| [Profile menu](images/profiles.png) | Current profile actions and import/export; favorites are assigned in Quick Switch Profiles. |
 | [Save profile](images/save-profile.png) | Name entry and Full setup/Layout only scope selection. |
 | [Automatic profiles](images/automatic-profile.png) | Optional automatic loading controls. |
 | [Restore preview](images/restore-preview.png) | Current-to-saved comparison with sample settings; canceled before applying. |

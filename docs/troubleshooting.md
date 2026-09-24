@@ -92,6 +92,24 @@ layout-only profiles deliberately ignore picture levels, underscan and audio.
 A profile saved with only the laptop connected does not describe a laptop-plus-TV setup. Automatic loading
 also requires an exact, unambiguous set and must be enabled explicitly.
 
+### Identical monitors cannot save or automatically load a profile (0.6.6)
+**Cause.** Separate profile settings require distinct macOS display UUIDs. Missing or duplicate UUIDs still
+block saving. Profiles that use UUIDs to distinguish matching hardware identities always require manual preview;
+automatic loading is unavailable even after a successful save.
+
+**Do.** Open the profile or its favorite shortcut and check the numbered screens before applying. If saving is
+blocked, use **System Settings → Displays** to arrange the monitors. The app cannot manually assign identities
+yet; renaming monitors or resetting app data will not resolve the ambiguity.
+
+### A profile targets the wrong identical monitor after cables or ports were swapped (0.6.6)
+**Do.** Cancel the preview, or choose **Revert** if changes are pending. Recreate the intended layout and
+resolutions, then choose **Profile → Overwrite with Current Settings → ‹profile name›**. Repeat separately for
+each template after arranging its intended settings. Scope and favorite assignments are preserved.
+
+**Cause.** The macOS identifier can describe a connection rather than follow a physical monitor across port
+swaps. Re-saving records the current matching; it does not enable automatic loading or fix missing UUIDs.
+See the [complete identical-monitor workaround](user-guide.md#identical-monitors-limits-and-workaround-066).
+
 ### A manual change reverted before I could keep it
 **Cause.** Confirmation expires after 20 seconds, including time asleep. A connection change or failed readback
 can also trigger recovery. Apply the change again and choose Keep Changes only after checking all screens.
@@ -241,7 +259,7 @@ change if the installer reports that DisplayHelp could not close, quit the app, 
 
 ## The menu looks too short
 
-Update to 0.6.5. Its compact menu fits its content up to 900 points of height within the screen's available area. Expand More Controls for advanced settings and Troubleshooting for fixes. On smaller screens,
+Update to 0.6.6 or later. Its compact menu fits its content up to 900 points of height within the screen's available area. Expand More Controls for advanced settings and Troubleshooting for fixes. On smaller screens,
 scroll inside the menu to reach the remaining display cards and footer controls. A mirrored layout shows one box
 labeled with both screen numbers because both screens share a desktop.
 
