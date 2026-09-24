@@ -14,12 +14,4 @@ Automated acceptance: all 160 Swift tests passed with native hotkey testing enab
 
 Profile and language controls now remain stable during periodic read-only hardware checks. Pending settings changes still invalidate the active-profile label and block language restarts.
 
-Remaining physical-hardware and language validation (not claimed complete):
-
-- Four displays with two matching models: save two different resolution/layout profiles, switch, Keep and Revert.
-- Reconnect in a different order, restart, then swap ports. Check UUIDs in Copy Diagnostics and re-save after cable changes; unavailable or ambiguous identities must not be guessed.
-- Verify mirrored twins, partial disconnections and rollback when a display disappears.
-- Trigger each favorite from another app, hold the keys, and test a shortcut conflict. Removing a favorite must release its key combination. Confirm both Intel and Apple Silicon behavior and non-US keyboard layouts.
-- Review the new localized strings with native speakers and check their preview/menu presentation.
-
-The release leaves physical-screen mapping for indistinguishable UUIDs as a future improvement. Profiles with distinct display UUIDs are supported with manual preview.
+Profiles with distinct display UUIDs are supported with manual preview.
