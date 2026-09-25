@@ -143,8 +143,24 @@ error does not prove the hardware change failed, but that change may not be reca
 **Do.** Read the card’s unavailable-control explanation. Check the monitor’s DDC/CI setting and try a supported
 connection. Use Copy Diagnostics if help is needed.
 **Cause.** No readable control value was returned; that alone does not identify the exact cause. Ports, adapters
-and monitors vary. Intel DDC control is not implemented. When connected monitors have ambiguous identities,
-DDC is deliberately disabled to avoid controlling the wrong screen. Layout controls can still work.
+and monitors vary. The built-in HDMI port on Apple silicon laptops refuses DDC/CI commands while still reading the
+display’s identity; the same monitor often answers over USB-C. Intel DDC control is not implemented. When connected
+monitors have ambiguous identities, DDC is deliberately disabled to avoid controlling the wrong screen. Layout
+controls can still work.
+
+### HDCP shows Unavailable
+**Do.** Read the reason after the dash. For an ambiguous match, disconnect the identical monitor. For no answer
+within the time limit, press **Check HDCP** again once the display has settled.
+**Cause.** The reading could not be made: built-in display, identical monitors that cannot be told apart, a macOS
+version without the status interface, a refused query, or a stalled answer. It is not a statement about the display.
+
+### HDCP shows Unprotected or Negotiating
+**Do.** Start the protected content, wait a few seconds, then press **Check HDCP**. Negotiating is re-read once
+automatically after five seconds.
+**Cause.** Unprotected means nothing is asking for protection right now, or the negotiation has not completed.
+Negotiating is the in-progress state right after connection. Neither is a fault on its own. If protected playback
+still fails while the state stays Unprotected, the chain between the Mac and the display is the next thing to check;
+the topology sentence reports whether a repeater is present and any limit flags the receiver sets.
 
 ### No Rotation or Underscan row
 **Cause.** macOS did not expose a usable rotation interface or adjustable underscan range. The card’s explanation

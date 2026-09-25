@@ -10,7 +10,7 @@
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
 
-[0.6.6 release notes](release-0.6.6.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[0.6.7 release notes](release-0.6.7.md) · [0.6.6 release notes](release-0.6.6.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 
 ## Screenshots

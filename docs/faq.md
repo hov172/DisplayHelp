@@ -75,6 +75,18 @@ Use **Save Current Setup As…** if there are no profiles. Older profiles defaul
 groups. Missing hardware and unsupported modes can still prevent a complete restore; failed changes trigger
 an attempt to return to the previous setup.
 
+**What does the HDCP part of the status line mean?**
+It is the copy-protection state macOS reports for that connection (0.6.7): **HDCP2** or **HDCP1** when protected,
+**HDCP Unprotected** or **HDCP Negotiating** when the link answered but is not protected right now, nothing when
+it could not be read. Unprotected on its own is not a fault; nothing may be asking for protection. DisplayHelp only
+reads the state. It never negotiates, forces or bypasses protection, and it cannot say whether a particular title
+will play.
+
+**Why is a 4K display on 1920×1080 HiDPI stuck at 30 Hz?**
+HiDPI draws a 1080p-sized desktop using all of the panel's 4K pixels, so the cable carries a 4K signal. Many HDMI
+paths only hold 4K at 30 Hz. Plain 1920×1080 sends a quarter of the pixels and reaches 60 Hz. The orange hint
+under the status line offers that mode when it exists; click it to switch. Sharpness and smoothness are the trade.
+
 **Why can one display be orange while the laptop is green?**
 An orange dot means a different mode is recommended or an external primary display is below the preferred
 50 Hz minimum. Each card is checked separately; mirrored displays can report different refresh rates.
@@ -139,4 +151,3 @@ Place acts on the card you opened. Choosing “Built-in Display left of SAMSUNG�
 Yes. Use the globe at the top of DisplayHelp, choose a language and restart the app when prompted. **Follow System** restores macOS language selection. Eleven languages are bundled; macOS selects the best supported preferred language, with English as fallback. It does not automatically translate missing languages. Language belongs to the current user's app preferences, not a display profile. Names you enter, device names and custom script output are not translated.
 
 For the complete language list, switching instructions and a comparison of macOS settings with the globe menu, see [Language in the user guide](user-guide.md#language).
-

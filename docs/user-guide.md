@@ -257,16 +257,24 @@ capabilities and readings available on your connection. Placement and rotation r
 - **Symbol.** Laptop for the built-in panel, TV when EDID detailed timings include a 4K-class size, monitor
   otherwise. A 4K TV can show the monitor symbol if its EDID timings are unavailable.
 - **Name.** The EDID name, or the name you gave it.
-- **Status line.** "Mirrored · 1920×1080 HiDPI · 60 Hz". The first part is one of **Mirrored**, **Extended**,
-  **Extended, main** (the display holding the menu bar), or **Only display** when nothing else is connected.
+- **Status line.** "Mirrored · 1920×1080 HiDPI · 60 Hz · HDCP2". The first part is one of **Mirrored**, **Extended**,
+  **Extended, main** (the display holding the menu bar), or **Only display** when nothing else is connected. For an
+  external display the line ends with the HDCP state macOS reports once the connection has been checked (0.6.7):
+  the protocol family when protected, or **HDCP Unprotected** / **HDCP Negotiating** when the link answered but is
+  not protected. Nothing is shown when the state could not be read. See [Check HDCP](#check-hdcp-externals).
+- **Smoother-rate hint.** When a display runs below 50 Hz and the same size is offered at a smoother rate, an orange
+  line such as "60 Hz is available at 1920×1080 without HiDPI." appears under the status. Click it to apply that mode
+  through the usual preview. HiDPI sends the panel's full pixel count over the cable, which is why an HDMI link often
+  holds it only at 30 Hz; the plain mode of the same size sends a quarter of the pixels and reaches 60 Hz.
 - **Dot.** Green: on a mode DisplayHelp would choose. Orange: not, which means pixel-exact 4K, a size the EDID does
   not guarantee, or a refresh rate below 50 Hz. Hover for the reason.
 - **Pencil** (externals only). Rename. Type and press Return; Escape cancels. The name is stored against the
   display's vendor/model/serial identity in this user’s local store. Renaming does not transfer settings to another Mac
   or distinguish devices that report the same identity.
 - **ⓘ** opens a details popover: vendor, model, serial, native size, EDID-guaranteed sizes, the current mode, what
-  each recommendation would pick, and the identity key. Its **Supported Resolutions** list is every mode macOS
-  offers, one line per size with its refresh rates, including the ones the picker hides.
+  each recommendation would pick, the identity key, and for external displays the HDCP state and reported topology
+  (0.6.7). Its **Supported Resolutions** list is every mode macOS offers, one line per size with its refresh rates,
+  including the ones the picker hides.
 
 ### Arrangement (externals)
 
@@ -375,10 +383,33 @@ Adjust the slider or use **Mute / Unmute** when supported. Outputs that do not e
 
 The current angle is shown beside Place…. Change it under **More Controls → Rotation**: 0°, 90°, 180°, 270°. The picker appears for external displays that report supported rotation. Remembered after confirmation.
 
+### Check HDCP (externals)
+HDCP is the copy protection negotiated between the Mac and a display or the equipment in between. When a room
+system refuses protected video, the state of that negotiation is the first thing to know.
+
+DisplayHelp reads the state macOS reports once when an external display connects, including displays already
+attached when the app opens, and shows it at the end of the card's status line. **More Controls → Check HDCP**
+reads it again, for example after playback starts or stops. The reading is bounded to a few seconds, never runs on
+the periodic refresh, and never changes or negotiates protection.
+
+The result under the button reads like "macOS reports HDCP2 · Protected · Encrypted. Checked 10:23 PM. This is the
+connection state; protected playback has not been tested." The protocol family is what macOS reports: **HDCP1**,
+**HDCP2** or **None**. macOS does not distinguish 1.4 from earlier 1.x, or 2.2 from 2.3.
+
+When the DisplayPort receiver reports it, a second sentence describes the chain: whether a repeater is present, the
+reported device count and depth, and any limit flags. These are the receiver's own observations. They do not name a
+vendor or a failing device, and an unreadable register is stated as unknown rather than reported as a result.
+
+**Unavailable** with a reason means the reading could not be made: a built-in display, an ambiguous match between
+identical monitors, a macOS version without the interface, a refused query, or no answer within the time limit. It is
+not a verdict on the display. The result is also included in **Copy Diagnostics** with the raw values.
+
 ### Brightness, Contrast, Monitor Volume
 The built-in panel shows Brightness when macOS returns a readable value. External displays get the sliders their hardware answers to over DDC/CI.
 On Apple Silicon, USB-C and DisplayPort can carry DDC, but support varies by monitor and adapter. HDMI and
-some TVs may not expose usable DDC controls.
+some TVs may not expose usable DDC controls. The built-in HDMI port on Apple silicon laptops reads the display's
+identity but refuses DDC/CI commands, so those sliders stay unavailable on that port even when the same monitor
+answers over USB-C.
 An absent slider means there is no usable reading, not necessarily that the monitor can never support it.
 The card’s unavailable-control explanations describe known limitations without guessing the cause. DDC is not
 implemented on Intel Macs, and ambiguous hardware matches disable DDC to avoid changing the wrong monitor.
@@ -540,7 +571,7 @@ that resets macOS display configuration.
   <a href="images/recent-events.png"><img src="images/recent-events.png" width="440" alt="DisplayHelp 0.6.6: Sample history and Clear Connection History action"></a>
 </p>
 
-**Copy Diagnostics** copies app/macOS versions, display identities, modes, layout, available-control explanations
+**Copy Diagnostics** copies app/macOS versions, display identities, modes, layout, HDCP state and topology with raw values (0.6.7), available-control explanations
 and up to 20 recent events to the clipboard. Placement and rotation traces link requests, observed results, verification and Keep/Revert outcomes by a change ID. Nothing is uploaded; review the report before sharing it.
 
 Under **Troubleshooting → Recent Events**, collapsed by default. The latest 20 events from the history file, newest first, as
@@ -654,4 +685,3 @@ Language is separate from display profiles: loading or importing a profile does 
 </p>
 
 See the [localized screenshot examples](README.md#screenshots) for Traditional Chinese and Arabic. Translation terminology has been checked against Apple documentation; independent native-speaker review remains pending.
-

@@ -2,7 +2,7 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Latest release **0.6.6 (120)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Latest release **0.6.7 (121)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 Feedback, bug reports and suggestions are welcome.
 
@@ -14,12 +14,14 @@ Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.6/DisplayHelp-0.6.6.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.6/DisplayHelp-0.6.6-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.6/DisplayHelp-0.6.6-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.6/DisplayHelp-0.6.6-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.6/DisplayHelp-0.6.6-Screenshots.zip)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.6/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-Screenshots.zip)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/SHA256SUMS.txt)
+
+Version 0.6.7 shows the HDCP state macOS reports at the end of each external display’s status line, adds **Check HDCP** with repeater and topology details, includes those readings in Copy Diagnostics, offers a one-click smoother refresh rate when a display runs below 50 Hz, and fixes brightness, contrast and monitor volume on macOS 26. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
 
 Version 0.6.6 adds system-wide favorite shortcuts, simpler Quick Switch Profiles, Restore Previous/Default Setup, and safer profile matching for identical monitors. Profile and language controls remain stable during background status reads.
 
