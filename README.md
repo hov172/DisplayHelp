@@ -6,8 +6,6 @@ Latest release **0.6.7 (122)** • macOS 14 Sonoma or later • Apple Silicon an
 
 Feedback, bug reports and suggestions are welcome.
 
-[DisplayHelp — The Complete Guide](https://www.youtube.com/watch?v=03BKYc1qiVc) covers the earlier interface in 17 minutes, with chapters for install, Mirror and Extend, profiles, fixes and troubleshooting.
-
 ### Downloads
 
 - [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7.pkg)
