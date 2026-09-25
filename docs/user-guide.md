@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.6.7 (121)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.6.7 (122)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -58,7 +58,7 @@ The icon reports the display state without opening the menu:
 </p>
 
 The diagram shows screen geometry, names and rotation; it does not stream desktop content. All screenshots
-below: the menu captures show DisplayHelp 0.6.7 (121), captured on 2026-09-25 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. See [screenshot provenance](README.md#screenshots).
+below: the menu captures show DisplayHelp 0.6.7 (122), captured on 2026-09-25 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. See [screenshot provenance](README.md#screenshots).
 
 <p align="center">
   <a href="images/profiles.png"><img src="images/profiles.png" width="287" alt="DisplayHelp 0.6.6 Profile menu with sample profiles, automatic loading, export, save and import commands"></a>

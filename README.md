@@ -2,7 +2,7 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Latest release **0.6.7 (121)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Latest release **0.6.7 (122)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 Feedback, bug reports and suggestions are welcome.
 
@@ -37,7 +37,7 @@ Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and
   <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.7 native interface with Quick Switch Profiles collapsed and an extended layout using sample display data"></a>
 </p>
 
-The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. The menu captures show DisplayHelp 0.6.7 (121), captured on 2026-09-25 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. [Screenshot details](docs/README.md#screenshots).
+The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. The menu captures show DisplayHelp 0.6.7 (122), captured on 2026-09-25 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. [Screenshot details](docs/README.md#screenshots).
 
 **Identify Displays** beneath the layout shows matching numbers and names on connected screens for five seconds. Mirrored screens share a numbered group. The labels do not change settings or block clicks.
 
@@ -113,7 +113,7 @@ Use About when your helpdesk asks which version you have.
 
 3. Close the About window to return to your work.
 
-Shown: the 0.6.6 About panel; 0.6.7 reads 0.6.7 (121). Use the version displayed on your own Mac when reporting an issue.
+Shown: the 0.6.6 About panel; 0.6.7 reads 0.6.7 (122). Use the version displayed on your own Mac when reporting an issue.
 
 ## Languages and how to switch
 

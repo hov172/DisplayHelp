@@ -2,7 +2,7 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release notes for 0.6.7 (121) are in [release-0.6.7.md](release-0.6.7.md); release validation for 0.6.6 (120) is recorded in [release-0.6.6.md](release-0.6.6.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
+Release notes for 0.6.7 (122) are in [release-0.6.7.md](release-0.6.7.md); release validation for 0.6.6 (120) is recorded in [release-0.6.6.md](release-0.6.6.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements

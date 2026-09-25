@@ -1,4 +1,4 @@
-# DisplayHelp 0.6.7 (121)
+# DisplayHelp 0.6.7 (122)
 
 DisplayHelp 0.6.7 shows HDCP state for each external display and fixes monitor controls on macOS 26.
 
