@@ -13,7 +13,7 @@ choose, and diagnostics also go to the macOS unified log. The app does not trans
 | `restore-setups.json.backup` | Previous valid restore-snapshot file; first save seeds a backup | Before a restore-snapshot save |
 | `profiles.json.unreadable-<UUID>` | Original library preserved during explicit recovery or reset | Recover from backup or archive/start fresh |
 | `history.jsonl` | Append-only event log | Every connect, disconnect, change, failure, script run |
-| `history-<date>.jsonl` | Archived log | **Recent Events › Clear Connection History** |
+| `history-<timestamp>.jsonl` (e.g. `history-2026-09-18T03-52-21Z.jsonl`) | Archived log | **Recent Events › Clear Connection History** |
 | `scripts/*.sh` | Custom fixes | By the helpdesk, never by the app |
 
 ## Identity keys
@@ -226,7 +226,7 @@ A malformed line is skipped with a warning in the unified log; the rest of the f
 ## Unified log
 
 Diagnostics that are too noisy for the history go to the macOS unified log, subsystem `DisplayHelp`, with these
-categories: `monitor`, `edid`, `ddc`, `audio`, `monitorpanel`, `history`, `scripts`, `fixes`, `known`, `profiles`, `login`, `uninstall`.
+categories: `monitor`, `edid`, `ddc`, `audio`, `monitorpanel`, `history`, `scripts`, `fixes`, `known`, `profiles`, `login`, `uninstall`, `shortcuts`.
 
 ```
 log show --last 1h --info --predicate 'subsystem == "DisplayHelp"'

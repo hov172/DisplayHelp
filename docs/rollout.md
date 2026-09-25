@@ -2,7 +2,7 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release validation for 0.6.6 (120) is recorded in [release-0.6.6.md](release-0.6.6.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
+Release notes for 0.6.7 (121) are in [release-0.6.7.md](release-0.6.7.md); release validation for 0.6.6 (120) is recorded in [release-0.6.6.md](release-0.6.6.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements
@@ -24,9 +24,9 @@ INSTALLER_IDENTITY="Developer ID Installer: School (TEAMID)" ./scripts/package.s
 Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 
 ## 3. Pilot (3–5 rooms, two weeks)
-- [ ] Install the pkg on pilot Macs with the MDM. The postinstall opens the app; "Start at login" is on by default.
+- [ ] Install the pkg on pilot Macs with the MDM. The postinstall opens the app; "Start at Login" is on by default.
 - [ ] In each room: plug into the projector, answer Mirror in the prompt, unplug, replug, confirm it mirrors on its own.
-- [ ] Rename the projector in the menu to the room name, then **Profile › Save current setup as…** with the same name.
+- [ ] Rename the projector in the menu to the room name, then **Profile › Save Current Setup As…** with the same name.
 - [ ] When upgrading from a version before 0.4.0, re-save pilot profiles to capture positions, main display and system audio. Change the setup, recall the profile, and confirm verification succeeds.
 - [ ] In 0.5.0 or later, review a profile preview and cancel it; confirm the display settings stay unchanged.
 - [ ] Opt one profile into automatic loading, reconnect its exact display set, and confirm it restores once.
@@ -51,7 +51,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] Upgrade while DisplayHelp is running; verify the new version appears after the installer closes and relaunches the app.
 
 ## 4. Fleet
-- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.
+- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts. The exact commands are in CONTRIBUTING.md › Releasing.
 - [ ] Push the pkg fleet-wide. Optional: push approved custom scripts to each user's scripts folder via MDM (must be owned by that user).
 - [ ] Compare ticket counts to the baseline after one semester. Target: -50%.
 
@@ -68,7 +68,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 ## Removing it
 From the app: **Troubleshooting → More → Uninstall DisplayHelp…**. From MDM, as root:
 
-    /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_DisplayHelp.bundle/Contents/Resources/Resources/Uninstall/uninstall.sh \
+    /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_DisplayHelp.bundle/Contents/Resources/uninstall.sh \
         /Applications/DisplayHelp.app purge /Users/<name>
 
 `keep` instead of `purge` leaves the user's profiles and history in place. The script refuses any path that is not `DisplayHelp.app`.

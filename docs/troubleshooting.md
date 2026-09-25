@@ -18,7 +18,7 @@ modes vary by Mac, cable and port.
 ## Picture and layout
 
 ### The Dock is half off the screen after plugging in
-**Do.** Wait two seconds. If still wrong, open **Troubleshooting → Detect Displays**.
+**Do.** Wait about three seconds. If still wrong, open **Troubleshooting → Detect Displays**.
 **Cause.** macOS re-mirrors on its own at plug-in and the Dock keeps the previous display's geometry. The app
 restarts the Dock after any display change that ends mirrored, once the burst of changes settles.
 
@@ -68,19 +68,19 @@ re-reads it two seconds later and updates the name. Since version 0.1.0 it never
 display's name.
 
 ### Only the built-in display is found
-**Do.** The message under the cards says it: check the cable and the projector's input. On a USB-C dock, try the
+**Do.** Press **Detect Displays**; the message under the cards says it: check the cable and the projector's input. On a USB-C dock, try the
 Mac's own port.
 
 ## Controls and buttons
 
 ### Match Laptop and Best for Display are both greyed
 **Cause.** The current mode matches both recommendations, or no candidate is available. There is nothing to apply.
-The dot can still be orange when the current refresh rate is below 50 Hz.
+The status icon can still be the grey ⓘ when the current refresh rate is below 50 Hz.
 
-### The TV is orange at 30 Hz but the built-in card is green at 60 Hz
+### The TV shows a grey ⓘ at 30 Hz but the built-in card is green at 60 Hz
 **Do.** Check the TV’s **Refresh Rate** options, or try **Best for Display** / **Match Laptop** when you want
 recommendations applied. If no faster mode works, check the display input, adapter and cable capabilities.
-**Cause.** The status dot flags external-primary rates below 50 Hz. Mirrored displays share a logical size,
+**Cause.** The status icon flags any external display that is not a mirror follower when it runs below 50 Hz; when a faster rate exists at the same size, an orange one-click hint appears under the status line. Mirrored displays share a logical size,
 but their reported refresh rates need not match. A green built-in follower does not validate the TV’s rate.
 Recommendations prefer 50 Hz or better, but fall back when none is available.
 
@@ -92,7 +92,7 @@ layout-only profiles deliberately ignore picture levels, underscan and audio.
 A profile saved with only the laptop connected does not describe a laptop-plus-TV setup. Automatic loading
 also requires an exact, unambiguous set and must be enabled explicitly.
 
-### Identical monitors cannot save or automatically load a profile (0.6.6)
+### Identical monitors cannot save or automatically load a profile (since 0.6.6)
 **Cause.** Separate profile settings require distinct macOS display UUIDs. Missing or duplicate UUIDs still
 block saving. Profiles that use UUIDs to distinguish matching hardware identities always require manual preview;
 automatic loading is unavailable even after a successful save.
@@ -101,7 +101,7 @@ automatic loading is unavailable even after a successful save.
 blocked, use **System Settings → Displays** to arrange the monitors. The app cannot manually assign identities
 yet; renaming monitors or resetting app data will not resolve the ambiguity.
 
-### A profile targets the wrong identical monitor after cables or ports were swapped (0.6.6)
+### A profile targets the wrong identical monitor after cables or ports were swapped (since 0.6.6)
 **Do.** Cancel the preview, or choose **Revert** if changes are pending. Recreate the intended layout and
 resolutions, then choose **Profile → Overwrite with Current Settings → ‹profile name›**. Repeat separately for
 each template after arranging its intended settings. Scope and favorite assignments are preserved.
@@ -122,9 +122,12 @@ outputs and check mode availability. A saved mirror group requires its primary t
 previous reconnect preferences and reports incomplete recovery rather than treating it as success.
 
 ### Favorite shortcuts do nothing
-**Do.** Assign slots under **Profile › Favorite Shortcuts**, activate DisplayHelp and press **⌘⌥1** or **⌘⌥2**.
-**Cause.** These are local shortcuts, not system-wide hotkeys. They are unavailable during a display operation or
-pending confirmation and open a preview before applying anything.
+**Do.** Expand **Quick Switch Profiles**, choose a profile beside **Favorite 1 (⌘⌥1)** or **Favorite 2 (⌘⌥2)**, then
+press the shortcut from any app while DisplayHelp is running. If the note "System-wide shortcut unavailable" appears
+under a slot, use **Preview** or the in-app shortcut instead.
+**Cause.** The shortcuts are system-wide hotkeys registered while a favorite is assigned; another app may already own
+the combination. They are unavailable during a display operation or pending confirmation and open a preview before
+applying anything.
 
 ### The profile library cannot be loaded
 **Do.** Choose **Recover Profiles from Backup** if offered. It restores the previous valid library and archives
@@ -149,10 +152,12 @@ monitors have ambiguous identities, DDC is deliberately disabled to avoid contro
 controls can still work.
 
 ### HDCP shows Unavailable
-**Do.** Read the reason after the dash. For an ambiguous match, disconnect the identical monitor. For no answer
-within the time limit, press **Check HDCP** again once the display has settled.
-**Cause.** The reading could not be made: built-in display, identical monitors that cannot be told apart, a macOS
-version without the status interface, a refused query, or a stalled answer. It is not a statement about the display.
+**Do.** Expand **More Controls** and read the reason after the dash under **Check HDCP** (also shown in the ⓘ popover;
+the status line shows nothing when unavailable). For an ambiguous match, disconnect the identical monitor. For no
+answer within the time limit, press **Check HDCP** again once the display has settled.
+**Cause.** The reading could not be made: identical monitors that cannot be told apart, an Intel Mac (no display
+service to query), a macOS version without the status interface, a refused query, a previous check still waiting
+for macOS, or no answer within three seconds. It is not a statement about the display.
 
 ### HDCP shows Unprotected or Negotiating
 **Do.** Start the protected content, wait a few seconds, then press **Check HDCP**. Negotiating is re-read once
@@ -160,7 +165,7 @@ automatically after five seconds.
 **Cause.** Unprotected means nothing is asking for protection right now, or the negotiation has not completed.
 Negotiating is the in-progress state right after connection. Neither is a fault on its own. If protected playback
 still fails while the state stays Unprotected, the chain between the Mac and the display is the next thing to check;
-the topology sentence reports whether a repeater is present and any limit flags the receiver sets.
+on DisplayPort connections the topology sentence reports whether a repeater is present and, for an HDCP 2 repeater, any limit flags it sets.
 
 ### No Rotation or Underscan row
 **Cause.** macOS did not expose a usable rotation interface or adjustable underscan range. The card’s explanation
@@ -214,7 +219,8 @@ size the picker now hides). Pick a size once and the preset is replaced.
 
 ## Collecting diagnostics for the helpdesk
 
-**Troubleshooting → Copy Diagnostics** copies a local text report with app/macOS versions, display identities, modes, layout,
+**Troubleshooting → Copy Diagnostics** copies a local text report with app/macOS versions, display identities and macOS display UUIDs, modes, layout,
+the active audio output with volume and mute, the last HDCP reading for each external display with raw values and any topology,
 control-availability explanations and up to 20 recent events. Placement and rotation entries include requested settings, observed bounds/angles and verification. A shared `change=` ID links each operation to its Keep/Revert outcome, including timeout or disconnect recovery. It does not upload anything. Review names, serial identities
 and event details before sharing. For a deeper investigation, collect these files and the unified log:
 

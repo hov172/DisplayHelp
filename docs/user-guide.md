@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.6.6 (120)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.6.7 (121)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -26,7 +26,7 @@ Control by control. The [README](../README.md) is the short version; this is the
 
 ## Opening the app
 
-In 0.6.6, the menu fits its content up to 900 points tall, limited by the available screen height. Scroll inside it for any controls below the visible area.
+Since 0.6.6, the menu fits its content up to 900 points tall, limited by the available screen height. Scroll inside it for any controls below the visible area.
 
 DisplayHelp has no Dock icon or main window. Profile previews, import/export and confirmations use dialogs.
 Click its menu bar icon to open the menu;
@@ -41,7 +41,7 @@ The icon reports the display state without opening the menu:
 |---|---|
 | Two stacked rectangles | At least one display is mirrored |
 | Two displays side by side | More than one display, extended |
-| One display | Only the built-in panel is connected |
+| One display | Only one display is active |
 
 ## Identify Displays
 
@@ -49,7 +49,7 @@ The icon reports the display state without opening the menu:
   <a href="images/identify-displays.png"><img src="images/identify-displays.png" width="420" alt="DisplayHelp 0.6.6 temporary identification label with sample display names"></a>
 </p>
 
-**Identify Displays:** When an external display is connected, use the button beneath Screen Layout to show matching numbers and names on each desktop for five seconds. Mirrored screens share the same numbered group. Labels let clicks pass through and disappear automatically, or when the display configuration changes. This does not change display settings.
+**Identify Displays:** When an external display is connected, use the button in the Screen Layout header to show matching numbers and names on each desktop for five seconds. Mirrored screens share the same numbered group. Labels let clicks pass through and disappear automatically, or when the display configuration changes. This does not change display settings.
 
 ## Profile row
 
@@ -58,7 +58,7 @@ The icon reports the display state without opening the menu:
 </p>
 
 The diagram shows screen geometry, names and rotation; it does not stream desktop content. All screenshots
-below show the current 0.6.6 interface with isolated sample data. See [screenshot provenance](README.md#screenshots).
+below: the menu captures show DisplayHelp 0.6.7 (121), captured on 2026-09-25 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. See [screenshot provenance](README.md#screenshots).
 
 <p align="center">
   <a href="images/profiles.png"><img src="images/profiles.png" width="287" alt="DisplayHelp 0.6.6 Profile menu with sample profiles, automatic loading, export, save and import commands"></a>
@@ -88,7 +88,7 @@ the scope selected there.
 
 **Quick Switch Profiles** contains two global favorite slots. They stay assigned when you change the active profile, so you can switch back to another setup. A favorite does not indicate which profile is currently applied; the **Profile** row shows that.
 
-**Set a favorite in 0.6.6:**
+**Set a favorite (since 0.6.6):**
 
 1. Expand **Quick Switch Profiles** beneath Profile to find **Favorite 1 (⌘⌥1)**. The app remembers whether this section is expanded.
 2. Click **Choose Profile…** and select the saved profile you want. This only assigns the slot; it does not apply any display settings.
@@ -141,7 +141,7 @@ rejects two displays mapped to one device; it never applies settings immediately
 one room. One profile per room is the common pattern. A single display you only ever mirror does not need one: the
 app already remembers its settings.
 
-### Previous and Default Setup (0.6.6)
+### Previous and Default Setup (since 0.6.6)
 
 The restore buttons below **Quick Switch Profiles** stay visible even when that section is collapsed. They give you two ways back after keeping a profile change:
 
@@ -173,7 +173,7 @@ and identical-monitor limits still apply; review any partial restore before appl
 stored separately from named profiles, are not included in profile export/import, and are cleared (with a backup)
 by **Reset All DisplayHelp Data**. Removing a named profile or favorite does not delete them.
 
-### Identical monitors: limits and workaround (0.6.6)
+### Identical monitors: limits and workaround (since 0.6.6)
 
 Two monitors can report the same manufacturer, model and serial information. DisplayHelp can save separate
 profile settings for them only when macOS supplies distinct display UUIDs. These identify the connections;
@@ -246,11 +246,11 @@ so under the cards: check the cable and the projector's input.
 One card per connected display, in the order reported by macOS.
 
 <p align="center">
-  <a href="images/menu.png"><img src="images/menu.png" width="322" alt="DisplayHelp 0.6.6 display cards using sample displays and settings"></a>
+  <a href="images/menu.png"><img src="images/menu.png" width="322" alt="DisplayHelp 0.6.7 display cards using sample displays and settings, with the HDCP state in the external status line"></a>
 </p>
 
 The capture uses sample displays to show the current controls. Each card reports its own mode and refresh
-rate. An orange dot indicates a different recommended mode or a low refresh rate. Controls depend on the
+rate. A grey ⓘ icon instead of the green check indicates a different recommended mode or a low refresh rate. Controls depend on the
 capabilities and readings available on your connection. Placement and rotation readouts stay visible; Place… appears when another screen is connected and this screen is extended. Expand **More Controls** for refresh rate, recommendations, Audio, supported external rotation, contrast, Monitor Volume and underscan. The sample values are not a promise of hardware support.
 
 ### Header
@@ -263,17 +263,18 @@ capabilities and readings available on your connection. Placement and rotation r
   the protocol family when protected, or **HDCP Unprotected** / **HDCP Negotiating** when the link answered but is
   not protected. Nothing is shown when the state could not be read. See [Check HDCP](#check-hdcp-externals).
 - **Smoother-rate hint.** When a display runs below 50 Hz and the same size is offered at a smoother rate, an orange
-  line such as "60 Hz is available at 1920×1080 without HiDPI." appears under the status. Click it to apply that mode
-  through the usual preview. HiDPI sends the panel's full pixel count over the cable, which is why an HDMI link often
-  holds it only at 30 Hz; the plain mode of the same size sends a quarter of the pixels and reaches 60 Hz.
-- **Dot.** Green: on a mode DisplayHelp would choose. Orange: not, which means pixel-exact 4K, a size the EDID does
+  line appears under the status: "60 Hz is available at this size." when the same scaling reaches it, or "60 Hz is
+  available at 1920×1080 without HiDPI." when only the plain mode does. Click it to switch, then confirm with Keep
+  Changes or Revert as for any mode change. HiDPI sends the panel's full pixel count over the cable, which is why an
+  HDMI link often holds it only at 30 Hz; the plain mode of the same size sends a quarter of the pixels and reaches 60 Hz.
+- **Status icon.** A green check: on a mode DisplayHelp would choose. A grey ⓘ: not, which means pixel-exact 4K, a size the EDID does
   not guarantee, or a refresh rate below 50 Hz. Hover for the reason.
 - **Pencil** (externals only). Rename. Type and press Return; Escape cancels. The name is stored against the
   display's vendor/model/serial identity in this user’s local store. Renaming does not transfer settings to another Mac
   or distinguish devices that report the same identity.
 - **ⓘ** opens a details popover: vendor, model, serial, native size, EDID-guaranteed sizes, the current mode, what
-  each recommendation would pick, the identity key, and for external displays the HDCP state and reported topology
-  (0.6.7). Its **Supported Resolutions** list is every mode macOS offers, one line per size with its refresh rates,
+  each recommendation would pick ("already applied" when nothing would change), the identity key, and for external
+  displays the HDCP state and reported topology ("not checked" or "checking…" until a reading exists). Its **Supported Resolutions** list is every mode macOS offers, one line per size with its refresh rates,
   including the ones the picker hides.
 
 ### Arrangement (externals)
@@ -313,13 +314,14 @@ Under **More Controls** when the current size offers more than one rate. Fastest
 | 24 Hz | Film playback without judder. Not for working. |
 
 Recommendations prefer 50 Hz or better. If no filtered mode reaches 50 Hz, Best for Display falls back to
-the available filtered modes. The orange dot can remain even when no faster recommendation is available.
+the available filtered modes. The grey ⓘ can remain even when no faster recommendation is available.
 The Resolution picker labels each size with its highest offered rate; the status line and Refresh Rate control
 show the rate actually in use.
 
 ### Match Laptop / Best for Display (externals)
 - **Match Laptop.** The laptop's logical size on the external, so mirrored text is not rescaled. If the display
-  cannot render that size, the closest guaranteed size at or above it, preferring the HiDPI variant.
+  cannot render that size, a size with the same aspect ratio; otherwise the closest guaranteed size at or above it
+  (HiDPI where available); otherwise the Best for Display choice.
 - **Best for Display.** The display's native resolution at its best refresh, drawn HiDPI when a HiDPI variant
   exists. On a 4K TV that is 1920×1080 HiDPI, not 3840×2160.
 
@@ -388,21 +390,27 @@ HDCP is the copy protection negotiated between the Mac and a display or the equi
 system refuses protected video, the state of that negotiation is the first thing to know.
 
 DisplayHelp reads the state macOS reports once when an external display connects, including displays already
-attached when the app opens, and shows it at the end of the card's status line. **More Controls → Check HDCP**
-reads it again, for example after playback starts or stops. The reading is bounded to a few seconds, never runs on
-the periodic refresh, and never changes or negotiates protection.
+attached when the app opens, and shows it at the end of the card's status line. If macOS answers Negotiating, it
+reads once more after five seconds so the line settles. **More Controls → Check HDCP** reads it again, for example
+after playback starts or stops; until a reading exists the row says "not checked" or "checking…". Each reading is
+limited to three seconds for the status plus three for the optional topology, never runs on the periodic refresh,
+and never changes or negotiates protection.
+
+<p align="center">
+  <a href="images/check-hdcp.png"><img src="images/check-hdcp.png" width="345" alt="DisplayHelp 0.6.7: the HDCP row under More Controls with a sample HDCP2 reading and reported topology"></a>
+</p>
 
 The result under the button reads like "macOS reports HDCP2 · Protected · Encrypted. Checked 10:23 PM. This is the
 connection state; protected playback has not been tested." The protocol family is what macOS reports: **HDCP1**,
 **HDCP2** or **None**. macOS does not distinguish 1.4 from earlier 1.x, or 2.2 from 2.3.
 
-When the DisplayPort receiver reports it, a second sentence describes the chain: whether a repeater is present, the
-reported device count and depth, and any limit flags. These are the receiver's own observations. They do not name a
+On a DisplayPort connection a second sentence describes the chain: whether a repeater is reported and, for an HDCP 2
+repeater, the reported device count and depth and any limit flags. These are the receiver's own observations. They do not name a
 vendor or a failing device, and an unreadable register is stated as unknown rather than reported as a result.
 
-**Unavailable** with a reason means the reading could not be made: a built-in display, an ambiguous match between
-identical monitors, a macOS version without the interface, a refused query, or no answer within the time limit. It is
-not a verdict on the display. The result is also included in **Copy Diagnostics** with the raw values.
+**Unavailable** with a reason means the reading could not be made: no display service matched this monitor (identical
+monitors that cannot be told apart, or an Intel Mac), a macOS version without the interface, a refused query, a
+previous check still waiting for macOS, or no answer within the time limit. It is not a verdict on the display. The result is also included in **Copy Diagnostics** with the raw values.
 
 ### Brightness, Contrast, Monitor Volume
 The built-in panel shows Brightness when macOS returns a readable value. External displays get the sliders their hardware answers to over DDC/CI.
@@ -442,9 +450,9 @@ Place… is hidden while mirrored or when only one display is connected. The rea
 ## When something is refused
 
 If macOS refuses a change, a red line appears under the display cards saying what was asked and the error, for
-example "Couldn't set 1920×1080 on SAMSUNG: display configuration failed (CGError 1001)". Next to it, **Open
+example "Couldn't set 1920×1080 60Hz on SAMSUNG: display configuration failed (CGError 1001)". Next to it, **Open
 Display Settings** opens macOS's own Displays pane for the rare cases the app cannot handle. The line clears on the
-next successful action, and the same failure is recorded in Recent Events as `applyFailed`.
+next successful action, and the same failure is recorded in Recent Events as **Change Failed** (`applyFailed` in the history file and diagnostics).
 
 ## Fixes
 
@@ -497,7 +505,7 @@ echo "Demo successful — Custom Fixes is working. No settings were changed."
 | `description` | Tooltip and confirmation text. |
 | `admin` | `true` adds the lock symbol and runs the script as root through the macOS administrator dialog. `false` runs it as the logged-in user. |
 
-Clicking a button confirms, runs the script, and shows "exit ‹code›, ‹seconds›s. ‹last line of output›" under
+Clicking a button confirms, runs the script, and shows "‹name›: Exit code ‹code›, ‹seconds› seconds. ‹last line of output›" under
 Fixes. A non-zero exit shows the same way so a failure is visible.
 Run the demo first: an `exit 0` result and the success message confirm installation. Remove a custom action by
 moving its script out of the folder and reopening the menu. Scripts run without an interactive Terminal;
@@ -526,7 +534,7 @@ script removes the app bundle and the package receipt, and the app quits. If any
 says why. IT can run the same script without the dialog:
 
 ```
-sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_DisplayHelp.bundle/Contents/Resources/Resources/Uninstall/uninstall.sh \
+sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_DisplayHelp.bundle/Contents/Resources/uninstall.sh \
     /Applications/DisplayHelp.app purge /Users/<name>
 ```
 
@@ -571,11 +579,12 @@ that resets macOS display configuration.
   <a href="images/recent-events.png"><img src="images/recent-events.png" width="440" alt="DisplayHelp 0.6.6: Sample history and Clear Connection History action"></a>
 </p>
 
-**Copy Diagnostics** copies app/macOS versions, display identities, modes, layout, HDCP state and topology with raw values (0.6.7), available-control explanations
-and up to 20 recent events to the clipboard. Placement and rotation traces link requests, observed results, verification and Keep/Revert outcomes by a change ID. Nothing is uploaded; review the report before sharing it.
+**Copy Diagnostics** copies app/macOS versions, display identities and macOS display UUIDs, modes with the full supported-mode list, layout,
+levels and underscan, the active audio output with volume and mute, the last HDCP reading for each external display with raw values and
+any topology, available-control explanations and up to 20 recent events to the clipboard. The button reads **Diagnostics Copied** afterwards. Placement and rotation traces link requests, observed results, verification and Keep/Revert outcomes by a change ID. Nothing is uploaded; review the report before sharing it.
 
 Under **Troubleshooting → Recent Events**, collapsed by default. The latest 20 events from the history file, newest first, as
-`time  kind  display  (detail)`. See [data-files.md](data-files.md#history-event-kinds) for the vocabulary.
+`time  label  display  detail`, with the localized event name such as **Change Failed**. See [data-files.md](data-files.md#history-event-kinds) for the vocabulary.
 **Clear Connection History** archives the list to a dated file. **Show History File** opens the folder in Finder.
 
 ## Start at Login, Quit, About
@@ -627,7 +636,7 @@ modes; explicitly loading a profile attempts the exact saved mode and verifies t
 - In the confirmation window, Return keeps changes and Escape reverts.
 - Every control has a name for VoiceOver, including the sliders (with their percentage), the pencil and the ⓘ.
 - Tab moves through the controls in reading order; Escape closes the menu and cancels a rename or profile name.
-- Colour never carries meaning alone: the green/orange dot has a spoken label and a tooltip.
+- Colour never carries meaning alone: the green check / grey ⓘ status icon has a spoken label and a tooltip.
 - The menu respects the system's text size, light and dark appearance, and increased contrast.
 
 ## Language

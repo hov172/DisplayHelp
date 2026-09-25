@@ -31,16 +31,16 @@ existing arrangement as a profile to recall its exact topology.
 
 **Can I switch between two layouts without changing brightness or sound?**
 Yes. Save each using **Layout only**, expand **Quick Switch Profiles**, then select each saved name from **Choose Profile…** beside the
-**Favorite 1** and **Favorite 2** rows (0.6.6). Each monitor can have its own resolution in Extend mode. Layout-only profiles include rotation,
+**Favorite 1 (⌘⌥1)** and **Favorite 2 (⌘⌥2)** rows (since 0.6.6). Each monitor can have its own resolution in Extend mode. Layout-only profiles include rotation,
 position and the main display but leave brightness, contrast, monitor volume, underscan and audio alone.
 
 **Are the favorite shortcuts global?**
-In 0.6.6, yes: press and release **⌘⌥1** or **⌘⌥2** from another app while DisplayHelp is running.
+Since 0.6.6, yes: press and release **⌘⌥1** or **⌘⌥2** from another app while DisplayHelp is running.
 They open a preview; you still choose Apply and then Keep Changes. If a shortcut cannot be registered,
 use the favorite button or the app-local shortcut. In 0.6.5, shortcuts work only while DisplayHelp is active.
 
 **Can identical monitors have different saved resolutions?**
-In 0.6.6, yes, if macOS supplies distinct display UUIDs. These profiles require manual preview and cannot
+Since 0.6.6, yes, if macOS supplies distinct display UUIDs. These profiles require manual preview and cannot
 auto-load. After swapping cables or ports, recreate the intended setup and overwrite each affected profile.
 If macOS cannot distinguish the monitors, saving stays blocked; use macOS Displays to arrange them.
 See the [limits and step-by-step workaround](user-guide.md#identical-monitors-limits-and-workaround-066).
@@ -87,11 +87,12 @@ HiDPI draws a 1080p-sized desktop using all of the panel's 4K pixels, so the cab
 paths only hold 4K at 30 Hz. Plain 1920×1080 sends a quarter of the pixels and reaches 60 Hz. The orange hint
 under the status line offers that mode when it exists; click it to switch. Sharpness and smoothness are the trade.
 
-**Why can one display be orange while the laptop is green?**
-An orange dot means a different mode is recommended or an external primary display is below the preferred
-50 Hz minimum. Each card is checked separately; mirrored displays can report different refresh rates.
-The current screenshots use sample modes to illustrate the controls. Try an available recommendation or inspect
-the offered refresh rates. An orange dot is not proof that a faster mode is supported.
+**Why does one display show a grey ⓘ while the laptop shows a green check?**
+The grey ⓘ means a different mode is recommended, or an external display that is not a mirror follower is below the
+preferred 50 Hz minimum. Each card is checked separately; mirrored displays can report different refresh rates.
+When a faster rate exists at the same size, an orange "60 Hz is available…" link appears under the status line;
+otherwise try an available recommendation or inspect the offered refresh rates. The grey ⓘ is not proof that a
+faster mode is supported.
 
 **Will settings follow my projector to a different Mac?**
 Not automatically. Settings are per user and per Mac. Export a profile and import it on the destination,

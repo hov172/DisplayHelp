@@ -21,7 +21,7 @@ Feedback, bug reports and suggestions are welcome.
 - [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-Screenshots.zip)
 - [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/SHA256SUMS.txt)
 
-Version 0.6.7 shows the HDCP state macOS reports at the end of each external display’s status line, adds **Check HDCP** with repeater and topology details, includes those readings in Copy Diagnostics, offers a one-click smoother refresh rate when a display runs below 50 Hz, and fixes brightness, contrast and monitor volume on macOS 26. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
+Version 0.6.7 shows the HDCP state macOS reports at the end of each external display’s status line, adds **Check HDCP** with repeater and topology details on DisplayPort connections, includes those readings in Copy Diagnostics, offers a one-click smoother refresh rate when a display runs below 50 Hz, and fixes brightness, contrast and monitor volume on macOS 26. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
 
 Version 0.6.6 adds system-wide favorite shortcuts, simpler Quick Switch Profiles, Restore Previous/Default Setup, and safer profile matching for identical monitors. Profile and language controls remain stable during background status reads.
 
@@ -34,10 +34,10 @@ Version 0.6.1 added Forget This Display, a backed-up Reset All DisplayHelp Data 
 Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and layout-only profiles, aligned screen placement, and a single 20-second Keep/Revert window. Display changes are verified before they are remembered. Existing profiles remain compatible.
 
 <p align="center">
-  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.6 native interface with Quick Switch Profiles collapsed and an extended layout using sample display data"></a>
+  <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.7 native interface with Quick Switch Profiles collapsed and an extended layout using sample display data"></a>
 </p>
 
-The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. All screenshots below show the current 0.6.6 interface using isolated sample data. [Screenshot details](docs/README.md#screenshots).
+The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. The menu captures show DisplayHelp 0.6.7 (121), captured on 2026-09-25 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. [Screenshot details](docs/README.md#screenshots).
 
 **Identify Displays** beneath the layout shows matching numbers and names on connected screens for five seconds. Mirrored screens share a numbered group. The labels do not change settings or block clicks.
 
@@ -107,13 +107,13 @@ For organization-wide installation, ask your IT team to deploy the installer thr
 
 Use About when your helpdesk asks which version you have.
 
-1. Open the DisplayHelp menu and choose About in the footer.
+1. Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right.
 
 2. Read the version shown in the About window and include it with a support request.
 
 3. Close the About window to return to your work.
 
-Shown: DisplayHelp 0.6.6 (120). Use the version displayed on your own Mac when reporting an issue.
+Shown: the 0.6.6 About panel; 0.6.7 reads 0.6.7 (121). Use the version displayed on your own Mac when reporting an issue.
 
 ## Languages and how to switch
 
@@ -199,17 +199,17 @@ Click the icon. Top to bottom:
 
 | Row | What it is |
 |---|---|
-| Language (globe) | Choose an app language or Follow System; restart to apply. |
-| Profile | Save, preview, restore, update, remove, import and export named setups; choose automatic loading when needed. |
-| Screen Layout | Numbered geometry preview and Identify Displays. |
+| Profile, Displays heading, globe | Save, preview, restore, update, remove, import and export named setups; the globe at the right end chooses an app language or Follow System (restart to apply). |
+| Quick Switch Profiles | Favorite 1 (⌘⌥1) and Favorite 2 (⌘⌥2) slots, Save Current Setup as Default, and the Restore Previous Setup / Restore Default Setup buttons. |
+| Screen Layout | Numbered geometry preview with Identify Displays in its header. |
 | Output Volume | Live volume and mute for the active macOS audio output, when supported. |
-| Display cards | Common controls plus observed placement, alignment and rotation beside Place…. Expand More Controls for advanced settings. |
-| Troubleshooting | Detect Displays (applies recommendations), fixes, Recent Events and Copy Diagnostics. Reset All DisplayHelp Data and Uninstall are under More. |
-| Start at Login, Quit, About | Footer. |
+| Display cards | Common controls, the HDCP state at the end of the status line, plus observed placement, alignment and rotation beside Place…. Expand More Controls for refresh rate, recommendations, audio, rotation, Check HDCP and the rest. |
+| Troubleshooting | Detect Displays (applies recommendations), fixes, Recent Events with Show History File, and Copy Diagnostics. Reset All DisplayHelp Data and Uninstall are under More. |
+| Start at Login, Quit DisplayHelp, Ayala Solutions · version | Footer; the version button opens About. |
 
 The menu bar icon itself shows state: stacked rectangles when mirrored, two displays when extended, one when the laptop is alone.
 
-Each card’s status line has a coloured dot. Green means the display passes the app’s status checks. Orange can mean a different mode is recommended or the external display is running below 50 Hz. Try Match Laptop or Best for Display when available. A green mirrored laptop does not mean the TV is running at the same refresh rate.
+Each card’s status line starts with an icon. A green check means the display is on a mode the app would choose. A grey ⓘ means a different mode is recommended or the external display is running below 50 Hz; when a faster rate exists at the same size, an orange one-click hint appears under the line. Try Match Laptop or Best for Display when available. A green mirrored laptop does not mean the TV is running at the same refresh rate.
 
 ### Find the control you need
 
@@ -225,7 +225,7 @@ The main menu groups settings into a card for each connected display.
 
 3. Check its arrangement, resolution and refresh rate before choosing a control.
 
-Shown: sample displays in the 0.6.6 interface. The card reports each display’s own mode and refresh rate. An orange dot means a different mode is recommended; it does not prove a faster mode is available on your connection.
+Shown: sample displays in the 0.6.7 interface, with the HDCP state at the end of the external status line. The card reports each display’s own mode and refresh rate. A grey ⓘ means a different mode is recommended; it does not prove a faster mode is available on your connection.
 
 ## Everyday use
 
@@ -273,7 +273,7 @@ Use Resolution to change desktop size or make text easier to read.
 
 The screenshot uses sample available modes. A listed rate is the highest offered for that size; check the status line for the rate actually in use.
 
-Refresh Rate appears when the current size offers more than one rate. Choose a rate supported by the entire connection. Higher rates generally make motion smoother; a lower rate may work better on a limited connection. The status line shows the rate actually in use.
+Refresh Rate appears under **More Controls** when the current size offers more than one rate. Choose a rate supported by the entire connection. Higher rates generally make motion smoother; a lower rate may work better on a limited connection. The status line shows the rate actually in use.
 
 ### Choose a refresh rate
 
@@ -285,7 +285,7 @@ Use Refresh Rate to select a different available rate for the current size.
 
 1. Choose the resolution you intend to use.
 
-2. Open Refresh Rate and select one of the offered rates.
+2. Open **More Controls**, then Refresh Rate, and select one of the offered rates.
 
 3. Check that the picture is stable and confirm the new rate in the status line.
 
@@ -293,11 +293,13 @@ The control appears only when multiple rates are available. The sample rates sho
 
 ### Match Laptop and Best for Display
 
+Both buttons are under **More Controls** on an external display's card.
+
 - Match Laptop tries to match the laptop’s logical desktop size, then uses a suitable alternative when that size is unavailable.
 
 - Best for Display prefers a suitable native-resolution mode with readable scaling when available, such as 1920×1080 HiDPI on a 4K TV. Recommendations prefer 50 Hz or better, but can fall back to a lower rate when the available modes require it.
 
-A recommendation button is greyed out when it would not change the current mode or no suitable candidate is available. The status dot can remain orange at a low refresh rate. Mirroring keeps both displays on a shared logical desktop size; their reported refresh rates can differ.
+A recommendation button is greyed out when it would not change the current mode or no suitable candidate is available. The status icon can remain the grey ⓘ at a low refresh rate. Mirroring keeps both displays on a shared logical desktop size; their reported refresh rates can differ.
 
 ### Laptop Leads Mirror
 
@@ -353,7 +355,7 @@ Controls appear only when the display, connection and available readings support
 
 Use Rotation for a screen mounted in portrait orientation or another supported position.
 
-1. Find the intended display’s card and open Rotation.
+1. Find the intended external display’s card, open **More Controls**, then Rotation. The built-in display has no Rotation row.
 
 2. Choose the angle that matches the screen’s physical orientation.
 
@@ -441,7 +443,7 @@ A profile is a named snapshot of a setup. Choose **Full setup** to include reada
 
 **Going back after a switch:** choose **Restore Previous Setup** below **Quick Switch Profiles** to preview the setup from before the last successful profile switch. To keep a permanent starting point, arrange your displays once, expand **Quick Switch Profiles**, and choose **Save Current Setup as Default…**, then **Save**. Later, use **Restore Default Setup**. Both restores use the usual preview and Keep/Revert checks, and both saved setups survive app restarts. Default changes only when you explicitly save it again; it is not a factory reset or a reconstruction of an earlier first connection. See [Previous and Default Setup](docs/user-guide.md#previous-and-default-setup-066).
 
-For two templates, arrange your screens and save the first profile, then change the settings and save the second. Expand **Quick Switch Profiles** beneath Profile to see **Favorite 1** and **Favorite 2** in 0.6.6. The app remembers whether this section is expanded; both restore buttons remain visible when it is collapsed:
+For two templates, arrange your screens and save the first profile, then change the settings and save the second. Expand **Quick Switch Profiles** beneath Profile to see **Favorite 1 (⌘⌥1)** and **Favorite 2 (⌘⌥2)** (since 0.6.6). The app remembers whether this section is expanded; both restore buttons remain visible when it is collapsed:
 
 1. Next to **Favorite 1**, click **Choose Profile…** and select a saved profile. Assignment does not change your displays.
 2. Repeat beside **Favorite 2** for the other profile.
@@ -725,7 +727,7 @@ For managed deployment, install approved scripts separately for each intended us
 
 | You see | Do this |
 |---|---|
-| Dock half cut off after plugging in | Wait two seconds. The app restarts the Dock itself. Else press Detect Displays. |
+| Dock half cut off after plugging in | Wait about three seconds. The app restarts the Dock itself. Else press Detect Displays. |
 | Snow or "no signal" on a TV after picking a size | Try a supported size such as 1920×1080. Check the cable, adapter and display input if the problem continues. |
 | Everything tiny on the TV | Try Best for Display or choose a readable HiDPI size when available. |
 | Black band top and bottom of the laptop while mirrored | Normal for a 16:10 laptop on a 16:9 screen. Turn on Laptop Leads Mirror or use Extend. |
@@ -753,9 +755,9 @@ Record useful details before choosing Clear Connection History. Opening Recent E
 
 ## Where it keeps things
 
-Unreadable profile files are preserved and cannot be silently overwritten. If a last-good backup is available, **Recover Profiles from Backup** restores it and archives the original. **Archive Original and Start Fresh…** preserves the original before creating an empty library, including when no backup exists. Remembered display preferences likewise refuse writes over an unreadable file.
+Unreadable profile files are preserved and cannot be silently overwritten. If a last-good backup is available, **Recover Profiles from Backup** restores it and archives the original. **Archive Unreadable File and Start Fresh…** preserves the original before creating an empty library, including when no backup exists. Remembered display preferences likewise refuse writes over an unreadable file.
 
-**Troubleshooting → Copy Diagnostics** copies the current layout, display capabilities and up to 20 recent events to your clipboard for support. Placement and rotation traces include requested and observed settings, verification, and linked Keep/Revert outcomes. Each display also explains unavailable controls. Monitor identities and event details are included, so review the text before sharing. Ambiguous DDC hardware matches are disabled rather than risking changes to another monitor.
+**Troubleshooting → Copy Diagnostics** copies the current layout, display capabilities and macOS display UUIDs, the active audio output with volume and mute, the last HDCP reading for each external display with raw values and any topology, and up to 20 recent events to your clipboard for support. Placement and rotation traces include requested and observed settings, verification, and linked Keep/Revert outcomes. Each display also explains unavailable controls. Monitor identities and event details are included, so review the text before sharing. Ambiguous DDC hardware matches are disabled rather than risking changes to another monitor.
 
 DisplayHelp keeps your saved display choices, profiles and recent activity locally in your macOS user account. Different users and different Macs keep separate settings. Use the app’s profile export and import controls to move saved setups.
 

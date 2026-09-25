@@ -7,15 +7,16 @@
 | [troubleshooting.md](troubleshooting.md) | Helpdesk | Symptom → action → cause, collecting diagnostics |
 | [rollout.md](rollout.md) | IT admins | Build, sign, notarize, pilot, fleet push, removal |
 | [data-files.md](data-files.md) | Helpdesk, developers | JSON formats, identity keys, history event kinds |
+| [architecture.md](architecture.md) | Developers | Modules, data flow, hardware-derived decisions, tests |
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
+| [../CONTRIBUTING.md](../CONTRIBUTING.md) | Developers | Build, test, style, commit conventions |
 
-[0.6.7 release notes](release-0.6.7.md) · [0.6.6 release notes](release-0.6.6.md) · [0.6.0 hardware validation](release-0.6.0.md).
-
+[0.6.6 release notes](release-0.6.6.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 
-**The current English screenshot gallery below shows DisplayHelp 0.6.6 (120)**, captured on 2026-09-23. Historical release and design-review documents retain their original evidence.
+**The menu captures below show DisplayHelp 0.6.7 (121)**, captured on 2026-09-25; the remaining captures are from 0.6.6 (120), captured on 2026-09-23, and show controls unchanged in 0.6.7. Historical release and design-review documents retain their original evidence.
 The Finder example-folder image is retained from 0.6.5; its folder name is illustrative. The video thumbnail depicts an earlier interface.
 The localized examples use the same production views and 0.6.6 (120) metadata.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
@@ -45,7 +46,8 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Identify Displays](images/identify-displays.png) | Actual temporary identification panel using sample names; no screen settings changed. |
 | [Taller menu](images/menu-viewport.png) | Compact native menu viewport, up to 900 points high; remaining content scrolls. |
 | [Layout and favorites](images/layout-profiles.png) | Full scroll content with Quick Switch Profiles expanded, two favorite templates, Previous/Default recovery and sample extended displays. |
-| [Menu overview](images/menu.png) | Current display cards and controls using sample hardware. |
+| [Menu overview](images/menu.png) | Current display cards and controls using sample hardware, with the HDCP state at the end of the external status line. |
+| [Check HDCP](images/check-hdcp.png) | The HDCP row under More Controls with a sample reading and topology (0.6.7). |
 | [Extended displays](images/extend.png) | Separate desktops and position controls. |
 | [Resolution](images/resolution.png) | Open size picker with sample offered modes. |
 | [Refresh rate](images/refresh-rate.png) | Open rate picker for the sample current mode. |
@@ -75,3 +77,4 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Demo confirmation](images/custom-fixes-confirmation.png) | Actual confirmation for the harmless example demo. |
 | [Demo result](images/custom-fixes-success.png) | Harmless demo executed against isolated fixture data, with exit 0. |
 
+For capture instructions, see [Contributing](../CONTRIBUTING.md#documentation-screenshots).
