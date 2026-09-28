@@ -14,7 +14,7 @@
 
 ## Screenshots
 
-**The menu and data-actions captures below show DisplayHelp 0.6.8 (123)**, captured on 2026-09-27; the remaining captures are from 0.6.6 (120), captured on 2026-09-23, and show controls unchanged in 0.6.8. Historical release and design-review documents retain their original evidence.
+**The menu and data-actions captures below show DisplayHelp 0.6.8 (124)**, captured on 2026-09-27; the remaining captures are from 0.6.6 (120), captured on 2026-09-23, and show controls unchanged in 0.6.8. Historical release and design-review documents retain their original evidence.
 The Finder example-folder image is retained from 0.6.5; its folder name is illustrative. The video thumbnail depicts an earlier interface.
 The localized examples use the same production views and 0.6.6 (120) metadata.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,

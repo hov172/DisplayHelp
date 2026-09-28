@@ -5,6 +5,7 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 ## [0.6.8] - 2026-09-27
 
 - Start at login now applies to every account on the Mac: the installer ships a global LaunchAgent instead of registering a per-user login item on first launch. The in-app Start at Login toggle is gone; turn it off per account in System Settings › General › Login Items › Allow in the Background. Upgrades remove the old per-user login item, and the uninstaller removes the agent.
+- The menu opens at the height of its content on macOS 27. Earlier builds could open with an empty band above the Profile row.
 
 ## [0.6.6] - 2026-09-23
 
