@@ -7,16 +7,14 @@
 | [troubleshooting.md](troubleshooting.md) | Helpdesk | Symptom → action → cause, collecting diagnostics |
 | [rollout.md](rollout.md) | IT admins | Build, sign, notarize, pilot, fleet push, removal |
 | [data-files.md](data-files.md) | Helpdesk, developers | JSON formats, identity keys, history event kinds |
-| [architecture.md](architecture.md) | Developers | Modules, data flow, hardware-derived decisions, tests |
 | [faq.md](faq.md) | Everyone | Short answers |
 | [../CHANGELOG.md](../CHANGELOG.md) | Everyone | Release history |
-| [../CONTRIBUTING.md](../CONTRIBUTING.md) | Developers | Build, test, style, commit conventions |
 
-[0.6.6 release notes](release-0.6.6.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[0.6.8 release notes](release-0.6.8.md) · [0.6.7 release notes](release-0.6.7.md) · [0.6.6 release notes](release-0.6.6.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 
-**The menu captures below show DisplayHelp 0.6.7 (122)**, captured on 2026-09-25; the remaining captures are from 0.6.6 (120), captured on 2026-09-23, and show controls unchanged in 0.6.7. Historical release and design-review documents retain their original evidence.
+**The menu and data-actions captures below show DisplayHelp 0.6.8 (123)**, captured on 2026-09-27; the remaining captures are from 0.6.6 (120), captured on 2026-09-23, and show controls unchanged in 0.6.8. Historical release and design-review documents retain their original evidence.
 The Finder example-folder image is retained from 0.6.5; its folder name is illustrative. The video thumbnail depicts an earlier interface.
 The localized examples use the same production views and 0.6.6 (120) metadata.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
@@ -66,7 +64,7 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [First connection](images/first-connect.png) | Mirror, Extend and Not now prompt for a sample external screen. |
 | [Keep changes](images/keep-changes.png) | One native countdown window with Keep/Revert actions. |
 | [Mirrored layout](images/mirrored-layout.png) | A mirror group represented together with combined screen numbers. |
-| [Data actions](images/data-actions.png) | Troubleshooting, More and Recent Events expanded, with separate full-reset and history-only actions. |
+| [Data actions](images/data-actions.png) | Troubleshooting, More and Recent Events expanded, with separate full-reset and history-only actions; the 0.6.8 footer without the Start at Login toggle (empty event list in this capture). |
 | [Fixes](images/fixes.png) | Current reset, custom-fix and More controls. |
 | [Reset warning](images/reset-confirmation.png) | Current ColorSync-preserving reset warning; canceled. |
 | [Uninstall warning](images/uninstall-confirmation.png) | Current uninstall confirmation; canceled without removing anything. |
@@ -77,4 +75,3 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Demo confirmation](images/custom-fixes-confirmation.png) | Actual confirmation for the harmless example demo. |
 | [Demo result](images/custom-fixes-success.png) | Harmless demo executed against isolated fixture data, with exit 0. |
 
-For capture instructions, see [Contributing](../CONTRIBUTING.md#documentation-screenshots).

@@ -2,14 +2,9 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
-## [0.6.7] - 2026-09-25
+## [0.6.8] - 2026-09-27
 
-- Added the HDCP state macOS reports to each external display’s status line, read once per connection (including displays present at launch) and never on the periodic refresh. Shows the protocol family when protected, or HDCP Unprotected / HDCP Negotiating; nothing when it could not be read. Read-only: DisplayHelp never changes or negotiates protection.
-- Added Check HDCP under More Controls to read the state again, with the protection and encryption state and the time of the check. When the DisplayPort receiver reports it, the result states whether a repeater is present, the reported device count and depth, and any topology limit flags; an unreadable capability register is reported as unknown rather than as a result.
-- Added the HDCP state and topology to Display Info and, with raw register values, to Copy Diagnostics.
-- Added a one-click hint under the status line when a display runs below 50 Hz and the same size is offered at a smoother rate, such as 60 Hz at 1920×1080 without HiDPI.
-- Fixed brightness, contrast and monitor volume on macOS 26, where the display service moved in the system registry. Ports that refuse DDC/CI, such as the built-in HDMI port on Apple silicon laptops, still report those controls as unavailable.
-- Localized the new strings in all eleven supported languages.
+- Start at login now applies to every account on the Mac: the installer ships a global LaunchAgent instead of registering a per-user login item on first launch. The in-app Start at Login toggle is gone; turn it off per account in System Settings › General › Login Items › Allow in the Background. Upgrades remove the old per-user login item, and the uninstaller removes the agent.
 
 ## [0.6.6] - 2026-09-23
 

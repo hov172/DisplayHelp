@@ -212,10 +212,7 @@ size the picker now hides). Pick a size once and the preset is replaced.
 
 ### The icon is not in the menu bar
 **Cause.** macOS hides menu bar extras when app menus need the room, or the app is not running. Open it from
-`/Applications`. If **Start at Login** was turned off, turn it back on in the menu.
-
-### Start at Login is greyed
-**Cause.** The app is running unbundled, from `swift run`, where there is no login item to register.
+`/Applications`. If it no longer starts at login, turn DisplayHelp back on in System Settings › General › Login Items › Allow in the Background.
 
 ## Collecting diagnostics for the helpdesk
 
@@ -253,7 +250,7 @@ These are separate actions:
 |---|---|---|
 | **Troubleshooting → Recent Events → Clear Connection History** | Current event log, moved into an archive | Remembered monitor preferences, profiles and favorites |
 | **Display options (…) → Forget This Display…** | That external monitor's remembered name and reconnect preferences | Current screen settings, profiles/favorites and connection history |
-| **Troubleshooting → More → Reset All DisplayHelp Data…** | All active remembered monitors, profiles/favorites, automatic choices and history | Current hardware settings, custom fixes and Start at Login |
+| **Troubleshooting → More → Reset All DisplayHelp Data…** | All active remembered monitors, profiles/favorites, automatic choices and history | Current hardware settings and custom fixes |
 
 Automatic profiles are **opt-in**. Under **Profile → Load Automatically When Connected**, uncheck individual
 profiles or choose **Turn Off All Automatic Profiles**. Manual profile use and favorites still work. Forgetting a

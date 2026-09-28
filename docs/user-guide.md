@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.6.7 (122)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.6.8 (123)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -16,7 +16,7 @@ Control by control. The [README](../README.md) is the short version; this is the
 8. [When something is refused](#when-something-is-refused)
 9. [Fixes](#fixes)
 10. [Recent Events](#recent-events)
-11. [Start at Login, Quit, About](#start-at-login-quit-about)
+11. [Start at login, Quit, About](#start-at-login-quit-about)
 12. [The connect dialog](#the-connect-dialog)
 13. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
 14. [Keyboard and accessibility](#keyboard-and-accessibility)
@@ -58,7 +58,7 @@ The icon reports the display state without opening the menu:
 </p>
 
 The diagram shows screen geometry, names and rotation; it does not stream desktop content. All screenshots
-below: the menu captures show DisplayHelp 0.6.7 (122), captured on 2026-09-25 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. See [screenshot provenance](README.md#screenshots).
+below: the menu captures show DisplayHelp 0.6.8 (123), captured on 2026-09-27 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. See [screenshot provenance](README.md#screenshots).
 
 <p align="center">
   <a href="images/profiles.png"><img src="images/profiles.png" width="287" alt="DisplayHelp 0.6.6 Profile menu with sample profiles, automatic loading, export, save and import commands"></a>
@@ -529,8 +529,8 @@ folder as long as the files end up owned by that user with mode 0755.
   <a href="images/uninstall-confirmation.png"><img src="images/uninstall-confirmation.png" width="295" alt="DisplayHelp 0.6.6: Uninstall confirmation, canceled"></a>
 </p>
 
-Confirms with an "Also remove saved profiles and settings" checkbox, turns off Start at Login, then an administrator
-script removes the app bundle and the package receipt, and the app quits. If anything fails the app stays open and
+Confirms with an "Also remove saved profiles and settings" checkbox, then an administrator
+script removes the app bundle, the login agent and the package receipt, and the app quits. If anything fails the app stays open and
 says why. IT can run the same script without the dialog:
 
 ```
@@ -544,7 +544,7 @@ sudo /bin/zsh /Applications/DisplayHelp.app/Contents/Resources/DisplayHelp_Displ
 ### Clear history, forget a display, or start fresh
 
 <p align="center">
-  <a href="images/data-actions.png"><img src="images/data-actions.png" width="440" alt="DisplayHelp 0.6.6 data actions with Troubleshooting, More and Recent Events expanded; sample display/history data"></a>
+  <a href="images/data-actions.png"><img src="images/data-actions.png" width="440" alt="DisplayHelp 0.6.8 data actions with Troubleshooting, More and Recent Events expanded; the footer has Quit and the version link"></a>
 </p>
 
 
@@ -554,7 +554,7 @@ These are separate actions:
 |---|---|---|
 | **Troubleshooting → Recent Events → Clear Connection History** | Current event log, moved into an archive | Remembered monitor preferences, profiles and favorites |
 | **Display options (…) → Forget This Display…** | That external monitor's remembered name and reconnect preferences | Current screen settings, profiles/favorites and connection history |
-| **Troubleshooting → More → Reset All DisplayHelp Data…** | All active remembered monitors, profiles/favorites, automatic choices and history | Current hardware settings, custom fixes and Start at Login |
+| **Troubleshooting → More → Reset All DisplayHelp Data…** | All active remembered monitors, profiles/favorites, automatic choices and history | Current hardware settings and custom fixes |
 
 Automatic profiles are **opt-in**. Under **Profile → Load Automatically When Connected**, uncheck individual
 profiles or choose **Turn Off All Automatic Profiles**. Manual profile use and favorites still work. Forgetting a
@@ -587,14 +587,14 @@ Under **Troubleshooting → Recent Events**, collapsed by default. The latest 20
 `time  label  display  detail`, with the localized event name such as **Change Failed**. See [data-files.md](data-files.md#history-event-kinds) for the vocabulary.
 **Clear Connection History** archives the list to a dated file. **Show History File** opens the folder in Finder.
 
-## Start at Login, Quit, About
+## Start at login, Quit, About
 
 <p align="center">
   <a href="images/about.png"><img src="images/about.png" width="284" alt="DisplayHelp 0.6.6: About DisplayHelp 0.6.6 (120)"></a>
 </p>
 
-**Start at Login** is on by default after a packaged install. Off means the app must be opened from Applications.
-Greyed when running unbundled from `swift run`. Normally **Quit DisplayHelp** leaves the confirmed setup in place.
+After a packaged install the app starts at login for every account on the Mac. To stop that for your account, turn DisplayHelp off in
+System Settings › General › Login Items › Allow in the Background, then open it from Applications when needed. Normally **Quit DisplayHelp** leaves the confirmed setup in place.
 Quit is disabled while changes are in progress. A system quit request during confirmation first attempts to revert;
 if recovery fails, the app stays open so you can finish recovery. The **Ayala Solutions · v‹version›** link opens the About panel.
 

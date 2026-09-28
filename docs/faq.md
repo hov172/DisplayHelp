@@ -21,7 +21,7 @@ Set it in System Settings if you are sure, and the app will keep it.
 A 16:10 panel showing a 16:9 picture. Turn on Laptop Leads Mirror to flip which side gets the bars, or use Extend.
 
 **Can two people on the same Mac have different settings?**
-Yes. Everything is per user, in that user's Application Support folder. The login item is per user too.
+Yes. Everything is per user, in that user's Application Support folder. The app starts at login for every account; each person can turn that off in System Settings › General › Login Items › Allow in the Background.
 
 **Does it support more than two displays?**
 Yes. Each gets a card and appears in the numbered layout preview. Profiles capture each monitor’s own resolution,
@@ -64,7 +64,7 @@ Without a usable backup, **Archive Unreadable File and Start Fresh…** preserve
 See [data-file recovery](data-files.md#profile-file-recovery).
 
 **What does a profile not capture?**
-Unreadable or unsupported hardware settings, display nicknames, Start at Login, and macOS settings such as HDR,
+Unreadable or unsupported hardware settings, display nicknames, and macOS settings such as HDR,
 color profiles, True Tone, Night Shift and system audio volume. The saved monitor volume is DDC volume, not the
 Mac's system audio volume. Display nicknames remain in the separate known-displays store.
 
@@ -127,7 +127,7 @@ Yes. They are opt-in. Uncheck a profile under **Profile → Load Automatically W
 
 **Can I reset everything?**
 Use **Troubleshooting → More → Reset All DisplayHelp Data… → Back Up and Reset**. This clears active preferences, profiles,
-favorites and history while saving a backup. Current screen settings, custom fixes and Start at Login remain.
+favorites and history while saving a backup. Current screen settings and custom fixes remain.
 
 **How do I tell which physical screen matches a numbered preview?**
 Click **Identify Displays** beneath Screen Layout when an external screen is connected. Numbers and names appear for five seconds on each desktop. Mirrored screens share a label. Repeated clicks restart the timer, and a display-configuration change dismisses the labels. No display settings change.

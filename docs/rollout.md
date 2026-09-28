@@ -2,7 +2,7 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release notes for 0.6.7 (122) are in [release-0.6.7.md](release-0.6.7.md); release validation for 0.6.6 (120) is recorded in [release-0.6.6.md](release-0.6.6.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
+Release notes for 0.6.8 (123) are in [release-0.6.8.md](release-0.6.8.md) and for 0.6.7 (122) in [release-0.6.7.md](release-0.6.7.md); release validation for 0.6.6 (120) is recorded in [release-0.6.6.md](release-0.6.6.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements
@@ -24,7 +24,7 @@ INSTALLER_IDENTITY="Developer ID Installer: School (TEAMID)" ./scripts/package.s
 Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 
 ## 3. Pilot (3–5 rooms, two weeks)
-- [ ] Install the pkg on pilot Macs with the MDM. The postinstall opens the app; "Start at Login" is on by default.
+- [ ] Install the pkg on pilot Macs with the MDM. The postinstall starts the app for the logged-in user; the global LaunchAgent starts it at login for every account.
 - [ ] In each room: plug into the projector, answer Mirror in the prompt, unplug, replug, confirm it mirrors on its own.
 - [ ] Rename the projector in the menu to the room name, then **Profile › Save Current Setup As…** with the same name.
 - [ ] When upgrading from a version before 0.4.0, re-save pilot profiles to capture positions, main display and system audio. Change the setup, recall the profile, and confirm verification succeeds.
@@ -37,7 +37,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] Try the brightness slider on the projector. No slider means no usable DDC reading was available; monitor settings, adapter and connection support can affect it. Nothing else changes.
 - [ ] Helpdesk-only: create `~/Library/Application Support/DisplayHelp/scripts/` and drop a test `.sh` (owned by the user, mode 0755) to confirm "Custom fixes" appears.
 - [ ] After two weeks collect `~/Library/Application Support/DisplayHelp/history.jsonl` from each pilot Mac and count `connected` vs `applyFailed`.
-- [ ] On one pilot Mac run **Troubleshooting → More → Uninstall DisplayHelp…** and confirm the app, login item and receipt are gone, then reinstall.
+- [ ] On one pilot Mac run **Troubleshooting → More → Uninstall DisplayHelp…** and confirm the app, `/Library/LaunchAgents/com.displayhelp.app.plist` and receipt are gone, then reinstall.
 
 - [ ] Save one full profile and one layout-only profile, assign favorites 1 and 2, and confirm the latter leaves picture levels and audio unchanged.
 - [ ] Change a resolution, allow the 20-second countdown to expire, and check the previous setup returns; repeat and choose Keep Changes.

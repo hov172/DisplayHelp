@@ -2,20 +2,20 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Latest release **0.6.7 (122)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Latest release **0.6.8 (123)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/DisplayHelp-0.6.7-Screenshots.zip)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.7/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.8/DisplayHelp-0.6.8.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.8/DisplayHelp-0.6.8-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.8/DisplayHelp-0.6.8-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.8/DisplayHelp-0.6.8-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.8/DisplayHelp-0.6.8-Screenshots.zip)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.8/SHA256SUMS.txt)
 
-Version 0.6.7 shows the HDCP state macOS reports at the end of each external display’s status line, adds **Check HDCP** with repeater and topology details on DisplayPort connections, includes those readings in Copy Diagnostics, offers a one-click smoother refresh rate when a display runs below 50 Hz, and fixes brightness, contrast and monitor volume on macOS 26. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
+Version 0.6.8 starts the app at login for every account on the Mac through a global LaunchAgent installed by the pkg; turn it off per account in System Settings › General › Login Items › Allow in the Background. Version 0.6.7 shows the HDCP state macOS reports at the end of each external display’s status line, adds **Check HDCP** with repeater and topology details on DisplayPort connections, includes those readings in Copy Diagnostics, offers a one-click smoother refresh rate when a display runs below 50 Hz, and fixes brightness, contrast and monitor volume on macOS 26. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
 
 Version 0.6.6 adds system-wide favorite shortcuts, simpler Quick Switch Profiles, Restore Previous/Default Setup, and safer profile matching for identical monitors. Profile and language controls remain stable during background status reads.
 
@@ -31,7 +31,7 @@ Version 0.6.0 adds a compact screen layout, two favorite profile slots, full and
   <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.7 native interface with Quick Switch Profiles collapsed and an extended layout using sample display data"></a>
 </p>
 
-The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. The menu captures show DisplayHelp 0.6.7 (122), captured on 2026-09-25 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. [Screenshot details](docs/README.md#screenshots).
+The new UI screenshots use sample display data rendered by the production views. The screen diagram reflects display geometry; it does not capture or stream desktop content. The menu captures show DisplayHelp 0.6.8 (123), captured on 2026-09-27 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.8. [Screenshot details](docs/README.md#screenshots).
 
 **Identify Displays** beneath the layout shows matching numbers and names on connected screens for five seconds. Mirrored screens share a numbered group. The labels do not change settings or block clicks.
 
@@ -89,7 +89,7 @@ DisplayHelp puts the handful of things that actually fix these problems in one m
 
 - Look for the display icon in the menu bar. That is the whole app.
 
-- Start at Login is on by default, so it is there tomorrow.
+- It starts at login for everyone who uses the Mac, so it is there tomorrow.
 
 For organization-wide installation, ask your IT team to deploy the installer through its Mac management service and test it in representative rooms first.
 
@@ -107,7 +107,7 @@ Use About when your helpdesk asks which version you have.
 
 3. Close the About window to return to your work.
 
-Shown: the 0.6.6 About panel; 0.6.7 reads 0.6.7 (122). Use the version displayed on your own Mac when reporting an issue.
+Shown: the 0.6.6 About panel; 0.6.8 reads 0.6.8 (123). Use the version displayed on your own Mac when reporting an issue.
 
 ## Languages and how to switch
 
@@ -199,7 +199,7 @@ Click the icon. Top to bottom:
 | Output Volume | Live volume and mute for the active macOS audio output, when supported. |
 | Display cards | Common controls, the HDCP state at the end of the status line, plus observed placement, alignment and rotation beside Place…. Expand More Controls for refresh rate, recommendations, audio, rotation, Check HDCP and the rest. |
 | Troubleshooting | Detect Displays (applies recommendations), fixes, Recent Events with Show History File, and Copy Diagnostics. Reset All DisplayHelp Data and Uninstall are under More. |
-| Start at Login, Quit DisplayHelp, Ayala Solutions · version | Footer; the version button opens About. |
+| Quit DisplayHelp, Ayala Solutions · version | Footer; the version button opens About. |
 
 The menu bar icon itself shows state: stacked rectangles when mirrored, two displays when extended, one when the laptop is alone.
 
@@ -568,7 +568,7 @@ Sample data: saved laptop and monitor identities are mapped to the current fixtu
 ## Clear history, forget a display, or start fresh
 
 <p align="center">
-  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.6 Troubleshooting, More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions with sample data"></a>
+  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.8 Troubleshooting, More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions; the footer has Quit and the version link"></a>
 </p>
 
 
@@ -576,7 +576,7 @@ Sample data: saved laptop and monitor identities are mapped to the current fixtu
 |---|---|---|
 | Clear the activity list | **Troubleshooting → Recent Events → Clear Connection History** | Saved profiles, favorites and remembered monitor settings; the old log is archived |
 | Ask again when one monitor reconnects | Its **… → Forget This Display…** menu | Saved profiles, favorites, history and the current screen setup |
-| Reset all remembered app data | **Troubleshooting → More → Reset All DisplayHelp Data…** | A backup of the old data, custom fixes, Start at Login and the current screen setup |
+| Reset all remembered app data | **Troubleshooting → More → Reset All DisplayHelp Data…** | A backup of the old data, custom fixes and the current screen setup |
 
 **Automatic profile loading is optional.** Under **Profile → Load Automatically When Connected**, uncheck
 individual profiles or choose **Turn Off All Automatic Profiles**. Profiles stay available for manual use.
@@ -715,7 +715,7 @@ Scripts run without an interactive Terminal. Do not wait for typed input. Use a 
 
 For managed deployment, install approved scripts separately for each intended user, owned by that user with permissions 0755. Only install scripts whose contents and effects you trust.
 
-- More › Uninstall DisplayHelp… 🔒 removes the app, its login item and package receipt, and optionally your saved profiles and settings.
+- More › Uninstall DisplayHelp… 🔒 removes the app, its login agent and package receipt, and optionally your saved profiles and settings.
 
 ## When something still looks off
 
