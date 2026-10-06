@@ -2,6 +2,11 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [Unreleased]
+
+- The "You're up to date" dialog offers Set Up Self-Service Updates… when the helper is not yet approved, so the one-time approval can happen before any update exists.
+- Install reloads the approved DisplayHelp Updater before using it, so it still works after a Homebrew upgrade or a reinstall unloaded the helper.
+
 ## [0.6.12] - 2026-10-06
 
 - Install starts as soon as it is clicked; the "Installing" notice no longer waits for OK before sending the request.
