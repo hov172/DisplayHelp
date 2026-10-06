@@ -21,7 +21,7 @@ signed installer package, so the app and its login agent end up exactly as a man
 
 **Can IT skip the administrator approval for updates?**
 Yes. An MDM can pre-approve the login agent and DisplayHelp Updater with the Service Management profile in
-`examples/mdm`; see the [rollout guide](rollout.md#pre-approving-the-login-agent-and-updater-with-mdm).
+`mdm`; see the [rollout guide](rollout.md#pre-approving-the-login-agent-and-updater-with-mdm).
 
 **Will it change my displays without asking?**
 Remembered settings and opted-in automatic profiles can apply at launch or connection. A new display normally

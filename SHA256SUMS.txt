@@ -3,3 +3,4 @@
 cc4775a12f0eafb900de1ed7ce53f1b7d1e0553cb90811b8c7c71013d7dabd56  DisplayHelp-0.6.10-User-Guide.docx
 b642277d8769a28d80d3b073811f53f9f3d7c0fb622b81aa5cbf244c590e77f1  DisplayHelp-0.6.10-Screenshots.zip
 0ef938bff09ffe1a48b66faa347a34b65f7717a6ec70a52478c33aa9f176033b  DisplayHelp-0.6.10-Custom-Fixes.zip
+5941d5c2828a565ae59fe90fc150d2e9818da9d3b5db83a767cb6a2db5f496e4  DisplayHelp-BackgroundItems.mobileconfig

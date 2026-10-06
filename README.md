@@ -13,6 +13,7 @@ Feedback, bug reports and suggestions are welcome.
 - [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-0.6.10-User-Guide.pdf)
 - [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-0.6.10-Custom-Fixes.zip)
 - [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-0.6.10-Screenshots.zip)
+- [MDM profile that pre-approves the updater](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-BackgroundItems.mobileconfig)
 - [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/SHA256SUMS.txt)
 
 <p align="center">
@@ -92,7 +93,7 @@ DisplayHelp puts the handful of things that actually fix these problems in one m
 
   This runs the same signed installer package. Later, `brew upgrade --cask displayhelp` updates it and `brew uninstall --cask displayhelp` removes it with the login agent.
 
-For organization-wide installation, ask your IT team to deploy the installer through its Mac management service and test it in representative rooms first. See [rollout](docs/rollout.md). An MDM can also pre-approve the DisplayHelp Updater helper with the [included configuration profile](examples/mdm/DisplayHelp-BackgroundItems.mobileconfig), so standard users install updates without an administrator.
+For organization-wide installation, ask your IT team to deploy the installer through its Mac management service and test it in representative rooms first. See [rollout](docs/rollout.md). An MDM can also pre-approve the DisplayHelp Updater helper with the [included configuration profile](mdm/DisplayHelp-BackgroundItems.mobileconfig), so standard users install updates without an administrator.
 
 ### Check your installed version
 

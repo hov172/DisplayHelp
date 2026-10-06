@@ -10,7 +10,7 @@ DisplayHelp 0.6.10 lets standard users install updates themselves.
 
 ### Notes
 
-- Managed Macs can keep deploying the package through MDM; the helper is optional and only activates after an administrator approves it.
+- Managed Macs can keep deploying the package through MDM; the helper is optional and only activates after an administrator approves it. The attached `DisplayHelp-BackgroundItems.mobileconfig` lets an MDM grant that approval fleet-wide by Team ID.
 - The helper only accepts a version number from DisplayHelp itself and never runs anything else.
 
-The release includes the signed universal macOS installer, user guides, screenshots, example fixes, and checksums.
+The release includes the signed universal macOS installer, user guides, screenshots, example fixes, the MDM profile that pre-approves the login agent and DisplayHelp Updater, and checksums.

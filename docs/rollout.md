@@ -76,7 +76,7 @@ From the app: **Troubleshooting → More → Uninstall DisplayHelp…**. From MD
 ## Pre-approving the login agent and updater with MDM
 
 macOS 13 and later let an MDM approve background items before anyone signs in. The profile in
-[`examples/mdm/DisplayHelp-BackgroundItems.mobileconfig`](../examples/mdm/DisplayHelp-BackgroundItems.mobileconfig) is a
+[`mdm/DisplayHelp-BackgroundItems.mobileconfig`](../mdm/DisplayHelp-BackgroundItems.mobileconfig) is a
 `com.apple.servicemanagement` payload with one rule, `TeamIdentifier` = `N859JA9UCJ`, which covers both the login agent
 and the **DisplayHelp Updater** helper. Import it into your MDM unchanged, or copy the rule into an existing Service
 Management payload, and scope it to the DisplayHelp Macs at device level.

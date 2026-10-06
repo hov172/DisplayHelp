@@ -4,7 +4,7 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 
 ## [Unreleased]
 
-- Added an MDM configuration profile (examples/mdm) that pre-approves the login agent and DisplayHelp Updater by Team ID, so managed Macs get Install without an administrator.
+- Added an MDM configuration profile (mdm) that pre-approves the login agent and DisplayHelp Updater by Team ID, so managed Macs get Install without an administrator.
 
 ## [0.6.10] - 2026-10-06
 
