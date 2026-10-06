@@ -26,6 +26,16 @@ Control by control. The [README](../README.md) is the short version; this is the
 
 ## Opening the app
 
+Install DisplayHelp from the signed installer package your helpdesk provides, or from a terminal with Homebrew:
+
+```sh
+brew tap hov172/signaro
+brew trust hov172/signaro   # Homebrew 5+ refuses third-party taps until you trust them
+brew install --cask displayhelp
+```
+
+Both paths run the same package, so the app lands in Applications and starts at login either way. With Homebrew, `brew upgrade --cask displayhelp` updates it and `brew uninstall --cask displayhelp` removes it with the login agent.
+
 Since 0.6.6, the menu fits its content up to 900 points tall, limited by the available screen height. Scroll inside it for any controls below the visible area.
 
 DisplayHelp has no Dock icon or main window. Profile previews, import/export and confirmations use dialogs.
