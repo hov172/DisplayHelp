@@ -92,7 +92,7 @@ DisplayHelp puts the handful of things that actually fix these problems in one m
 
   This runs the same signed installer package. Later, `brew upgrade --cask displayhelp` updates it and `brew uninstall --cask displayhelp` removes it with the login agent.
 
-For organization-wide installation, ask your IT team to deploy the installer through its Mac management service and test it in representative rooms first. See [rollout](docs/rollout.md).
+For organization-wide installation, ask your IT team to deploy the installer through its Mac management service and test it in representative rooms first. See [rollout](docs/rollout.md). An MDM can also pre-approve the DisplayHelp Updater helper with the [included configuration profile](examples/mdm/DisplayHelp-BackgroundItems.mobileconfig), so standard users install updates without an administrator.
 
 ### Check your installed version
 

@@ -2,6 +2,10 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [Unreleased]
+
+- Added an MDM configuration profile (examples/mdm) that pre-approves the login agent and DisplayHelp Updater by Team ID, so managed Macs get Install without an administrator.
+
 ## [0.6.10] - 2026-10-06
 
 - Check for Update… can install the update itself: after an administrator approves "DisplayHelp Updater" once in Login Items & Extensions, standard users click Install and a signed privileged helper downloads the release package, verifies its Developer ID signature and notarization, and runs the installer.

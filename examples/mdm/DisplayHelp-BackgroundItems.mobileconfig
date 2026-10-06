@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadType</key>
+			<string>com.apple.servicemanagement</string>
+			<key>PayloadIdentifier</key>
+			<string>com.displayhelp.servicemanagement</string>
+			<key>PayloadUUID</key>
+			<string>423E2525-7654-4E49-A0CF-9B9A46D7EE42</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadDisplayName</key>
+			<string>DisplayHelp background items</string>
+			<key>Rules</key>
+			<array>
+				<dict>
+					<key>RuleType</key>
+					<string>TeamIdentifier</string>
+					<key>RuleValue</key>
+					<string>N859JA9UCJ</string>
+					<key>Comment</key>
+					<string>Approves every DisplayHelp background item signed by Ayala Solutions: the login agent and the DisplayHelp Updater helper.</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Pre-approves DisplayHelp's login agent and the DisplayHelp Updater helper so standard users can install updates without an administrator.</string>
+	<key>PayloadDisplayName</key>
+	<string>DisplayHelp Background Items</string>
+	<key>PayloadIdentifier</key>
+	<string>com.displayhelp.backgrounditems</string>
+	<key>PayloadOrganization</key>
+	<string>Ayala Solutions</string>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>4BA858DE-518B-411B-8CAD-A820716B5CCC</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

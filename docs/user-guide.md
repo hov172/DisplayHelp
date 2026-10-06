@@ -623,6 +623,10 @@ allow "DisplayHelp Updater" in System Settings › General › Login Items & Ext
 button). After that approval, anyone using the Mac, including standard accounts, can click **Install**. Without it, Download
 still works and the downloaded package asks for an administrator password as before.
 
+Managed Macs can skip the approval step: an MDM can pre-approve DisplayHelp Updater with a Service Management profile
+(see the [rollout guide](rollout.md#pre-approving-the-login-agent-and-updater-with-mdm)), after which Install appears for
+every account without anyone visiting System Settings.
+
 ## The connect dialog
 
 <p align="center">

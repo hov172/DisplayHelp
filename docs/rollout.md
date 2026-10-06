@@ -73,6 +73,19 @@ From the app: **Troubleshooting → More → Uninstall DisplayHelp…**. From MD
 
 `keep` instead of `purge` leaves the user's profiles and history in place. The script refuses any path that is not `DisplayHelp.app`.
 
+## Pre-approving the login agent and updater with MDM
+
+macOS 13 and later let an MDM approve background items before anyone signs in. The profile in
+[`examples/mdm/DisplayHelp-BackgroundItems.mobileconfig`](../examples/mdm/DisplayHelp-BackgroundItems.mobileconfig) is a
+`com.apple.servicemanagement` payload with one rule, `TeamIdentifier` = `N859JA9UCJ`, which covers both the login agent
+and the **DisplayHelp Updater** helper. Import it into your MDM unchanged, or copy the rule into an existing Service
+Management payload, and scope it to the DisplayHelp Macs at device level.
+
+With the profile in place, **Check for Update… › Set Up Self-Service Updates…** completes without the administrator
+approval step, and **Install** appears for standard accounts straight away. Users cannot turn these items off in Login
+Items & Extensions while the profile is installed. The profile approves only items signed by Ayala Solutions; it does not
+grant any other privilege, and the updater still installs nothing but signed, notarized DisplayHelp releases.
+
 ## Deploying profiles with MDM
 
 The exported JSON array is also the on-disk format. Seed it at
