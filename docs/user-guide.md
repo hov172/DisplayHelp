@@ -17,10 +17,11 @@ Control by control. The [README](../README.md) is the short version; this is the
 9. [Fixes](#fixes)
 10. [Recent Events](#recent-events)
 11. [Start at login, Quit, About](#start-at-login-quit-about)
-12. [The connect dialog](#the-connect-dialog)
-13. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
-14. [Keyboard and accessibility](#keyboard-and-accessibility)
-15. [Language](#language)
+12. [Updating DisplayHelp](#updating-displayhelp)
+13. [The connect dialog](#the-connect-dialog)
+14. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
+15. [Keyboard and accessibility](#keyboard-and-accessibility)
+16. [Language](#language)
 
 ---
 
@@ -626,6 +627,54 @@ still works and the downloaded package asks for an administrator password as bef
 Managed Macs can skip the approval step: an MDM can pre-approve DisplayHelp Updater with a Service Management profile
 (see the [rollout guide](rollout.md#pre-approving-the-login-agent-and-updater-with-mdm)), after which Install appears for
 every account without anyone visiting System Settings.
+
+## Updating DisplayHelp
+
+There are four ways to get a new version. They all install the same signed package and keep your profiles, history and settings.
+
+| Way | Who clicks | Needs an administrator? | Best for |
+|---|---|---|---|
+| **In-app, Install** | Any user, from Check for Update… | Once per Mac to approve the helper, or never with the MDM profile | Most Macs |
+| **In-app, Download** | Any user, from Check for Update… | Yes, when the downloaded package opens | A Mac where the helper is not approved |
+| **Homebrew** | Someone with a terminal | Yes, Homebrew asks for sudo | Developers and power users |
+| **MDM push** | Nobody; IT pushes the package | No | Managed fleets |
+
+### In-app: Check for Update…
+
+Click **Check for Update…** beside Quit. DisplayHelp asks GitHub for the newest release and compares it with the version you are running. If you are current it says so. If a newer version exists the dialog names both versions and offers:
+
+- **Install**, when the DisplayHelp Updater helper is approved on this Mac. DisplayHelp downloads the release package, verifies that Apple and DisplayHelp's Developer ID signed it, runs the macOS installer, quits and reopens on the new version. No password, no further clicks, and it works from a standard account.
+- **Set Up Self-Service Updates…**, when the helper is not yet approved. See the next section.
+- **Download**, always. It opens the release package in your browser; open the package and macOS asks for an administrator password as for any installer.
+- **Later**, which closes the dialog.
+
+### One-time approval, no MDM needed
+
+The helper that installs updates runs with system privileges, so macOS asks an administrator to allow it once per Mac:
+
+1. Click **Set Up Self-Service Updates…** in the update dialog.
+2. macOS shows the approval prompt, or DisplayHelp shows a dialog with **Open Login Items**. Either way, an administrator allows **DisplayHelp Updater** in System Settings › General › Login Items & Extensions.
+3. Run **Check for Update…** again. The dialog now offers **Install**.
+
+The approval is per Mac, not per user: after it, every account on that Mac, including standard accounts, can click Install. Until it is given, Download still works.
+
+### Approval by MDM profile
+
+On managed Macs an MDM can grant the approval fleet-wide so nobody visits System Settings. The profile is in the `mdm` folder and attached to each release; the [rollout guide](rollout.md#pre-approving-the-login-agent-and-updater-with-mdm) explains how to deploy it. macOS only honours this profile when an MDM delivers it; installing the file by hand does nothing.
+
+### Homebrew
+
+```sh
+brew upgrade --cask displayhelp
+```
+
+Homebrew downloads the release package, checks its SHA-256 and runs the installer, which asks for your password. Homebrew's own record is updated only when Homebrew does the install; an in-app Install leaves it behind until the next `brew upgrade`, which is harmless.
+
+### MDM package push
+
+IT deploys the new package through the management service the same way as the first install. The package quits any running copy, including copies in other users' sessions, and restarts DisplayHelp for everyone signed in.
+
+---
 
 ## The connect dialog
 

@@ -1,6 +1,6 @@
 6c7b103214fd9eb2796e463a08682fc42dc1d988385db97faa1673801ddf4e14  DisplayHelp-0.6.12.pkg
-d8fac2e9f8c7425fa447e173209f898eef11a7e2561904f76488904b615991b4  DisplayHelp-0.6.12-User-Guide.pdf
-133fe1de3b916416933f48b89f57090b643cbded5165e10cbee7f795d20b0e93  DisplayHelp-0.6.12-User-Guide.docx
+1df8e49502515b855966f885803255f5d2de8839a47d240cf3823a831df7e59c  DisplayHelp-0.6.12-User-Guide.pdf
+0f76c4f5a252efeb4b91bf95b438277d72dbcb421f06bb3cab0af47f41f4d700  DisplayHelp-0.6.12-User-Guide.docx
 b642277d8769a28d80d3b073811f53f9f3d7c0fb622b81aa5cbf244c590e77f1  DisplayHelp-0.6.12-Screenshots.zip
 278e3119bb442a15cda5a967b2c79aac8db25d6c60e82d85e5e3dcd8d2e881c8  DisplayHelp-0.6.12-Custom-Fixes.zip
 5941d5c2828a565ae59fe90fc150d2e9818da9d3b5db83a767cb6a2db5f496e4  DisplayHelp-BackgroundItems.mobileconfig

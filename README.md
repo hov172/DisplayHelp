@@ -38,6 +38,7 @@ Screenshots use sample display data rendered by the production views; the screen
 
 - [Why it exists](#why-it-exists)
 - [Install](#install)
+- [Updating](#updating)
 - [Languages and how to switch](#languages-and-how-to-switch)
 - [First plug-in](#first-plug-in)
 - [The menu at a glance](#the-menu-at-a-glance)
@@ -102,6 +103,14 @@ For organization-wide installation, ask your IT team to deploy the installer thr
 </p>
 
 Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.6.12 reads 0.6.12 (129).
+
+## Updating
+
+- **In the app:** click **Check for Update…** beside Quit. **Install** updates in place with no password once an administrator has approved **DisplayHelp Updater** one time per Mac, or an MDM has pushed the included profile. **Download** fetches the installer package for a manual install.
+- **Homebrew:** `brew upgrade --cask displayhelp`.
+- **Managed Macs:** IT pushes the package through the MDM, optionally with the [profile](mdm/DisplayHelp-BackgroundItems.mobileconfig) that pre-approves the helper fleet-wide.
+
+Every path installs the same signed package and keeps your profiles and settings. The [user guide](docs/user-guide.md#updating-displayhelp) covers each option step by step.
 
 ## Languages and how to switch
 
