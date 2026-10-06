@@ -2,24 +2,24 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Latest release **0.6.9 (126)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Latest release **0.6.10 (127)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.9/DisplayHelp-0.6.9.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.9/DisplayHelp-0.6.9-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.9/DisplayHelp-0.6.9-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.9/DisplayHelp-0.6.9-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.9/DisplayHelp-0.6.9-Screenshots.zip)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.9/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-0.6.10.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-0.6.10-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-0.6.10-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-0.6.10-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/DisplayHelp-0.6.10-Screenshots.zip)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.10/SHA256SUMS.txt)
 
 <p align="center">
   <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.7 native interface with Quick Switch Profiles collapsed and an extended layout using sample display data"></a>
 </p>
 
-Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 adds a Check for Update… button beside Quit in the footer. Other captures are from 0.6.6 and show controls unchanged in 0.6.9. [Screenshot details](docs/README.md#screenshots).
+Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.6.10. [Screenshot details](docs/README.md#screenshots).
 
 <p align="center">
   <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.6 Keep or Revert confirmation with countdown"></a>
@@ -78,6 +78,8 @@ DisplayHelp puts the handful of things that actually fix these problems in one m
 
 - Look for the display icon in the menu bar. That is the whole app.
 
+- Later updates install from **Check for Update…** in the menu; an administrator approves "DisplayHelp Updater" once in Login Items & Extensions, and after that standard users can click Install themselves.
+
 - It starts at login for everyone who uses the Mac, so it is there tomorrow. To stop that for your account, turn DisplayHelp off in System Settings › General › Login Items › Allow in the Background.
 
 - With Homebrew, from a terminal:
@@ -98,7 +100,7 @@ For organization-wide installation, ask your IT team to deploy the installer thr
   <a href="docs/images/about.png"><img src="docs/images/about.png" width="284" alt="Check your installed version"></a>
 </p>
 
-Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.6.9 reads 0.6.9 (126).
+Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.6.10 reads 0.6.10 (127).
 
 ## Languages and how to switch
 

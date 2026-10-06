@@ -2,6 +2,11 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.10] - 2026-10-06
+
+- Check for Update… can install the update itself: after an administrator approves "DisplayHelp Updater" once in Login Items & Extensions, standard users click Install and a signed privileged helper downloads the release package, verifies its Developer ID signature and notarization, and runs the installer.
+- The Check for Update and self-service update dialogs are translated into all ten additional languages.
+
 ## [0.6.9] - 2026-10-06
 
 - Added Check for Update… beside Quit. It reads the latest GitHub release, compares versions numerically and offers to open the installer package download; nothing is installed from inside the app.

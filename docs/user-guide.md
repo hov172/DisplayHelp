@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.6.9 (126)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.6.10 (127)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -611,10 +611,17 @@ if recovery fails, the app stays open so you can finish recovery. The **Ayala So
 ### Check for Update…
 
 Next to Quit. Asks GitHub for the newest DisplayHelp release and compares it with the version you are running. If a newer
-one exists, the dialog names both versions; **Download** opens the installer package in your browser (or the release page when
-there is no package) and **Later** closes the dialog. Otherwise it says you are up to date. Nothing is installed from inside the
-app; open the downloaded package yourself. If the Mac is offline or GitHub is rate-limiting requests, the dialog says so and
-nothing else changes.
+one exists, the dialog names both versions. **Download** opens the installer package in your browser (or the release page when
+there is no package) and **Later** closes the dialog. Otherwise it says you are up to date. If the Mac is offline or GitHub is
+rate-limiting requests, the dialog says so and nothing else changes.
+
+**Install** appears once self-service updates are set up: it downloads the release package, checks that Apple and DisplayHelp's
+Developer ID signed it, and runs the macOS installer. DisplayHelp quits while the installer runs and reopens when it finishes.
+
+Setting up takes one administrator approval per Mac. Click **Set Up Self-Service Updates…**; macOS then asks an administrator to
+allow "DisplayHelp Updater" in System Settings › General › Login Items & Extensions (the dialog offers an **Open Login Items**
+button). After that approval, anyone using the Mac, including standard accounts, can click **Install**. Without it, Download
+still works and the downloaded package asks for an administrator password as before.
 
 ## The connect dialog
 

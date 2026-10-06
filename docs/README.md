@@ -12,11 +12,11 @@
 
 ## Release notes
 
-[../CHANGELOG.md](../CHANGELOG.md) is the source of truth for what changed in each version. The `release-0.6.x.md` files alongside it are the published GitHub release bodies for each version, kept as history; they also record the hardware and audio validation runs for 0.6.0 through 0.6.5. [0.6.9](release-0.6.9.md) · [0.6.8](release-0.6.8.md) · [0.6.7](release-0.6.7.md) · [0.6.6](release-0.6.6.md) · [0.6.5](release-0.6.5.md) · [0.6.4](release-0.6.4.md) · [0.6.3](release-0.6.3.md) · [0.6.2](release-0.6.2.md) · [0.6.1](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[../CHANGELOG.md](../CHANGELOG.md) is the source of truth for what changed in each version. The `release-0.6.x.md` files alongside it are the published GitHub release bodies for each version, kept as history; they also record the hardware and audio validation runs for 0.6.0 through 0.6.5. [0.6.10](release-0.6.10.md) · [0.6.9](release-0.6.9.md) · [0.6.8](release-0.6.8.md) · [0.6.7](release-0.6.7.md) · [0.6.6](release-0.6.6.md) · [0.6.5](release-0.6.5.md) · [0.6.4](release-0.6.4.md) · [0.6.3](release-0.6.3.md) · [0.6.2](release-0.6.2.md) · [0.6.1](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 
-**The menu and data-actions captures below show DisplayHelp 0.6.8 (124)**, captured on 2026-09-27; the remaining captures are from 0.6.6 (120), captured on 2026-09-23, and show controls unchanged in 0.6.9; the 0.6.9 footer adds a Check for Update… button beside Quit. Historical release and design-review documents retain their original evidence.
+**The menu and data-actions captures below show DisplayHelp 0.6.8 (124)**, captured on 2026-09-27; the remaining captures are from 0.6.6 (120), captured on 2026-09-23, and show controls unchanged in 0.6.10; the 0.6.9 footer added a Check for Update… button beside Quit, and 0.6.10 adds Install to its dialog. Historical release and design-review documents retain their original evidence.
 The Finder example-folder image is retained from 0.6.5; its folder name is illustrative. The video thumbnail depicts an earlier interface.
 The localized examples use the same production views and 0.6.6 (120) metadata.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
