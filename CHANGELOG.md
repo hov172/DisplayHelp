@@ -2,6 +2,10 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.6.12] - 2026-10-06
+
+- Install starts as soon as it is clicked; the "Installing" notice no longer waits for OK before sending the request.
+
 ## [0.6.11] - 2026-10-06
 
 - Updates now complete on shared Macs with fast user switching: the installer stops DisplayHelp copies running in other users' sessions instead of giving up, and restarts the app in every signed-in session afterwards. The app treats that stop as a normal Quit, so a pending display trial is still reverted.
