@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.6.12 (129)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.6.13 (130)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -658,7 +658,7 @@ The helper that installs updates runs with system privileges, so macOS asks an a
 
 The approval is per Mac, not per user: after it, every account on that Mac, including standard accounts, can click Install. Until it is given, Download still works.
 
-You do not have to wait for an update to do this. From 0.6.13, when DisplayHelp is already up to date and the helper is not yet approved, the **You're up to date** dialog offers **Set Up Self-Service Updates…** too, so a helpdesk can approve the helper while setting up the Mac and never be asked again.
+You do not have to wait for an update to do this. Since 0.6.13, when DisplayHelp is already up to date and the helper is not yet approved, the **You're up to date** dialog offers **Set Up Self-Service Updates…** too, so a helpdesk can approve the helper while setting up the Mac and never be asked again.
 
 ### Approval by MDM profile
 

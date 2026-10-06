@@ -2,8 +2,10 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
-## [Unreleased]
+## [0.6.13] - 2026-10-06
 
+- After an update, the relaunched app shows a short "DisplayHelp was updated to …" notice, so the quit-and-reopen is explained.
+- The installer waits 10 seconds instead of 20 for running copies to quit before stopping them itself.
 - The "You're up to date" dialog offers Set Up Self-Service Updates… when the helper is not yet approved, so the one-time approval can happen before any update exists.
 - Install reloads the approved DisplayHelp Updater before using it, so it still works after a Homebrew upgrade or a reinstall unloaded the helper.
 

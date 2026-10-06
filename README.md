@@ -2,25 +2,25 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Latest release **0.6.12 (129)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Latest release **0.6.13 (130)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.12/DisplayHelp-0.6.12.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.12/DisplayHelp-0.6.12-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.12/DisplayHelp-0.6.12-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.12/DisplayHelp-0.6.12-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.12/DisplayHelp-0.6.12-Screenshots.zip)
-- [MDM profile that pre-approves the updater](https://github.com/hov172/DisplayHelp/releases/download/v0.6.12/DisplayHelp-BackgroundItems.mobileconfig)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.12/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13-Screenshots.zip)
+- [MDM profile that pre-approves the updater](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-BackgroundItems.mobileconfig)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/SHA256SUMS.txt)
 
 <p align="center">
   <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.7 native interface with Quick Switch Profiles collapsed and an extended layout using sample display data"></a>
 </p>
 
-Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.6.12. [Screenshot details](docs/README.md#screenshots).
+Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.6.13. [Screenshot details](docs/README.md#screenshots).
 
 <p align="center">
   <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.6 Keep or Revert confirmation with countdown"></a>
@@ -102,7 +102,7 @@ For organization-wide installation, ask your IT team to deploy the installer thr
   <a href="docs/images/about.png"><img src="docs/images/about.png" width="284" alt="Check your installed version"></a>
 </p>
 
-Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.6.12 reads 0.6.12 (129).
+Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.6.13 reads 0.6.13 (130).
 
 ## Updating
 
