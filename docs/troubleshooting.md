@@ -210,6 +210,13 @@ size the picker now hides). Pick a size once and the preset is replaced.
 **Do.** **Troubleshooting → Reset Display Preferences** 🔒. Everyone is logged out.
 **Cause.** WindowServer's own display database is corrupt. The reset deletes it and macOS rebuilds it.
 
+### Check for Update shows no Install button, or says an administrator must approve DisplayHelp Updater
+**Do.** Click **Set Up Self-Service Updates…**, then have an administrator allow "DisplayHelp Updater" in System Settings ›
+General › Login Items & Extensions (the dialog's **Open Login Items** button goes there). Run Check for Update… again.
+**Cause.** Installing a package needs root, so DisplayHelp uses a launchd daemon that macOS only starts after one admin
+approval per Mac. Until then the dialog offers Download, which asks for an administrator password when the package opens.
+If approval is already given and Install still fails, the daemon's log is under subsystem `com.displayhelp.updater` in Console.
+
 ### The icon is not in the menu bar
 **Cause.** macOS hides menu bar extras when app menus need the room, or the app is not running. Open it from
 `/Applications`. If it no longer starts at login, turn DisplayHelp back on in System Settings › General › Login Items › Allow in the Background.

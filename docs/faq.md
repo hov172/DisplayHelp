@@ -1,11 +1,27 @@
 # FAQ
 
 **Does it work without an internet connection?**
-Yes. It never uses the network.
+Yes. Display, audio and profile features never use the network. The only network request is **Check for Update…**,
+which contacts GitHub when you click it and says so if the Mac is offline.
 
 **Does it need an administrator password?**
 The built-in Reset Display Preferences and Uninstall actions require an administrator password. Custom fixes
 marked with a lock also run as administrator. Display controls run as the logged-in user. The password dialog is macOS's own; the app never sees the password.
+Installing an update needs one administrator approval per Mac for **DisplayHelp Updater**; after that, or when an MDM
+profile pre-approves it, standard accounts can click **Install** themselves.
+
+**How do I update DisplayHelp?**
+Click **Check for Update…** beside Quit. It compares the newest GitHub release with your version. **Install** updates in
+place through the approved DisplayHelp Updater helper; **Download** fetches the installer package for a manual install.
+Homebrew users can run `brew upgrade --cask displayhelp` instead. Managed Macs usually get updates from their MDM.
+
+**Can I install it with Homebrew?**
+Yes: `brew tap hov172/signaro`, `brew trust hov172/signaro`, then `brew install --cask displayhelp`. It runs the same
+signed installer package, so the app and its login agent end up exactly as a manual install leaves them.
+
+**Can IT skip the administrator approval for updates?**
+Yes. An MDM can pre-approve the login agent and DisplayHelp Updater with the Service Management profile in
+`examples/mdm`; see the [rollout guide](rollout.md#pre-approving-the-login-agent-and-updater-with-mdm).
 
 **Will it change my displays without asking?**
 Remembered settings and opted-in automatic profiles can apply at launch or connection. A new display normally
