@@ -2,10 +2,21 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [Unreleased]
+
+- Added Check for Update… beside Quit. It reads the latest GitHub release, compares versions numerically and offers to open the installer package download; nothing is installed from inside the app.
+
 ## [0.6.8] - 2026-09-27
 
 - Start at login now applies to every account on the Mac: the installer ships a global LaunchAgent instead of registering a per-user login item on first launch. The in-app Start at Login toggle is gone; turn it off per account in System Settings › General › Login Items › Allow in the Background. Upgrades remove the old per-user login item, and the uninstaller removes the agent.
 - The menu opens at the height of its content on macOS 27. Earlier builds could open with an empty band above the Profile row.
+
+## [0.6.7] - 2026-09-25
+
+- Each external display's status line ends with the HDCP state macOS reports. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
+- Added **Check HDCP** under More Controls to read the state again, with repeater and topology details when the DisplayPort receiver reports them. Copy Diagnostics includes the HDCP result and raw register values.
+- Added a one-click hint for a smoother refresh rate when an external display runs below 50 Hz and a faster mode exists at the same size.
+- Fixed brightness, contrast and monitor volume on macOS 26, where the display service moved in the system registry.
 
 ## [0.6.6] - 2026-09-23
 
@@ -20,7 +31,7 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 ## [0.6.5] - 2026-09-21
 
 - Added native macOS localization for all 374 app-owned strings in eleven languages: English, German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Simplified Chinese, Traditional Chinese and Arabic.
-- Added a globe menu using the native per-app language preference, with Follow System and a restart confirmation. Language is independent of saved display profiles.
+- Added a globe menu using the native per-app language preference, with Follow System and a restart confirmation. Follow System uses macOS language preferences and the bundled translations; macOS does not generate translations. Language is independent of saved display profiles.
 - Adapted controls and recovery buttons to longer translations; added Arabic right-to-left presentation while preserving physical display geometry and technical values.
 - Fixed confirmation dialogs appearing behind the app; native alerts and the Keep/Revert panel retain foreground visibility and keyboard focus.
 - Checked the newest four languages against Apple terminology and corrected 36 entries. Independent native-speaker review remains pending.
@@ -95,7 +106,7 @@ Testing release. Feedback and suggestions are welcome.
 ### Changed
 - Polished spacing, layout labels and progress messages; removed duplicate confirmation actions.
 - Packaging preserves installers from previous releases.
-- Updated guides, screenshots and release assets. Hardware testing covered the connected Samsung and built-in display; availability on other connections remains hardware dependent.
+- Updated guides, screenshots and release assets. Hardware testing covered the connected Samsung and built-in display; availability on other connections remains hardware dependent. Existing profiles remain compatible.
 
 ## [0.5.2] - 2026-09-18
 
