@@ -6,7 +6,7 @@ DisplayHelp 0.6.10 lets standard users install updates themselves.
 
 - **Check for Update…** can now install the update. After an administrator allows **DisplayHelp Updater** once in System Settings › General › Login Items & Extensions, anyone using the Mac clicks **Install** and DisplayHelp updates itself: a signed privileged helper downloads the release package from GitHub, verifies the Developer ID signature and Gatekeeper assessment, refuses anything that is not a newer DisplayHelp release, and runs the macOS installer. **Download** still opens the package in your browser for a manual install.
 - The update dialogs are translated into all ten additional languages.
-- Homebrew users can install and update from the `hov172/signaro` tap: `brew install --cask displayhelp`.
+- Homebrew users can install and update from the `hov172/displayhelp` tap: `brew install --cask displayhelp`.
 
 ### Notes
 

@@ -14,7 +14,7 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 ## [0.6.9] - 2026-10-06
 
 - Added Check for Update… beside Quit. It reads the latest GitHub release, compares versions numerically and offers to open the installer package download; nothing is installed from inside the app.
-- DisplayHelp can be installed with Homebrew from the `hov172/signaro` tap: `brew install --cask displayhelp`.
+- DisplayHelp can be installed with Homebrew from the `hov172/displayhelp` tap: `brew install --cask displayhelp`.
 
 ## [0.6.8] - 2026-09-27
 

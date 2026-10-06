@@ -85,8 +85,8 @@ DisplayHelp puts the handful of things that actually fix these problems in one m
 - With Homebrew, from a terminal:
 
   ```sh
-  brew tap hov172/signaro
-  brew trust hov172/signaro   # Homebrew 5+ refuses third-party taps until you trust them
+  brew tap hov172/displayhelp
+  brew trust hov172/displayhelp   # Homebrew 5+ refuses third-party taps until you trust them
   brew install --cask displayhelp
   ```
 

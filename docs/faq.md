@@ -16,7 +16,7 @@ place through the approved DisplayHelp Updater helper; **Download** fetches the 
 Homebrew users can run `brew upgrade --cask displayhelp` instead. Managed Macs usually get updates from their MDM.
 
 **Can I install it with Homebrew?**
-Yes: `brew tap hov172/signaro`, `brew trust hov172/signaro`, then `brew install --cask displayhelp`. It runs the same
+Yes: `brew tap hov172/displayhelp`, `brew trust hov172/displayhelp`, then `brew install --cask displayhelp`. It runs the same
 signed installer package, so the app and its login agent end up exactly as a manual install leaves them.
 
 **Can IT skip the administrator approval for updates?**
