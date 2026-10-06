@@ -1,4 +1,4 @@
-# DisplayHelp 0.6.9 (125)
+# DisplayHelp 0.6.9 (126)
 
 DisplayHelp 0.6.9 can tell you when a newer version is available.
 
