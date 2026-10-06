@@ -2,7 +2,7 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
-## [Unreleased]
+## [0.6.9] - 2026-10-06
 
 - Added Check for Update… beside Quit. It reads the latest GitHub release, compares versions numerically and offers to open the installer package download; nothing is installed from inside the app.
 

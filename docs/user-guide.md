@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.6.8 (124)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.6.9 (125)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -597,6 +597,14 @@ After a packaged install the app starts at login for every account on the Mac. T
 System Settings › General › Login Items › Allow in the Background, then open it from Applications when needed. Normally **Quit DisplayHelp** leaves the confirmed setup in place.
 Quit is disabled while changes are in progress. A system quit request during confirmation first attempts to revert;
 if recovery fails, the app stays open so you can finish recovery. The **Ayala Solutions · v‹version›** link opens the About panel.
+
+### Check for Update…
+
+Next to Quit. Asks GitHub for the newest DisplayHelp release and compares it with the version you are running. If a newer
+one exists, the dialog names both versions; **Download** opens the installer package in your browser (or the release page when
+there is no package) and **Later** closes the dialog. Otherwise it says you are up to date. Nothing is installed from inside the
+app; open the downloaded package yourself. If the Mac is offline or GitHub is rate-limiting requests, the dialog says so and
+nothing else changes.
 
 ## The connect dialog
 
