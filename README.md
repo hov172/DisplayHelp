@@ -80,6 +80,16 @@ DisplayHelp puts the handful of things that actually fix these problems in one m
 
 - It starts at login for everyone who uses the Mac, so it is there tomorrow. To stop that for your account, turn DisplayHelp off in System Settings › General › Login Items › Allow in the Background.
 
+- With Homebrew, from a terminal:
+
+  ```sh
+  brew tap hov172/signaro
+  brew trust hov172/signaro   # Homebrew 5+ refuses third-party taps until you trust them
+  brew install --cask displayhelp
+  ```
+
+  This runs the same signed installer package. Later, `brew upgrade --cask displayhelp` updates it and `brew uninstall --cask displayhelp` removes it with the login agent.
+
 For organization-wide installation, ask your IT team to deploy the installer through its Mac management service and test it in representative rooms first. See [rollout](docs/rollout.md).
 
 ### Check your installed version
