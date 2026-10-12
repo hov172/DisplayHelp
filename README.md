@@ -43,6 +43,7 @@ Screenshots use sample display data rendered by the production views; the screen
 - [First plug-in](#first-plug-in)
 - [The menu at a glance](#the-menu-at-a-glance)
 - [Everyday use](#everyday-use)
+  - [Signal Cap: keep a projector or long cable off 4K](#signal-cap-keep-a-projector-or-long-cable-off-4k)
 - [Output Volume](#output-volume)
 - [Identify your screens](#identify-your-screens)
 - [Choose and save the main screen](#choose-and-save-the-main-screen)
