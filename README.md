@@ -1,46 +1,49 @@
 # DisplayHelp
 
-DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
+[![Latest release](https://img.shields.io/badge/release-0.7.0_(150)-2ea44f)](https://github.com/hov172/DisplayHelp/releases/latest)
+[![macOS 14+](https://img.shields.io/badge/macOS-14_Sonoma_or_later-000000?logo=apple)](#install)
+[![Apple Silicon and Intel](https://img.shields.io/badge/Apple_Silicon-%7C_Intel-555555)](#install)
 
-Latest release **0.7.0 (150)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
-
-Feedback, bug reports and suggestions are welcome.
-
-### Downloads
-
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-Screenshots.zip)
-- [MDM profile that pre-approves the updater](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-BackgroundItems.mobileconfig)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/SHA256SUMS.txt)
+**DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave.** Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
 <p align="center">
   <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.7 native interface with Quick Switch Profiles collapsed and an extended layout using sample display data"></a>
 </p>
 
-Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.7.0. [Screenshot details](docs/README.md#screenshots).
+- **One menu bar icon.** No main window, no account. Settings stay on your Mac; profile sharing is your choice.
+- **Remembers every room.** Named profiles capture every connected display and load when that set connects.
+- **Fixes the usual trouble.** Wrong size after plug-in, a cut-off Dock, snow on a TV, a projector that cannot take 4K.
+- **Installs cleanly.** Signed and notarized installer, starts at login, updates itself and can uninstall itself.
 
-<p align="center">
-  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.6 Keep or Revert confirmation with countdown"></a>
-</p>
+Feedback, bug reports and suggestions are welcome.
 
-- macOS 14 Sonoma or later, Apple Silicon and Intel.
+### Downloads
 
-- One menu bar icon, no main window and no account. Settings stay on your Mac; profile sharing is your choice.
+Latest release **0.7.0 (150)** · macOS 14 Sonoma or later · Apple Silicon and Intel · Proprietary, not open source · [What's new](CHANGELOG.md)
 
-- Installs with a signed and notarized installer, starts at login and can uninstall itself.
+| Asset | Download |
+|---|---|
+| Signed and notarized installer | [DisplayHelp-0.7.0.pkg](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0.pkg) |
+| User guide | [PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-User-Guide.pdf) · [Word](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-User-Guide.docx) |
+| Custom Fixes examples and installation README | [DisplayHelp-0.7.0-Custom-Fixes.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-Custom-Fixes.zip) |
+| Current UI screenshots | [DisplayHelp-0.7.0-Screenshots.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-Screenshots.zip) |
+| MDM profile that pre-approves the updater | [DisplayHelp-BackgroundItems.mobileconfig](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-BackgroundItems.mobileconfig) |
+| SHA-256 checksums | [SHA256SUMS.txt](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/SHA256SUMS.txt) |
 
-**What's new:** see [CHANGELOG.md](CHANGELOG.md) for every version's changes.
+Homebrew users can `brew install --cask displayhelp` from the `hov172/displayhelp` tap; see [Install](#install).
+
+<sub>Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.7.0. [Screenshot details](docs/README.md#screenshots).</sub>
 
 ## Contents
 
+**Get started**
 - [Why it exists](#why-it-exists)
-- [Install](#install)
+- [Install](#install) · [Check your installed version](#check-your-installed-version)
 - [Updating](#updating)
-- [Languages and how to switch](#languages-and-how-to-switch)
 - [First plug-in](#first-plug-in)
+- [Languages and how to switch](#languages-and-how-to-switch)
+
+**Use it every day**
 - [The menu at a glance](#the-menu-at-a-glance)
 - [Everyday use](#everyday-use)
   - [Signal Cap: keep a projector or long cable off 4K](#signal-cap-keep-a-projector-or-long-cable-off-4k)
@@ -48,14 +51,18 @@ Screenshots use sample display data rendered by the production views; the screen
 - [Identify your screens](#identify-your-screens)
 - [Choose and save the main screen](#choose-and-save-the-main-screen)
 - [Profiles: one name per room](#profiles-one-name-per-room)
-- [Clear history, forget a display, or start fresh](#clear-history-forget-a-display-or-start-fresh)
-- [Fixes](#fixes)
-- [Custom Fixes setup](#custom-fixes-install-and-use-your-own-actions)
+
+**When something goes wrong**
 - [When something still looks off](#when-something-still-looks-off)
+- [Fixes](#fixes) · [Custom Fixes setup](#custom-fixes-install-and-use-your-own-actions)
+- [Clear history, forget a display, or start fresh](#clear-history-forget-a-display-or-start-fresh)
 - [Where it keeps things](#where-it-keeps-things)
-- [Privacy](#privacy)
+
+**For helpdesks and IT**
 - [Helpdesk deployment](#helpdesk-deployment)
 - [Example custom scripts](#example-custom-scripts)
+- [Privacy](#privacy)
+- [Resources](#resources)
 
 This README is the short version. The [user guide](docs/user-guide.md) covers every control, the [FAQ](docs/faq.md) gives short answers, and [troubleshooting](docs/troubleshooting.md) goes symptom by symptom.
 
@@ -89,9 +96,12 @@ DisplayHelp puts the handful of things that actually fix these problems in one m
 
   ```sh
   brew tap hov172/displayhelp
-  brew trust hov172/displayhelp   # Homebrew 5+ refuses third-party taps until you trust them
+  brew trust hov172/displayhelp
   brew install --cask displayhelp
   ```
+
+  > [!NOTE]
+  > Homebrew 5 and later refuse third-party taps until you trust them once; that is what `brew trust` does.
 
   This runs the same signed installer package. Later, `brew upgrade --cask displayhelp` updates it and `brew uninstall --cask displayhelp` removes it with the login agent.
 
@@ -112,6 +122,20 @@ Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the 
 - **Managed Macs:** IT pushes the package through the MDM, optionally with the [profile](mdm/DisplayHelp-BackgroundItems.mobileconfig) that pre-approves the helper fleet-wide.
 
 Every path installs the same signed package and keeps your profiles and settings. The [user guide](docs/user-guide.md#updating-displayhelp) covers each option step by step.
+
+## First plug-in
+
+The first time a display is connected, a small dialog asks one question:
+
+<p align="center">
+  <a href="docs/images/first-connect.png"><img src="docs/images/first-connect.png" width="260" alt="Choose what happens on connection"></a>
+</p>
+
+- **Mirror** for teaching. Both screens show the same thing.
+- **Extend** for working. The other screen becomes a second desktop.
+- **Not now** leaves macOS's default and asks again next time.
+
+Mirror or Extend is remembered for this display on this Mac. Settings do not sync between Macs; use profile export and import to transfer a setup. See [the connect dialog](docs/user-guide.md#the-connect-dialog).
 
 ## Languages and how to switch
 
@@ -140,20 +164,6 @@ DisplayHelp follows your Mac's language preferences by default. To use a differe
 Translations are machine-assisted and checked against Apple terminology; corrections are welcome via [GitHub issues](https://github.com/hov172/DisplayHelp/issues).
 
 Full details, including the System Settings routes: [user guide › Language](docs/user-guide.md#language).
-
-## First plug-in
-
-The first time a display is connected, a small dialog asks one question:
-
-<p align="center">
-  <a href="docs/images/first-connect.png"><img src="docs/images/first-connect.png" width="260" alt="Choose what happens on connection"></a>
-</p>
-
-- **Mirror** for teaching. Both screens show the same thing.
-- **Extend** for working. The other screen becomes a second desktop.
-- **Not now** leaves macOS's default and asks again next time.
-
-Mirror or Extend is remembered for this display on this Mac. Settings do not sync between Macs; use profile export and import to transfer a setup. See [the connect dialog](docs/user-guide.md#the-connect-dialog).
 
 ## The menu at a glance
 
@@ -210,7 +220,8 @@ Order for a room: pick a plain size (no "(HiDPI)" in the status line), then Sign
 - **Signal Cap 1080p** is a standing rule the app enforces with public APIs: larger sizes hidden in its picker, recommendations kept under the ceiling, the mode lowered again on connect, after wake and whenever something raises it, and a saved profile mode substituted. macOS itself still believes the display is 4K, so the first seconds after plug-in and the login window negotiate at native, and a Mac that scales instead of switching timing can still send 4K.
 - **Enforce at EDID level** changes what macOS believes. With the 4K timings gone from the EDID, macOS lists nothing above 1080p anywhere, System Settings included, and negotiates a 1080p link because it has no 4K timing to fall back on. The cost is a private interface, a flicker when it applies, and on Apple Silicon a re-apply after every restart.
 
-Rule of thumb: pick plain 1080p and read the projector's input menu. If it says 1080p and nobody touches the Mac, stop there. If it says 4K or the setting keeps drifting back, set the cap. If it still says 4K with the cap on, turn on the EDID level.
+> [!TIP]
+> **Rule of thumb:** pick plain 1080p and read the projector's input menu. If it says 1080p and nobody touches the Mac, stop there. If it says 4K or the setting keeps drifting back, set the cap. If it still says 4K with the cap on, turn on the EDID level.
 
 **With the cap Off, will the Mac still try higher speeds when Resolution is set to 1080p?** Mostly no, with real gaps. macOS does not change a mode on its own while the display stays connected, and DisplayHelp puts the remembered 1080p back when the display reconnects, so day to day the link runs at 1080p. It goes higher anyway at every plug-in and wake, because the link is negotiated from the display's EDID before any mode is set: the first seconds run at the display's advertised maximum, then macOS picks its own default (often 4K), and only then does DisplayHelp apply 1080p. On a cable that cannot carry 4K that is a black flash or a failed handshake each time, and the cap does not close that window either; only the EDID level does. It also goes higher whenever anything picks a mode: Best for Display, Detect Displays, a profile saved at 4K, System Settings, another display tool, or a presenter choosing the HiDPI 1080p entry. The cap refuses or lowers all of those; with it Off nothing does. And on Apple Silicon a plain 1080p mode can still go out as a 4K link while macOS scales the desktop, which neither the picker nor the cap changes. So: the picker sets the mode once, the cap keeps software from raising it, and the EDID level keeps macOS from negotiating above it at all, plug-in included.
 
@@ -236,23 +247,25 @@ If someone else's file is already there, the app refuses with "Another EDID over
 2. Choose **Apply** in "Change what macOS sees?". The display flickers and reconnects; DisplayHelp puts the arrangement back.
 3. Check every screen, then choose **Keep Changes**. The card reads "EDID Cap: active".
 
-Honest limits:
-- The first seconds after plug-in, and the login window, still negotiate at the display's native signal, so a bad cable may flash once.
-- The EDID Cap uses a private macOS interface that an update can remove. The toggle is then greyed out (its tooltip reads "Not supported on macOS x.y"), the card reads "EDID Cap: not supported on this macOS", and the Signal Cap keeps working. On Intel the override file is a documented macOS mechanism, so only the Apple Silicon path depends on the private interface.
-- Nothing on the Mac can prove what the cable carries. The projector's own input-info menu is the ground truth.
-- If IT can change it, a hardware EDID emulator or the projector's or switcher's own EDID setting is still the most reliable fix; longer term, active optical HDMI or an extender.
+> [!IMPORTANT]
+> **Honest limits**
+>
+> - The first seconds after plug-in, and the login window, still negotiate at the display's native signal, so a bad cable may flash once.
+> - The EDID Cap uses a private macOS interface that an update can remove. The toggle is then greyed out (its tooltip reads "Not supported on macOS x.y"), the card reads "EDID Cap: not supported on this macOS", and the Signal Cap keeps working. On Intel the override file is a documented macOS mechanism, so only the Apple Silicon path depends on the private interface.
+> - Nothing on the Mac can prove what the cable carries. The projector's own input-info menu is the ground truth.
+> - If IT can change it, a hardware EDID emulator or the projector's or switcher's own EDID setting is still the most reliable fix; longer term, active optical HDMI or an extender.
 
 Step-by-step instructions with screenshots for each control: [user guide › Display cards](docs/user-guide.md#display-cards).
 
-### Output Volume
+## Output Volume
 
 The **Output Volume** section beneath Screen Layout follows the active macOS audio device, including the built-in speakers, with a slider and **Mute / Unmute** when the device supports them. Some outputs, commonly HDMI, do not expose software volume; use their physical controls or **Monitor Volume** when the monitor supports DDC/CI. Output Volume is a live system control and is **not saved in profiles**. See [Output Volume](docs/user-guide.md#output-volume).
 
-### Identify your screens
+## Identify your screens
 
 Click **Identify Displays** beneath Screen Layout. Large numbers and display names appear for five seconds, matching the preview. Mirrored screens share a group such as **1 + 2**. The labels do not change settings, steal focus or block clicks. See [Identify Displays](docs/user-guide.md#identify-displays).
 
-### Choose and save the main screen
+## Choose and save the main screen
 
 1. Use **Extend** mode and find the desired display’s card. Use **Identify Displays** if needed.
 2. Open **Place… → Make [display name] Main**, then **Keep Changes**. The preview marks it **Main**.
@@ -272,6 +285,10 @@ Rooms differ. The same laptop mirrors to a 4K TV in 204, extends to a portrait s
 - **Profile › Save Current Setup As…**, type the room, press Save. Choose **Full setup** to include picture controls and audio, or **Layout only** for resolution, refresh rate, rotation, position, mirroring and the main display.
 - Next time, choose **Profile › Room 204**, review the preview and choose Apply. DisplayHelp restores the available saved settings and checks the result.
 
+<p align="center">
+  <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.6 Keep or Revert confirmation with countdown"></a>
+</p>
+
 Manual restores and changes to resolution, rotation, underscan, mirroring, position or the main display open one **Keep Changes / Revert** window. You have 20 seconds to keep the change; otherwise DisplayHelp restores the previous setup. Display changes are verified before they are remembered.
 
 **Quick Switch Profiles** holds two favorite slots, **Favorite 1 (⌘⌥1)** and **Favorite 2 (⌘⌥2)**, that open a profile preview from any app while DisplayHelp is running. **Restore Previous Setup** goes back to the setup from before the last profile switch; **Save Current Setup as Default…** and **Restore Default Setup** keep a permanent starting point.
@@ -290,25 +307,25 @@ Older profiles still load; re-save them to capture settings that older versions 
 
 Everything about profiles, favorites, previews, previous/default setup, identical monitors and import mapping: [user guide › Profile row](docs/user-guide.md#profile-row).
 
-## Clear history, forget a display, or start fresh
+## When something still looks off
 
-<p align="center">
-  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.8 Troubleshooting, More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions; the footer has Quit and the version link"></a>
-</p>
+| You see | Do this |
+|---|---|
+| Dock half cut off after plugging in | Wait about three seconds. The app restarts the Dock itself. Else press Detect Displays. |
+| Snow or "no signal" on a TV after picking a size | Try a supported size such as 1920×1080. Check the cable, adapter and display input if the problem continues. |
+| Everything tiny on the TV | Try Best for Display or choose a readable HiDPI size when available. |
+| Black band top and bottom of the laptop while mirrored | Normal for a 16:10 laptop on a 16:9 screen. Turn on Laptop Leads Mirror or use Extend. |
+| Black screen or flashing on a long cable or projector | Pick a plain (non-HiDPI) size, then set **Signal Cap** under More Controls. Details above. |
+| Display drops and returns every ten seconds | Reseat the cable. Recent Events will show connect/disconnect pairs with no mode change between them. |
+| The app asks Mirror/Extend again for a display it knew | The reported display identity may have changed, or saved settings were removed. Choose the arrangement again. |
 
-| What you want | Action | What is kept |
-|---|---|---|
-| Clear the activity list | **Troubleshooting → Recent Events → Clear Connection History** | Saved profiles, favorites and remembered monitor settings; the old log is archived |
-| Ask again when one monitor reconnects (its Signal Cap and EDID Cap go too; the display gets its own EDID back first) | Its **… → Forget This Display…** menu | Saved profiles, favorites, history and the current screen setup |
-| Reset all remembered app data | **Troubleshooting → More → Reset All DisplayHelp Data…** | A backup of the old data, custom fixes and the current screen setup |
-
-The full reset is not secure erasure: the old information remains in the backup folder next to the app's data. See the [complete reset and restore instructions](docs/user-guide.md#clear-history-forget-a-display-or-start-fresh).
+If the problem continues, open **Troubleshooting → Recent Events** and share the relevant details with your helpdesk, with the display model, cable or adapter, arrangement, resolution and refresh rate. Symptom-by-symptom answers: [troubleshooting](docs/troubleshooting.md).
 
 ## Fixes
 
 Expand **Troubleshooting** to reach Detect Displays, fixes, Recent Events and Copy Diagnostics.
 
-- **Reset Display Preferences** 🔒 clears macOS’s saved display configuration and restarts the display session. Everyone using the Mac is logged out, so save work first. ColorSync profile files are preserved since 0.5.2.
+- **Reset Display Preferences** 🔒 clears macOS’s saved display configuration and restarts the display session. **Everyone using the Mac is logged out, so save work first.** ColorSync profile files are preserved since 0.5.2.
 - **Custom Fixes** are optional actions supplied by your helpdesk as scripts; see below.
 - **More › Uninstall DisplayHelp…** 🔒 removes the app, its login agent and package receipt, and optionally your saved profiles and settings.
 
@@ -333,19 +350,20 @@ Custom Fixes are optional troubleshooting actions supplied as separate scripts (
 
 Scripts must end in `.sh`, belong to the user running DisplayHelp, and not be symbolic links or writable by everyone. Script headers, managed deployment and removal are covered in the [Custom Fixes README](examples/custom-fixes/README.txt) and the [user guide](docs/user-guide.md#custom-fixes).
 
-## When something still looks off
+## Clear history, forget a display, or start fresh
 
-| You see | Do this |
-|---|---|
-| Dock half cut off after plugging in | Wait about three seconds. The app restarts the Dock itself. Else press Detect Displays. |
-| Snow or "no signal" on a TV after picking a size | Try a supported size such as 1920×1080. Check the cable, adapter and display input if the problem continues. |
-| Everything tiny on the TV | Try Best for Display or choose a readable HiDPI size when available. |
-| Black band top and bottom of the laptop while mirrored | Normal for a 16:10 laptop on a 16:9 screen. Turn on Laptop Leads Mirror or use Extend. |
-| Black screen or flashing on a long cable or projector | Pick a plain (non-HiDPI) size, then set **Signal Cap** under More Controls. Details above. |
-| Display drops and returns every ten seconds | Reseat the cable. Recent Events will show connect/disconnect pairs with no mode change between them. |
-| The app asks Mirror/Extend again for a display it knew | The reported display identity may have changed, or saved settings were removed. Choose the arrangement again. |
+<p align="center">
+  <a href="docs/images/data-actions.png"><img src="docs/images/data-actions.png" width="440" alt="DisplayHelp 0.6.8 Troubleshooting, More and Recent Events expanded, showing separate Reset All DisplayHelp Data and Clear Connection History actions; the footer has Quit and the version link"></a>
+</p>
 
-If the problem continues, open **Troubleshooting → Recent Events** and share the relevant details with your helpdesk, with the display model, cable or adapter, arrangement, resolution and refresh rate. Symptom-by-symptom answers: [troubleshooting](docs/troubleshooting.md).
+| What you want | Action | What is kept |
+|---|---|---|
+| Clear the activity list | **Troubleshooting → Recent Events → Clear Connection History** | Saved profiles, favorites and remembered monitor settings; the old log is archived |
+| Ask again when one monitor reconnects (its Signal Cap and EDID Cap go too; the display gets its own EDID back first) | Its **… → Forget This Display…** menu | Saved profiles, favorites, history and the current screen setup |
+| Reset all remembered app data | **Troubleshooting → More → Reset All DisplayHelp Data…** | A backup of the old data, custom fixes and the current screen setup |
+
+> [!WARNING]
+> The full reset is not secure erasure: the old information remains in the backup folder next to the app's data. See the [complete reset and restore instructions](docs/user-guide.md#clear-history-forget-a-display-or-start-fresh).
 
 ## Where it keeps things
 
@@ -359,10 +377,6 @@ DisplayHelp keeps your saved display choices, profiles and recent activity local
 | Helpdesk fixes | Optional actions supplied by your organization |
 
 **Troubleshooting → Copy Diagnostics** copies the current layout, display capabilities, each display's requested signal, Signal Cap and EDID Cap state, each external display's EDID bytes with the decoded identity and timings (and, while the EDID Cap is in, the display's own EDID beside the one in use with a line on what the trim changed, and the raw reason when a cap was refused), audio output, the last HDCP reading for each external display and up to 20 recent events to your clipboard for support. Monitor identities and event details are included, so review the text before sharing. Unreadable profile files are preserved and recoverable from a last-good backup. File formats: [data files](docs/data-files.md).
-
-## Privacy
-
-DisplayHelp makes no network connections. It reads display identity and keeps settings and activity locally, with diagnostics also available through macOS. Export writes profiles to a location you choose; they include display and audio identifiers, so share them only with the intended recipients. Administrator authentication for Reset and Uninstall is handled by macOS.
 
 ## Helpdesk deployment
 
@@ -378,8 +392,6 @@ DisplayHelp makes no network connections. It reads display identity and keeps se
 | Removal | Use the app’s Uninstall command. Choose whether saved profiles and settings should also be removed. |
 
 Build, sign, notarize, pilot and fleet-push steps: [rollout](docs/rollout.md).
-
-DisplayHelp is made by Ayala Solutions. Engineering Smart Solutions.
 
 ## Example custom scripts
 
@@ -400,4 +412,21 @@ install -m 755 "$HOME/Downloads/DisplayHelp Custom Fixes/restart-dock.sh" "$HOME
 
 The third command is optional. Reopen the DisplayHelp menu and run the demo to verify installation. See the [complete Custom Fixes instructions](examples/custom-fixes/README.txt) for script headers and managed deployment.
 
-Further reference: [documentation index](docs/README.md), [release history](CHANGELOG.md).
+## Privacy
+
+DisplayHelp makes no network connections. It reads display identity and keeps settings and activity locally, with diagnostics also available through macOS. Export writes profiles to a location you choose; they include display and audio identifiers, so share them only with the intended recipients. Administrator authentication for Reset and Uninstall is handled by macOS.
+
+## Resources
+
+| Where | What you get |
+|---|---|
+| [User guide](docs/user-guide.md) | Every control, step by step, with screenshots |
+| [FAQ](docs/faq.md) | Short answers to the common questions |
+| [Troubleshooting](docs/troubleshooting.md) | Symptom by symptom |
+| [Rollout](docs/rollout.md) | Build, sign, notarize, pilot and fleet-push steps for IT |
+| [Documentation index](docs/README.md) | Everything else, including data files and screenshots |
+| [Release history](CHANGELOG.md) | What changed in each version |
+
+---
+
+DisplayHelp is made by Ayala Solutions. Engineering Smart Solutions.
