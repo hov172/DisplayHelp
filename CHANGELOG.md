@@ -2,6 +2,49 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [0.7.0] - 2026-10-12
+
+- Every display card shows the requested signal when the mode is HiDPI (`Desktop 1920×1080 · Signal 3840×2160 @ 60 Hz (HiDPI)`), and Copy Diagnostics has a `Signal (requested):` line.
+- On external displays the plain size is listed before the HiDPI entry of the same size in the Resolution picker.
+- Added Signal Cap (More Controls, external displays, Intel and Apple Silicon): Off, 4K at 30 Hz, 1440p, 1080p or 720p. Each level is a size ceiling plus a pixel-rate ceiling (4K at 30 Hz, or the level's size at 60 Hz). It hides larger sizes and constrains Best for Display, Match Laptop, Detect Displays and the refresh picker.
+- With a Signal Cap set, a caption under the Resolution picker says "Sizes above <level> are hidden by Signal Cap.", and Copy Diagnostics has a `Signal Cap:` line.
+- The Signal Cap lowers the mode on connect and whenever something else raises it, and substitutes a saved profile mode above the cap without editing the profile.
+- Setting, changing or clearing the Signal Cap runs under Keep/Revert; Revert restores the previous cap and mode.
+- Added the EDID Cap (Apple Silicon): "Enforce at EDID level (advanced)" gives macOS a trimmed copy of the display's own EDID so timings above the cap no longer exist, under Keep/Revert. falls back to the Signal Cap if a macOS update removes the private interface. Changing or clearing the Signal Cap turns it off.
+- After the EDID Cap is turned on or off, DisplayHelp puts back the remembered arrangement and the remembered modes of every display; macOS otherwise treats the renegotiated display as new, mirrors it and makes it the main display.
+- While the EDID Cap is active the card says "macOS now treats this display as 1920×1080 @ 60 Hz at most.", and Copy Diagnostics reports `EDID Cap: active (EDID in use <8 hex>)` and `Virtual EDID probe: supported/unsupported`.
+- The EDID Cap is re-applied on connect and wake while the display's EDID matches (its own or the trimmed copy), and paused when it does not.
+- The EDID Cap is built from the same EDID on every scan: DisplayHelp takes the fullest registry copy, and the display's live EDID when the registry copy is truncated.
+- A trimmed EDID left behind by a crash during the EDID Cap trial is cleared the next time DisplayHelp sees the display.
+- Profiles, and the Previous and Default setups, carry each external display's Signal Cap level and the EDID Cap toggle, shown in the preview; older profiles leave both alone, and the first automatic load of an imported profile never turns the EDID Cap on.
+- The EDID Cap now works on Intel Macs: it writes a model-wide macOS display override through DisplayHelp Updater (needs the self-service updates approval), takes effect after reconnect or restart, has no auto-revert, and is removed by Uninstall and Reset All DisplayHelp Data.
+- The EDID Cap works on displays whose only detailed timing is their native size (a Wacom DTK246 lists 1080p only as a CTA video code and a standard timing): the trimmed EDID gets a first detailed timing built from the largest kept progressive video code or standard timing (the CTA-861 timing for a video code; for a standard timing the CTA one, else the VESA DMT timing the code names, else the timing the formula the display declares gives: CVT reduced blanking, CVT standard blanking or GTF per its range descriptor, so the display is never handed a preferred timing it did not claim). Interlaced codes never qualify. Before, the cap was refused with `noTimingUnderCap`.
+- The trimmed EDID's range limit never drops below the cap level's class pixel clock or the pixel clock of any kept video code or standard timing (1080p at 100 Hz under the 1440p cap needs 297 MHz; 1920×1200 at 85 Hz needs 281 MHz), so no kept timing is outside it.
+- A CTA-861-H Video Format Data Block (which can name sizes above the cap) is dropped from the trimmed EDID like the other timing lists, and the validator refuses an output that still carries one.
+- The hash of the trimmed EDID is saved before it is applied, apart from a kept cap's own hash, so a crash during the Keep/Revert trial on Apple Silicon is recognized at the next launch even when macOS reports the trimmed copy as the display's EDID, and the display's own EDID is given back; Keep, Revert and the clear itself retire the marker, so a trim identical to the display's EDID is never cleared twice, and a kept cap is re-applied after a dead trial for another level.
+- Forget This Display asks for confirmation in a dialog that comes to the front; the previous in-window sheet did not reliably appear after the display's "…" menu closed, so the click looked like nothing happened. Copy Diagnostics has a `Busy` line saying whether, and why, Forget and Reset All are disabled.
+- Forget This Display and Reset All DisplayHelp Data say "DisplayHelp is still finishing a display change. Try again in a moment." when a click lands while a display operation is in flight, instead of doing nothing.
+- Forget and Reset All DisplayHelp Data give an Apple Silicon display its own EDID back before the record goes; if that reset fails, nothing is forgotten and the message says so. Revert keeps the trial marker until the reset has taken.
+- Turning the EDID Cap on while macOS already reports the trimmed copy (a profile applied after a relaunch) keeps the display's own EDID on record instead of the trim, so the next wake does not pause the cap as a changed display.
+- A standard timing outside DMT on an EDID 1.4 display with no range descriptor resolves to CVT standard blanking, as the spec prescribes; the DMT 2048×1152 row uses its published 2250-pixel reduced blanking.
+- After an automatic EDID Cap re-apply, the arrangement restore waits its turn on the hardware queue and stands down during a trial, a profile load or a reset.
+- Copy Diagnostics on Intel prints the override file as `EDID (in use, …)` beside the display's own EDID, and never labels another unit's saved bytes as this display's own.
+- After the EDID Cap is re-applied automatically on connect or wake, the remembered arrangement and modes are put back, as they are after a manual apply.
+- On Intel, a Signal Cap change removes the EDID override inside the same Keep/Revert trial; if the updater refuses the removal, the trial rolls back instead of saving a cap level that no longer matches the override.
+- When the EDID Cap is refused, the message says why in plain words ("this display offers no size within the cap on this connection", an extension format DisplayHelp cannot trim, or an EDID it could not read in full), in all 11 languages; Recent Events keep the raw reason.
+- Copy Diagnostics lists each display's EDID as hex (`EDID (256 bytes): 00ff…`), so a refused cap can be reproduced from the paste.
+- Under the hex, Copy Diagnostics decodes the EDID: manufacturer, product, serial, date, blocks and checksums, every detailed, standard and established timing, the range limits, the CTA video codes and the HDMI block.
+- When the EDID Cap is refused, the `EDID Cap:` line of Copy Diagnostics carries the raw reason (`EDID Cap: off (trim: noTimingUnderCap)`), so it sits next to the EDID it refers to and not only in Recent Events.
+- When the EDID Cap is turned on, the display's own EDID is saved with it; once the override is in place (when macOS reports the trimmed copy as the display's EDID), Copy Diagnostics prints both, each decoded, plus a `Trim:` line: whether the first detailed timing was synthesized and from what (CTA-861, DMT or CVT reduced blanking), how many timings and video codes were removed, the range-limit change and any dropped blocks.
+- The decoded range limits honor the EDID 1.4 offset flags (a 360 Hz panel no longer reads as 105 Hz), and interlaced detailed and established timings say so.
+- A scan that reads no EDID from the registry, which happens for a moment after a reconnect, no longer pauses the EDID Cap with "display changed"; the cap stays as it was until the EDID is readable again.
+- Standard timings with aspect code 00 decode as 16:10 from EDID 1.3 onward (they were read as square until 1.4), so a 1280×800 or 1920×1200 standard timing is kept under a cap that allows it instead of being dropped.
+- With a Signal Cap set, a size whose fastest refresh is above the cap stays in the Resolution picker at its fastest refresh under the cap (1080p at 60 Hz when 120 Hz is over the cap) instead of disappearing.
+- Intel EDID Cap: the override file's path is saved to disk before DisplayHelp Updater is asked to write it, even during a trial or profile restore, and a removal is sent to the updater even when the file is not there yet. A reply lost to the timeout, a crash before Keep, or a settings file that cannot be saved can no longer leave an override that Forget, Reset All or Uninstall would not find. The cap is not re-applied while a Reset All or Forget Display is running.
+- The installer quits every running copy of DisplayHelp before installing, not only the one in /Applications.
+- Diagnostics list each display's EDID serial string, so support can tell whether identical monitors are distinguishable by hardware.
+- FAQ explains how to compare serial strings on identical monitors.
+
 ## [0.6.13] - 2026-10-06
 
 - After an update, the relaunched app shows a short "DisplayHelp was updated to …" notice, so the quit-and-reopen is explained.

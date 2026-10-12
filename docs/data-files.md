@@ -48,7 +48,14 @@ preference" when absent.
     "volume": 30,
     "rotation": 0,
     "underscan": 0,
-    "laptopLeads": false
+    "laptopLeads": false,
+    "signalCap": "p1080",
+    "edidCap": true,
+    "edidCapSourceHash": "<64 hex characters>",
+    "edidCapTrimmedHash": "<64 hex characters>",
+    "edidCapOverridePath": "/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-4c2d/DisplayProductID-a3b",
+    "edidCapSourceEDID": "<base64 of the display's own EDID>",
+    "edidCapPendingTrimmedHash": "<64 hex characters>"
   },
   {
     "key": "APP-a049-4251086178",
@@ -69,6 +76,13 @@ preference" when absent.
 | `brightness`, `contrast`, `volume` | 0 to 100 | Contrast and volume only on displays that answer DDC/CI. |
 | `rotation` | 0, 90, 180, 270 | |
 | `underscan` | display-specific range | |
+| `signalCap` | `p2160at30`, `p1440`, `p1080`, `p720` | The Signal Cap level (4K at 30 Hz, 1440p, 1080p, 720p). Absent: Off. |
+| `edidCap` | boolean | `true` while the EDID Cap is wanted for this display. On Apple Silicon it is re-applied at connect and wake; on Intel the override file is rewritten if missing. Absent or false: off. |
+| `edidCapSourceHash` | SHA-256 hex | Fingerprint of the display's own EDID when the EDID Cap was turned on. A display whose EDID matches neither hash pauses the cap. |
+| `edidCapTrimmedHash` | SHA-256 hex | Fingerprint of the trimmed EDID DisplayHelp gave macOS; the registry reports it while the override is in place. |
+| `edidCapOverridePath` | string | Intel: the override file DisplayHelp Updater wrote for this display's model. Saved before the write is requested, so it can be present while `edidCap` is absent (a write that failed or whose reply was lost, or a trial not yet kept); Forget, Reset All and the stale-override clear remove the file at this path, and Uninstall sweeps every marked file. Cleared when the cap is turned off. |
+| `edidCapSourceEDID` | base64 | The display's own EDID bytes, saved when the EDID Cap is turned on. Copy Diagnostics prints them next to the EDID in use (which is the trimmed copy once the override is in place) with a `Trim:` line on what changed. |
+| `edidCapPendingTrimmedHash` | SHA-256 hex | Apple Silicon: the trim applied in a Keep/Revert trial not yet kept, written before the apply. Keep, Revert, a successful stale clear and Forget retire it; if it is still there at launch and the registry shows that trim, the trial died and the display gets its own EDID back. |
 
 ## profiles.json
 
@@ -150,8 +164,12 @@ Display identity mapping also updates each saved mirror-primary identity.
 |---|---|
 | `scope` | `full` or `layout`. Omitted in older files means `full`. |
 | `favoriteSlot` | Optional `1` or `2`, unique across the library. Imports clear this field. |
+| `imported` | `true` on an imported profile until its first automatic load, which skips the EDID Cap; then removed. Re-saving also drops it. |
+| Per-display `signalCapLevel` | `"off"`, `"p2160at30"`, `"p1440"`, `"p1080"` or `"p720"`. `"off"` clears the display's Signal Cap on load; absent (older profiles) or an unknown value leaves it alone. Not saved for the built-in display. |
+| Per-display `edidCap` | `true` when the EDID Cap was active at save time, `false` otherwise; not saved for the built-in display or where the EDID Cap is not supported (Intel, or a macOS without the interface). On load, `true` turns it on (where supported, Signal Cap set, never on the first automatic load of an imported profile) and `false` turns an active one off; absent leaves it alone. |
 | Per-display `mirrorPrimaryIdentity` | Identity key of the exact mirror primary, including on the primary itself. Absent for extended displays; older profiles fall back to `laptopLeads`. |
 
+Both scopes, and the `previous` and `default` snapshots in `restore-setups.json`, include `signalCapLevel` and `edidCap`.
 Layout-only snapshots omit brightness, contrast, volume, underscan and audio fields. These fields are also ignored
 when applying or matching a layout profile, even if a hand-edited file contains them. Resolution, refresh rate,
 rotation, origins, main-display state and mirror topology remain included.
@@ -218,6 +236,12 @@ error text, or the script result.
 | `applyFailed` | macOS refused a change | What was asked and the error |
 | `scriptRan` | A fix script exited 0 | Script name and last output line |
 | `scriptFailed` | A fix script exited non-zero | Script name, exit code, last output line |
+| `signalCapChanged` | The Signal Cap was set, changed or cleared (by hand or by a profile) | New level (`2160p30`, `1440p`, `1080p`, `720p` or `off`) and the profile name when a profile set it |
+| `signalCapApplied` | The display was lowered under its Signal Cap, or a profile mode above the cap was substituted | `from → to` modes |
+| `edidCapApplied` | The trimmed EDID was given to macOS, or re-applied at connect or wake | Level and the first 8 hex of the source fingerprint, or `re-applied`; the profile name when a profile turned it on |
+| `edidCapReverted` | The display's own EDID was given back: turned off, trial reverted, a stale override from a crash cleared, or the display forgotten | `turned off`, `EDID Cap turned off by profile <name>`, `trial reverted`, `stale override` or `forgotten` |
+| `edidCapSuspended` | The EDID Cap was paused because the display's EDID changed | Live and stored fingerprints (first 8 hex) |
+| `edidCapRejected` | The trim, validator or macOS refused the EDID Cap, or another override was found | The raw reason, for example `foreign override`, `apply failed`, `reset failed` or `trim: noTimingUnderCap` (the dialog shows it in plain words; Copy Diagnostics repeats it on the `EDID Cap:` line), and the profile name when a profile asked for it |
 
 Related operation entries share a `change=` identifier in `detail`. Layout snapshots include display IDs and identities, x/y, width/height, rotation, main-display and mirror state. Copy Diagnostics and Recent Events include up to 20 events; the JSONL file retains the longer history. These are app operation traces, not a complete audit of every change made by other software.
 
@@ -226,7 +250,7 @@ A malformed line is skipped with a warning in the unified log; the rest of the f
 ## Unified log
 
 Diagnostics that are too noisy for the history go to the macOS unified log, subsystem `DisplayHelp`, with these
-categories: `monitor`, `edid`, `ddc`, `audio`, `monitorpanel`, `history`, `scripts`, `fixes`, `known`, `profiles`, `login`, `uninstall`, `shortcuts`.
+categories: `monitor`, `edid`, `edidcap`, `ddc`, `audio`, `monitorpanel`, `history`, `scripts`, `fixes`, `known`, `profiles`, `install`, `uninstall`, `shortcuts`.
 
 ```
 log show --last 1h --info --predicate 'subsystem == "DisplayHelp"'
@@ -241,7 +265,7 @@ Delete `known-displays.json` to make the app treat every display as new. Delete 
 
 ## Forgetting displays and resetting app data
 
-**Forget This Display…** atomically removes matching current and legacy identity records from `known-displays.json`.
+**Forget This Display…** first removes any Intel override file the record tracks and, on Apple Silicon, gives a display with the EDID Cap on its own EDID back (event `edidCapReverted`, `forgotten`); if either fails nothing is removed. It then atomically removes matching current and legacy identity records from `known-displays.json`.
 It does not alter profile or history files. Unreadable data and ambiguous connected identities are refused.
 **Turn Off All Automatic Profiles** saves `autoApply: false` for every profile and cancels pending automatic loading.
 

@@ -2,25 +2,25 @@
 
 DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave. Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
-Latest release **0.6.13 (130)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
+Latest release **0.7.0 (150)** • macOS 14 Sonoma or later • Apple Silicon and Intel • Proprietary, not open source
 
 Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13.pkg)
-- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13-User-Guide.docx)
-- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13-User-Guide.pdf)
-- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13-Custom-Fixes.zip)
-- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-0.6.13-Screenshots.zip)
-- [MDM profile that pre-approves the updater](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/DisplayHelp-BackgroundItems.mobileconfig)
-- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.6.13/SHA256SUMS.txt)
+- [Signed and notarized installer](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0.pkg)
+- [Public guide — Word](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-User-Guide.docx)
+- [Public guide — PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-User-Guide.pdf)
+- [Custom Fixes examples and installation README](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-Custom-Fixes.zip)
+- [Current UI screenshots](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-Screenshots.zip)
+- [MDM profile that pre-approves the updater](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-BackgroundItems.mobileconfig)
+- [SHA-256 checksums](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/SHA256SUMS.txt)
 
 <p align="center">
   <a href="docs/images/menu-viewport.png"><img src="docs/images/menu-viewport.png" width="322" alt="DisplayHelp 0.6.7 native interface with Quick Switch Profiles collapsed and an extended layout using sample display data"></a>
 </p>
 
-Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.6.13. [Screenshot details](docs/README.md#screenshots).
+Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.7.0. [Screenshot details](docs/README.md#screenshots).
 
 <p align="center">
   <a href="docs/images/keep-changes.png"><img src="docs/images/keep-changes.png" width="360" alt="DisplayHelp 0.6.6 Keep or Revert confirmation with countdown"></a>
@@ -102,7 +102,7 @@ For organization-wide installation, ask your IT team to deploy the installer thr
   <a href="docs/images/about.png"><img src="docs/images/about.png" width="284" alt="Check your installed version"></a>
 </p>
 
-Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.6.13 reads 0.6.13 (130).
+Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.7.0 reads 0.7.0 (150).
 
 ## Updating
 
@@ -164,7 +164,7 @@ Click the icon. Top to bottom:
 | Quick Switch Profiles | Favorite 1 (⌘⌥1) and Favorite 2 (⌘⌥2) slots, Save Current Setup as Default, and the Restore Previous Setup / Restore Default Setup buttons. |
 | Screen Layout | Numbered geometry preview with Identify Displays in its header. |
 | Output Volume | Live volume and mute for the active macOS audio output, when supported. |
-| Display cards | Common controls, the HDCP state at the end of the status line, plus observed placement, alignment and rotation beside Place…. Expand More Controls for refresh rate, recommendations, audio, rotation, Check HDCP and the rest. |
+| Display cards | Common controls, the HDCP state at the end of the status line, plus observed placement, alignment and rotation beside Place…. Expand More Controls for refresh rate, recommendations, audio, rotation, Signal Cap, Check HDCP and the rest. |
 | Troubleshooting | Detect Displays (applies recommendations), fixes, Recent Events with Show History File, and Copy Diagnostics. Reset All DisplayHelp Data and Uninstall are under More. |
 | Quit DisplayHelp, Ayala Solutions · version | Footer; the version button opens About. |
 
@@ -174,7 +174,7 @@ Click the icon. Top to bottom:
 
 The menu bar icon itself shows state: stacked rectangles when mirrored, two displays when extended, one when the laptop is alone.
 
-Each card’s status line starts with an icon. A green check means the display is on a mode the app would choose. A grey ⓘ means a different mode is recommended or the external display is running below 50 Hz; when a faster rate exists at the same size, an orange one-click hint appears under the line. The status line ends with the HDCP state macOS reports; **Check HDCP** under More Controls reads it again. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
+Each card’s status line starts with an icon. A green check means the display is on a mode the app would choose. A grey ⓘ means a different mode is recommended or the external display is running below 50 Hz; when a faster rate exists at the same size, an orange one-click hint appears under the line. On a HiDPI mode the line names both sizes, `Desktop 1920×1080 · Signal 3840×2160 @ 60 Hz (HiDPI)`; a plain mode shows its size alone. The status line ends with the HDCP state macOS reports; **Check HDCP** under More Controls reads it again. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
 
 Every row is described in the [user guide](docs/user-guide.md#display-cards).
 
@@ -183,13 +183,63 @@ Every row is described in the [user guide](docs/user-guide.md#display-cards).
 - **"The picture is wrong, fix it":** open **Troubleshooting → Detect Displays** to rescan and apply the app’s recommendations for resolution, refresh rate and which display leads mirroring.
 - **Mirror or Extend:** two buttons on each external display's card. The one you are on is greyed. The choice is remembered.
 - **Place…:** appears beside the current placement and rotation when displays are extended; put a display left, right, above or below another with edge or center alignment. **Make Main** is inside that menu.
-- **Resolution:** lists available sizes and scaling options, filtered by the display's supported-size information when available. **Refresh Rate** is under **More Controls** when the current size offers more than one rate.
+- **Resolution:** lists available sizes and scaling options, filtered by the display's supported-size information when available. On external displays the plain size comes before the HiDPI entry of the same size, and a Signal Cap hides sizes above it. **Refresh Rate** is under **More Controls** when the current size offers more than one rate.
 - **Match Laptop / Best for Display:** under **More Controls** on an external card; one-click recommendations that prefer readable HiDPI modes and 50 Hz or better.
 - **Laptop Leads Mirror:** off by default, so the TV's shape wins. On, the laptop is full-screen and the TV shows side bars.
 - **Audio:** under **More Controls**; which output plays the Mac's sound whenever this display is connected. "Don't change" is the default, so plugging in to charge never hijacks a call.
 - **Rotation, Underscan, Brightness, Contrast, Monitor Volume:** appear only when the display, connection and available readings support them.
 - **Rename:** the pencil next to an external display’s name stores a room name for this user on this Mac.
 - **ⓘ:** the information popover shows the current mode, native size and supported resolutions for support requests.
+
+### Signal Cap: keep a projector or long cable off 4K
+
+When the selected mode is HiDPI, the status line adds `Desktop 1920×1080 · Signal 3840×2160 @ 60 Hz (HiDPI)`; a plain mode shows its size alone. "Desktop" is the size of your workspace. "Signal" is the size macOS renders and sends down the cable. A HiDPI size such as 1080p HiDPI on a 4K display still sends 4K, which is what a long cable or an older projector cannot carry. The Resolution picker lists the plain size before the HiDPI one.
+
+**Signal Cap** (More Controls, external displays only, Intel and Apple Silicon) sets a ceiling: **Off, 4K at 30 Hz, 1440p, 1080p, 720p**. It limits the size and the pixel rate: 4K at 30 Hz allows up to 3840×2160 at 30 Hz, the other levels their size at 60 Hz, so a 1080p cap drops 1080p at 120 Hz and keeps 720p at 120 Hz. Larger sizes disappear from the Resolution picker ("Sizes above 1080p are hidden by Signal Cap."), Best for Display, Match Laptop, Detect Displays and the refresh picker follow the cap, and saved profiles that ask for more are lowered (the profile file is not changed; Recent Events says so). The cap also lowers the display on connect and whenever something else raises it. Setting, changing or clearing the cap uses Keep/Revert; Revert restores the previous cap and mode. If no mode fits, nothing changes and the card says "No mode under cap available" in orange.
+
+**Enforce at EDID level (advanced)** appears under the cap once one is set (on Intel it needs the self-service updates approval first; see below). It goes one step further: it hands macOS a trimmed copy of the display's own EDID, through a private macOS interface, so sizes above the cap stop existing as far as macOS knows. It only ever removes timings (when a display lists its sizes under the cap only as video codes or standard timings, the first detailed timing is rebuilt from one of those, using the CTA-861, VESA DMT or the display's declared CVT/GTF formula, never from anything the display did not claim); a validator refuses anything that would add a size, raise a clock or change the display's identity. Turning it on asks "Change what macOS sees?", the display flickers and reconnects, and the change runs under Keep/Revert. DisplayHelp then puts back the remembered arrangement and modes of every display, because macOS otherwise treats the renegotiated display as new and mirrors it as the main display. Turning it off renegotiates and restores the arrangement the same way. While it is on, the card reads "EDID Cap: active" and "macOS now treats this display as 1920×1080 @ 60 Hz at most." The other states are "EDID Cap: not applied (see Recent Events)", "EDID Cap: paused (display changed)", "EDID Cap: not supported on this macOS" and "Another EDID override is active". Nothing survives a restart; the app re-applies it on connect and wake, and pauses ("EDID Cap: paused (display changed)") if it sees a different unit or firmware. Changing or clearing the Signal Cap turns the EDID Cap off. If DisplayHelp quits unexpectedly during the 20-second trial, it recognizes the leftover override at the next launch by a fingerprint saved before the apply (even when macOS reports the trimmed copy as the display's EDID) and gives the display its own EDID back; a kept cap for another level is then re-applied. Unplugging and replugging or sleeping the Mac also clears it. **Forget This Display** and **Reset All DisplayHelp Data** give the display its own EDID back first, and refuse if that fails.
+
+**On Intel Macs** the same toggle writes a model-wide override file (`/Library/Displays/Contents/Resources/Overrides`) through DisplayHelp Updater, so it needs the one-time self-service updates approval first (until then the toggle says "Set up self-service updates first"). It applies to every unit of that model on the Mac, takes effect only after the display reconnects or the Mac restarts ("EDID Cap: written, takes effect after reconnect or restart"), and survives restarts. There is no Keep/Revert and no 20-second auto-revert: to undo, turn it off and reconnect the display ("EDID Cap: removed, …"). Uninstall and Reset All DisplayHelp Data remove the file. macOS 26 is the last release for Intel Macs.
+
+Order for a room: pick a plain size (no "(HiDPI)" in the status line), then Signal Cap, then the EDID toggle if the projector still reports 4K input.
+
+**Picking 1080p, Signal Cap, or EDID level: which one?** They do different amounts of work, and the difference is what macOS still believes about the display.
+
+- **Picking 1920×1080 60 Hz in Resolution** is a one-time choice. macOS still knows the display is 4K and keeps every larger size available, so Detect Displays, Best for Display, a profile saved at 4K, System Settings, another app or a reconnect can put it back. On Apple Silicon a plain 1080p pick sometimes does not change the wire signal at all: the desktop is 1080p, the link stays at the panel's native timing and macOS scales.
+- **Signal Cap 1080p** is a standing rule the app enforces with public APIs: larger sizes hidden in its picker, recommendations kept under the ceiling, the mode lowered again on connect, after wake and whenever something raises it, and a saved profile mode substituted. macOS itself still believes the display is 4K, so the first seconds after plug-in and the login window negotiate at native, and a Mac that scales instead of switching timing can still send 4K.
+- **Enforce at EDID level** changes what macOS believes. With the 4K timings gone from the EDID, macOS lists nothing above 1080p anywhere, System Settings included, and negotiates a 1080p link because it has no 4K timing to fall back on. The cost is a private interface, a flicker when it applies, and on Apple Silicon a re-apply after every restart.
+
+Rule of thumb: pick plain 1080p and read the projector's input menu. If it says 1080p and nobody touches the Mac, stop there. If it says 4K or the setting keeps drifting back, set the cap. If it still says 4K with the cap on, turn on the EDID level.
+
+**With the cap Off, will the Mac still try higher speeds when Resolution is set to 1080p?** Mostly no, with real gaps. macOS does not change a mode on its own while the display stays connected, and DisplayHelp puts the remembered 1080p back when the display reconnects, so day to day the link runs at 1080p. It goes higher anyway at every plug-in and wake, because the link is negotiated from the display's EDID before any mode is set: the first seconds run at the display's advertised maximum, then macOS picks its own default (often 4K), and only then does DisplayHelp apply 1080p. On a cable that cannot carry 4K that is a black flash or a failed handshake each time, and the cap does not close that window either; only the EDID level does. It also goes higher whenever anything picks a mode: Best for Display, Detect Displays, a profile saved at 4K, System Settings, another display tool, or a presenter choosing the HiDPI 1080p entry. The cap refuses or lowers all of those; with it Off nothing does. And on Apple Silicon a plain 1080p mode can still go out as a 4K link while macOS scales the desktop, which neither the picker nor the cap changes. So: the picker sets the mode once, the cap keeps software from raising it, and the EDID level keeps macOS from negotiating above it at all, plug-in included.
+
+**How the Intel path works, step by step.** On Intel, macOS checks a folder for an override file named after the display's vendor and product IDs when a display connects, and uses the EDID inside it instead of the display's own. DisplayHelp uses that documented mechanism (Apple Silicon ignores the folder, which is why the two platforms differ):
+
+1. Ticking the toggle checks that the Mac is Intel and that DisplayHelp Updater is approved; the override folder is root-owned and the updater is the app's only root helper.
+2. The app reads the display's own EDID, trims the timings above the cap with the same trimmer and validator as on Apple Silicon, and asks "Change what macOS sees for every [model] on this Mac?". The file is keyed by model, not serial, so every unit of that model on the Mac gets the cap.
+3. The updater checks the caller's signature, re-runs the validator, builds the path from the numeric IDs itself, refuses symlinks and any file it did not write, and writes the plist atomically with a `DisplayHelpManaged` marker.
+4. The card shows "EDID Cap: written, takes effect after reconnect or restart". Nothing changes on screen until the display reconnects or the Mac restarts; from then on macOS treats the display as capped from the moment it is detected, login window included, and this survives restarts without the app re-applying anything.
+5. Turning it off deletes the file; the display keeps the trimmed EDID until the next reconnect or restart, so the card says "removed, takes effect after reconnect or restart". There is no 20-second auto-revert on Intel.
+
+If someone else's file is already there, the app refuses with "Another EDID override is active" and the updater never overwrites or deletes a file it did not mark. A missing file is rewritten silently once per connection while the cap is on. Uninstall sweeps every marked file for all users; Reset All and Forget Display remove the ones this user tracks. The file's path is saved before the updater is asked to write it, so a crash before Keep or a lost reply never leaves a file they cannot find. After a self-service update the old updater exits once its work is done; until then the app says "Restart the Mac to finish updating DisplayHelp Updater" instead of hanging. macOS 26 is the last release for Intel Macs, so this serves macOS 14 to 26.
+
+**How to cap a projector at 1080p**
+
+1. On the projector's card, pick a plain size in **Resolution**, so the status line shows no "(HiDPI)".
+2. Expand **More Controls** and set **Signal Cap** to **1080p**.
+3. Check the picture, then choose **Keep Changes**. The projector's input-info menu should now report 1080p.
+
+**How to turn on the EDID Cap** (Apple Silicon, only if the projector still reports a 4K input)
+
+1. With a Signal Cap set, turn on **Enforce at EDID level (advanced)** under it.
+2. Choose **Apply** in "Change what macOS sees?". The display flickers and reconnects; DisplayHelp puts the arrangement back.
+3. Check every screen, then choose **Keep Changes**. The card reads "EDID Cap: active".
+
+Honest limits:
+- The first seconds after plug-in, and the login window, still negotiate at the display's native signal, so a bad cable may flash once.
+- The EDID Cap uses a private macOS interface that an update can remove. The toggle is then greyed out (its tooltip reads "Not supported on macOS x.y"), the card reads "EDID Cap: not supported on this macOS", and the Signal Cap keeps working. On Intel the override file is a documented macOS mechanism, so only the Apple Silicon path depends on the private interface.
+- Nothing on the Mac can prove what the cable carries. The projector's own input-info menu is the ground truth.
+- If IT can change it, a hardware EDID emulator or the projector's or switcher's own EDID setting is still the most reliable fix; longer term, active optical HDMI or an extender.
 
 Step-by-step instructions with screenshots for each control: [user guide › Display cards](docs/user-guide.md#display-cards).
 
@@ -227,6 +277,14 @@ Manual restores and changes to resolution, rotation, underscan, mirroring, posit
 
 **Load Automatically When Connected** opts a profile into loading when its exact display set connects or at launch; **Turn Off All Automatic Profiles** makes every profile manual. **Export…** and **Import Profiles…** move setups between Macs, with display and audio mapping on import. Imported profiles start with automatic loading disabled.
 
+Profiles also carry each external display's **Signal Cap** level and whether the **EDID Cap** was active; so do Restore Previous Setup and Restore Default Setup. Loading one sets the cap before the modes (or clears it, if the profile was saved with Off, which also turns the EDID Cap off) and turns the EDID Cap on or off as part of the restore (under Keep/Revert when you load it by hand); the preview lists both when they differ, for example `Signal Cap: Off → 1080p` and `EDID Cap: Off → On`. The EDID part only runs where it is supported and the display has a Signal Cap, never on the first automatic load of an imported profile, and a refusal is noted in Recent Events instead of undoing the rest of the profile. Profiles saved before this feature leave both alone.
+
+**How to put the cap in a room profile**
+
+1. Set the Signal Cap, and the EDID Cap if the room needs it, on the projector and keep the changes.
+2. Choose **Profile › Save Current Setup As…**, or **Overwrite with Current Settings › ‹room›** for an existing profile.
+3. Next time, choose the room, check the Signal Cap and EDID Cap lines in the preview, choose **Apply**, then **Keep Changes**.
+
 Older profiles still load; re-save them to capture settings that older versions did not store. Identical monitors can be saved when macOS provides distinct display UUIDs; those profiles require manual preview.
 
 Everything about profiles, favorites, previews, previous/default setup, identical monitors and import mapping: [user guide › Profile row](docs/user-guide.md#profile-row).
@@ -240,7 +298,7 @@ Everything about profiles, favorites, previews, previous/default setup, identica
 | What you want | Action | What is kept |
 |---|---|---|
 | Clear the activity list | **Troubleshooting → Recent Events → Clear Connection History** | Saved profiles, favorites and remembered monitor settings; the old log is archived |
-| Ask again when one monitor reconnects | Its **… → Forget This Display…** menu | Saved profiles, favorites, history and the current screen setup |
+| Ask again when one monitor reconnects (its Signal Cap and EDID Cap go too; the display gets its own EDID back first) | Its **… → Forget This Display…** menu | Saved profiles, favorites, history and the current screen setup |
 | Reset all remembered app data | **Troubleshooting → More → Reset All DisplayHelp Data…** | A backup of the old data, custom fixes and the current screen setup |
 
 The full reset is not secure erasure: the old information remains in the backup folder next to the app's data. See the [complete reset and restore instructions](docs/user-guide.md#clear-history-forget-a-display-or-start-fresh).
@@ -282,6 +340,7 @@ Scripts must end in `.sh`, belong to the user running DisplayHelp, and not be sy
 | Snow or "no signal" on a TV after picking a size | Try a supported size such as 1920×1080. Check the cable, adapter and display input if the problem continues. |
 | Everything tiny on the TV | Try Best for Display or choose a readable HiDPI size when available. |
 | Black band top and bottom of the laptop while mirrored | Normal for a 16:10 laptop on a 16:9 screen. Turn on Laptop Leads Mirror or use Extend. |
+| Black screen or flashing on a long cable or projector | Pick a plain (non-HiDPI) size, then set **Signal Cap** under More Controls. Details above. |
 | Display drops and returns every ten seconds | Reseat the cable. Recent Events will show connect/disconnect pairs with no mode change between them. |
 | The app asks Mirror/Extend again for a display it knew | The reported display identity may have changed, or saved settings were removed. Choose the arrangement again. |
 
@@ -298,7 +357,7 @@ DisplayHelp keeps your saved display choices, profiles and recent activity local
 | Recent activity | Connection, setting-change and troubleshooting events |
 | Helpdesk fixes | Optional actions supplied by your organization |
 
-**Troubleshooting → Copy Diagnostics** copies the current layout, display capabilities, audio output, the last HDCP reading for each external display and up to 20 recent events to your clipboard for support. Monitor identities and event details are included, so review the text before sharing. Unreadable profile files are preserved and recoverable from a last-good backup. File formats: [data files](docs/data-files.md).
+**Troubleshooting → Copy Diagnostics** copies the current layout, display capabilities, each display's requested signal, Signal Cap and EDID Cap state, each external display's EDID bytes with the decoded identity and timings (and, while the EDID Cap is in, the display's own EDID beside the one in use with a line on what the trim changed, and the raw reason when a cap was refused), audio output, the last HDCP reading for each external display and up to 20 recent events to your clipboard for support. Monitor identities and event details are included, so review the text before sharing. Unreadable profile files are preserved and recoverable from a last-good backup. File formats: [data files](docs/data-files.md).
 
 ## Privacy
 
@@ -313,6 +372,7 @@ DisplayHelp makes no network connections. It reads display identity and keeps se
 | Pilot | Test representative rooms, displays, adapters, audio outputs and reconnect behaviour before wider deployment. |
 | Profiles | Import a saved setup on each destination Mac, map its devices, preview it and verify the result. |
 | Automatic loading | Enable only after the intended exact display set has been tested. Imported profiles start with it disabled. |
+| Projectors and long cables | Set a Signal Cap per projector and save it in the room profile; confirm on the projector's input-info menu. Pilot the EDID Cap (Apple Silicon, private macOS interface) before relying on it. |
 | Support | Use Recent Events and the actual connection details when investigating a problem. |
 | Removal | Use the app’s Uninstall command. Choose whether saved profiles and settings should also be removed. |
 

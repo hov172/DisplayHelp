@@ -1,6 +1,5 @@
-8f874927dc1375768c4edd528eeca79a5f208959f935e5f2eb79d4c40dcd70ee  DisplayHelp-0.6.13.pkg
-b6835c098df0fa1267124a4e2044142d21f4546ac4584b0be4e228e49f8d068a  DisplayHelp-0.6.13-User-Guide.pdf
-8f1c6f2027d67204af3d2dfd5fe68d612180defdc6ef8ffca2cc8b143c22079c  DisplayHelp-0.6.13-User-Guide.docx
-b642277d8769a28d80d3b073811f53f9f3d7c0fb622b81aa5cbf244c590e77f1  DisplayHelp-0.6.13-Screenshots.zip
-d60d3da230beb63d85e304be2e707a50d549552b03c9ef4e43cedb3ec2d6d64a  DisplayHelp-0.6.13-Custom-Fixes.zip
-5941d5c2828a565ae59fe90fc150d2e9818da9d3b5db83a767cb6a2db5f496e4  DisplayHelp-BackgroundItems.mobileconfig
+8a1d1a214530ba1cf07b37c5687e555b67a917708281893aa70c081af2b0d6a1  DisplayHelp-0.7.0.pkg
+01c1bc4c3fe2a8b12133a174840ff980981b1008c1aec61ea4733014d5e804c1  DisplayHelp-0.7.0-User-Guide.pdf
+d4cc85a25f4203676348f0438cbf0f4c8a387bbb2bd0da69ca77f65b814ddf26  DisplayHelp-0.7.0-User-Guide.docx
+5845441b17f5b97c2671cb443e57b514b0c8b162a1aa08e5b1d6665dabb05975  DisplayHelp-0.7.0-Screenshots.zip
+98b6c6ce1b63ac5efcfd9738146d95bd4445c3c0a348c9bd9320f866f942d111  DisplayHelp-0.7.0-Custom-Fixes.zip

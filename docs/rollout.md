@@ -34,6 +34,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] Test a missing display or unavailable audio output and confirm the restore reports a partial result.
 - [ ] On a 4K TV press **Best for Display** and check the selected mode. Expect 1920×1080 HiDPI when a suitable native HiDPI mode is offered; record the actual refresh rate and connection. Use the [current screenshot guide](README.md#screenshots) to locate controls; its sample values are not a hardware target.
 - [ ] In Extend mode verify **Place… → Make [display name] Main** and relative placement; return to the intended room arrangement before saving its profile.
+- [ ] In a room with a long cable or an older projector, pick a plain size, set **Signal Cap** (More Controls) to the projector's level, keep it, and confirm on the projector's input-info menu. Unplug and replug; the cap should hold. On Apple Silicon, try **Enforce at EDID level (advanced)**: confirm the arrangement comes back after the flicker, then sleep and wake and check the card still reads "EDID Cap: active". Save the room profile afterwards so it carries the cap.
 - [ ] Try the brightness slider on the projector. No slider means no usable DDC reading was available; monitor settings, adapter and connection support can affect it. Nothing else changes.
 - [ ] Helpdesk-only: create `~/Library/Application Support/DisplayHelp/scripts/` and drop a test `.sh` (owned by the user, mode 0755) to confirm "Custom fixes" appears.
 - [ ] After two weeks collect `~/Library/Application Support/DisplayHelp/history.jsonl` from each pilot Mac and count `connected` vs `applyFailed`.
@@ -51,7 +52,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] Upgrade while DisplayHelp is running; verify the new version appears after the installer closes and relaunches the app.
 
 ## 4. Fleet
-- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts. The exact commands are in CONTRIBUTING.md › Releasing.
+- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.
 - [ ] Push the pkg fleet-wide. Optional: push approved custom scripts to each user's scripts folder via MDM (must be owned by that user).
 - [ ] Compare ticket counts to the baseline after one semester. Target: -50%.
 
@@ -104,6 +105,9 @@ script. The file must be readable and writable by that user; use mode `0600` and
 5. To enable a managed automatic choice, set `"autoApply": true` on exactly one profile for each display set.
    Omitted/false means manual only. The interactive Import command always resets this flag to false, so enable it
    on the destination before exporting an automatic deployment template.
+   Profiles carry each display's `signalCapLevel` and `edidCap`. A seeded file has no `imported` flag, so its first
+   automatic load can turn the EDID Cap on where it is supported; set `edidCap` to `false` or remove it if you do not
+   want that.
 6. Test with all expected displays connected, then with one absent. Only an exact, unambiguous match should load
    automatically. Review the restore result; unavailable modes and missing audio devices remain hardware limits.
 
