@@ -1,6 +1,6 @@
 #!/bin/zsh
-# Removes DisplayHelp: the app bundle, the login agent, its package receipt, and (with "purge") the user's saved displays,
-# profiles and history. Run as root. The app quits itself afterwards; MDM can run this directly:
+# Removes DisplayHelp: the app bundle, the login agent, its package receipt, every Intel EDID Cap override file DisplayHelp
+# wrote (any user's), and (with "purge") the user's saved displays, profiles and history. Run as root. The app quits itself afterwards; MDM can run this directly:
 #   sudo /bin/zsh uninstall.sh /Applications/DisplayHelp.app purge /Users/<name>
 set -euo pipefail
 APP=${1:?app path}
@@ -11,6 +11,18 @@ case "$APP" in
     */DisplayHelp.app) ;;
     *) echo "refusing to remove '$APP': not DisplayHelp.app"; exit 2 ;;
 esac
+# Stop the self-service update daemon (SMAppService, registered from the bundle) before the bundle goes away.
+launchctl bootout system/com.displayhelp.updater >/dev/null 2>&1 || true
+# Intel EDID Cap: the override files are machine-wide, so sweep every one marked DisplayHelpManaged, whoever turned it on.
+# Never follow a symbolic link; leave unmarked (someone else's) files alone.
+OVERRIDES=/Library/Displays/Contents/Resources/Overrides
+for file in "$OVERRIDES"/DisplayVendorID-*/DisplayProductID-*(N); do
+    folder=${file:h}
+    [ -f "$file" ] && [ ! -L "$file" ] && [ ! -L "$folder" ] || continue
+    [ "$(/usr/libexec/PlistBuddy -c 'Print :DisplayHelpManaged' "$file" 2>/dev/null)" = true ] || continue
+    rm -f "$file"
+    rmdir "$folder" 2>/dev/null || true
+done
 [ -d "$APP" ] && rm -rf "$APP"
 rm -f /Library/LaunchAgents/com.displayhelp.app.plist
 # Unload the agent from the console user's session; ignore failure (nobody at the console, or not loaded).
