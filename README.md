@@ -1,6 +1,6 @@
 # DisplayHelp
 
-[![Latest release](https://img.shields.io/badge/release-0.7.3_(153)-2ea44f)](https://github.com/hov172/DisplayHelp/releases/latest)
+[![Latest release](https://img.shields.io/badge/release-0.8.0_(154)-2ea44f)](https://github.com/hov172/DisplayHelp/releases/latest)
 [![macOS 14+](https://img.shields.io/badge/macOS-14_Sonoma_or_later-000000?logo=apple)](#install)
 [![Apple Silicon and Intel](https://img.shields.io/badge/Apple_Silicon-%7C_Intel-555555)](#install)
 
@@ -19,20 +19,20 @@ Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-Latest release **0.7.3 (153)** · macOS 14 Sonoma or later · Apple Silicon and Intel · Proprietary, not open source · [What's new](CHANGELOG.md)
+Latest release **0.8.0 (154)** · macOS 14 Sonoma or later · Apple Silicon and Intel · Proprietary, not open source · [What's new](CHANGELOG.md)
 
 | Asset | Download |
 |---|---|
-| Signed and notarized installer | [DisplayHelp-0.7.3.pkg](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3.pkg) |
-| User guide | [PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3-User-Guide.pdf) · [Word](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3-User-Guide.docx) |
-| Custom Fixes examples and installation README | [DisplayHelp-0.7.3-Custom-Fixes.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3-Custom-Fixes.zip) |
-| Current UI screenshots | [DisplayHelp-0.7.3-Screenshots.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3-Screenshots.zip) |
-| MDM profile that pre-approves the updater | [DisplayHelp-BackgroundItems.mobileconfig](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-BackgroundItems.mobileconfig) |
-| SHA-256 checksums | [SHA256SUMS.txt](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/SHA256SUMS.txt) |
+| Signed and notarized installer | [DisplayHelp-0.8.0.pkg](https://github.com/hov172/DisplayHelp/releases/download/v0.8.0/DisplayHelp-0.8.0.pkg) |
+| User guide | [PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.8.0/DisplayHelp-0.8.0-User-Guide.pdf) · [Word](https://github.com/hov172/DisplayHelp/releases/download/v0.8.0/DisplayHelp-0.8.0-User-Guide.docx) |
+| Custom Fixes examples and installation README | [DisplayHelp-0.8.0-Custom-Fixes.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.8.0/DisplayHelp-0.8.0-Custom-Fixes.zip) |
+| Current UI screenshots | [DisplayHelp-0.8.0-Screenshots.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.8.0/DisplayHelp-0.8.0-Screenshots.zip) |
+| MDM profile that pre-approves the updater | [DisplayHelp-BackgroundItems.mobileconfig](https://github.com/hov172/DisplayHelp/releases/download/v0.8.0/DisplayHelp-BackgroundItems.mobileconfig) |
+| SHA-256 checksums | [SHA256SUMS.txt](https://github.com/hov172/DisplayHelp/releases/download/v0.8.0/SHA256SUMS.txt) |
 
 Homebrew users can `brew install --cask displayhelp` from the `hov172/displayhelp` tap; see [Install](#install).
 
-<sub>Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.7.3. [Screenshot details](docs/README.md#screenshots).</sub>
+<sub>Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.8.0. [Screenshot details](docs/README.md#screenshots).</sub>
 
 ## Contents
 
@@ -113,7 +113,7 @@ For organization-wide installation, ask your IT team to deploy the installer thr
   <a href="docs/images/about.png"><img src="docs/images/about.png" width="284" alt="Check your installed version"></a>
 </p>
 
-Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.7.3 reads 0.7.3 (153).
+Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.8.0 reads 0.8.0 (154).
 
 ## Updating
 

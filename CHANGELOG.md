@@ -4,6 +4,12 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-10-23
+
+- **Output Volume** names the current output in a picker: choose another to switch the Mac's default output now, like Sound › Output. It remembers nothing.
+- Added a **Microphone** picker below Output Volume: the Mac's default input right now, switchable like Sound › Input, with no external display needed. Full-setup profiles save the active microphone and select it on load; a profile's microphone wins over the per-display Mic rows.
+- Added **Mic** under More Controls on external displays, below Audio: pick the room's microphone once and it becomes the Mac's default input whenever that display connects, or when the mic arrives after the display. Remembered per display, carried in full-setup profiles, cleared by Forget This Display and Reset All. A missing mic leaves the input alone and says so in Recent Events. Importing profiles offers to map each saved mic to one of this Mac's input devices, and a saved mic whose identity changed is matched by name when exactly one input carries it.
+
 ## [0.7.3] - 2026-10-23
 
 - With a Signal Cap set and the EDID Cap off, the card says "Optional: turn on Enforce at EDID level if the display still reports a higher input.", so the toggle is not mistaken for missing while the cap's Keep/Revert countdown greys it out. README and user guide explain why the cap and the EDID step are two separate Keep/Revert changes.

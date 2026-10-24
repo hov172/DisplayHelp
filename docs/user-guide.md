@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.7.3 (153)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.8.0 (154)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -385,11 +385,21 @@ stays visible; at connect, sound stays where it is and the log says so. Choosing
 to the internal speakers when the display is unplugged. This picks which device plays; a TV's own volume stays on
 its remote.
 
+### Microphone
+
+Below Output Volume. The Mac's default input right now, switchable here like Sound › Input; it follows changes made elsewhere. It remembers nothing by itself: to make a mic follow a display, use the Mic row under that display's More Controls. A full-setup profile does record which microphone was active when it was saved and selects it on load; when a profile has one, it wins over the per-display Mic rows.
+
+### Mic (externals)
+
+Under **More Controls → Mic**, directly below Audio, on external display cards. Like Audio, it is tied to a display connecting, so the laptop's own card has no Mic row. In a shared room the right microphone is the USB conference bar, webcam or dock mic that arrives with the display, and macOS does not switch to it on its own. Pick it once: DisplayHelp makes it the Mac's default input now and whenever this display connects, and also when the mic itself shows up after the display is already connected. **Don't change** (the default) never touches the input. If the saved mic's identity is gone but exactly one input has the same name (a dock that re-registers after a reconnect, or the same bar on another Mac), that one is used; two inputs with the same name are never guessed between. A saved mic that is absent is listed as "‹name› (not connected)"; at connect the input is left alone and Recent Events says so. Remembered per display and included in full-setup profiles. Forget This Display and Reset All DisplayHelp Data clear it. When a profile is imported on another Mac, the import dialog offers to map each saved mic to one of this Mac's inputs, the same as it does for audio outputs. Zoom, Teams and Meet follow it only when their microphone is set to **Same as System**; a mic pinned inside the app is not changed. Input volume, mute and the camera are not part of this.
+
 ### Output Volume
 
 <p align="center">
   <a href="images/output-volume.png"><img src="images/output-volume.png" width="440" alt="DisplayHelp 0.6.6 Output Volume with sample built-in speaker volume and mute controls"></a>
 </p>
+
+The device name is a picker: choose another output to switch the Mac's default output now, like Sound › Output. It follows changes made elsewhere and remembers nothing; the Audio row under a display's More Controls is what follows a display.
 
 The separate **Output Volume** section beneath Screen Layout follows the Mac’s active audio output. Choose the built-in speakers in macOS Sound or the display’s Audio picker to control the Mac’s speaker volume here. Changes made in Control Center, with the volume keys, or by connecting another audio device update the control automatically.
 

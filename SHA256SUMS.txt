@@ -1,5 +1,5 @@
-fe2655e9bc9db9363e7c5a7c41e9a504c38c3f0bb87862b2ce4e487822bede13  DisplayHelp-0.7.3.pkg
-1e712f9e11d5e93cd7474f05731ee85e183ef5ddcc3a7712875644ce63d5ed3a  DisplayHelp-0.7.3-User-Guide.pdf
-25514d267efc4d895be56fe426207feacd6932fd290efa22886cef66d93fbd69  DisplayHelp-0.7.3-User-Guide.docx
-a92db4ae045e2d4f09c7af402f86aaa82fbf91cd67c5e857ede76165c96d833d  DisplayHelp-0.7.3-Screenshots.zip
-8dfd4bc4ec2d8fd56df496f99309010620b6e69d9eb5bcd71cbacb4f919b938c  DisplayHelp-0.7.3-Custom-Fixes.zip
+1cab45a52b13827a109948397a06ef6a93c36aafcc71bf67785a2db1aafe9d9d  DisplayHelp-0.8.0.pkg
+cd5977bc9ec8bf4a992bf55884e4b7dbfd59be82f4880c8faa9a7ecd484d0552  DisplayHelp-0.8.0-User-Guide.pdf
+f7b693381b2db07107ffae6d1874bdf3bb6f4b66661ec970a3552e8e323e7369  DisplayHelp-0.8.0-User-Guide.docx
+a92db4ae045e2d4f09c7af402f86aaa82fbf91cd67c5e857ede76165c96d833d  DisplayHelp-0.8.0-Screenshots.zip
+8dfd4bc4ec2d8fd56df496f99309010620b6e69d9eb5bcd71cbacb4f919b938c  DisplayHelp-0.8.0-Custom-Fixes.zip
