@@ -53,7 +53,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] Upgrade while DisplayHelp is running; verify the new version appears after the installer closes and relaunches the app.
 
 ## 4. Fleet
-- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts. The exact commands are in CONTRIBUTING.md › Releasing.
+- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.
 - [ ] Push the pkg fleet-wide. Optional: push approved custom scripts to each user's scripts folder via MDM (must be owned by that user).
 - [ ] Compare ticket counts to the baseline after one semester. Target: -50%.
 
