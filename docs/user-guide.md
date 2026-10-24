@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.7.2 (152)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.7.3 (153)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -487,6 +487,8 @@ Rule of thumb: pick plain 1080p and read the projector's input menu. If it says 
 3. Next time, choose the room. The preview lists `Signal Cap: Off → 1080p` and `EDID Cap: Off → On` when they differ from what is on screen now. Choose **Apply**, then **Keep Changes**.
 
 **Enforce at EDID level (advanced).** The toggle appears under the Signal Cap once a cap is set. On Apple Silicon it works live, as described here; on Intel it writes an override file instead (see **Intel Macs** below). Turns the Signal Cap into something macOS itself obeys: the app gives macOS a trimmed copy of the display's own EDID, so timings above the cap no longer exist as far as macOS knows. It is subtractive only; a validator refuses any output that adds a timing, raises a clock or changes identity. Turning it on asks "Change what macOS sees?" and runs under Keep/Revert; the display flickers, disconnects and reconnects while it renegotiates, and if the picture does not return it reverts in 20 seconds.
+
+**Why the toggle is greyed out right after setting a cap.** Setting the cap starts a Keep/Revert countdown, and every control on the card is disabled until you choose Keep Changes or Revert. Keep/Revert is a trial of exactly one change: Revert restores one recorded "before" state, and if a second change could start during the countdown a failed revert could leave both applied on a screen you cannot read. Keeping the plain cap first also tells you which half broke the picture if the EDID step goes wrong, and it is the built-in "are you sure" before the change that rewrites what macOS believes about the display. Once the cap is kept, the caption under the toggle reads "Optional: turn on Enforce at EDID level if the display still reports a higher input."
 
 macOS treats a display whose EDID changed as a new one and would mirror it and make it the main display. After the renegotiation DisplayHelp puts back the remembered arrangement and the remembered modes of every connected display. Turning the EDID Cap off is immediate (no Keep/Revert): it gives macOS back the display's own EDID, renegotiates and restores the arrangement the same way.
 

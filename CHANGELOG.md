@@ -4,6 +4,10 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 
 ## [Unreleased]
 
+## [0.7.3] - 2026-10-23
+
+- With a Signal Cap set and the EDID Cap off, the card says "Optional: turn on Enforce at EDID level if the display still reports a higher input.", so the toggle is not mistaken for missing while the cap's Keep/Revert countdown greys it out. README and user guide explain why the cap and the EDID step are two separate Keep/Revert changes.
+
 ## [0.7.2] - 2026-10-23
 
 - The menu bar icon is drawn as green outlines once more than one screen is connected: two displays side by side when extended, two stacked rectangles when mirrored. With one screen it stays the plain glyph. Its shape still shows the arrangement.

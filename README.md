@@ -1,6 +1,6 @@
 # DisplayHelp
 
-[![Latest release](https://img.shields.io/badge/release-0.7.2_(152)-2ea44f)](https://github.com/hov172/DisplayHelp/releases/latest)
+[![Latest release](https://img.shields.io/badge/release-0.7.3_(153)-2ea44f)](https://github.com/hov172/DisplayHelp/releases/latest)
 [![macOS 14+](https://img.shields.io/badge/macOS-14_Sonoma_or_later-000000?logo=apple)](#install)
 [![Apple Silicon and Intel](https://img.shields.io/badge/Apple_Silicon-%7C_Intel-555555)](#install)
 
@@ -19,20 +19,20 @@ Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-Latest release **0.7.2 (152)** · macOS 14 Sonoma or later · Apple Silicon and Intel · Proprietary, not open source · [What's new](CHANGELOG.md)
+Latest release **0.7.3 (153)** · macOS 14 Sonoma or later · Apple Silicon and Intel · Proprietary, not open source · [What's new](CHANGELOG.md)
 
 | Asset | Download |
 |---|---|
-| Signed and notarized installer | [DisplayHelp-0.7.2.pkg](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2.pkg) |
-| User guide | [PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2-User-Guide.pdf) · [Word](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2-User-Guide.docx) |
-| Custom Fixes examples and installation README | [DisplayHelp-0.7.2-Custom-Fixes.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2-Custom-Fixes.zip) |
-| Current UI screenshots | [DisplayHelp-0.7.2-Screenshots.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2-Screenshots.zip) |
-| MDM profile that pre-approves the updater | [DisplayHelp-BackgroundItems.mobileconfig](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-BackgroundItems.mobileconfig) |
-| SHA-256 checksums | [SHA256SUMS.txt](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/SHA256SUMS.txt) |
+| Signed and notarized installer | [DisplayHelp-0.7.3.pkg](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3.pkg) |
+| User guide | [PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3-User-Guide.pdf) · [Word](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3-User-Guide.docx) |
+| Custom Fixes examples and installation README | [DisplayHelp-0.7.3-Custom-Fixes.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3-Custom-Fixes.zip) |
+| Current UI screenshots | [DisplayHelp-0.7.3-Screenshots.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-0.7.3-Screenshots.zip) |
+| MDM profile that pre-approves the updater | [DisplayHelp-BackgroundItems.mobileconfig](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/DisplayHelp-BackgroundItems.mobileconfig) |
+| SHA-256 checksums | [SHA256SUMS.txt](https://github.com/hov172/DisplayHelp/releases/download/v0.7.3/SHA256SUMS.txt) |
 
 Homebrew users can `brew install --cask displayhelp` from the `hov172/displayhelp` tap; see [Install](#install).
 
-<sub>Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.7.2. [Screenshot details](docs/README.md#screenshots).</sub>
+<sub>Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.7.3. [Screenshot details](docs/README.md#screenshots).</sub>
 
 ## Contents
 
@@ -113,7 +113,7 @@ For organization-wide installation, ask your IT team to deploy the installer thr
   <a href="docs/images/about.png"><img src="docs/images/about.png" width="284" alt="Check your installed version"></a>
 </p>
 
-Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.7.2 reads 0.7.2 (152).
+Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.7.3 reads 0.7.3 (153).
 
 ## Updating
 
@@ -246,6 +246,9 @@ If someone else's file is already there, the app refuses with "Another EDID over
 1. With a Signal Cap set, turn on **Enforce at EDID level (advanced)** under it.
 2. Choose **Apply** in "Change what macOS sees?". The display flickers and reconnects; DisplayHelp puts the arrangement back.
 3. Check every screen, then choose **Keep Changes**. The card reads "EDID Cap: active".
+
+> [!NOTE]
+> **Why two steps, with a Keep in between.** The toggle is visible as soon as a cap is set, but it stays greyed out, like every control on the card, until the cap's own Keep/Revert countdown is kept or reverted. Keep/Revert is a trial of exactly one change: Revert restores one recorded "before" state, and if two changes could stack during a countdown a failed revert could leave both applied on a screen you cannot read. Keeping the plain cap first also tells you which half broke the picture if the EDID step goes wrong, and it is the built-in "are you sure" before the change that rewrites what macOS believes about the display. Once the cap is kept, the caption under the toggle reads "Optional: turn on Enforce at EDID level if the display still reports a higher input."
 
 > [!IMPORTANT]
 > **Honest limits**
