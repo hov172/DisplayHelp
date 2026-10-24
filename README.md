@@ -448,4 +448,12 @@ DisplayHelp makes no network connections except **Check for Update…**, which c
 | [Release history](CHANGELOG.md) | What changed in each version |
 
 
+### Watch the guide
+
+<p align="center"> <a href="https://youtu.be/JUq-EWzM_t8"> <img src="docs/images/video-guide.jpg" width="560" alt="DisplayHelp 0.8.1 — The Complete Guide on YouTube"> </a> </p>
+
+[DisplayHelp 0.8.1 — The Complete Guide](https://youtu.be/JUq-EWzM_t8) walks every control in 38 minutes, with chapters for install, the menu bar icon, Mirror and Extend, Keep or Revert, Signal Cap and the EDID Cap, Check HDCP, microphones, profiles, fixes, languages and self-service updates.
+
+---
+
 DisplayHelp is made by Ayala Solutions. Engineering Smart Solutions.
