@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.8.0 (154)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.8.1 (155)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -12,16 +12,17 @@ Control by control. The [README](../README.md) is the short version; this is the
 4. [Profile row](#profile-row)
 5. [Keep or revert display changes](#keep-or-revert-display-changes)
 6. [Detect Displays](#detect-displays)
-7. [Display cards](#display-cards)
-8. [When something is refused](#when-something-is-refused)
-9. [Fixes](#fixes)
-10. [Recent Events](#recent-events)
-11. [Start at login, Quit, About](#start-at-login-quit-about)
-12. [Updating DisplayHelp](#updating-displayhelp)
-13. [The connect dialog](#the-connect-dialog)
-14. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
-15. [Keyboard and accessibility](#keyboard-and-accessibility)
-16. [Language](#language)
+7. [Output Volume and Microphone](#output-volume-and-microphone)
+8. [Display cards](#display-cards)
+9. [When something is refused](#when-something-is-refused)
+10. [Fixes](#fixes)
+11. [Recent Events](#recent-events)
+12. [Login, Quit, About](#login-quit-about)
+13. [Updating DisplayHelp](#updating-displayhelp)
+14. [The connect dialog](#the-connect-dialog)
+15. [What is remembered, and when it is applied](#what-is-remembered-and-when-it-is-applied)
+16. [Keyboard and accessibility](#keyboard-and-accessibility)
+17. [Language](#language)
 
 ---
 
@@ -60,8 +61,14 @@ Its color reports status:
 |---|---|
 | Plain (follows the menu bar) | One display, nothing to report |
 | Green | More than one display connected, everything in effect |
-| Orange | Something waits on you: a Keep/Revert countdown, a profile restore, profiles that could not load, or a Signal Cap set but not yet in effect |
-| Red | The last display change or revert failed, or a Signal Cap leaves a display with no usable mode. Open the menu and check Recent Events |
+| Orange | Something waits on you or is not yet in effect: a Keep/Revert countdown, a pending profile restore, profiles that could not load, or an EDID Cap that is not in effect (not applied, another override active, or on Intel written or removed and waiting for a reconnect or restart) |
+| Red | Any error shown under the cards (a failed display change or revert, a microphone that could not be selected, "Saved mode … is unavailable on …"), or a Signal Cap that leaves a display with no usable mode. Red wins over orange. Open the menu and read the message and Recent Events |
+
+Colored icons are drawn as a stroked outline so the color survives the menu bar; the one-display idle icon is the plain template glyph.
+
+<p align="center">
+  <a href="images/menu-bar-icon.png"><img src="images/menu-bar-icon.png" width="440" alt="The five menu bar icon states: plain with one screen, green two screens, green stacked when mirrored, orange when something needs attention, red when something failed"></a>
+</p>
 
 ## Identify Displays
 
@@ -78,7 +85,7 @@ Its color reports status:
 </p>
 
 The diagram shows screen geometry, names and rotation; it does not stream desktop content. All screenshots
-below: the menu captures show DisplayHelp 0.6.8 (124), captured on 2026-09-27 with isolated sample data; other captures are from 0.6.6 and show controls that are unchanged in 0.6.7. See [screenshot provenance](README.md#screenshots).
+below: the menu captures show DisplayHelp 0.6.8 (124), captured on 2026-09-27 with isolated sample data; other captures are from 0.6.6. All of them are from earlier versions: the Output Volume picker, the Microphone box and the Mic row are newer than the captures. See [screenshot provenance](README.md#screenshots).
 
 <p align="center">
   <a href="images/profiles.png"><img src="images/profiles.png" width="287" alt="DisplayHelp 0.6.6 Profile menu with sample profiles, automatic loading, export, save and import commands"></a>
@@ -86,24 +93,24 @@ below: the menu captures show DisplayHelp 0.6.8 (124), captured on 2026-09-27 wi
 
 **Profile: ‹name›** or **Profile: Choose or Create…** at the top left. A profile is a named snapshot of every
 connected display: arrangement, size, refresh rate, readable brightness, contrast and monitor volume, rotation, underscan,
-mirror leadership, position, main display and audio preference, plus each external display's Signal Cap level and whether its EDID Cap was active (see [Signal Cap](#signal-cap-externals)). It also captures the active system audio output when saved as **Full setup**.
+mirror leadership, position, main display, audio preference and Mic preference, plus each external display's Signal Cap level and whether its EDID Cap was active (see [Signal Cap](#signal-cap-externals)). It also captures the active system audio output and the active microphone when saved as **Full setup**.
 
 The save form offers **Full setup** or **Layout only**. Layout-only profiles save resolution and refresh rate,
 rotation, position, the main display, exact mirror groups and the Signal Cap and EDID Cap. They leave brightness, contrast, monitor volume,
-underscan, reconnect audio preferences and the active audio output alone. Each display can have a different
+underscan, reconnect audio and Mic preferences, the active audio output and the active microphone alone. Each display can have a different
 resolution in Extend mode. Save two layouts under different names to switch between your two templates.
 Overwriting or updating an existing profile preserves its scope; saving its name through the save form uses
 the scope selected there.
 
 | Menu item | What it does |
 |---|---|
-| A profile name | Opens a current → saved preview. Apply restores every connected display it covers. Displays outside the profile receive no saved settings, though macOS may reposition them when the main display changes. Updates verified per-display reconnect presets after you keep the changes. Choose it again after reconnecting to restore the whole layout and system audio output. |
+| A profile name | Opens a current → saved preview. Apply restores every connected display it covers. Displays outside the profile receive no saved settings, though macOS may reposition them when the main display changes. Updates verified per-display reconnect presets after you keep the changes. Choose it again after reconnecting to restore the whole layout, system audio output and microphone. |
 | **Overwrite with Current Settings ›** | Replaces any profile with what is on screen now. |
 | **Remove ›** | Deletes one profile. |
 | **Update "‹name›" with Current Settings** | Overwrites the profile you last applied or saved with what is on screen now. Appears once you have used one this session. |
 | **Load Automatically When Connected ›** | Opt in per profile, uncheck to disable, or choose **Turn Off All Automatic Profiles**. Exact, unambiguous display-set matches load at connection or launch, without a confirmation dialog. |
 | **Export… ›** | Export one or all profiles as JSON. |
-| **Import Profiles…** | Validate and import JSON, mapping missing display/audio identities to this Mac if needed. Existing names are preserved with numbered suffixes. Imports start with automatic loading off and no favorite assignments. |
+| **Import Profiles…** | Validate and import JSON, mapping missing display, audio output and microphone identities to this Mac if needed. Existing names are preserved with numbered suffixes. Imports start with automatic loading off and no favorite assignments. |
 | **Save Current Setup As…** | Opens a name field. Choose Full setup or Layout only, type the room or purpose, and press Return or Save. Typing an existing name replaces it. |
 
 **Quick Switch Profiles** contains two global favorite slots. They stay assigned when you change the active profile, so you can switch back to another setup. A favorite does not indicate which profile is currently applied; the **Profile** row shows that.
@@ -123,8 +130,8 @@ use **Preview** or the local shortcut while DisplayHelp is active. Version 0.6.5
 **Profile → Favorite Shortcuts** menu and supports app-local shortcuts only.
 
 The title shows a profile only when every saved setting matches actual readings and the connected display set
-matches. Levels, rotation, underscan, position, main display, actual mirror leadership and audio are checked too.
-Layout-only matching ignores picture levels and audio. An unreadable saved value cannot be verified and does not count as a match. Status refreshes every five seconds
+matches. Levels, rotation, underscan, position, main display, actual mirror leadership, audio and the mic preference are checked too; a full profile also needs its saved audio output and microphone to be active ("Microphone: ‹name› is not active." is reported otherwise).
+Layout-only matching ignores picture levels, audio and microphones. An unreadable saved value cannot be verified and does not count as a match. Status refreshes every five seconds
 while the menu is open. Applying or restoring a setup shows a progress message; routine checks do not replace the profile label.
 
 Saving waits for pending slider and rotation changes before reading settings. Restoring temporarily disables display
@@ -153,8 +160,8 @@ Enabling it takes effect on the next connection or app launch. Selecting another
 disables the previous choice. Disable its checkbox to stop automatic loading.
 
 To move a setup to another Mac, export it, then import on the destination. Map the old built-in panel to the new
-built-in panel and map any missing external displays/audio devices. Keep a saved identity if that device will be
-connected later. Audio mapping updates both the profile's active output and its reconnect preferences. Import
+built-in panel and map any missing external displays, audio outputs and microphones ("Mic: ‹name›" rows). Keep a saved identity if that device will be
+connected later ("Keep saved microphone (not connected)" for a mic). Audio mapping updates both the profile's active output and its reconnect preferences; mic mapping updates the profile's saved microphone and each display's Mic preference the same way. Import
 rejects two displays mapped to one device; it never applies settings immediately.
 
 **When to use profiles.** Whenever the same displays are used in more than one way, or the laptop visits more than
@@ -261,6 +268,33 @@ Open **Troubleshooting → Detect Displays**. One click:
 Changes use the same Keep Changes / Revert confirmation. Settings that already match are left alone. If only the built-in panel is found, it says
 so under the cards: check the cable and the projector's input.
 
+## Output Volume and Microphone
+
+Two boxes beneath Screen Layout, above the display cards. Both show the Mac's live audio devices and remember nothing;
+the Audio and Mic rows under a display's **More Controls** are what follow a display.
+
+### Output Volume
+
+<p align="center">
+  <a href="images/output-volume.png"><img src="images/output-volume.png" width="440" alt="DisplayHelp 0.6.6 Output Volume with sample built-in speaker volume and mute controls"></a>
+</p>
+
+The box follows the Mac’s active audio output. The device name is a picker: choose another output to switch the Mac's default output now, like Sound › Output. Choose the built-in speakers here to control the Mac’s speaker volume. Changes made in Control Center, with the volume keys, by connecting another audio device, or by a display’s Audio picker update the control automatically.
+
+Adjust the slider or use **Mute / Unmute** when supported. Outputs that do not expose adjustable volume to macOS (often HDMI) show an explanation instead of a slider. Use the monitor’s own controls or **Monitor Volume** if DDC is available. Output Volume and mute are live system controls; they are not saved in display profiles. The existing profile volume setting controls the external monitor’s DDC volume.
+
+<p align="center">
+  <a href="images/output-volume-unavailable.png"><img src="images/output-volume-unavailable.png" width="440" alt="DisplayHelp 0.6.6 unavailable software volume explanation for a sample HDMI output"></a>
+</p>
+
+### Microphone
+
+<p align="center">
+  <a href="images/microphone.png"><img src="images/microphone.png" width="440" alt="DisplayHelp 0.8.0: Microphone picker showing MacBook Pro Microphone"></a>
+</p>
+
+Below Output Volume. The Mac's default input right now, switchable here like Sound › Input; it follows changes made elsewhere. When the Mac has no input at all, the box says "No microphone detected." It remembers nothing by itself: to make a mic follow a display, use the Mic row under that display's More Controls. A full-setup profile does record which microphone was active when it was saved and selects it on load; when a profile has one, it wins over the per-display Mic rows.
+
 ## Display cards
 
 One card per connected display, in the order reported by macOS.
@@ -271,7 +305,7 @@ One card per connected display, in the order reported by macOS.
 
 The capture uses sample displays to show the current controls. Each card reports its own mode and refresh
 rate. A grey ⓘ icon instead of the green check indicates a different recommended mode or a low refresh rate. Controls depend on the
-capabilities and readings available on your connection. Placement and rotation readouts stay visible; Place… appears when another screen is connected and this screen is extended. Expand **More Controls** for refresh rate, recommendations, Audio, supported external rotation, contrast, Monitor Volume and underscan. The sample values are not a promise of hardware support.
+capabilities and readings available on your connection. Placement and rotation readouts stay visible; Place… appears when another screen is connected and this screen is extended. Expand **More Controls** for refresh rate, recommendations, Audio, Mic, supported external rotation, contrast, Monitor Volume, underscan, Check HDCP and Signal Cap. The sample values are not a promise of hardware support.
 
 ### Header
 - **Symbol.** Laptop for the built-in panel, TV when EDID detailed timings include a 4K-class size, monitor
@@ -288,7 +322,8 @@ capabilities and readings available on your connection. Placement and rotation r
   Changes or Revert as for any mode change. HiDPI sends the panel's full pixel count over the cable, which is why an
   HDMI link often holds it only at 30 Hz; the plain mode of the same size sends a quarter of the pixels and reaches 60 Hz.
 - **Status icon.** A green check: on a mode DisplayHelp would choose. A grey ⓘ: not, which means pixel-exact 4K, a size the EDID does
-  not guarantee, or a refresh rate below 50 Hz. Hover for the reason.
+  not guarantee, or a refresh rate below 50 Hz. Hover for the reason. An orange ⚠ replaces both when a Signal Cap leaves the display
+  with no usable mode; the card then also says "No mode under cap available".
 - **Pencil** (externals only). Rename. Type and press Return; Escape cancels. The name is stored against the
   display's vendor/model/serial identity in this user’s local store. Renaming does not transfer settings to another Mac
   or distinguish devices that report the same identity.
@@ -361,6 +396,10 @@ Which display's shape wins in a mirror set.
 Remembered per display and re-applied on every reconnect. Ignored when the lid is closed and there is no laptop
 panel to lead.
 
+<p align="center">
+  <a href="images/more-controls.png"><img src="images/more-controls.png" width="440" alt="DisplayHelp 0.8.0: More Controls open on an external display with Refresh Rate, Audio, Mic, HDCP, Rotation, Signal Cap, Contrast and Monitor Volume"></a>
+</p>
+
 ### Audio (externals)
 
 <p align="center">
@@ -385,29 +424,9 @@ stays visible; at connect, sound stays where it is and the log says so. Choosing
 to the internal speakers when the display is unplugged. This picks which device plays; a TV's own volume stays on
 its remote.
 
-### Microphone
-
-Below Output Volume. The Mac's default input right now, switchable here like Sound › Input; it follows changes made elsewhere. It remembers nothing by itself: to make a mic follow a display, use the Mic row under that display's More Controls. A full-setup profile does record which microphone was active when it was saved and selects it on load; when a profile has one, it wins over the per-display Mic rows.
-
 ### Mic (externals)
 
 Under **More Controls → Mic**, directly below Audio, on external display cards. Like Audio, it is tied to a display connecting, so the laptop's own card has no Mic row. In a shared room the right microphone is the USB conference bar, webcam or dock mic that arrives with the display, and macOS does not switch to it on its own. Pick it once: DisplayHelp makes it the Mac's default input now and whenever this display connects, and also when the mic itself shows up after the display is already connected. **Don't change** (the default) never touches the input. If the saved mic's identity is gone but exactly one input has the same name (a dock that re-registers after a reconnect, or the same bar on another Mac), that one is used; two inputs with the same name are never guessed between. A saved mic that is absent is listed as "‹name› (not connected)"; at connect the input is left alone and Recent Events says so. Remembered per display and included in full-setup profiles. Forget This Display and Reset All DisplayHelp Data clear it. When a profile is imported on another Mac, the import dialog offers to map each saved mic to one of this Mac's inputs, the same as it does for audio outputs. Zoom, Teams and Meet follow it only when their microphone is set to **Same as System**; a mic pinned inside the app is not changed. Input volume, mute and the camera are not part of this.
-
-### Output Volume
-
-<p align="center">
-  <a href="images/output-volume.png"><img src="images/output-volume.png" width="440" alt="DisplayHelp 0.6.6 Output Volume with sample built-in speaker volume and mute controls"></a>
-</p>
-
-The device name is a picker: choose another output to switch the Mac's default output now, like Sound › Output. It follows changes made elsewhere and remembers nothing; the Audio row under a display's More Controls is what follows a display.
-
-The separate **Output Volume** section beneath Screen Layout follows the Mac’s active audio output. Choose the built-in speakers in macOS Sound or the display’s Audio picker to control the Mac’s speaker volume here. Changes made in Control Center, with the volume keys, or by connecting another audio device update the control automatically.
-
-Adjust the slider or use **Mute / Unmute** when supported. Outputs that do not expose adjustable volume to macOS (often HDMI) show an explanation instead of a slider. Use the monitor’s own controls or **Monitor Volume** if DDC is available. Output Volume and mute are live system controls; they are not saved in display profiles. The existing profile volume setting controls the external monitor’s DDC volume.
-
-<p align="center">
-  <a href="images/output-volume-unavailable.png"><img src="images/output-volume-unavailable.png" width="440" alt="DisplayHelp 0.6.6 unavailable software volume explanation for a sample HDMI output"></a>
-</p>
 
 ### Rotation (externals)
 
@@ -489,7 +508,7 @@ Rule of thumb: pick plain 1080p and read the projector's input menu. If it says 
 3. Check the picture, then choose **Keep Changes**, or **Revert** to go back to the previous cap and mode.
 4. Check the projector's input-info menu. It should now report 1080p.
 
-**In profiles.** A profile saved now records the Signal Cap level (or Off) and whether the EDID Cap was active, in Full setup and Layout only profiles alike; Restore Previous Setup and Restore Default Setup snapshots carry both too. Loading it sets or clears the cap before restoring modes (clearing it also turns the EDID Cap off), then turns the EDID Cap on or off with the same trim, validation and foreign-override checks as the toggle, all inside the profile restore (its Keep/Revert when loaded by hand; an automatic load is verified and rolled back the same way as its other settings). The preview shows `Signal Cap: Off → 1080p` and `EDID Cap: Off → On` when they differ. The EDID part is skipped without a Signal Cap, on Intel or an unsupported macOS, and on the first automatic load of an imported profile (load it once by hand, or let the next automatic load apply it). An EDID refusal or failure is a Recent Event naming the profile ("EDID Cap enabled by profile Room 204", "foreign override; profile Room 204"); it does not undo the rest of the profile. Profiles saved before this version leave both caps alone.
+**In profiles.** A profile saved now records the Signal Cap level (or Off) and whether the EDID Cap was active, in Full setup and Layout only profiles alike; Restore Previous Setup and Restore Default Setup snapshots carry both too. Loading it sets or clears the cap before restoring modes (clearing it also turns the EDID Cap off), then turns the EDID Cap on or off with the same trim, validation and foreign-override checks as the toggle, all inside the profile restore (its Keep/Revert when loaded by hand; an automatic load is verified and rolled back the same way as its other settings). The preview shows `Signal Cap: Off → 1080p` and `EDID Cap: Off → On` when they differ. The EDID part is skipped without a Signal Cap, where the EDID Cap is unsupported (Apple Silicon without the private interface, or an Intel Mac before self-service updates are approved), and on the first automatic load of an imported profile (load it once by hand, or let the next automatic load apply it). An EDID refusal or failure is a Recent Event naming the profile ("EDID Cap enabled by profile Room 204", "foreign override; profile Room 204"); it does not undo the rest of the profile. Profiles saved before this version leave both caps alone.
 
 **How to put the cap in a room profile.**
 1. Set the Signal Cap, and the EDID Cap if the room needs it, on the projector, then choose **Keep Changes**.
@@ -498,7 +517,7 @@ Rule of thumb: pick plain 1080p and read the projector's input menu. If it says 
 
 **Enforce at EDID level (advanced).** The toggle appears under the Signal Cap once a cap is set. On Apple Silicon it works live, as described here; on Intel it writes an override file instead (see **Intel Macs** below). Turns the Signal Cap into something macOS itself obeys: the app gives macOS a trimmed copy of the display's own EDID, so timings above the cap no longer exist as far as macOS knows. It is subtractive only; a validator refuses any output that adds a timing, raises a clock or changes identity. Turning it on asks "Change what macOS sees?" and runs under Keep/Revert; the display flickers, disconnects and reconnects while it renegotiates, and if the picture does not return it reverts in 20 seconds.
 
-**Why the toggle is greyed out right after setting a cap.** Setting the cap starts a Keep/Revert countdown, and every control on the card is disabled until you choose Keep Changes or Revert. Keep/Revert is a trial of exactly one change: Revert restores one recorded "before" state, and if a second change could start during the countdown a failed revert could leave both applied on a screen you cannot read. Keeping the plain cap first also tells you which half broke the picture if the EDID step goes wrong, and it is the built-in "are you sure" before the change that rewrites what macOS believes about the display. Once the cap is kept, the caption under the toggle reads "Optional: turn on Enforce at EDID level if the display still reports a higher input."
+**Why the toggle is greyed out right after setting a cap.** Setting the cap starts a Keep/Revert countdown, and every control on the card is disabled until you choose Keep Changes or Revert. Keep/Revert is a trial of exactly one change: Revert restores one recorded "before" state, and if a second change could start during the countdown a failed revert could leave both applied on a screen you cannot read. Keeping the plain cap first also tells you which half broke the picture if the EDID step goes wrong, and it is the built-in "are you sure" before the change that rewrites what macOS believes about the display. The caption under the toggle, "Optional: turn on Enforce at EDID level if the display still reports a higher input.", appears as soon as a cap is set; it is greyed out with the rest of the card during the cap's Keep/Revert countdown, and the toggle can be used after Keep.
 
 macOS treats a display whose EDID changed as a new one and would mirror it and make it the main display. After the renegotiation DisplayHelp puts back the remembered arrangement and the remembered modes of every connected display. Turning the EDID Cap off is immediate (no Keep/Revert): it gives macOS back the display's own EDID, renegotiates and restores the arrangement the same way.
 
@@ -510,7 +529,7 @@ While it is on, the card shows "EDID Cap: active" and "macOS now treats this dis
 3. Choose **Apply** in "Change what macOS sees?". The display flickers and comes back; the arrangement is put back.
 4. Check every screen, then choose **Keep Changes**. The card reads "EDID Cap: active".
 
-Nothing persists past a restart, and macOS also drops the override on unplug and sleep. The app re-applies it silently on connect and wake while the display's EDID matches what was stored (it keeps fingerprints of both the display's own EDID and the trimmed copy); a different unit or firmware shows "EDID Cap: paused (display changed)". The card shows one of five states: "EDID Cap: active", "EDID Cap: not applied (see Recent Events)", "EDID Cap: paused (display changed)", "EDID Cap: not supported on this macOS", or "Another EDID override is active" (some other tool has replaced the EDID; DisplayHelp leaves it alone). Changing or clearing the Signal Cap turns the EDID Cap off. If DisplayHelp quits unexpectedly during the 20-second trial, it recognizes the leftover override at the next launch by a fingerprint saved before the apply (even when macOS reports the trimmed copy as the display's EDID) and gives the display its own EDID back; a kept cap for another level is then re-applied. Unplugging and replugging or sleeping the Mac also clears it. **Forget This Display** and **Reset All DisplayHelp Data** give the display its own EDID back first, and refuse if that fails.
+Nothing persists past a restart, and macOS also drops the override on unplug and sleep. The app re-applies it silently on connect and wake while the display's EDID matches what was stored (it keeps fingerprints of both the display's own EDID and the trimmed copy); a different unit or firmware shows "EDID Cap: paused (display changed)". The caption under the toggle is one of eight: "Optional: turn on Enforce at EDID level if the display still reports a higher input." with the toggle off, "EDID Cap: active", "EDID Cap: not applied (see Recent Events)", "EDID Cap: paused (display changed)", "EDID Cap: not supported on this macOS", "Another EDID override is active" (some other tool has replaced the EDID; DisplayHelp leaves it alone), and on Intel "EDID Cap: written, takes effect after reconnect or restart" or "EDID Cap: removed, takes effect after reconnect or restart". Changing or clearing the Signal Cap turns the EDID Cap off. If DisplayHelp quits unexpectedly during the 20-second trial, it recognizes the leftover override at the next launch by a fingerprint saved before the apply (even when macOS reports the trimmed copy as the display's EDID) and gives the display its own EDID back; a kept cap for another level is then re-applied. Unplugging and replugging or sleeping the Mac also clears it. **Forget This Display** and **Reset All DisplayHelp Data** give the display its own EDID back first, and refuse if that fails.
 
 It uses a private macOS interface in the display coprocessor stack (IOAVServiceSetVirtualEDIDMode). If a macOS update removes it, the toggle is greyed out with the tooltip "Not supported on macOS x.y", the card reads "EDID Cap: not supported on this macOS", and the Signal Cap keeps working. Recent Events: EDID Cap Applied, EDID Cap Removed, EDID Cap Paused, EDID Cap Refused. Diagnostics: `EDID Cap: active (EDID in use <8 hex>)` while active, `EDID Cap: <state> (source <8 hex>)` otherwise, `EDID (<n> bytes): <hex>` with the display's own EDID, and `Virtual EDID probe: supported/unsupported`. If the cap is refused, the message says why in plain words, for example "this display offers no size within the cap on this connection"; the raw reason is in Recent Events. A display whose only detailed timing is its native size still gets a cap: DisplayHelp builds the first detailed timing from the largest size under the cap the display lists as a video code or standard timing.
 
@@ -695,7 +714,7 @@ Under **Troubleshooting → Recent Events**, collapsed by default. The latest 20
 `time  label  display  detail`, with the localized event name such as **Change Failed**. See [data-files.md](data-files.md#history-event-kinds) for the vocabulary.
 **Clear Connection History** archives the list to a dated file. **Show History File** opens the folder in Finder.
 
-## Start at login, Quit, About
+## Login, Quit, About
 
 <p align="center">
   <a href="images/about.png"><img src="images/about.png" width="284" alt="DisplayHelp 0.6.6: About DisplayHelp 0.6.6 (120)"></a>
@@ -704,7 +723,7 @@ Under **Troubleshooting → Recent Events**, collapsed by default. The latest 20
 After a packaged install the app starts at login for every account on the Mac. To stop that for your account, turn DisplayHelp off in
 System Settings › General › Login Items › Allow in the Background, then open it from Applications when needed. Normally **Quit DisplayHelp** leaves the confirmed setup in place.
 Quit is disabled while changes are in progress. A system quit request during confirmation first attempts to revert;
-if recovery fails, the app stays open so you can finish recovery. The **Ayala Solutions · v‹version›** link opens the About panel.
+if recovery fails, the app stays open so you can finish recovery. The **Ayala Solutions · ‹version›** link opens the About panel.
 
 ### Check for Update…
 
@@ -801,8 +820,9 @@ mirroring, Best for Display when extending.
 | Laptop Leads Mirror | Per display | Whenever mirroring is applied |
 | Name | Per display | Always |
 | Audio preference | Per external display | When selected and at connect, if the output is available |
+| Mic preference | Per external display | When selected, at connect, and when the mic appears later |
 | Signal Cap | Per external display | At connect, and whenever something raises the mode above it |
-| EDID Cap | Per external display (Apple Silicon) | macOS drops it at restart, unplug and sleep; re-applied at connect and wake while the display's EDID matches |
+| EDID Cap | Per external display | Apple Silicon: macOS drops it at restart, unplug and sleep; re-applied at connect and wake while the display's EDID matches. Intel: the override file persists until the cap is turned off and the display reconnects |
 | Profiles | Whole setup, by name | After preview and Apply; at connection or launch when automatic loading is enabled for an exact, unambiguous display set |
 
 A mirror follower's size is never set directly: the primary dictates it. The built-in panel's saved mode can be
@@ -811,11 +831,11 @@ modes; explicitly loading a profile attempts the exact saved mode and verifies t
 
 ## Keyboard and accessibility
 
-- **⌘⌥1** and **⌘⌥2** preview assigned favorites while DisplayHelp is active.
+- **⌘⌥1** and **⌘⌥2** preview assigned favorites from any app while DisplayHelp is running.
 - In the confirmation window, Return keeps changes and Escape reverts.
 - Every control has a name for VoiceOver, including the sliders (with their percentage), the pencil and the ⓘ.
 - Tab moves through the controls in reading order; Escape closes the menu and cancels a rename or profile name.
-- Colour never carries meaning alone: the green check / grey ⓘ status icon has a spoken label and a tooltip.
+- Colour never carries meaning alone: the green check / grey ⓘ / orange ⚠ status icon has a spoken label and a tooltip, and the orange ⚠ comes with the text "No mode under cap available".
 - The menu respects the system's text size, light and dark appearance, and increased contrast.
 
 ## Language

@@ -30,7 +30,7 @@ recommendations never choose them. Actual support still depends on the display, 
 wait for the confirmation deadline to revert instead of keeping it.
 
 ### The projector goes black or flashes on a long cable
-**Do.** Pick a plain size (no "(HiDPI)" in the status line), then set **Signal Cap** under More Controls, for example 1080p. If the projector's input-info menu still reports 4K, turn on **Enforce at EDID level (advanced)** (Apple Silicon).
+**Do.** Pick a plain size (no "(HiDPI)" in the status line), then set **Signal Cap** under More Controls, for example 1080p. If the projector's input-info menu still reports 4K, turn on **Enforce at EDID level (advanced)** (Apple Silicon live; Intel after self-service updates approval).
 **Cause.** A HiDPI size on a 4K display still sends 4K down the cable. The first seconds after plug-in and the login window still use the display's native signal, so one flash on a bad cable can remain. Nothing on the Mac can prove what the cable carries; the projector's input-info menu is the ground truth. If IT can change it, a hardware EDID emulator or the projector's or switcher's own EDID setting is the most reliable fix. See [Signal Cap](user-guide.md#signal-cap-externals).
 
 ### The card says "No mode under cap available"
@@ -39,7 +39,7 @@ wait for the confirmation deadline to revert instead of keeping it.
 
 ### The EDID Cap says "not applied", "paused" or "Another EDID override is active"
 **Do.** Read the latest EDID Cap Refused or EDID Cap Paused entry in **Recent Events**. For "paused (display changed)", turn the toggle off and on again for this display. For "Another EDID override is active", remove the other tool's override first.
-**Cause.** "Not applied": the trim, the validator or macOS refused the change, and nothing was changed. The message says why: "this display offers no size within the cap on this connection" (every timing the EDID lists in a form DisplayHelp can keep is above the cap; DisplayID blocks and the rarer descriptor types are dropped by design), "an extension format DisplayHelp cannot trim" (a CTA extension other than revision 3), or "could not be read in full" (bad header, checksum or block count). The raw reason, for example `trim: noTimingUnderCap`, is on the `EDID Cap:` line of Copy Diagnostics and in Recent Events, and the display's EDID bytes are in Copy Diagnostics. "Paused (display changed)": the display's EDID no longer matches the one the cap was built from (a different unit of the same model, or new firmware). "Another EDID override is active": something other than DisplayHelp has replaced this display's EDID, so DisplayHelp leaves it alone. "Not supported on this macOS": the private interface is missing (Intel, or a macOS update removed it); the Signal Cap still works.
+**Cause.** "Not applied": the trim, the validator or macOS refused the change, and nothing was changed. The message says why: "this display offers no size within the cap on this connection" (every timing the EDID lists in a form DisplayHelp can keep is above the cap; DisplayID blocks and the rarer descriptor types are dropped by design), "an extension format DisplayHelp cannot trim" (a CTA extension other than revision 3), or "could not be read in full" (bad header, checksum or block count). The raw reason, for example `trim: noTimingUnderCap`, is on the `EDID Cap:` line of Copy Diagnostics and in Recent Events, and the display's EDID bytes are in Copy Diagnostics. "Paused (display changed)": the display's EDID no longer matches the one the cap was built from (a different unit of the same model, or new firmware). "Another EDID override is active": something other than DisplayHelp has replaced this display's EDID, so DisplayHelp leaves it alone. "Not supported on this macOS": on Apple Silicon the private interface is missing (a macOS update removed it); the Signal Cap still works. On Intel the toggle is greyed with "Set up self-service updates first" until DisplayHelp Updater is approved, and its own states are "EDID Cap: written, takes effect after reconnect or restart" and "EDID Cap: removed, takes effect after reconnect or restart": reconnect the display or restart the Mac.
 
 ### After turning the EDID Cap on or off, the display mirrored or became the main display
 **Do.** Wait a few seconds; DisplayHelp puts back the remembered arrangement and modes after the renegotiation. If the layout is still wrong, choose **Revert** in the Keep/Revert window, or use Mirror/Extend and **Place…** again.
@@ -103,8 +103,8 @@ Recommendations prefer 50 Hz or better, but fall back when none is available.
 ### A profile does not appear as current after connecting the external display
 **Do.** Open its preview and review differences. Apply it to restore the saved setup, or overwrite it only if
 the current settings are the ones you want to keep.
-**Cause.** Matching includes the exact display set and every saved setting. Full profiles include brightness and audio;
-layout-only profiles deliberately ignore picture levels, underscan and audio.
+**Cause.** Matching includes the exact display set and every saved setting. Full profiles include brightness, audio and the mic preference, and need their saved audio output and microphone to be active;
+layout-only profiles deliberately ignore picture levels, underscan, audio and microphones.
 A profile saved with only the laptop connected does not describe a laptop-plus-TV setup. Automatic loading
 also requires an exact, unambiguous set and must be enabled explicitly.
 
@@ -214,9 +214,10 @@ an attempt to restore the previous setup. Check available modes or explicitly ch
 **Cause.** A mirror request for a set that was already mirrored that way. The app guards against this; if it appears,
 a reconnect clears it.
 
-### `applyFailed` with "preset mode … unavailable"
+### "Saved mode … is unavailable on …" under the cards
 **Cause.** The saved mode is not offered by the display on this connection (different port, different cable, or a
-size the picker now hides). Pick a size once and the preset is replaced.
+size the picker now hides). This is the red message under the display cards, not a Recent Events entry; it clears
+on the next successful action. Pick a size once and the preset is replaced.
 
 ### `scriptFailed`
 **Cause.** A fix script exited non-zero. The detail holds the exit code and the last line of its output.
@@ -314,11 +315,19 @@ Mirrored screens share one desktop and therefore show the same group label, such
 
 ## Built-in speaker volume does not appear, or the wrong device is named
 
-Use 0.6.3 or later and check the device named under **Output Volume** beneath Screen Layout. Select the Mac’s speakers in macOS Sound or the display’s Audio picker. Output Volume follows the active system device; a display’s Audio picker is also its saved reconnect preference. The separate Monitor Volume slider is for the monitor’s DDC control, not the Mac’s speakers.
+Use 0.6.3 or later and check the device named under **Output Volume** beneath Screen Layout. The name is a picker: select the Mac’s speakers there (macOS Sound and the display’s Audio picker work too). Output Volume follows the active system device; a display’s Audio picker is also its saved reconnect preference. The separate Monitor Volume slider is for the monitor’s DDC control, not the Mac’s speakers.
 
 If Output Volume says the device does not expose an adjustable control, use the device’s own controls. HDMI outputs often behave this way. Copy Diagnostics includes the active output, available system volume and mute state, separately from monitor volume.
 
 If an audio device changes while you adjust it, the app refuses the stale adjustment and asks you to use the newly selected output. Failed writes show the current readback and an explanation. No saved display profile is overwritten by an output-volume adjustment.
+
+## The microphone did not switch
+
+Check **Recent Events** for **Microphone Changed**. "‹name› not connected; input left alone" means the saved mic was not among the Mac's inputs when the display connected, or two inputs carry the same name: DisplayHelp never guesses between them. Pick the right one by hand in the display's **Mic** row, or in the import dialog when the profile came from another Mac.
+
+"Couldn’t switch the microphone. The current one is shown." under the Microphone picker means macOS refused the change; the picker shows the input actually in use. "Microphone ‹name› could not be selected; the previous preference was kept." under the cards means the Mic row's choice could not be made the default, so the saved choice did not change. Try again once the mic has settled, or check it in Sound › Input.
+
+If DisplayHelp did switch the input but a conferencing app still uses the old mic, the app is pinned to a specific device. Set its microphone to **Same as System**; DisplayHelp does not change a mic chosen inside an app.
 
 ### Placement appears reversed
 

@@ -35,10 +35,11 @@ Set it in System Settings if you are sure, and the app will keep it. If a captio
 Signal Cap.", the display has a Signal Cap under More Controls; set it to Off to see the larger sizes again.
 
 **Can DisplayHelp stop a projector from receiving a 4K signal?**
-Mostly. Choose a plain (non-HiDPI) size, then set **Signal Cap** under More Controls; on Apple Silicon, **Enforce at EDID level (advanced)** also hides the larger timings from macOS. The first seconds after plug-in and the login window still use the display's native signal, and the projector's own input-info menu is the only proof of what arrives. If IT can change it, a hardware EDID emulator or the projector's or switcher's own EDID setting is still the most reliable fix. See [Signal Cap](user-guide.md#signal-cap-externals).
+Mostly. Choose a plain (non-HiDPI) size, then set **Signal Cap** under More Controls; **Enforce at EDID level (advanced)** also hides the larger timings from macOS, live on Apple Silicon and through an override file on Intel once self-service updates are approved. The first seconds after plug-in and the login window still use the display's native signal, and the projector's own input-info menu is the only proof of what arrives. If IT can change it, a hardware EDID emulator or the projector's or switcher's own EDID setting is still the most reliable fix. See [Signal Cap](user-guide.md#signal-cap-externals).
 
 **Does the EDID Cap survive a restart?**
-No. macOS drops it at restart, unplug and sleep, and DisplayHelp re-applies it at connect and wake while the display's EDID matches the one it was built from. A different unit or new firmware shows "EDID Cap: paused (display changed)". It uses a private macOS interface; if an update removes it, the card reads "EDID Cap: not supported on this macOS" and the Signal Cap keeps working.
+On Apple Silicon, no. macOS drops it at restart, unplug and sleep, and DisplayHelp re-applies it at connect and wake while the display's EDID matches the one it was built from. A different unit or new firmware shows "EDID Cap: paused (display changed)". It uses a private macOS interface; if an update removes it, the card reads "EDID Cap: not supported on this macOS" and the Signal Cap keeps working.
+On Intel, yes. It is an override file macOS reads at every connect. To remove it, turn the toggle off and reconnect the display (or restart); **Uninstall DisplayHelp** and **Reset All DisplayHelp Data** remove the file too.
 
 **What happens to the EDID Cap when I forget the display or reset all DisplayHelp data?**
 On Apple Silicon the display first gets its own EDID back (it flickers and reconnects), then the record goes; on Intel the override file is removed first. If either step fails, nothing is forgotten or reset and the message says so. On the next connection DisplayHelp asks how to use the display again, with no cap. Both actions are unavailable while a display operation is in flight, and a click that lands then says "DisplayHelp is still finishing a display change. Try again in a moment."
@@ -70,7 +71,7 @@ existing arrangement as a profile to recall its exact topology.
 **Can I switch between two layouts without changing brightness or sound?**
 Yes. Save each using **Layout only**, expand **Quick Switch Profiles**, then select each saved name from **Choose Profile…** beside the
 **Favorite 1 (⌘⌥1)** and **Favorite 2 (⌘⌥2)** rows (since 0.6.6). Each monitor can have its own resolution in Extend mode. Layout-only profiles include rotation,
-position and the main display but leave brightness, contrast, monitor volume, underscan and audio alone.
+position and the main display but leave brightness, contrast, monitor volume, underscan, audio and the microphone alone.
 
 **Are the favorite shortcuts global?**
 Since 0.6.6, yes: press and release **⌘⌥1** or **⌘⌥2** from another app while DisplayHelp is running.
@@ -107,7 +108,7 @@ See [data-file recovery](data-files.md#profile-file-recovery).
 **What does a profile not capture?**
 Unreadable or unsupported hardware settings, display nicknames, and macOS settings such as HDR,
 color profiles, True Tone, Night Shift and system audio volume. The saved monitor volume is DDC volume, not the
-Mac's system audio volume. Display nicknames remain in the separate known-displays store.
+Mac's system audio volume. A full-setup profile does capture the active audio output and microphone. Display nicknames remain in the separate known-displays store.
 
 **Do I need to recreate old profiles after updating to 0.6.0?**
 Old profiles still load, but cannot restore fields they never contained. Set up the displays and use
@@ -137,7 +138,7 @@ faster mode is supported.
 
 **Will settings follow my projector to a different Mac?**
 Not automatically. Settings are per user and per Mac. Export a profile and import it on the destination,
-mapping the built-in panel, external displays and audio devices as needed. Imports do not apply immediately
+mapping the built-in panel, external displays, audio outputs and microphones as needed. Imports do not apply immediately
 and start with automatic loading disabled and no favorite slots assigned. Display nicknames are not transferred by profile import.
 
 **Why does the screenshot have fewer controls than the guide describes?**
@@ -177,13 +178,25 @@ Click **Identify Displays** beneath Screen Layout when an external screen is con
 Yes. In Extend mode, choose **Place… → Make [display name] Main** on the desired display and confirm **Keep Changes**. Save a new profile or overwrite an existing one with the current settings. Full setup and Layout only profiles both save the main-screen choice.
 
 **Can DisplayHelp control the Mac’s built-in speaker volume?**
-Yes, starting in 0.6.3. Select the built-in speakers as the active output, then use Output Volume beneath Screen Layout. Volume and mute controls appear when the selected device exposes writable controls. Audio changes made outside the app are detected while DisplayHelp is running.
+Yes, starting in 0.6.3. Select the built-in speakers in the Output Volume picker beneath Screen Layout, then use its slider. Volume and mute controls appear when the selected device exposes writable controls. Audio changes made outside the app are detected while DisplayHelp is running.
 
 **Why does HDMI say output volume is unavailable?**
 That audio device does not expose a readable, writable volume control to macOS. Use its physical controls or the separate Monitor Volume slider if DDC/CI is supported. This is a device capability limit, not evidence of a bad cable.
 
 **Do profiles save Output Volume or mute?**
-No. Those are live system controls. Full setup profiles still save the chosen audio output and supported external-monitor DDC volume. Layout-only profiles leave audio alone.
+No. Those are live system controls. Full setup profiles still save the chosen audio output, the active microphone and supported external-monitor DDC volume. Layout-only profiles leave audio and the microphone alone.
+
+**How do I make a room microphone follow a display?**
+Expand the display's **More Controls** and pick the mic in the **Mic** row. DisplayHelp makes it the Mac's default input now, whenever that display connects, and when the mic itself appears after the display is already connected. **Don't change** leaves the input alone. The choice is per display and goes into full-setup profiles.
+
+**What does the Microphone picker at the top of the menu do?**
+It is the Mac's default input right now, the same as Sound › Input. Choosing another one switches now and remembers nothing; the Mic row under a display is what follows a display. "No microphone detected." means the Mac has no input at all.
+
+**Why does Zoom, Teams or Meet still use the old microphone?**
+They follow the Mac's default input only when their microphone setting is **Same as System** (or the equivalent). A mic pinned inside the app is not changed by DisplayHelp.
+
+**The dock re-registered its mic; will DisplayHelp still find it?**
+If the saved identity is gone but exactly one input has the same name, that one is used. Two inputs with the same name are never guessed between: Recent Events then shows "‹name› not connected; input left alone", and you pick one by hand or in the import dialog.
 
 **Why does choosing Left put the external screen on the right?**
 Place acts on the card you opened. Choosing “Built-in Display left of SAMSUNG” puts the laptop on the left and SAMSUNG on the right. To put SAMSUNG left of the laptop, open Place… on SAMSUNG’s card and choose it left of Built-in Display. The visible placement, alignment and rotation describe the actual setup.

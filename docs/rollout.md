@@ -2,7 +2,7 @@
 
 For IT admins deploying to a fleet. Users do not need this: the README covers install for one Mac.
 
-Release notes for 0.6.8 (124) are in [release-0.6.8.md](release-0.6.8.md) and for 0.6.7 (122) in [release-0.6.7.md](release-0.6.7.md); release validation for 0.6.6 (120) is recorded in [release-0.6.6.md](release-0.6.6.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
+Release notes for 0.8.0 (154) are in [release-0.8.0.md](release-0.8.0.md); for 0.6.8 (124) in [release-0.6.8.md](release-0.6.8.md) and for 0.6.7 (122) in [release-0.6.7.md](release-0.6.7.md); release validation for 0.6.6 (120) is recorded in [release-0.6.6.md](release-0.6.6.md). Prior live built-in speaker volume/mute validation remains in [release-0.6.3.md](release-0.6.3.md). This does not complete the checklist below: room hardware checks, MDM deployment,
 ticket baselines and the two-week/semester observations must be recorded by the deploying team.
 
 ## 0. Requirements
@@ -35,6 +35,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] On a 4K TV press **Best for Display** and check the selected mode. Expect 1920×1080 HiDPI when a suitable native HiDPI mode is offered; record the actual refresh rate and connection. Use the [current screenshot guide](README.md#screenshots) to locate controls; its sample values are not a hardware target.
 - [ ] In Extend mode verify **Place… → Make [display name] Main** and relative placement; return to the intended room arrangement before saving its profile.
 - [ ] In a room with a long cable or an older projector, pick a plain size, set **Signal Cap** (More Controls) to the projector's level, keep it, and confirm on the projector's input-info menu. Unplug and replug; the cap should hold. On Apple Silicon, try **Enforce at EDID level (advanced)**: confirm the arrangement comes back after the flicker, then sleep and wake and check the card still reads "EDID Cap: active". Save the room profile afterwards so it carries the cap.
+- [ ] On an Intel pilot Mac: approve self-service updates (**Check for Update… › Set Up Self-Service Updates…**), set a Signal Cap, turn on **Enforce at EDID level (advanced)** and confirm the card reads "EDID Cap: written, takes effect after reconnect or restart". Reconnect the display or restart; the card should read "EDID Cap: active" and System Settings should list nothing above the cap.
 - [ ] Try the brightness slider on the projector. No slider means no usable DDC reading was available; monitor settings, adapter and connection support can affect it. Nothing else changes.
 - [ ] Helpdesk-only: create `~/Library/Application Support/DisplayHelp/scripts/` and drop a test `.sh` (owned by the user, mode 0755) to confirm "Custom fixes" appears.
 - [ ] After two weeks collect `~/Library/Application Support/DisplayHelp/history.jsonl` from each pilot Mac and count `connected` vs `applyFailed`.
@@ -52,7 +53,7 @@ Outputs `build/DisplayHelp.app` and `build/DisplayHelp-<version>.pkg`.
 - [ ] Upgrade while DisplayHelp is running; verify the new version appears after the installer closes and relaunches the app.
 
 ## 4. Fleet
-- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts.
+- [ ] Use the signed and notarized pkg from the GitHub release (0.2.1 onwards). Unmanaged and BYOD Macs open it without Gatekeeper prompts. The exact commands are in CONTRIBUTING.md › Releasing.
 - [ ] Push the pkg fleet-wide. Optional: push approved custom scripts to each user's scripts folder via MDM (must be owned by that user).
 - [ ] Compare ticket counts to the baseline after one semester. Target: -50%.
 
@@ -95,7 +96,7 @@ launch the app as that user. Use the actual home directory from your MDM invento
 script. The file must be readable and writable by that user; use mode `0600` and a user-owned directory.
 
 1. Configure a pilot Mac, save its setups, and export them using **Profile › Export… › All Profiles…**.
-2. On a destination Mac, use **Import Profiles…** to map display and audio identities, then export the adapted file.
+2. On a destination Mac, use **Import Profiles…** to map display, audio output and microphone identities, then export the adapted file.
    Identity keys include vendor, model and serial; built-in panels and audio devices often differ between Macs.
    Do not copy one laptop's identities fleet-wide and expect them to match another laptop.
 3. For each destination user, back up an existing `profiles.json`. Deployment replaces that file; use the app's
@@ -111,13 +112,16 @@ script. The file must be readable and writable by that user; use mode `0600` and
 6. Test with all expected displays connected, then with one absent. Only an exact, unambiguous match should load
    automatically. Review the restore result; unavailable modes and missing audio devices remain hardware limits.
 
-Exports contain display and audio identifiers. Distribute them through the same controlled MDM channels as other
+Exports contain display, audio output and microphone identifiers. Distribute them through the same controlled MDM channels as other
 per-user settings. Files are limited to 2 MB, 200 profiles and 16 displays per profile. Deployment is a seeded
 configuration, not an enforced managed preference: users can subsequently edit their profiles.
 
 - [ ] Confirm Identify Displays numbering matches each room’s extended and mirrored layouts, including three or more screens where available.
 
-- [ ] Verify Output Volume follows built-in speakers, USB audio and HDMI switches; unsupported outputs should show an explanation. Check external changes made with volume keys and Control Center. Confirm profile restoration does not alter live system volume/mute.
+- [ ] Verify Output Volume follows built-in speakers, USB audio and HDMI switches; unsupported outputs should show an explanation. Check external changes made with volume keys and Control Center. Confirm profile restoration does not alter live system volume/mute. Choose another device in the Output Volume picker and confirm the Mac's default output switches.
+- [ ] Choose another input in the **Microphone** picker and confirm the Mac's default input switches (Sound › Input agrees).
+- [ ] In a room with a conference bar or dock mic: pick it in the display's **More Controls › Mic**, unplug and replug the display, and confirm the Mac's default input follows. Set Zoom/Teams to "Same as System" on the room Mac and confirm the call uses the bar.
+- [ ] Export a full profile with a Mic preference and import it on another Mac; confirm the import dialog offers "Mic: ‹name›" mapping and the mapped mic is selected on the first manual load.
 
 ## Language pilot checks
 

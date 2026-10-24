@@ -49,6 +49,8 @@ preference" when absent.
     "rotation": 0,
     "underscan": 0,
     "laptopLeads": false,
+    "audioOutput": { "uid": "AppleUSBAudioEngine:…", "name": "Room 204 TV" },
+    "audioInput": { "uid": "AppleUSBAudioEngine:…", "name": "Conference Bar" },
     "signalCap": "p1080",
     "edidCap": true,
     "edidCapSourceHash": "<64 hex characters>",
@@ -73,6 +75,7 @@ preference" when absent.
 | `preferredMode.isHiDPI` | boolean | True when the display renders at double the logical size. |
 | `laptopLeads` | boolean | Absent or false: the external leads the mirror set. |
 | `audioOutput` | `{ "uid": …, "name": … }` | Output device made the system default at connect. `uid` is the CoreAudio device UID; `name` is shown when the device is absent. |
+| `audioInput` | `{ "uid": …, "name": … }` | Microphone made the system default input at connect, and again when it appears later while the display is connected. Matched by `uid`, then by `name` when exactly one input carries that name; no match leaves the input alone. Absent: don't change. |
 | `brightness`, `contrast`, `volume` | 0 to 100 | Contrast and volume only on displays that answer DDC/CI. |
 | `rotation` | 0, 90, 180, 270 | |
 | `underscan` | display-specific range | |
@@ -117,6 +120,10 @@ not assigned saved settings, although macOS may reposition it when the main disp
           "uid": "BuiltInHeadphoneOutputDevice",
           "name": "External Headphones"
         },
+        "audioInput": {
+          "uid": "AppleUSBAudioEngine:…",
+          "name": "Conference Bar"
+        },
         "displayName": "Room 204",
         "isBuiltin": false,
         "origin": [
@@ -150,6 +157,10 @@ not assigned saved settings, although macOS may reposition it when the main disp
     "audioOutput": {
       "uid": "BuiltInHeadphoneOutputDevice",
       "name": "External Headphones"
+    },
+    "audioInput": {
+      "uid": "AppleUSBAudioEngine:…",
+      "name": "Conference Bar"
     }
   }
 ]
@@ -166,20 +177,22 @@ Display identity mapping also updates each saved mirror-primary identity.
 | `favoriteSlot` | Optional `1` or `2`, unique across the library. Imports clear this field. |
 | `imported` | `true` on an imported profile until its first automatic load, which skips the EDID Cap; then removed. Re-saving also drops it. |
 | Per-display `signalCapLevel` | `"off"`, `"p2160at30"`, `"p1440"`, `"p1080"` or `"p720"`. `"off"` clears the display's Signal Cap on load; absent (older profiles) or an unknown value leaves it alone. Not saved for the built-in display. |
-| Per-display `edidCap` | `true` when the EDID Cap was active at save time, `false` otherwise; not saved for the built-in display or where the EDID Cap is not supported (Intel, or a macOS without the interface). On load, `true` turns it on (where supported, Signal Cap set, never on the first automatic load of an imported profile) and `false` turns an active one off; absent leaves it alone. |
+| Per-display `edidCap` | `true` when the EDID Cap was active at save time, `false` otherwise; not saved for the built-in display or where the EDID Cap state is unsupported (a macOS without the interface, or an Intel Mac without the self-service updates approval); approved Intel Macs save and restore it. On load, `true` turns it on (where supported, Signal Cap set, never on the first automatic load of an imported profile) and `false` turns an active one off; absent leaves it alone. |
+| Per-display `audioInput` | `{ "uid": …, "name": … }`, full scope only: the Mic preference for that display, applied on load unless the profile has a top-level `audioInput`. Absent (older profiles) leaves the preference alone. |
+| Top-level `audioInput` | `{ "uid": …, "name": … }`, full scope only: the active microphone when the profile was saved. On load it wins over the per-display Mic rows and is made the default input (matched by `uid`, then by unique `name`); a missing device is reported as a restore failure. Absent leaves the input alone. |
 | Per-display `mirrorPrimaryIdentity` | Identity key of the exact mirror primary, including on the primary itself. Absent for extended displays; older profiles fall back to `laptopLeads`. |
 
 Both scopes, and the `previous` and `default` snapshots in `restore-setups.json`, include `signalCapLevel` and `edidCap`.
-Layout-only snapshots omit brightness, contrast, volume, underscan and audio fields. These fields are also ignored
+Layout-only snapshots omit brightness, contrast, volume, underscan, `audioOutput` and `audioInput`. These fields are also ignored
 when applying or matching a layout profile, even if a hand-edited file contains them. Resolution, refresh rate,
 rotation, origins, main-display state and mirror topology remain included.
 
 New snapshots also store each display's `origin` (CoreGraphics x/y coordinates, encoded as a two-element array)
-and `isMain`, plus a top-level `audioOutput` for the active system output. Per-display `audioOutput` remains the
-reconnect preference. Missing optional fields in older profiles are left unspecified; re-save to capture them.
+and `isMain`, plus a top-level `audioOutput` and `audioInput` for the active system output and input. Per-display
+`audioOutput` and `audioInput` remain the reconnect preferences. Missing optional fields in older profiles are left unspecified; re-save to capture them.
 
 A profile is shown as current only when its display set and every saved setting match hardware readings, including
-levels, rotation, underscan, position, main display, mirror leadership and audio output. Unreadable saved values do
+levels, rotation, underscan, position, main display, mirror leadership, audio output, mic preference and the active microphone. Unreadable saved values do
 not match. Follower modes are verified but not set directly, because macOS derives them from the mirror primary.
 Save refuses duplicate display identities rather than merging settings for indistinguishable panels.
 
@@ -233,6 +246,7 @@ error text, or the script result.
 | `changesReverted` | User, timeout, disconnect or quit triggers recovery | Reason, before/actual layout and recovery result |
 | `underscanChanged` | Underscan set | New value |
 | `audioRouted` | System audio output switched by the app | The audio device now playing |
+| `micRouted` ("Microphone Changed") | A display's Mic preference was applied, or its microphone was absent | The device name, or `<name> not connected; input left alone` |
 | `applyFailed` | macOS refused a change | What was asked and the error |
 | `scriptRan` | A fix script exited 0 | Script name and last output line |
 | `scriptFailed` | A fix script exited non-zero | Script name, exit code, last output line |
@@ -250,7 +264,7 @@ A malformed line is skipped with a warning in the unified log; the rest of the f
 ## Unified log
 
 Diagnostics that are too noisy for the history go to the macOS unified log, subsystem `DisplayHelp`, with these
-categories: `monitor`, `edid`, `edidcap`, `ddc`, `audio`, `monitorpanel`, `history`, `scripts`, `fixes`, `known`, `profiles`, `install`, `uninstall`, `shortcuts`.
+categories: `monitor`, `edid`, `edidcap`, `ddc`, `audio`, `mic`, `monitorpanel`, `history`, `scripts`, `fixes`, `known`, `profiles`, `uninstall`, `shortcuts`. The updater daemon logs under subsystem `com.displayhelp.updater`, category `install`.
 
 ```
 log show --last 1h --info --predicate 'subsystem == "DisplayHelp"'
@@ -281,7 +295,7 @@ Identify Displays (0.6.2) creates temporary on-screen labels only. It adds no st
 
 ## Live system output volume
 
-Output Volume and mute (0.6.3) are read from and written to the active CoreAudio output. They add no fields to known-displays.json or profiles.json and do not change stored monitor-volume values. A full profile can still route audio to its saved output; its volume field remains the external display’s DDC volume. Copy Diagnostics reports active system output volume and mute separately from Monitor Volume.
+Output Volume and mute (0.6.3) are read from and written to the active CoreAudio output. They add no fields to known-displays.json or profiles.json and do not change stored monitor-volume values. A full profile can still route audio to its saved output; its volume field remains the external display’s DDC volume. Copy Diagnostics reports active system output volume and mute separately from Monitor Volume. The Output Volume device picker and the Microphone picker switch the Mac's default output and input and save nothing.
 
 ## Language preference
 

@@ -4,6 +4,10 @@ All notable changes to DisplayHelp. The format follows Keep a Changelog; version
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-10-23
+
+- Documentation audit: README, user guide, FAQ, troubleshooting, rollout, data files, architecture and contributing notes brought in line with 0.8.0 (microphones, Output Volume picker, menu bar icon colors, Intel EDID Cap, Check for Update network note). Menu, layout, mirrored, Output Volume, Microphone, More Controls, data-actions and localized screenshots re-rendered from 0.8.0; new menu bar icon strip. The capture harness (`scripts/preview-redesign.py`) works with the current SwiftPM build layout and links the shared updater module.
+
 ## [0.8.0] - 2026-10-23
 
 - **Output Volume** names the current output in a picker: choose another to switch the Mac's default output now, like Sound › Output. It remembers nothing.

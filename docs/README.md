@@ -12,11 +12,11 @@
 
 ## Release notes
 
-[../CHANGELOG.md](../CHANGELOG.md) is the source of truth for what changed in each version. The `release-0.6.x.md` files alongside it are the published GitHub release bodies for each version, kept as history; they also record the hardware and audio validation runs for 0.6.0 through 0.6.5. [0.8.0](release-0.8.0.md) · [0.7.3](release-0.7.3.md) · [0.7.2](release-0.7.2.md) · [0.7.0](release-0.7.0.md) · [0.6.13](release-0.6.13.md) · [0.6.12](release-0.6.12.md) · [0.6.11](release-0.6.11.md) · [0.6.10](release-0.6.10.md) · [0.6.9](release-0.6.9.md) · [0.6.8](release-0.6.8.md) · [0.6.7](release-0.6.7.md) · [0.6.6](release-0.6.6.md) · [0.6.5](release-0.6.5.md) · [0.6.4](release-0.6.4.md) · [0.6.3](release-0.6.3.md) · [0.6.2](release-0.6.2.md) · [0.6.1](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[../CHANGELOG.md](../CHANGELOG.md) is the source of truth for what changed in each version. The `release-*.md` files alongside it are the published GitHub release bodies for each version, kept as history; they also record the hardware and audio validation runs for 0.6.0 through 0.6.5. [0.8.1](release-0.8.1.md) · [0.8.0](release-0.8.0.md) · [0.7.3](release-0.7.3.md) · [0.7.2](release-0.7.2.md) · [0.7.0](release-0.7.0.md) · [0.6.13](release-0.6.13.md) · [0.6.12](release-0.6.12.md) · [0.6.11](release-0.6.11.md) · [0.6.10](release-0.6.10.md) · [0.6.9](release-0.6.9.md) · [0.6.8](release-0.6.8.md) · [0.6.7](release-0.6.7.md) · [0.6.6](release-0.6.6.md) · [0.6.5](release-0.6.5.md) · [0.6.4](release-0.6.4.md) · [0.6.3](release-0.6.3.md) · [0.6.2](release-0.6.2.md) · [0.6.1](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 
-**The menu and data-actions captures below show DisplayHelp 0.6.8 (124)**, captured on 2026-09-27; the remaining captures are from 0.6.6 (120), captured on 2026-09-23, and show controls unchanged in 0.7.0; the 0.6.9 footer added a Check for Update… button beside Quit, and 0.6.10 adds Install to its dialog. Historical release and design-review documents retain their original evidence.
+**The menu, layout, mirrored, Output Volume, Microphone, More Controls, data-actions and localized captures below show DisplayHelp 0.8.0 (154)**, rendered on 2026-10-23 by the capture harness (`scripts/preview-redesign.py`) from the production views with fixture displays, audio devices and microphones. The open-picker and dialog captures (resolution, refresh rate, audio, rotation, position, rename, details, profile menu, save, automatic profiles, restore preview, import, first connection, keep changes, reset, uninstall, custom fixes, about) are from 0.6.6 (120) and 0.6.8 (123); the controls they show are unchanged, but their footers predate Check for Update… and their save dialog predates the microphone wording. Historical release and design-review documents retain their original evidence.
 The Finder example-folder image is retained from 0.6.5; its folder name is illustrative. The video thumbnail depicts an earlier interface.
 The localized examples use the same production views and 0.6.6 (120) metadata.
 Menus and dialogs are rendered from the current production controls using isolated sample displays, profiles,
@@ -41,13 +41,15 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 
 | Image | Current capture |
 |---|---|
-| [Output Volume](images/output-volume.png) | Sample built-in speaker volume and mute controls using the production audio view. |
+| [Output Volume](images/output-volume.png) | The current output in a picker that switches the Mac's default output, with volume and mute, using the production audio view. |
+| [Microphone](images/microphone.png) | The Mac's default input in a picker that switches it, like Sound › Input; remembers nothing. |
+| [More Controls](images/more-controls.png) | An external display's More Controls open: Refresh Rate, Match Laptop and Best for Display, Laptop Leads Mirror, Audio, Mic, HDCP with a sample reading, Rotation, Signal Cap, Contrast and Monitor Volume. |
 | [Unavailable output volume](images/output-volume-unavailable.png) | Explanation for a sample fixed-volume HDMI output. |
 | [Identify Displays](images/identify-displays.png) | Actual temporary identification panel using sample names; no screen settings changed. |
-| [Taller menu](images/menu-viewport.png) | Compact native menu viewport, up to 900 points high; remaining content scrolls. |
-| [Layout and favorites](images/layout-profiles.png) | Full scroll content with Quick Switch Profiles expanded, two favorite templates, Previous/Default recovery and sample extended displays. |
-| [Menu overview](images/menu.png) | Current display cards and controls using sample hardware, with the HDCP state at the end of the external status line. |
-| [Check HDCP](images/check-hdcp.png) | The HDCP row under More Controls with a sample reading and topology (0.6.7). |
+| [Taller menu](images/menu-viewport.png) | A 576-point viewport on a short screen; the rest of the menu scrolls. |
+| [Layout and favorites](images/layout-profiles.png) | Full scroll content with Quick Switch Profiles expanded, two favorite templates, Previous/Default recovery, Output Volume, Microphone and sample extended displays. |
+| [Menu overview](images/menu.png) | The 0.8.0 menu with sample hardware: Output Volume and Microphone pickers, the Desktop/Signal status line on the HiDPI built-in display, and the HDCP state at the end of the external status line. |
+| [Check HDCP](images/check-hdcp.png) | The HDCP row under More Controls with a sample reading and topology (0.6.7); the current row is in the More Controls capture above. |
 | [Extended displays](images/extend.png) | Separate desktops and position controls. |
 | [Resolution](images/resolution.png) | Open size picker with sample offered modes. |
 | [Refresh rate](images/refresh-rate.png) | Open rate picker for the sample current mode. |
@@ -58,20 +60,20 @@ Screenshots preserve their native aspect ratios. Inline previews are capped at 4
 | [Rename](images/rename.png) | Editable external-display nickname. |
 | [Display details](images/display-details.png) | Sample identity, modes and capabilities. |
 | [Profile menu](images/profiles.png) | Current profile actions and import/export; favorites are assigned in Quick Switch Profiles. |
-| [Save profile](images/save-profile.png) | Name entry and Full setup/Layout only scope selection. |
+| [Save profile](images/save-profile.png) | Name entry and Full setup/Layout only scope selection (0.6.6; the scope caption now ends "…audio output, and microphone"). |
 | [Automatic profiles](images/automatic-profile.png) | Optional automatic loading controls. |
 | [Restore preview](images/restore-preview.png) | Current-to-saved comparison with sample settings; canceled before applying. |
-| [Import mapping](images/import-mapping.png) | Sample saved identities awaiting a mapping choice. |
+| [Import mapping](images/import-mapping.png) | Sample saved identities awaiting a mapping choice; 0.8.0 adds a "Mic: ‹name›" row for each saved microphone that is not present. |
 | [Import display choices](images/import-display-choices.png) | Sample destination displays selected in the mapping controls; no user profiles imported. |
 | [First connection](images/first-connect.png) | Mirror, Extend and Not now prompt for a sample external screen. |
-| [Keep changes](images/keep-changes.png) | One native countdown window with Keep/Revert actions. |
+| [Keep changes](images/keep-changes.png) | One native countdown window with Keep/Revert actions (0.6.6; unchanged). |
 | [Mirrored layout](images/mirrored-layout.png) | A mirror group represented together with combined screen numbers. |
-| [Data actions](images/data-actions.png) | Troubleshooting, More and Recent Events expanded, with separate full-reset and history-only actions; the 0.6.8 footer without the Start at Login toggle (empty event list in this capture). |
+| [Data actions](images/data-actions.png) | Troubleshooting expanded with Detect Displays, Fixes and the More group's Reset All DisplayHelp Data and Uninstall actions (0.8.0). |
 | [Fixes](images/fixes.png) | Current reset, custom-fix and More controls. |
 | [Reset warning](images/reset-confirmation.png) | Current ColorSync-preserving reset warning; canceled. |
 | [Uninstall warning](images/uninstall-confirmation.png) | Current uninstall confirmation; canceled without removing anything. |
 | [Recent Events](images/recent-events.png) | Sample activity log and Clear Connection History action. |
-| [About](images/about.png) | Current version 0.6.5 and build 119 with credits. |
+| [About](images/about.png) | The About panel with credits, captured on 0.6.6 (120); the layout is unchanged and the footer now reads 0.8.0 (154). |
 | [Custom scripts folder](images/custom-fixes-folder.png) | Example script files in an isolated capture folder. |
 | [Custom Fixes](images/custom-fixes-menu.png) | Demo and optional Dock restart actions in the current interface. |
 | [Demo confirmation](images/custom-fixes-confirmation.png) | Actual confirmation for the harmless example demo. |
