@@ -3,6 +3,7 @@
 [![Latest release](https://img.shields.io/badge/release-0.8.1_(155)-2ea44f)](https://github.com/hov172/DisplayHelp/releases/latest)
 [![macOS 14+](https://img.shields.io/badge/macOS-14_Sonoma_or_later-000000?logo=apple)](#install)
 [![Apple Silicon and Intel](https://img.shields.io/badge/Apple_Silicon-%7C_Intel-555555)](#install)
+[![Video guide](https://img.shields.io/badge/YouTube-video_guide_(38_min)-ff0000?logo=youtube&logoColor=white)](https://youtu.be/JUq-EWzM_t8)
 
 **DisplayHelp is a menu bar app for macOS that makes projectors, TVs and external displays behave.** Plug in, answer one question, and it remembers the room. Built by Ayala Solutions for school helpdesks and for anyone who connects a Mac to a different screen every day.
 
@@ -24,6 +25,7 @@ Latest release **0.8.1 (155)** · macOS 14 Sonoma or later · Apple Silicon and 
 | Asset | Download |
 |---|---|
 | Signed and notarized installer | [DisplayHelp-0.8.1.pkg](https://github.com/hov172/DisplayHelp/releases/download/v0.8.1/DisplayHelp-0.8.1.pkg) |
+| Video guide (38 min, chaptered) | [Watch on YouTube](https://youtu.be/JUq-EWzM_t8) |
 | User guide | [PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.8.1/DisplayHelp-0.8.1-User-Guide.pdf) · [Word](https://github.com/hov172/DisplayHelp/releases/download/v0.8.1/DisplayHelp-0.8.1-User-Guide.docx) |
 | Custom Fixes examples and installation README | [DisplayHelp-0.8.1-Custom-Fixes.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.8.1/DisplayHelp-0.8.1-Custom-Fixes.zip) |
 | Current UI screenshots | [DisplayHelp-0.8.1-Screenshots.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.8.1/DisplayHelp-0.8.1-Screenshots.zip) |
