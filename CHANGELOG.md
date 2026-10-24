@@ -2,6 +2,14 @@
 
 All notable changes to DisplayHelp. The format follows Keep a Changelog; versions follow Semantic Versioning.
 
+## [Unreleased]
+
+## [0.7.2] - 2026-10-23
+
+- The menu bar icon is drawn as green outlines once more than one screen is connected: two displays side by side when extended, two stacked rectangles when mirrored. With one screen it stays the plain glyph. Its shape still shows the arrangement.
+- The icon turns orange when something waits on you: a Keep/Revert countdown, a profile restore, profiles that could not load, or a Signal Cap that is set but not yet in effect (not applied, written but waiting for a reconnect, or another EDID override in the way).
+- The icon turns red when the last display change or revert failed, or when a Signal Cap leaves a display with no usable mode. Orange and red show even with one screen.
+
 ## [0.7.0] - 2026-10-12
 
 - Every display card shows the requested signal when the mode is HiDPI (`Desktop 1920×1080 · Signal 3840×2160 @ 60 Hz (HiDPI)`), and Copy Diagnostics has a `Signal (requested):` line.

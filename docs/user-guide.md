@@ -1,6 +1,6 @@
 # DisplayHelp user guide
 
-For **DisplayHelp 0.7.0 (150)**. Feedback and suggestions are welcome.
+For **DisplayHelp 0.7.2 (152)**. Feedback and suggestions are welcome.
 
 Control by control. The [README](../README.md) is the short version; this is the complete one.
 
@@ -53,6 +53,15 @@ The icon reports the display state without opening the menu:
 | Two stacked rectangles | At least one display is mirrored |
 | Two displays side by side | More than one display, extended |
 | One display | Only one display is active |
+
+Its color reports status:
+
+| Color | Meaning |
+|---|---|
+| Plain (follows the menu bar) | One display, nothing to report |
+| Green | More than one display connected, everything in effect |
+| Orange | Something waits on you: a Keep/Revert countdown, a profile restore, profiles that could not load, or a Signal Cap set but not yet in effect |
+| Red | The last display change or revert failed, or a Signal Cap leaves a display with no usable mode. Open the menu and check Recent Events |
 
 ## Identify Displays
 

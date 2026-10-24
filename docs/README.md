@@ -12,7 +12,7 @@
 
 ## Release notes
 
-[../CHANGELOG.md](../CHANGELOG.md) is the source of truth for what changed in each version. The `release-0.6.x.md` files alongside it are the published GitHub release bodies for each version, kept as history; they also record the hardware and audio validation runs for 0.6.0 through 0.6.5. [0.7.0](release-0.7.0.md) · [0.6.13](release-0.6.13.md) · [0.6.12](release-0.6.12.md) · [0.6.11](release-0.6.11.md) · [0.6.10](release-0.6.10.md) · [0.6.9](release-0.6.9.md) · [0.6.8](release-0.6.8.md) · [0.6.7](release-0.6.7.md) · [0.6.6](release-0.6.6.md) · [0.6.5](release-0.6.5.md) · [0.6.4](release-0.6.4.md) · [0.6.3](release-0.6.3.md) · [0.6.2](release-0.6.2.md) · [0.6.1](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
+[../CHANGELOG.md](../CHANGELOG.md) is the source of truth for what changed in each version. The `release-0.6.x.md` files alongside it are the published GitHub release bodies for each version, kept as history; they also record the hardware and audio validation runs for 0.6.0 through 0.6.5. [0.7.2](release-0.7.2.md) · [0.7.0](release-0.7.0.md) · [0.6.13](release-0.6.13.md) · [0.6.12](release-0.6.12.md) · [0.6.11](release-0.6.11.md) · [0.6.10](release-0.6.10.md) · [0.6.9](release-0.6.9.md) · [0.6.8](release-0.6.8.md) · [0.6.7](release-0.6.7.md) · [0.6.6](release-0.6.6.md) · [0.6.5](release-0.6.5.md) · [0.6.4](release-0.6.4.md) · [0.6.3](release-0.6.3.md) · [0.6.2](release-0.6.2.md) · [0.6.1](release-0.6.1.md) · [0.6.0 hardware validation](release-0.6.0.md).
 
 ## Screenshots
 

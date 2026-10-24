@@ -1,6 +1,6 @@
 # DisplayHelp
 
-[![Latest release](https://img.shields.io/badge/release-0.7.0_(150)-2ea44f)](https://github.com/hov172/DisplayHelp/releases/latest)
+[![Latest release](https://img.shields.io/badge/release-0.7.2_(152)-2ea44f)](https://github.com/hov172/DisplayHelp/releases/latest)
 [![macOS 14+](https://img.shields.io/badge/macOS-14_Sonoma_or_later-000000?logo=apple)](#install)
 [![Apple Silicon and Intel](https://img.shields.io/badge/Apple_Silicon-%7C_Intel-555555)](#install)
 
@@ -19,20 +19,20 @@ Feedback, bug reports and suggestions are welcome.
 
 ### Downloads
 
-Latest release **0.7.0 (150)** · macOS 14 Sonoma or later · Apple Silicon and Intel · Proprietary, not open source · [What's new](CHANGELOG.md)
+Latest release **0.7.2 (152)** · macOS 14 Sonoma or later · Apple Silicon and Intel · Proprietary, not open source · [What's new](CHANGELOG.md)
 
 | Asset | Download |
 |---|---|
-| Signed and notarized installer | [DisplayHelp-0.7.0.pkg](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0.pkg) |
-| User guide | [PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-User-Guide.pdf) · [Word](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-User-Guide.docx) |
-| Custom Fixes examples and installation README | [DisplayHelp-0.7.0-Custom-Fixes.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-Custom-Fixes.zip) |
-| Current UI screenshots | [DisplayHelp-0.7.0-Screenshots.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-0.7.0-Screenshots.zip) |
-| MDM profile that pre-approves the updater | [DisplayHelp-BackgroundItems.mobileconfig](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/DisplayHelp-BackgroundItems.mobileconfig) |
-| SHA-256 checksums | [SHA256SUMS.txt](https://github.com/hov172/DisplayHelp/releases/download/v0.7.0/SHA256SUMS.txt) |
+| Signed and notarized installer | [DisplayHelp-0.7.2.pkg](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2.pkg) |
+| User guide | [PDF](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2-User-Guide.pdf) · [Word](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2-User-Guide.docx) |
+| Custom Fixes examples and installation README | [DisplayHelp-0.7.2-Custom-Fixes.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2-Custom-Fixes.zip) |
+| Current UI screenshots | [DisplayHelp-0.7.2-Screenshots.zip](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-0.7.2-Screenshots.zip) |
+| MDM profile that pre-approves the updater | [DisplayHelp-BackgroundItems.mobileconfig](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/DisplayHelp-BackgroundItems.mobileconfig) |
+| SHA-256 checksums | [SHA256SUMS.txt](https://github.com/hov172/DisplayHelp/releases/download/v0.7.2/SHA256SUMS.txt) |
 
 Homebrew users can `brew install --cask displayhelp` from the `hov172/displayhelp` tap; see [Install](#install).
 
-<sub>Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.7.0. [Screenshot details](docs/README.md#screenshots).</sub>
+<sub>Screenshots use sample display data rendered by the production views; the screen diagram shows geometry, not desktop content. Menu captures show 0.6.8 (124); 0.6.9 added a Check for Update… button beside Quit in the footer, and 0.6.10 adds Install to its dialog. Other captures are from 0.6.6 and show controls unchanged in 0.7.2. [Screenshot details](docs/README.md#screenshots).</sub>
 
 ## Contents
 
@@ -113,7 +113,7 @@ For organization-wide installation, ask your IT team to deploy the installer thr
   <a href="docs/images/about.png"><img src="docs/images/about.png" width="284" alt="Check your installed version"></a>
 </p>
 
-Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.7.0 reads 0.7.0 (150).
+Open the DisplayHelp menu and click **Ayala Solutions · ‹version›** at the bottom right. Include the version shown in About with any support request. Shown: the 0.6.6 About panel; 0.7.2 reads 0.7.2 (152).
 
 ## Updating
 
@@ -183,7 +183,7 @@ Click the icon. Top to bottom:
   <a href="docs/images/menu.png"><img src="docs/images/menu.png" width="322" alt="Find the control you need"></a>
 </p>
 
-The menu bar icon itself shows state: stacked rectangles when mirrored, two displays when extended, one when the laptop is alone.
+The menu bar icon itself shows state: stacked rectangles when mirrored, two displays when extended, one when the laptop is alone. It is drawn in green once a second screen is connected, orange when something waits on you (a Keep/Revert countdown, a profile restore, or a Signal Cap not yet in effect), and red when a display change failed or a cap leaves a display with no usable mode.
 
 Each card’s status line starts with an icon. A green check means the display is on a mode the app would choose. A grey ⓘ means a different mode is recommended or the external display is running below 50 Hz; when a faster rate exists at the same size, an orange one-click hint appears under the line. On a HiDPI mode the line names both sizes, `Desktop 1920×1080 · Signal 3840×2160 @ 60 Hz (HiDPI)`; a plain mode shows its size alone. The status line ends with the HDCP state macOS reports; **Check HDCP** under More Controls reads it again. DisplayHelp only reads HDCP state; it never changes or negotiates protection.
 
@@ -427,6 +427,5 @@ DisplayHelp makes no network connections. It reads display identity and keeps se
 | [Documentation index](docs/README.md) | Everything else, including data files and screenshots |
 | [Release history](CHANGELOG.md) | What changed in each version |
 
----
 
 DisplayHelp is made by Ayala Solutions. Engineering Smart Solutions.
