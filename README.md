@@ -114,7 +114,7 @@ DisplayHelp puts the handful of things that actually fix these problems in one m
   autopkg run -v DisplayHelp.munki   # or DisplayHelp.jamf / DisplayHelp.intune
   ```
 
-  They pull the same signed, notarized package from this repository's releases, verify its Developer ID signature, and import or upload it with the app icon. Deploy the configuration profile below alongside it.
+  They pull the same signed, notarized package from this repository's releases, verify its Developer ID signature, and import or upload it with the app icon. The short `hov172/autopkg-recipes` form is all AutoPkg needs: it expands to `https://github.com/hov172/autopkg-recipes` on its own, and the repo is public, so no GitHub account is required. Deploy the configuration profile below alongside it.
 
 For organization-wide installation, ask your IT team to deploy the installer through its Mac management service and test it in representative rooms first. See [rollout](docs/rollout.md). An MDM can also pre-approve the DisplayHelp Updater helper with the [included configuration profile](mdm/DisplayHelp-BackgroundItems.mobileconfig), so standard users install updates without an administrator.
 
